@@ -166,7 +166,7 @@
           <span>${course.ceu} CEU</span>
         </div>
         <div class="rgpt25x-ctaRow">
-          <a href="/enrollments/new?course_id=${course.slug}" class="rgpt25x-btn rgpt25x-btn--green">Watch Free for 7 Days</a>
+          <a href="/cart/add_product/3512106?price_id=4437373" class="rgpt25x-btn rgpt25x-btn--green">Watch Free for 7 Days</a>
           <a href="/users/sign_in" class="rgpt25x-btn rgpt25x-btn--white">Sign In to Watch</a>
         </div>
         <p class="rgpt25x-priceLine">Starting at $6/week</p>
