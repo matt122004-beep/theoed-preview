@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Early Jesus Traditions — TheoEducation</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #0d0d0d; color: #fff; }
+
+/* ===== PREVIEW BANNER ===== */
+.preview-banner {
+  background: #36d97d; color: #052513;
+  text-align: center; padding: 10px;
+  font-size: 12px; font-weight: 700; letter-spacing: 1px;
+  position: sticky; top: 0; z-index: 9999;
+}
+.preview-banner a { color: #052513; }
+
+/* ===== NAV ===== */
+.nav {
+  background: #5d3754;
+  padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 60px;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; font-weight: 700; color: #fff;
+  text-decoration: none;
+}
+.nav-links { display: flex; gap: 32px; }
+.nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 13px; font-weight: 500; }
+.nav-links a:hover { color: #fff; }
+.nav-cta {
+  background: #36d97d; color: #052513;
+  padding: 8px 20px; border-radius: 50vh;
+  font-size: 13px; font-weight: 700;
+  text-decoration: none;
+}
+
+/* ===== HERO (2-COLUMN) ===== */
+.hero {
+  background: linear-gradient(180deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.85) 100%),
+    url('https://picsum.photos/1400/700?random=77') center/cover no-repeat;
+  min-height: 520px;
+  padding: 60px 40px;
+  display: grid;
+  grid-template-columns: 58% 42%;
+  gap: 40px;
+  align-items: start;
+}
+
+/* --- Hero Left --- */
+.hero-left { }
+
+.hero-breadcrumb {
+  font-size: 12px; color: rgba(255,255,255,0.5);
+  text-transform: uppercase; letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+.hero-breadcrumb a { color: #36d97d; text-decoration: none; }
+
+.hero-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.hero-tag {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.8);
+  padding: 4px 12px; border-radius: 50vh;
+  font-size: 11px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700; line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #fff; margin-bottom: 16px;
+}
+
+.hero-desc {
+  font-size: 15px; color: rgba(255,255,255,0.75);
+  line-height: 1.7; margin-bottom: 24px;
+  max-width: 520px;
+}
+
+.hero-meta {
+  display: flex; gap: 20px; flex-wrap: wrap;
+  margin-bottom: 28px; align-items: center;
+}
+.hero-meta-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: rgba(255,255,255,0.6); }
+.hero-meta-item strong { color: #fff; }
+.hero-stars { color: #f4b400; font-size: 14px; letter-spacing: 1px; }
+.hero-rating-count { font-size: 12px; color: rgba(255,255,255,0.5); }
+
+.hero-instructor {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 32px;
+}
+.hero-instructor img {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.2);
+  object-fit: cover;
+}
+.hero-instructor-name { font-size: 13px; color: rgba(255,255,255,0.8); }
+.hero-instructor-name span { color: #36d97d; font-weight: 600; }
+
+.hero-cta-group { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.btn-primary {
+  background: #36d97d; color: #052513;
+  padding: 14px 32px; border-radius: 6px;
+  font-size: 15px; font-weight: 700;
+  text-decoration: none; display: inline-block;
+  transition: all 0.2s ease;
+}
+.btn-primary:hover { background: #2bc46d; }
+.btn-secondary {
+  background: transparent; color: #fff;
+  padding: 14px 24px; border-radius: 6px;
+  font-size: 15px; font-weight: 600;
+  text-decoration: none; display: inline-block;
+  border: 2px solid rgba(255,255,255,0.3);
+  transition: all 0.2s ease;
+}
+.btn-secondary:hover { border-color: #fff; }
+
+.hero-price-note { font-size: 12px; color: rgba(255,255,255,0.4); }
+.hero-price-note strong { color: rgba(255,255,255,0.7); }
+
+/* --- Hero Right (Curriculum) --- */
+.hero-right {
+  background: linear-gradient(180deg, #0d0d0d, #121212);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.curriculum-header {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.curriculum-header h3 {
+  font-size: 14px; font-weight: 600; color: #fff;
+  margin-bottom: 8px;
+}
+.curriculum-stats {
+  display: flex; gap: 16px;
+}
+.curriculum-stat { font-size: 12px; color: rgba(255,255,255,0.5); }
+.curriculum-stat strong { color: #36d97d; }
+
+.curriculum-list { }
+.curriculum-item {
+  padding: 14px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background 0.2s ease;
+}
+.curriculum-item:hover { background: rgba(255,255,255,0.04); }
+.curriculum-item:last-child { border-bottom: none; }
+.curriculum-item-left { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0; }
+.curriculum-num { font-size: 11px; color: rgba(255,255,255,0.3); min-width: 20px; }
+.curriculum-title { font-size: 13px; color: rgba(255,255,255,0.8); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.curriculum-duration { font-size: 11px; color: rgba(255,255,255,0.35); flex-shrink: 0; }
+
+.curriculum-footer {
+  padding: 16px 24px;
+  background: rgba(54,217,125,0.06);
+  border-top: 1px solid rgba(54,217,125,0.15);
+  text-align: center;
+}
+.curriculum-footer a {
+  font-size: 13px; color: #36d97d; font-weight: 600;
+  text-decoration: none;
+}
+
+/* ===== PROOF BAR ===== */
+.proof-bar {
+  background: #5d3754;
+  padding: 20px 40px;
+  display: flex; gap: 40px; align-items: center; justify-content: center;
+  flex-wrap: wrap;
+}
+.proof-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.8); }
+.proof-item strong { color: #fff; font-size: 15px; }
+
+/* ===== WHAT YOU'LL LEARN ===== */
+.learn-section {
+  background: #111;
+  padding: 80px 40px;
+}
+.section-container { max-width: 1100px; margin: 0 auto; }
+.section-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px; font-weight: 700; color: #fff;
+  margin-bottom: 40px;
+}
+.learn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+.learn-item {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 16px;
+  background: #1a1a1a;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 8px;
+}
+.learn-check { color: #36d97d; font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+.learn-text { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.6; }
+
+/* ===== FULL CURRICULUM ===== */
+.curriculum-section {
+  background: #0d0d0d;
+  padding: 80px 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.curriculum-full-header {
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin-bottom: 32px; flex-wrap: wrap; gap: 12px;
+}
+.curriculum-full-meta { font-size: 13px; color: rgba(255,255,255,0.4); }
+
+.module {
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  background: #161616;
+}
+.module-header {
+  padding: 18px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.module-header:hover { background: rgba(255,255,255,0.03); }
+.module-title { font-size: 15px; font-weight: 600; color: #fff; }
+.module-meta { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 3px; }
+.module-toggle { color: #36d97d; font-size: 18px; }
+.module-body {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 8px 0;
+  display: none;
+}
+.module-body.open { display: block; }
+.lesson-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.lesson-item:last-child { border-bottom: none; }
+.lesson-left { display: flex; align-items: center; gap: 10px; }
+.lesson-icon { font-size: 13px; color: rgba(255,255,255,0.3); }
+.lesson-title { font-size: 13px; color: rgba(255,255,255,0.7); }
+.lesson-duration { font-size: 11px; color: rgba(255,255,255,0.3); }
+
+/* ===== INSTRUCTOR ===== */
+.instructor-section {
+  background: #111;
+  padding: 80px 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.instructor-card {
+  max-width: 800px;
+  display: grid; grid-template-columns: auto 1fr;
+  gap: 40px; align-items: start;
+}
+.instructor-photo {
+  width: 120px; height: 120px; border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #36d97d;
+  flex-shrink: 0;
+}
+.instructor-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px; font-weight: 700; color: #fff;
+  margin-bottom: 4px;
+}
+.instructor-title { font-size: 13px; color: #36d97d; font-weight: 600; margin-bottom: 16px; }
+.instructor-bio { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.8; }
+.instructor-creds {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px;
+}
+.instructor-cred {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 4px 12px; border-radius: 50vh;
+  font-size: 11px; color: rgba(255,255,255,0.6);
+}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials-section {
+  background: #0d0d0d;
+  padding: 80px 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.reviews-header {
+  display: flex; align-items: center; gap: 24px;
+  margin-bottom: 40px; flex-wrap: wrap;
+}
+.reviews-aggregate { text-align: center; }
+.reviews-score { font-size: 56px; font-weight: 700; color: #fff; line-height: 1; }
+.reviews-stars { color: #f4b400; font-size: 20px; margin: 6px 0; }
+.reviews-count { font-size: 12px; color: rgba(255,255,255,0.4); }
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+.review-card {
+  background: #1a1a1a;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 24px;
+}
+.review-stars { color: #f4b400; font-size: 13px; margin-bottom: 10px; }
+.review-text { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 16px; font-style: italic; }
+.review-author { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.5); }
+
+/* ===== FAQ ===== */
+.faq-section {
+  background: #111;
+  padding: 80px 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.faq-item {
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px; margin-bottom: 10px;
+  overflow: hidden;
+}
+.faq-question {
+  padding: 18px 22px;
+  display: flex; align-items: center; justify-content: space-between;
+  cursor: pointer;
+  font-size: 14px; font-weight: 600; color: #fff;
+  background: #161616;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+.faq-question:hover { background: #1e1e1e; }
+.faq-icon { color: #36d97d; font-size: 18px; transition: transform 0.3s ease; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-answer {
+  display: none;
+  padding: 16px 22px;
+  font-size: 14px; color: rgba(255,255,255,0.65);
+  line-height: 1.7; background: #0d0d0d;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.faq-item.open .faq-answer { display: block; }
+
+/* ===== BOTTOM CTA ===== */
+.bottom-cta {
+  background: #5d3754;
+  padding: 80px 40px;
+  text-align: center;
+}
+.bottom-cta h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px; font-weight: 700; color: #fff;
+  margin-bottom: 12px;
+}
+.bottom-cta p { font-size: 16px; color: rgba(255,255,255,0.75); margin-bottom: 32px; }
+.bottom-cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn-white {
+  background: #fff; color: #5d3754;
+  padding: 16px 36px; border-radius: 6px;
+  font-size: 15px; font-weight: 700;
+  text-decoration: none; display: inline-block;
+  transition: all 0.2s ease;
+}
+.btn-white:hover { background: #f0f0f0; }
+.btn-outline-white {
+  background: transparent; color: #fff;
+  padding: 16px 28px; border-radius: 6px;
+  font-size: 15px; font-weight: 600;
+  text-decoration: none; display: inline-block;
+  border: 2px solid rgba(255,255,255,0.4);
+  transition: all 0.2s ease;
+}
+.btn-outline-white:hover { border-color: #fff; }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #5d3754;
+  border-top: 1px solid rgba(0,0,0,0.3);
+  padding: 30px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-logo { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: #fff; }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-size: 12px; color: rgba(255,255,255,0.5); text-decoration: none; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 40px 20px;
+    min-height: auto;
+  }
+  .hero-right { margin-top: 8px; }
+  .proof-bar { padding: 20px; gap: 20px; }
+  .learn-section, .curriculum-section, .instructor-section,
+  .testimonials-section, .faq-section, .bottom-cta { padding: 50px 20px; }
+  .instructor-card { grid-template-columns: 1fr; }
+  .instructor-photo { width: 80px; height: 80px; }
+  .reviews-header { flex-direction: column; }
+  .bottom-cta h2 { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="preview-banner">⚠️ HAVEN PREVIEW — NOT LIVE · <a href="index.html">← Back to Index</a></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#" class="nav-logo">TheoEducation</a>
+  <div class="nav-links">
+    <a href="#">About</a>
+    <a href="#">How It Works</a>
+    <a href="#">Classes</a>
+  </div>
+  <a href="#enroll" class="nav-cta">Enroll Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-breadcrumb"><a href="#">← All Courses</a></div>
+    <div class="hero-tags">
+      <span class="hero-tag">Early Christianity</span>
+      <span class="hero-tag">Historical Jesus</span>
+      <span class="hero-tag">Second Temple Judaism</span>
+    </div>
+    <h1 class="hero-title">Early Jesus Traditions</h1>
+    <p class="hero-desc">An exploration of the earliest traditions and sources which speak of Jesus of Nazareth, with the aim of discovering what we can learn about the historical Jesus and the libraries that were undertaken by modern scholarship.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="hero-stars">★★★★★</span>
+        <strong>4.9</strong>
+        <span class="hero-rating-count">(47 reviews)</span>
+      </div>
+      <div class="hero-meta-item">📖 <strong>6</strong> modules</div>
+      <div class="hero-meta-item">🎬 <strong>93</strong> lessons</div>
+      <div class="hero-meta-item">⏱ <strong>77.5 hrs</strong></div>
+    </div>
+    <div class="hero-instructor">
+      <img src="https://picsum.photos/36/36?random=99" alt="Matthew Korpman">
+      <div class="hero-instructor-name">Taught by <span>Matthew Korpman</span> · Yale MAR · La Sierra University</div>
+    </div>
+    <div class="hero-cta-group">
+      <a href="#enroll" class="btn-primary" id="enroll">Enroll — $99</a>
+      <a href="#curriculum" class="btn-secondary">Preview Curriculum</a>
+    </div>
+    <p class="hero-price-note">Or <strong>$6/week</strong> with All-Access · 14-day money-back guarantee</p>
+  </div>
+
+  <div class="hero-right">
+    <div class="curriculum-header">
+      <h3>Course Curriculum</h3>
+      <div class="curriculum-stats">
+        <span class="curriculum-stat"><strong>6</strong> modules</span>
+        <span class="curriculum-stat"><strong>93</strong> lessons</span>
+        <span class="curriculum-stat"><strong>77.5 hrs</strong></span>
+      </div>
+    </div>
+    <div class="curriculum-list">
+      <div class="curriculum-item">
+        <div class="curriculum-item-left">
+          <span class="curriculum-num">01</span>
+          <span class="curriculum-title">The Q Source</span>
+        </div>
+        <span class="curriculum-duration">~12 hrs</span>
+      </div>
+      <div class="curriculum-item">
+        <div class="curriculum-item-left">
+          <span class="curriculum-num">02</span>
+          <span class="curriculum-title">The Gospel of Thomas</span>
+        </div>
+        <span class="curriculum-duration">~14 hrs</span>
+      </div>
+      <div class="curriculum-item">
+        <div class="curriculum-item-left">
+          <span class="curriculum-num">03</span>
+          <span class="curriculum-title">From Oral to Narrative</span>
+        </div>
+        <span class="curriculum-duration">~11 hrs</span>
+      </div>
+      <div class="curriculum-item">
+        <div class="curriculum-item-left">
+          <span class="curriculum-num">04</span>
+          <span class="curriculum-title">The Quest for the Historical Jesus</span>
+        </div>
+        <span class="curriculum-duration">~16 hrs</span>
+      </div>
+      <div class="curriculum-item">
+        <div class="curriculum-item-left">
+          <span class="curriculum-num">05</span>
+          <span class="curriculum-title">Detour: 1 Enochic Parables</span>
+        </div>
+        <span class="curriculum-duration">~13 hrs</span>
+      </div>
+      <div class="curriculum-item">
+        <div class="curriculum-item-left">
+          <span class="curriculum-num">06</span>
+          <span class="curriculum-title">The Early Jesus — John the Baptist</span>
+        </div>
+        <span class="curriculum-duration">~11 hrs</span>
+      </div>
+    </div>
+    <div class="curriculum-footer">
+      <a href="#curriculum">View all 93 lessons ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="proof-item">🎓 <strong>600+</strong> pastors enrolled</div>
+  <div class="proof-item">⭐ <strong>4.9★</strong> average rating</div>
+  <div class="proof-item">🕐 <strong>150+ hrs</strong> of content</div>
+  <div class="proof-item">✅ <strong>NAD approved</strong> for CEU credit</div>
+  <div class="proof-item">🔒 <strong>14-day</strong> money-back guarantee</div>
+</div>
+
+<!-- WHAT YOU'LL LEARN -->
+<section class="learn-section">
+  <div class="section-container">
+    <h2 class="section-heading">What You'll Learn</h2>
+    <div class="learn-grid">
+      <div class="learn-item">
+        <span class="learn-check">✓</span>
+        <p class="learn-text">Explore the Second Temple Jewish background of Jesus using non-canonical sources like the Q Document and Gospel of Thomas</p>
+      </div>
+      <div class="learn-item">
+        <span class="learn-check">✓</span>
+        <p class="learn-text">Understand why early Christians believed it acceptable to disagree with things that Jesus said, and the historical importance of this class</p>
+      </div>
+      <div class="learn-item">
+        <span class="learn-check">✓</span>
+        <p class="learn-text">Discover why scholars are unable to agree on whether Jesus was a mystic, cynic philosopher, or apocalyptic messiah</p>
+      </div>
+      <div class="learn-item">
+        <span class="learn-check">✓</span>
+        <p class="learn-text">Investigate why and how early Christians believed it acceptable and possible to disagree with things that Jesus said</p>
+      </div>
+      <div class="learn-item">
+        <span class="learn-check">✓</span>
+        <p class="learn-text">Apply current biblical scholarship methods to your preaching and teaching with integrity and intellectual honesty</p>
+      </div>
+      <div class="learn-item">
+        <span class="learn-check">✓</span>
+        <p class="learn-text">Engage confidently with hard questions about the historical Jesus that your congregation is already asking</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FULL CURRICULUM -->
+<section class="curriculum-section" id="curriculum">
+  <div class="section-container">
+    <div class="curriculum-full-header">
+      <h2 class="section-heading" style="margin-bottom:0">Full Curriculum</h2>
+      <span class="curriculum-full-meta">6 modules · 93 lessons · 77.5 hours</span>
+    </div>
+
+    <div class="module open">
+      <div class="module-header" onclick="this.parentElement.classList.toggle('open')">
+        <div>
+          <div class="module-title">Module 1: The Q Source</div>
+          <div class="module-meta">14 lessons · ~12 hrs</div>
+        </div>
+        <span class="module-toggle">−</span>
+      </div>
+      <div class="module-body open">
+        <div class="lesson-item"><div class="lesson-left"><span class="lesson-icon">▶</span><span class="lesson-title">Introduction to the Sayings Gospel Hypothesis</span></div><span class="lesson-duration">82 min</span></div>
+        <div class="lesson-item"><div class="lesson-left"><span class="lesson-icon">🔒</span><span class="lesson-title">The Two-Source Theory Explained</span></div><span class="lesson-duration">71 min</span></div>
+        <div class="lesson-item"><div class="lesson-left"><span class="lesson-icon">🔒</span><span class="lesson-title">Dating and Provenance of Q</span></div><span class="lesson-duration">94 min</span></div>
+        <div class="lesson-item"><div class="lesson-left"><span class="lesson-icon">🔒</span><span class="lesson-title">The Theology of Q</span></div><span class="lesson-duration">88 min</span></div>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="module-header" onclick="this.parentElement.classList.toggle('open')">
+        <div>
+          <div class="module-title">Module 2: The Gospel of Thomas</div>
+          <div class="module-meta">18 lessons · ~14 hrs</div>
+        </div>
+        <span class="module-toggle">+</span>
+      </div>
+      <div class="module-body"></div>
+    </div>
+
+    <div class="module">
+      <div class="module-header" onclick="this.parentElement.classList.toggle('open')">
+        <div>
+          <div class="module-title">Module 3: From Oral to Narrative</div>
+          <div class="module-meta">15 lessons · ~11 hrs</div>
+        </div>
+        <span class="module-toggle">+</span>
+      </div>
+      <div class="module-body"></div>
+    </div>
+
+    <div class="module">
+      <div class="module-header" onclick="this.parentElement.classList.toggle('open')">
+        <div>
+          <div class="module-title">Module 4: The Quest for the Historical Jesus</div>
+          <div class="module-meta">22 lessons · ~16 hrs</div>
+        </div>
+        <span class="module-toggle">+</span>
+      </div>
+      <div class="module-body"></div>
+    </div>
+
+    <div class="module">
+      <div class="module-header" onclick="this.parentElement.classList.toggle('open')">
+        <div>
+          <div class="module-title">Module 5: Detour — 1 Enochic Parables</div>
+          <div class="module-meta">14 lessons · ~13 hrs</div>
+        </div>
+        <span class="module-toggle">+</span>
+      </div>
+      <div class="module-body"></div>
+    </div>
+
+    <div class="module">
+      <div class="module-header" onclick="this.parentElement.classList.toggle('open')">
+        <div>
+          <div class="module-title">Module 6: The Early Jesus — John the Baptist</div>
+          <div class="module-meta">10 lessons · ~11 hrs</div>
+        </div>
+        <span class="module-toggle">+</span>
+      </div>
+      <div class="module-body"></div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUCTOR -->
+<section class="instructor-section">
+  <div class="section-container">
+    <h2 class="section-heading">Your Instructor</h2>
+    <div class="instructor-card">
+      <img src="https://picsum.photos/120/120?random=88" alt="Matthew Korpman" class="instructor-photo">
+      <div>
+        <div class="instructor-name">Matthew Korpman</div>
+        <div class="instructor-title">Adjunct Professor of Biblical Studies · La Sierra University</div>
+        <p class="instructor-bio">Matthew Korpman is a biblical scholar, adjunct professor at La Sierra University, and author of <em>Saying No to God</em>. He holds a Master of Arts in Religion from Yale Divinity School and four undergraduate degrees in Theology, Archaeology, Philosophy, and Religious Studies. His scholarship has been featured in Spectrum Magazine, Adventist Voices, and academic conferences internationally.</p>
+        <div class="instructor-creds">
+          <span class="instructor-cred">Yale Divinity School — MAR</span>
+          <span class="instructor-cred">4 Undergraduate Degrees</span>
+          <span class="instructor-cred">Published Author</span>
+          <span class="instructor-cred">La Sierra University</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="section-container">
+    <div class="reviews-header">
+      <div class="reviews-aggregate">
+        <div class="reviews-score">4.9</div>
+        <div class="reviews-stars">★★★★★</div>
+        <div class="reviews-count">47 reviews</div>
+      </div>
+      <h2 class="section-heading" style="margin-bottom:0">What Pastors Are Saying</h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"This is the class for you. If you are looking for a challenging, yet not overwhelming introduction to research at the historical Jesus, this class is exactly right."</p>
+        <div class="review-author">Shayna K. · SDA Pastor</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Matthew brings intellectual honesty to the most difficult questions about Scripture. I finally feel equipped to answer what my congregation is already asking."</p>
+        <div class="review-author">Pastor David M. · Oregon</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Seminary-level scholarship made genuinely accessible. This changed how I prepare sermons. I can't recommend it enough to pastors who want to go deeper."</p>
+        <div class="review-author">Pastor James T. · Michigan</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="section-container">
+    <h2 class="section-heading">Frequently Asked Questions</h2>
+    <div style="max-width: 760px;">
+      <div class="faq-item open">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          How will classes be conducted? <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Classes are recorded as Zoom meetings. They are uploaded to the website for students so they can watch if they don't attend the livestream. The class will be conducted as a research seminar — primary objective is to meet, discuss, and understand the material.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          Will there be quizzes or exams? <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">No. The course will be conducted as a research seminar. Your primary objective is to meet, discuss, and understand the material.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          How long will the course be? <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">The course will be approximately three months long, at 1.5 or so weeks. Don't feel rushed — you have lifetime access and can rewatch all recordings.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          Will the class be recorded? <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Yes. You will need to buy the Thinkific tool. Over time, there may be a Top Ten Forgotten Gospels live, teaching, etc., that are discussed in it.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          Is there a money-back guarantee? <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Yes — 14 days, no questions asked. If you're not satisfied with the course within the first 14 days, contact us for a full refund.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="bottom-cta">
+  <div class="section-container">
+    <h2>Ready to Go Deeper?</h2>
+    <p>Join 600+ pastors who are leading with scholarly confidence.</p>
+    <div class="bottom-cta-buttons">
+      <a href="#enroll" class="btn-white">Enroll — $99</a>
+      <a href="#" class="btn-outline-white">View All Courses</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">TheoEducation</div>
+  <div class="footer-links">
+    <a href="#">Home</a>
+    <a href="#">All Courses</a>
+    <a href="#">Forum</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+
+<script>
+(function() {
+  // Module toggles — sync the +/- icon
+  document.querySelectorAll('.module-header').forEach(header => {
+    header.addEventListener('click', function() {
+      const module = this.parentElement;
+      const toggle = this.querySelector('.module-toggle');
+      const body = module.querySelector('.module-body');
+      const isOpen = module.classList.contains('open');
+      if (isOpen) {
+        module.classList.remove('open');
+        body.classList.remove('open');
+        toggle.textContent = '+';
+      } else {
+        module.classList.add('open');
+        body.classList.add('open');
+        toggle.textContent = '−';
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
