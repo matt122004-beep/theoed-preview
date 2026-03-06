@@ -1,0 +1,193 @@
+<!-- R-GPT LEAD MAGNET PROOF: THEOEDUCATION -->
+<!-- Generated: March 6, 2026 | Position: Social proof before CTA -->
+
+<!-- BLOCK 1: STYLE (Scoped CSS) -->
+<style scoped>
+.rgpt-leadmagnet-proof {
+  background-color: #FFFFFF;
+  padding: 70px 40px;
+  color: #2D2A26;
+  text-align: center;
+}
+
+.rgpt-leadmagnet-proof-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.rgpt-leadmagnet-proof-heading {
+  margin-bottom: 50px;
+}
+
+.rgpt-leadmagnet-proof-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: #2D2A26;
+}
+
+.rgpt-leadmagnet-testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 32px;
+  margin-bottom: 50px;
+}
+
+.rgpt-leadmagnet-testimonial {
+  background-color: #F5F0E8;
+  border-radius: 8px;
+  padding: 24px;
+  border: 2px solid #E0DBD2;
+}
+
+.rgpt-leadmagnet-testimonial-stars {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.rgpt-leadmagnet-testimonial-quote {
+  font-size: 13px;
+  font-style: italic;
+  color: #4A4540;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.rgpt-leadmagnet-testimonial-author {
+  font-size: 12px;
+  font-weight: 600;
+  color: #2D2A26;
+}
+
+.rgpt-leadmagnet-proof-stats {
+  background-color: #F5F0E8;
+  border-radius: 8px;
+  padding: 40px 30px;
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.rgpt-leadmagnet-proof-stat {
+  text-align: center;
+  flex: 1;
+  min-width: 100px;
+}
+
+.rgpt-leadmagnet-proof-stat-number {
+  font-size: 32px;
+  font-weight: 700;
+  color: #C4A23E;
+  margin-bottom: 6px;
+}
+
+.rgpt-leadmagnet-proof-stat-label {
+  font-size: 12px;
+  color: #4A4540;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .rgpt-leadmagnet-proof {
+    padding: 50px 20px;
+  }
+
+  .rgpt-leadmagnet-proof-heading h2 {
+    font-size: 26px;
+  }
+
+  .rgpt-leadmagnet-testimonials {
+    gap: 20px;
+  }
+
+  .rgpt-leadmagnet-proof-stats {
+    gap: 16px;
+    padding: 30px 20px;
+  }
+}
+</style>
+
+<!-- BLOCK 2: HTML (Section Wrapper) -->
+<section class="rgpt-leadmagnet-proof">
+  <div class="rgpt-leadmagnet-proof-container">
+    
+    <div class="rgpt-leadmagnet-proof-heading">
+      <h2>Loved by Pastors</h2>
+    </div>
+
+    <div class="rgpt-leadmagnet-testimonials">
+      
+      <div class="rgpt-leadmagnet-testimonial">
+        <div class="rgpt-leadmagnet-testimonial-stars">⭐⭐⭐⭐⭐</div>
+        <p class="rgpt-leadmagnet-testimonial-quote">"This guide gave me the confidence I needed to teach hermeneutics to my church."</p>
+        <p class="rgpt-leadmagnet-testimonial-author">Pastor David, Oregon</p>
+      </div>
+
+      <div class="rgpt-leadmagnet-testimonial">
+        <div class="rgpt-leadmagnet-testimonial-stars">⭐⭐⭐⭐⭐</div>
+        <p class="rgpt-leadmagnet-testimonial-quote">"Finally, a simple system I can actually use. Downloaded it and applied it to this week's sermon."</p>
+        <p class="rgpt-leadmagnet-testimonial-author">Pastor Sarah, California</p>
+      </div>
+
+      <div class="rgpt-leadmagnet-testimonial">
+        <div class="rgpt-leadmagnet-testimonial-stars">⭐⭐⭐⭐⭐</div>
+        <p class="rgpt-leadmagnet-testimonial-quote">"Exactly what I needed. Scholarly, practical, and actually readable."</p>
+        <p class="rgpt-leadmagnet-testimonial-author">Pastor James, Michigan</p>
+      </div>
+
+    </div>
+
+    <div class="rgpt-leadmagnet-proof-stats">
+      <div class="rgpt-leadmagnet-proof-stat">
+        <div class="rgpt-leadmagnet-proof-stat-number">15K+</div>
+        <div class="rgpt-leadmagnet-proof-stat-label">Downloads</div>
+      </div>
+      <div class="rgpt-leadmagnet-proof-stat">
+        <div class="rgpt-leadmagnet-proof-stat-number">4.8★</div>
+        <div class="rgpt-leadmagnet-proof-stat-label">Average Rating</div>
+      </div>
+      <div class="rgpt-leadmagnet-proof-stat">
+        <div class="rgpt-leadmagnet-proof-stat-number">92%</div>
+        <div class="rgpt-leadmagnet-proof-stat-label">Would Recommend</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BLOCK 3: SCRIPT (Scoped JS) -->
+<script>
+(function() {
+  'use strict';
+
+  const testimonials = document.querySelectorAll('.rgpt-leadmagnet-testimonial');
+  
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }, index * 80);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  testimonials.forEach(testimonial => {
+    testimonial.style.opacity = '0';
+    testimonial.style.transform = 'translateY(15px)';
+    testimonial.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(testimonial);
+  });
+
+})();
+</script>
+
+<!-- END R-GPT LEAD MAGNET PROOF -->

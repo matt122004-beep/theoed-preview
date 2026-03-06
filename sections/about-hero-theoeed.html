@@ -1,0 +1,160 @@
+<!-- R-GPT ABOUT PAGE HERO: THEOEDUCATION -->
+<!-- Generated: March 6, 2026 | Template: Instructor Authority / Who Is Matthew? -->
+
+<!-- BLOCK 1: STYLE (Scoped CSS) -->
+<style scoped>
+.rgpt-about-hero {
+  background: linear-gradient(180deg, #3D2B1A 0%, #4A3F2A 100%);
+  color: #FFFFFF;
+  padding: 80px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.rgpt-about-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(196, 162, 62, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.rgpt-about-hero-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.rgpt-about-hero-image {
+  text-align: center;
+}
+
+.rgpt-about-hero-image img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 12px;
+  border: 3px solid #C4A23E;
+  display: block;
+}
+
+.rgpt-about-hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 12px 0;
+  color: #FFFFFF;
+}
+
+.rgpt-about-hero-subtitle {
+  font-size: 18px;
+  color: #C4A23E;
+  margin-bottom: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.rgpt-about-hero-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #E0DBD2;
+  margin: 0 0 20px 0;
+}
+
+.rgpt-about-hero-content p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .rgpt-about-hero {
+    padding: 60px 20px;
+  }
+
+  .rgpt-about-hero-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .rgpt-about-hero-content h1 {
+    font-size: 32px;
+  }
+
+  .rgpt-about-hero-image img {
+    max-width: 100%;
+  }
+}
+</style>
+
+<!-- BLOCK 2: HTML (Section Wrapper) -->
+<section class="rgpt-about-hero">
+  <div class="rgpt-about-hero-container">
+    
+    <!-- Image -->
+    <div class="rgpt-about-hero-image">
+      <img src="https://picsum.photos/350/420?random=50" alt="Matthew Korpman">
+    </div>
+
+    <!-- Content -->
+    <div class="rgpt-about-hero-content">
+      <p class="rgpt-about-hero-subtitle">About the Founder</p>
+      <h1>Matthew Korpman</h1>
+      
+      <p>I'm a biblical scholar, theology professor, and pastor who spent years frustrated with how theology is taught and practiced in the church.</p>
+      
+      <p>Seminary gave me tools. But years later, standing in front of congregations with hard questions about the Bible, I realized those tools were out of date. Biblical scholarship had moved forward. The church hadn't. And most pastors felt as isolated and behind as I did.</p>
+      
+      <p>So I built TheoEducation. Not to give you answers, but to give you the same frameworks I use—the ones biblical scholars use—so you can ask better questions and lead with integrity.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- BLOCK 3: SCRIPT (Scoped JS) -->
+<script>
+(function() {
+  'use strict';
+
+  // Fade-in on scroll
+  const image = document.querySelector('.rgpt-about-hero-image img');
+  const content = document.querySelector('.rgpt-about-hero-content');
+  
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateX(0)';
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  if (image) {
+    image.style.opacity = '0';
+    image.style.transform = 'translateX(-40px)';
+    image.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+    observer.observe(image);
+  }
+
+  if (content) {
+    content.style.opacity = '0';
+    content.style.transform = 'translateX(40px)';
+    content.style.transition = 'opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s';
+    observer.observe(content);
+  }
+
+})();
+</script>
+
+<!-- END R-GPT ABOUT PAGE HERO -->

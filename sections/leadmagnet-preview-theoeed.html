@@ -1,0 +1,212 @@
+<!-- R-GPT LEAD MAGNET PREVIEW: THEOEDUCATION -->
+<!-- Generated: March 6, 2026 | Position: What's included in the guide -->
+
+<!-- BLOCK 1: STYLE (Scoped CSS) -->
+<style scoped>
+.rgpt-leadmagnet-preview {
+  background: linear-gradient(180deg, #F5F0E8 0%, #FFFFFF 100%);
+  padding: 80px 40px;
+  color: #2D2A26;
+}
+
+.rgpt-leadmagnet-preview-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.rgpt-leadmagnet-preview-heading {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.rgpt-leadmagnet-preview-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: #2D2A26;
+}
+
+.rgpt-leadmagnet-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  margin-bottom: 50px;
+}
+
+.rgpt-leadmagnet-preview-card {
+  background-color: #FFFFFF;
+  border: 2px solid #E0DBD2;
+  border-radius: 8px;
+  padding: 28px;
+  text-align: left;
+}
+
+.rgpt-leadmagnet-preview-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2D2A26;
+  margin: 0 0 12px 0;
+}
+
+.rgpt-leadmagnet-preview-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rgpt-leadmagnet-preview-card li {
+  font-size: 13px;
+  color: #4A4540;
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.rgpt-leadmagnet-preview-card li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #C4A23E;
+  font-weight: bold;
+}
+
+.rgpt-leadmagnet-preview-card li:last-child {
+  margin-bottom: 0;
+}
+
+.rgpt-leadmagnet-preview-cta {
+  text-align: center;
+  padding: 40px;
+  background-color: #F5F0E8;
+  border-radius: 8px;
+  border: 2px dashed #C4A23E;
+}
+
+.rgpt-leadmagnet-preview-cta-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2D2A26;
+  margin-bottom: 16px;
+}
+
+.rgpt-leadmagnet-preview-cta a {
+  background-color: #C4A23E;
+  color: #2D2A26;
+  padding: 14px 32px;
+  border-radius: 50vh;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  border: 2px solid #C4A23E;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.rgpt-leadmagnet-preview-cta a:hover {
+  background-color: #8B6D2E;
+  border-color: #8B6D2E;
+  color: #FFFFFF;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .rgpt-leadmagnet-preview {
+    padding: 50px 20px;
+  }
+
+  .rgpt-leadmagnet-preview-heading h2 {
+    font-size: 28px;
+  }
+
+  .rgpt-leadmagnet-preview-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<!-- BLOCK 2: HTML (Section Wrapper) -->
+<section class="rgpt-leadmagnet-preview">
+  <div class="rgpt-leadmagnet-preview-container">
+    
+    <div class="rgpt-leadmagnet-preview-heading">
+      <h2>Inside the Guide</h2>
+    </div>
+
+    <div class="rgpt-leadmagnet-preview-grid">
+      
+      <div class="rgpt-leadmagnet-preview-card">
+        <h3>📖 The Five Steps</h3>
+        <ul>
+          <li>Step 1: Read and observe the text</li>
+          <li>Step 2: Analyze grammar and context</li>
+          <li>Step 3: Research historical background</li>
+          <li>Step 4: Evaluate interpretations</li>
+          <li>Step 5: Apply to preaching</li>
+        </ul>
+      </div>
+
+      <div class="rgpt-leadmagnet-preview-card">
+        <h3>🔍 Real Examples</h3>
+        <ul>
+          <li>Matthew 16:18 (rock/church debate)</li>
+          <li>1 Corinthians 13:13 (faith/hope/love)</li>
+          <li>Levitical law (modern application)</li>
+          <li>Parables (literal vs. allegorical)</li>
+          <li>Apocalyptic symbols (meaning in context)</li>
+        </ul>
+      </div>
+
+      <div class="rgpt-leadmagnet-preview-card">
+        <h3>✓ Your Study System</h3>
+        <ul>
+          <li>Observation worksheet (fill in)</li>
+          <li>Historical research checklist</li>
+          <li>Common pitfalls to avoid</li>
+          <li>Decision-making framework</li>
+          <li>Sermon prep application guide</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="rgpt-leadmagnet-preview-cta">
+      <p class="rgpt-leadmagnet-preview-cta-text">Ready to deepen your biblical scholarship?</p>
+      <a href="#signup">Download the Free Guide</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- BLOCK 3: SCRIPT (Scoped JS) -->
+<script>
+(function() {
+  'use strict';
+
+  const cards = document.querySelectorAll('.rgpt-leadmagnet-preview-card');
+  
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateX(0)';
+        }, index * 80);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  cards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateX(-20px)';
+    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(card);
+  });
+
+})();
+</script>
+
+<!-- END R-GPT LEAD MAGNET PREVIEW -->

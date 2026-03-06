@@ -1,0 +1,155 @@
+<!-- R-GPT LANDING PAGE "HOW IT WORKS": THEOEDUCATION -->
+<!-- Generated: March 6, 2026 | Position: After curriculum -->
+
+<!-- BLOCK 1: STYLE (Scoped CSS) -->
+<style scoped>
+.rgpt-landing-how {
+  background-color: #FFFFFF;
+  padding: 80px 40px;
+  color: #2D2A26;
+}
+
+.rgpt-landing-how-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.rgpt-landing-how-heading {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.rgpt-landing-how-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: #2D2A26;
+}
+
+.rgpt-landing-how-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.rgpt-landing-how-step {
+  text-align: center;
+  padding: 24px;
+}
+
+.rgpt-landing-how-step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: #C4A23E;
+  color: #FFFFFF;
+  border-radius: 50%;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.rgpt-landing-how-step h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2D2A26;
+  margin: 0 0 10px 0;
+}
+
+.rgpt-landing-how-step p {
+  font-size: 14px;
+  color: #4A4540;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .rgpt-landing-how {
+    padding: 50px 20px;
+  }
+
+  .rgpt-landing-how-heading h2 {
+    font-size: 28px;
+  }
+
+  .rgpt-landing-how-steps {
+    gap: 24px;
+  }
+}
+</style>
+
+<!-- BLOCK 2: HTML (Section Wrapper) -->
+<section class="rgpt-landing-how">
+  <div class="rgpt-landing-how-container">
+    
+    <div class="rgpt-landing-how-heading">
+      <h2>How It Works</h2>
+    </div>
+
+    <div class="rgpt-landing-how-steps">
+      
+      <div class="rgpt-landing-how-step">
+        <div class="rgpt-landing-how-step-number">1</div>
+        <h3>Enroll Instantly</h3>
+        <p>Click to enroll. Immediate access to all 8 lessons. Watch in any order.</p>
+      </div>
+
+      <div class="rgpt-landing-how-step">
+        <div class="rgpt-landing-how-step-number">2</div>
+        <h3>Learn at Your Pace</h3>
+        <p>Videos. Worksheets. Notes. 90-120 minutes per lesson. Rewatch anytime.</p>
+      </div>
+
+      <div class="rgpt-landing-how-step">
+        <div class="rgpt-landing-how-step-number">3</div>
+        <h3>Ask Questions</h3>
+        <p>Monthly live Q&A with Matthew. Get direct answers to your hardest questions.</p>
+      </div>
+
+      <div class="rgpt-landing-how-step">
+        <div class="rgpt-landing-how-step-number">4</div>
+        <h3>Apply & Lead</h3>
+        <p>Use the framework in your pulpit. Apply scholarly methods to your teaching.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- BLOCK 3: SCRIPT (Scoped JS) -->
+<script>
+(function() {
+  'use strict';
+
+  const steps = document.querySelectorAll('.rgpt-landing-how-step');
+  
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }, index * 80);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  steps.forEach(step => {
+    step.style.opacity = '0';
+    step.style.transform = 'translateY(20px)';
+    step.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(step);
+  });
+
+})();
+</script>
+
+<!-- END R-GPT LANDING HOW IT WORKS -->

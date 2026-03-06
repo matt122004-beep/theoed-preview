@@ -1,0 +1,354 @@
+<!-- R-GPT COURSE SHOWCASE SECTION: THEOEDUCATION -->
+<!-- Generated: March 6, 2026 | Position: Homepage, after Solution section -->
+<!-- Template: Featured Content / Course Carousel -->
+
+<!-- BLOCK 1: STYLE (Scoped CSS) -->
+<style scoped>
+.rgpt-theoeed-courses {
+  background-color: #F5F0E8;
+  padding: 100px 40px;
+  color: #2D2A26;
+}
+
+.rgpt-theoeed-courses-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.rgpt-theoeed-courses-heading {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.rgpt-theoeed-courses-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 44px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: #2D2A26;
+}
+
+.rgpt-theoeed-courses-heading p {
+  font-size: 18px;
+  color: #4A4540;
+  margin: 0;
+}
+
+.rgpt-theoeed-courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin-bottom: 50px;
+}
+
+.rgpt-theoeed-course-card {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #E0DBD2;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.rgpt-theoeed-course-card:hover {
+  border-color: #C4A23E;
+  box-shadow: 0 12px 32px rgba(196, 162, 62, 0.15);
+  transform: translateY(-4px);
+}
+
+.rgpt-theoeed-course-image {
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(135deg, #3D2B1A 0%, #4A3F2A 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.rgpt-theoeed-course-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rgpt-theoeed-course-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 100%);
+}
+
+.rgpt-theoeed-course-category {
+  display: inline-block;
+  background-color: #C4A23E;
+  color: #2D2A26;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 16px 16px 0 16px;
+}
+
+.rgpt-theoeed-course-content {
+  padding: 20px 16px 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.rgpt-theoeed-course-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2D2A26;
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+}
+
+.rgpt-theoeed-course-desc {
+  font-size: 14px;
+  color: #4A4540;
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+  flex-grow: 1;
+}
+
+.rgpt-theoeed-course-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid #E0DBD2;
+  font-size: 12px;
+  color: #7A7570;
+}
+
+.rgpt-theoeed-course-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rgpt-theoeed-courses-cta {
+  text-align: center;
+}
+
+.rgpt-theoeed-courses-cta a {
+  background-color: #C4A23E;
+  color: #2D2A26;
+  padding: 16px 40px;
+  border-radius: 50vh;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  border: 2px solid #C4A23E;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.rgpt-theoeed-courses-cta a:hover {
+  background-color: #8B6D2E;
+  border-color: #8B6D2E;
+  color: #FFFFFF;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .rgpt-theoeed-courses {
+    padding: 60px 20px;
+  }
+
+  .rgpt-theoeed-courses-heading h2 {
+    font-size: 32px;
+  }
+
+  .rgpt-theoeed-courses-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .rgpt-theoeed-course-card {
+    flex-direction: row;
+  }
+
+  .rgpt-theoeed-course-image {
+    width: 140px;
+    min-width: 140px;
+    height: 140px;
+    border-radius: 8px 0 0 8px;
+  }
+
+  .rgpt-theoeed-course-content {
+    padding: 16px;
+  }
+
+  .rgpt-theoeed-course-title {
+    font-size: 16px;
+  }
+
+  .rgpt-theoeed-course-desc {
+    display: none;
+  }
+}
+</style>
+
+<!-- BLOCK 2: HTML (Section Wrapper) -->
+<section class="rgpt-theoeed-courses">
+  <div class="rgpt-theoeed-courses-container">
+    
+    <!-- Heading -->
+    <div class="rgpt-theoeed-courses-heading">
+      <h2>Featured Courses</h2>
+      <p>Explore some of our most popular programs. New courses added regularly.</p>
+    </div>
+
+    <!-- Course Cards -->
+    <div class="rgpt-theoeed-courses-grid">
+      
+      <!-- Course 1 -->
+      <div class="rgpt-theoeed-course-card">
+        <div class="rgpt-theoeed-course-image">
+          <img src="https://picsum.photos/300/180?random=20" alt="How to Study the Bible">
+        </div>
+        <span class="rgpt-theoeed-course-category">Hermeneutics</span>
+        <div class="rgpt-theoeed-course-content">
+          <h3 class="rgpt-theoeed-course-title">How to Study the Bible</h3>
+          <p class="rgpt-theoeed-course-desc">Learn the foundational methods and interpretive frameworks used by biblical scholars. From textual criticism to exegesis.</p>
+          <div class="rgpt-theoeed-course-meta">
+            <span>📚 8 lessons</span>
+            <span>⏱️ 12 hrs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 2 -->
+      <div class="rgpt-theoeed-course-card">
+        <div class="rgpt-theoeed-course-image">
+          <img src="https://picsum.photos/300/180?random=21" alt="Daniel and Revelation">
+        </div>
+        <span class="rgpt-theoeed-course-category">Old Testament</span>
+        <div class="rgpt-theoeed-course-content">
+          <h3 class="rgpt-theoeed-course-title">Daniel & Revelation</h3>
+          <p class="rgpt-theoeed-course-desc">Deep exegesis of two most debated books in the Bible. Eschatology, symbolism, and historical context explained.</p>
+          <div class="rgpt-theoeed-course-meta">
+            <span>📚 12 lessons</span>
+            <span>⏱️ 18 hrs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 3 -->
+      <div class="rgpt-theoeed-course-card">
+        <div class="rgpt-theoeed-course-image">
+          <img src="https://picsum.photos/300/180?random=22" alt="Sexuality in the Bible">
+        </div>
+        <span class="rgpt-theoeed-course-category">Controversial Topics</span>
+        <div class="rgpt-theoeed-course-content">
+          <h3 class="rgpt-theoeed-course-title">Sexuality in the Bible</h3>
+          <p class="rgpt-theoeed-course-desc">Honest biblical scholarship on marriage, gender, and identity. Not apologetics — rigorous exegesis of difficult texts.</p>
+          <div class="rgpt-theoeed-course-meta">
+            <span>📚 10 lessons</span>
+            <span>⏱️ 15 hrs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 4 -->
+      <div class="rgpt-theoeed-course-card">
+        <div class="rgpt-theoeed-course-image">
+          <img src="https://picsum.photos/300/180?random=23" alt="Early Christianity">
+        </div>
+        <span class="rgpt-theoeed-course-category">New Testament</span>
+        <div class="rgpt-theoeed-course-content">
+          <h3 class="rgpt-theoeed-course-title">Early Christianity</h3>
+          <p class="rgpt-theoeed-course-desc">Trace the development of Christian theology from the apostles through the Council of Nicaea. Historical and textual analysis.</p>
+          <div class="rgpt-theoeed-course-meta">
+            <span>📚 11 lessons</span>
+            <span>⏱️ 16 hrs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 5 -->
+      <div class="rgpt-theoeed-course-card">
+        <div class="rgpt-theoeed-course-image">
+          <img src="https://picsum.photos/300/180?random=24" alt="The Hebrew Bible">
+        </div>
+        <span class="rgpt-theoeed-course-category">Hebrew Bible</span>
+        <div class="rgpt-theoeed-course-content">
+          <h3 class="rgpt-theoeed-course-title">The Hebrew Bible</h3>
+          <p class="rgpt-theoeed-course-desc">Comprehensive survey of Old Testament literature, authorship debates, dating, and interpretive traditions.</p>
+          <div class="rgpt-theoeed-course-meta">
+            <span>📚 13 lessons</span>
+            <span>⏱️ 20 hrs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 6 -->
+      <div class="rgpt-theoeed-course-card">
+        <div class="rgpt-theoeed-course-image">
+          <img src="https://picsum.photos/300/180?random=25" alt="Book of Enoch">
+        </div>
+        <span class="rgpt-theoeed-course-category">Apocrypha</span>
+        <div class="rgpt-theoeed-course-content">
+          <h3 class="rgpt-theoeed-course-title">Book of Enoch</h3>
+          <p class="rgpt-theoeed-course-desc">Explore this fascinating ancient text: its history, theology, and influence on early Jewish and Christian thought.</p>
+          <div class="rgpt-theoeed-course-meta">
+            <span>📚 7 lessons</span>
+            <span>⏱️ 10 hrs</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="rgpt-theoeed-courses-cta">
+      <a href="https://www.theoeducation.com/courses">Browse All 22+ Courses</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- BLOCK 3: SCRIPT (Scoped JS) -->
+<script>
+(function() {
+  'use strict';
+
+  // Fade-in on scroll for course cards
+  const cards = document.querySelectorAll('.rgpt-theoeed-course-card');
+  
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }, index * 60);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  cards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(card);
+  });
+
+})();
+</script>
+
+<!-- END R-GPT COURSE SHOWCASE SECTION -->

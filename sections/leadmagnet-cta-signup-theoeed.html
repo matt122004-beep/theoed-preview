@@ -1,0 +1,259 @@
+<!-- R-GPT LEAD MAGNET CTA/SIGNUP: THEOEDUCATION -->
+<!-- Generated: March 6, 2026 | Position: Email capture form (before FAQ) -->
+<!-- Note: Form fields are placeholder - integrate with actual email service (Kit, ConvertKit, etc.) -->
+
+<!-- BLOCK 1: STYLE (Scoped CSS) -->
+<style scoped>
+.rgpt-leadmagnet-signup {
+  background: linear-gradient(180deg, #3D2B1A 0%, #4A3F2A 100%);
+  color: #FFFFFF;
+  padding: 80px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.rgpt-leadmagnet-signup::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(196, 162, 62, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.rgpt-leadmagnet-signup-container {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.rgpt-leadmagnet-signup h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 16px 0;
+  color: #FFFFFF;
+}
+
+.rgpt-leadmagnet-signup-desc {
+  font-size: 16px;
+  color: #E0DBD2;
+  margin: 0 0 40px 0;
+  line-height: 1.6;
+}
+
+.rgpt-leadmagnet-signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rgpt-leadmagnet-signup-field {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.rgpt-leadmagnet-signup-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #E0DBD2;
+  margin-bottom: 6px;
+}
+
+.rgpt-leadmagnet-signup-field input {
+  padding: 14px 16px;
+  border: 2px solid rgba(196, 162, 62, 0.3);
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.rgpt-leadmagnet-signup-field input::placeholder {
+  color: rgba(224, 219, 210, 0.5);
+}
+
+.rgpt-leadmagnet-signup-field input:focus {
+  outline: none;
+  border-color: #C4A23E;
+  background-color: rgba(196, 162, 62, 0.1);
+}
+
+.rgpt-leadmagnet-signup-consent {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  color: #A39A8F;
+}
+
+.rgpt-leadmagnet-signup-consent input[type="checkbox"] {
+  margin-top: 2px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.rgpt-leadmagnet-signup-consent label {
+  cursor: pointer;
+  margin: 0;
+  font-weight: normal;
+}
+
+.rgpt-leadmagnet-signup-button {
+  background-color: #C4A23E;
+  color: #2D2A26;
+  padding: 16px 32px;
+  border-radius: 6px;
+  border: 2px solid #C4A23E;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+}
+
+.rgpt-leadmagnet-signup-button:hover {
+  background-color: #8B6D2E;
+  border-color: #8B6D2E;
+  color: #FFFFFF;
+}
+
+.rgpt-leadmagnet-signup-guarantee {
+  margin-top: 24px;
+  font-size: 12px;
+  color: #A39A8F;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .rgpt-leadmagnet-signup {
+    padding: 50px 20px;
+  }
+
+  .rgpt-leadmagnet-signup h2 {
+    font-size: 28px;
+  }
+
+  .rgpt-leadmagnet-signup-desc {
+    font-size: 14px;
+  }
+}
+</style>
+
+<!-- BLOCK 2: HTML (Section Wrapper) -->
+<section class="rgpt-leadmagnet-signup" id="signup">
+  <div class="rgpt-leadmagnet-signup-container">
+    
+    <h2>Get Your Free Guide</h2>
+    <p class="rgpt-leadmagnet-signup-desc">Enter your email and we'll send the 5-Step guide instantly. No spam, ever.</p>
+
+    <form class="rgpt-leadmagnet-signup-form" id="leadmagnet-form">
+      
+      <div class="rgpt-leadmagnet-signup-field">
+        <label for="firstname">First Name</label>
+        <input 
+          type="text" 
+          id="firstname" 
+          name="first_name" 
+          placeholder="Your first name" 
+          required
+        >
+      </div>
+
+      <div class="rgpt-leadmagnet-signup-field">
+        <label for="email">Email Address</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          placeholder="pastor@church.org" 
+          required
+        >
+      </div>
+
+      <div class="rgpt-leadmagnet-signup-field rgpt-leadmagnet-signup-consent">
+        <input 
+          type="checkbox" 
+          id="consent" 
+          name="consent" 
+          required
+        >
+        <label for="consent">
+          I agree to receive the free guide and occasional updates about TheoEducation courses. I can unsubscribe anytime.
+        </label>
+      </div>
+
+      <button type="submit" class="rgpt-leadmagnet-signup-button">Download Guide</button>
+
+    </form>
+
+    <p class="rgpt-leadmagnet-signup-guarantee">
+      ✓ 100% free. No credit card. Unsubscribe anytime.
+    </p>
+
+  </div>
+</section>
+
+<!-- BLOCK 3: SCRIPT (Scoped JS) -->
+<script>
+(function() {
+  'use strict';
+
+  const form = document.getElementById('leadmagnet-form');
+
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Get form data
+      const firstName = document.getElementById('firstname').value;
+      const email = document.getElementById('email').value;
+      const consent = document.getElementById('consent').checked;
+
+      // Validate
+      if (!firstName || !email || !consent) {
+        alert('Please fill in all fields and check the consent box.');
+        return;
+      }
+
+      // Track event
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'leadmagnet_signup', {
+          email: email,
+          first_name: firstName
+        });
+      }
+
+      // Submit to your email service (Kit/ConvertKit API endpoint)
+      // Example: POST to /api/leadmagnet with { first_name, email, consent }
+      // For now, show success message
+      const button = form.querySelector('button');
+      const originalText = button.textContent;
+      button.textContent = '✓ Sent! Check your email.';
+      button.style.backgroundColor = '#6B8E4E';
+      button.style.borderColor = '#6B8E4E';
+      
+      // Reset form after 2 seconds
+      setTimeout(() => {
+        form.reset();
+        button.textContent = originalText;
+        button.style.backgroundColor = '#C4A23E';
+        button.style.borderColor = '#C4A23E';
+      }, 2000);
+    });
+  }
+
+})();
+</script>
+
+<!-- END R-GPT LEAD MAGNET CTA/SIGNUP -->

@@ -1,0 +1,184 @@
+<!-- R-GPT LANDING PAGE BENEFITS SECTION: THEOEDUCATION -->
+<!-- Generated: March 6, 2026 | Position: Landing page, after proof -->
+<!-- Template: Key Benefits / What You'll Learn -->
+
+<!-- BLOCK 1: STYLE (Scoped CSS) -->
+<style scoped>
+.rgpt-landing-benefits {
+  background-color: #FFFFFF;
+  padding: 80px 40px;
+  color: #2D2A26;
+}
+
+.rgpt-landing-benefits-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.rgpt-landing-benefits-heading {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.rgpt-landing-benefits-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: #2D2A26;
+}
+
+.rgpt-landing-benefits-heading p {
+  font-size: 18px;
+  color: #4A4540;
+  margin: 0;
+}
+
+.rgpt-landing-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+.rgpt-landing-benefit-card {
+  background-color: #F5F0E8;
+  border-radius: 12px;
+  padding: 32px 24px;
+  border: 2px solid #E0DBD2;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.rgpt-landing-benefit-card:hover {
+  border-color: #C4A23E;
+  box-shadow: 0 8px 24px rgba(196, 162, 62, 0.12);
+  transform: translateY(-4px);
+}
+
+.rgpt-landing-benefit-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.rgpt-landing-benefit-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2D2A26;
+  margin: 0 0 12px 0;
+}
+
+.rgpt-landing-benefit-card p {
+  font-size: 14px;
+  color: #4A4540;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .rgpt-landing-benefits {
+    padding: 50px 20px;
+  }
+
+  .rgpt-landing-benefits-heading h2 {
+    font-size: 28px;
+  }
+
+  .rgpt-landing-benefits-grid {
+    gap: 24px;
+  }
+
+  .rgpt-landing-benefit-card {
+    padding: 24px 16px;
+  }
+}
+</style>
+
+<!-- BLOCK 2: HTML (Section Wrapper) -->
+<section class="rgpt-landing-benefits">
+  <div class="rgpt-landing-benefits-container">
+    
+    <!-- Heading -->
+    <div class="rgpt-landing-benefits-heading">
+      <h2>What You'll Master</h2>
+      <p>Eight lessons covering everything a pastor needs to study the Bible like a scholar.</p>
+    </div>
+
+    <!-- Benefits Grid -->
+    <div class="rgpt-landing-benefits-grid">
+      
+      <div class="rgpt-landing-benefit-card">
+        <span class="rgpt-landing-benefit-icon">📚</span>
+        <h3>Historical Context</h3>
+        <p>Understand the worlds that produced the biblical texts. Geography, politics, culture, and history that shaped Scripture.</p>
+      </div>
+
+      <div class="rgpt-landing-benefit-card">
+        <span class="rgpt-landing-benefit-icon">🔍</span>
+        <h3>Textual Criticism</h3>
+        <p>Learn how scholars evaluate manuscript evidence. Why some verses appear in later manuscripts. How we know what the original text says.</p>
+      </div>
+
+      <div class="rgpt-landing-benefit-card">
+        <span class="rgpt-landing-benefit-icon">🗣️</span>
+        <h3>Literary Forms</h3>
+        <p>Recognize genre. Poetry reads different from narrative. Prophecy isn't always literal. Learn to read each text on its own terms.</p>
+      </div>
+
+      <div class="rgpt-landing-benefit-card">
+        <span class="rgpt-landing-benefit-icon">⚙️</span>
+        <h3>Exegetical Method</h3>
+        <p>The step-by-step process scholars use to interpret any passage. You'll apply this framework to every text you encounter.</p>
+      </div>
+
+      <div class="rgpt-landing-benefit-card">
+        <span class="rgpt-landing-benefit-icon">🎯</span>
+        <h3>Answer Hard Questions</h3>
+        <p>When your congregation asks tough questions, you'll have a scholarly framework to work through them honestly and confidently.</p>
+      </div>
+
+      <div class="rgpt-landing-benefit-card">
+        <span class="rgpt-landing-benefit-icon">📖</span>
+        <h3>Lifetime Application</h3>
+        <p>These aren't abstract theories. Every lesson includes real examples so you can immediately apply what you learn to your preaching and teaching.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- BLOCK 3: SCRIPT (Scoped JS) -->
+<script>
+(function() {
+  'use strict';
+
+  // Stagger cards on scroll
+  const cards = document.querySelectorAll('.rgpt-landing-benefit-card');
+  
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }, index * 80);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  cards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(card);
+  });
+
+})();
+</script>
+
+<!-- END R-GPT LANDING BENEFITS SECTION -->

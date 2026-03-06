@@ -1,0 +1,386 @@
+<!-- R-GPT PRICING/CTA SECTION: THEOEDUCATION -->
+<!-- Generated: March 6, 2026 | Position: Homepage, after Testimonials section -->
+<!-- Template: Pricing + Risk Reversal + Primary CTA -->
+
+<!-- BLOCK 1: STYLE (Scoped CSS) -->
+<style scoped>
+.rgpt-theoeed-pricing {
+  background: linear-gradient(180deg, #3D2B1A 0%, #4A3F2A 100%);
+  color: #FFFFFF;
+  padding: 100px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.rgpt-theoeed-pricing::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(196, 162, 62, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.rgpt-theoeed-pricing::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  right: -15%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(196, 162, 62, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.rgpt-theoeed-pricing-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.rgpt-theoeed-pricing-heading {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.rgpt-theoeed-pricing-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  color: #FFFFFF;
+}
+
+.rgpt-theoeed-pricing-heading p {
+  font-size: 18px;
+  color: #E0DBD2;
+  margin: 0;
+}
+
+.rgpt-theoeed-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin-bottom: 70px;
+}
+
+.rgpt-theoeed-pricing-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(196, 162, 62, 0.3);
+  border-radius: 12px;
+  padding: 40px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.rgpt-theoeed-pricing-card:hover {
+  border-color: #C4A23E;
+  background-color: rgba(196, 162, 62, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(196, 162, 62, 0.2);
+}
+
+.rgpt-theoeed-pricing-card.popular {
+  border-color: #C4A23E;
+  background-color: rgba(196, 162, 62, 0.15);
+  transform: scale(1.05);
+  box-shadow: 0 20px 50px rgba(196, 162, 62, 0.3);
+}
+
+.rgpt-theoeed-pricing-badge {
+  display: inline-block;
+  background-color: #C4A23E;
+  color: #2D2A26;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+  align-self: center;
+}
+
+.rgpt-theoeed-pricing-plan {
+  font-size: 22px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 0 0 16px 0;
+}
+
+.rgpt-theoeed-pricing-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 54px;
+  font-weight: 700;
+  color: #C4A23E;
+  margin: 0;
+}
+
+.rgpt-theoeed-pricing-period {
+  font-size: 14px;
+  color: #A39A8F;
+  margin-bottom: 32px;
+}
+
+.rgpt-theoeed-pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 32px 0;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.rgpt-theoeed-pricing-features li {
+  font-size: 14px;
+  color: #E0DBD2;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(196, 162, 62, 0.2);
+  padding-left: 24px;
+  position: relative;
+}
+
+.rgpt-theoeed-pricing-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #C4A23E;
+  font-weight: bold;
+}
+
+.rgpt-theoeed-pricing-features li:last-child {
+  border-bottom: none;
+}
+
+.rgpt-theoeed-pricing-cta {
+  margin-top: 32px;
+}
+
+.rgpt-theoeed-pricing-cta a {
+  background-color: #C4A23E;
+  color: #2D2A26;
+  padding: 16px 32px;
+  border-radius: 50vh;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  border: 2px solid #C4A23E;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.rgpt-theoeed-pricing-cta a:hover {
+  background-color: #8B6D2E;
+  border-color: #8B6D2E;
+  color: #FFFFFF;
+}
+
+.rgpt-theoeed-pricing-card.popular .rgpt-theoeed-pricing-cta a {
+  background-color: #C4A23E;
+  color: #2D2A26;
+}
+
+.rgpt-theoeed-pricing-card.popular .rgpt-theoeed-pricing-cta a:hover {
+  background-color: #8B6D2E;
+}
+
+/* GUARANTEE SECTION */
+.rgpt-theoeed-guarantee {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 2px solid rgba(196, 162, 62, 0.3);
+  border-radius: 12px;
+  padding: 40px;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.rgpt-theoeed-guarantee-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.rgpt-theoeed-guarantee h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 0 0 16px 0;
+}
+
+.rgpt-theoeed-guarantee p {
+  font-size: 16px;
+  color: #E0DBD2;
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .rgpt-theoeed-pricing {
+    padding: 60px 20px;
+  }
+
+  .rgpt-theoeed-pricing-heading h2 {
+    font-size: 36px;
+  }
+
+  .rgpt-theoeed-pricing-grid {
+    gap: 24px;
+  }
+
+  .rgpt-theoeed-pricing-card {
+    padding: 28px;
+    transform: none !important;
+  }
+
+  .rgpt-theoeed-pricing-card.popular {
+    transform: none !important;
+  }
+
+  .rgpt-theoeed-pricing-price {
+    font-size: 42px;
+  }
+
+  .rgpt-theoeed-guarantee {
+    padding: 28px 20px;
+  }
+}
+</style>
+
+<!-- BLOCK 2: HTML (Section Wrapper) -->
+<section class="rgpt-theoeed-pricing">
+  <div class="rgpt-theoeed-pricing-container">
+    
+    <!-- Heading -->
+    <div class="rgpt-theoeed-pricing-heading">
+      <h2>Ready to Deepen Your Scholarship?</h2>
+      <p>Choose your plan and start learning today.</p>
+    </div>
+
+    <!-- Pricing Cards -->
+    <div class="rgpt-theoeed-pricing-grid">
+      
+      <!-- Plan 1: Course-by-Course -->
+      <div class="rgpt-theoeed-pricing-card">
+        <p class="rgpt-theoeed-pricing-plan">Pay Per Course</p>
+        <div class="rgpt-theoeed-pricing-price">$6</div>
+        <p class="rgpt-theoeed-pricing-period">per week</p>
+        <ul class="rgpt-theoeed-pricing-features">
+          <li>Access to one course for one week</li>
+          <li>All video lessons included</li>
+          <li>Downloadable resources</li>
+          <li>Lifetime access to that course</li>
+        </ul>
+        <div class="rgpt-theoeed-pricing-cta">
+          <a href="https://www.theoeducation.com/checkout">Choose This Plan</a>
+        </div>
+      </div>
+
+      <!-- Plan 2: Annual Membership (POPULAR) -->
+      <div class="rgpt-theoeed-pricing-card popular">
+        <span class="rgpt-theoeed-pricing-badge">MOST POPULAR</span>
+        <p class="rgpt-theoeed-pricing-plan">Annual Membership</p>
+        <div class="rgpt-theoeed-pricing-price">$416</div>
+        <p class="rgpt-theoeed-pricing-period">one-time, billed yearly</p>
+        <ul class="rgpt-theoeed-pricing-features">
+          <li>Unlimited access to all 22+ courses</li>
+          <li>150+ hours of video content</li>
+          <li>Monthly live Q&A sessions with Matthew</li>
+          <li>Continuing Education credits (NAD)</li>
+          <li>Downloadable resources & transcripts</li>
+          <li>Access to student community</li>
+        </ul>
+        <div class="rgpt-theoeed-pricing-cta">
+          <a href="https://www.theoeducation.com/checkout">Get Annual Membership</a>
+        </div>
+      </div>
+
+      <!-- Plan 3: Lifetime Access -->
+      <div class="rgpt-theoeed-pricing-card">
+        <p class="rgpt-theoeed-pricing-plan">Lifetime Access</p>
+        <div class="rgpt-theoeed-pricing-price">$1,249</div>
+        <p class="rgpt-theoeed-pricing-period">one-time purchase</p>
+        <ul class="rgpt-theoeed-pricing-features">
+          <li>Everything in Annual Membership</li>
+          <li>Lifetime access to all future courses</li>
+          <li>Priority access to new content</li>
+          <li>Private annual mentorship call</li>
+          <li>Lifetime community access</li>
+          <li>No renewal needed, ever</li>
+        </ul>
+        <div class="rgpt-theoeed-pricing-cta">
+          <a href="https://www.theoeducation.com/checkout">Get Lifetime Access</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Guarantee -->
+    <div class="rgpt-theoeed-guarantee">
+      <span class="rgpt-theoeed-guarantee-icon">🛡️</span>
+      <h3>14-Day Money-Back Guarantee</h3>
+      <p>Not sure? Try TheoEducation risk-free for 14 days. If it's not right for you, we'll refund your full payment. No questions asked. We only want you here if the content resonates with you.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- BLOCK 3: SCRIPT (Scoped JS) -->
+<script>
+(function() {
+  'use strict';
+
+  // Hover effect for pricing cards
+  const cards = document.querySelectorAll('.rgpt-theoeed-pricing-card');
+  
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      cards.forEach(c => {
+        if (c !== this) {
+          c.style.opacity = '0.7';
+        }
+      });
+    });
+
+    card.addEventListener('mouseleave', function() {
+      cards.forEach(c => {
+        c.style.opacity = '1';
+      });
+    });
+  });
+
+  // Fade-in on scroll
+  const pricingSection = document.querySelector('.rgpt-theoeed-pricing-container');
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  if (pricingSection) {
+    pricingSection.style.opacity = '0';
+    pricingSection.style.transition = 'opacity 0.7s ease';
+    observer.observe(pricingSection);
+  }
+
+})();
+</script>
+
+<!-- END R-GPT PRICING/CTA SECTION -->
