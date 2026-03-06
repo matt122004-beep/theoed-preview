@@ -1,0 +1,193 @@
+<section class="rgpt-hero-v2">
+  <style>
+    .rgpt-hero-v2 {
+      background: linear-gradient(135deg, rgba(61, 43, 26, 0.95), rgba(74, 63, 42, 0.95)), 
+                  url('https://picsum.photos/1600/900?random=1') center/cover;
+      background-blend-mode: overlay;
+      padding: 100px 20px;
+      text-align: center;
+      color: white;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .rgpt-hero-v2__container {
+      max-width: 700px;
+      margin: 0 auto;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .rgpt-hero-v2__label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #C4A23E;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .rgpt-hero-v2__headline {
+      font-size: clamp(32px, 8vw, 56px);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+    }
+
+    .rgpt-hero-v2__subheadline {
+      font-size: clamp(18px, 4vw, 24px);
+      font-weight: 500;
+      color: #E0DBD2;
+      line-height: 1.4;
+      margin-bottom: 30px;
+      letter-spacing: -0.01em;
+    }
+
+    .rgpt-hero-v2__cta-row {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .rgpt-hero-v2__btn {
+      display: inline-block;
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      text-transform: capitalize;
+    }
+
+    .rgpt-hero-v2__btn--primary {
+      background: #C4A23E;
+      color: #2D2A26;
+    }
+
+    .rgpt-hero-v2__btn--primary:hover {
+      background: #E0C158;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(196, 162, 62, 0.4);
+    }
+
+    .rgpt-hero-v2__btn--secondary {
+      background: transparent;
+      color: #C4A23E;
+      border: 2px solid #C4A23E;
+    }
+
+    .rgpt-hero-v2__btn--secondary:hover {
+      background: rgba(196, 162, 62, 0.15);
+      border-color: #E0C158;
+      color: #E0C158;
+    }
+
+    .rgpt-hero-v2__trust-badges {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding-top: 20px;
+      border-top: 1px solid rgba(196, 162, 62, 0.3);
+    }
+
+    .rgpt-hero-v2__badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #CFCFCF;
+      font-weight: 500;
+    }
+
+    .rgpt-hero-v2__badge-icon {
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .rgpt-hero-v2 {
+        padding: 60px 16px;
+        min-height: 500px;
+      }
+
+      .rgpt-hero-v2__headline {
+        font-size: 32px;
+      }
+
+      .rgpt-hero-v2__subheadline {
+        font-size: 18px;
+      }
+
+      .rgpt-hero-v2__cta-row {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .rgpt-hero-v2__btn {
+        width: 100%;
+        padding: 14px 32px;
+      }
+
+      .rgpt-hero-v2__trust-badges {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .rgpt-hero-v2__badge {
+        justify-content: center;
+      }
+    }
+  </style>
+
+  <div class="rgpt-hero-v2__container">
+    <span class="rgpt-hero-v2__label">Trusted Bible Scholarship</span>
+
+    <h1 class="rgpt-hero-v2__headline">Deeper Knowledge. Confident Leadership.</h1>
+
+    <p class="rgpt-hero-v2__subheadline">
+      Seminary-level biblical scholarship for pastors who want rigorous answers and a thriving community—without $100K debt.
+    </p>
+
+    <div class="rgpt-hero-v2__cta-row">
+      <a href="#" class="rgpt-hero-v2__btn rgpt-hero-v2__btn--primary">Start Your First Course</a>
+      <a href="#" class="rgpt-hero-v2__btn rgpt-hero-v2__btn--secondary">14-Day Free Trial</a>
+    </div>
+
+    <div class="rgpt-hero-v2__trust-badges">
+      <div class="rgpt-hero-v2__badge">
+        <span class="rgpt-hero-v2__badge-icon">✓</span>
+        <span>NAD Approved</span>
+      </div>
+      <div class="rgpt-hero-v2__badge">
+        <span class="rgpt-hero-v2__badge-icon">⭐</span>
+        <span>600+ Pastors</span>
+      </div>
+      <div class="rgpt-hero-v2__badge">
+        <span class="rgpt-hero-v2__badge-icon">♾️</span>
+        <span>Lifetime Access</span>
+      </div>
+    </div>
+  </div>
+</section>
