@@ -5,6 +5,25 @@
 
   // ─── COURSE DATA ──────────────────────────────────────────────────────────
   var courses = {
+    '/courses/how-to-study-bible': {
+      slug: 'how-to-study-bible',
+      title: 'How to Study the Bible:',
+      titleHighlight: 'A Guide for Beginners',
+      heroImage: 'https://import.cdn.thinkific.com/296355/FOJFri2SBaGb1AOsnrzW_Bible-Verses-on-Writing-Journaling.jpg',
+      pills: ['Hermeneutics', 'Bible Methods', 'Beginner Friendly'],
+      lessons: '17',
+      hours: '8',
+      ceu: '0.8',
+      overview: 'Where do you even begin? This course lays the foundation for serious biblical study — how to choose a translation, identify a pericope, understand historical context, distinguish the author\'s voice, and separate biblical history from ancient theology. No prior training required. Just bring your Bible and your questions.',
+      chapters: [
+        { title: '1. Translations, Pericopes, and Canon', subtitle: 'Which Bible? How to read a passage. What counts as Scripture?', lessons: 5 },
+        { title: '2. Contexts, Pretexts, and Individual Voices', subtitle: 'Reading texts in their historical and literary setting', lessons: 4 },
+        { title: '3. Distinguishing History from the Bible', subtitle: 'What the text says vs. what actually happened', lessons: 4 },
+        { title: '4. Theology & Trinity: It\'s Okay to be Non-Biblical', subtitle: 'How doctrine develops beyond the text', lessons: 3 },
+        { title: 'Final Cumulative Project', subtitle: 'Apply all four methods to a passage of your choice', lessons: 1 },
+      ],
+      categories: ['Hermeneutics', 'Bible Methods', 'Introductory'],
+    },
     '/courses/how-to-do-exegesis': {
       slug: 'how-to-do-exegesis',
       title: 'How to Do Exegesis:',
