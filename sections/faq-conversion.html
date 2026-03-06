@@ -1,0 +1,353 @@
+<section class="rgpt-faq">
+  <style>
+    .rgpt-faq {
+      background: #FFFFFF;
+      padding: 60px 20px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .rgpt-faq__container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .rgpt-faq__header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .rgpt-faq__label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #8B6D2E;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .rgpt-faq__title {
+      font-size: clamp(28px, 4vw, 38px);
+      font-weight: 700;
+      color: #2D2A26;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    .rgpt-faq__subtitle {
+      font-size: 16px;
+      color: #4A4540;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .rgpt-faq__list {
+      margin-bottom: 40px;
+    }
+
+    .rgpt-faq__item {
+      border-bottom: 1px solid #E0DBD2;
+      margin-bottom: 0;
+    }
+
+    .rgpt-faq__item:last-child {
+      border-bottom: none;
+    }
+
+    .rgpt-faq__toggle {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px 0;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .rgpt-faq__toggle:hover {
+      color: #C4A23E;
+    }
+
+    .rgpt-faq__question {
+      font-size: 16px;
+      font-weight: 600;
+      color: #2D2A26;
+      line-height: 1.4;
+      flex: 1;
+    }
+
+    .rgpt-faq__item.is-open .rgpt-faq__question {
+      color: #8B6D2E;
+    }
+
+    .rgpt-faq__icon {
+      color: #C4A23E;
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      transition: transform 0.3s ease;
+    }
+
+    .rgpt-faq__item.is-open .rgpt-faq__icon {
+      transform: rotate(180deg);
+    }
+
+    .rgpt-faq__answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding: 0;
+    }
+
+    .rgpt-faq__item.is-open .rgpt-faq__answer {
+      max-height: 500px;
+      padding-bottom: 12px;
+    }
+
+    .rgpt-faq__answer-text {
+      font-size: 15px;
+      color: #4A4540;
+      line-height: 1.7;
+    }
+
+    .rgpt-faq__answer-list {
+      margin-top: 12px;
+      padding-left: 20px;
+    }
+
+    .rgpt-faq__answer-list li {
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #4A4540;
+      line-height: 1.6;
+    }
+
+    .rgpt-faq__categories {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .rgpt-faq__category-btn {
+      padding: 8px 16px;
+      border-radius: 50px;
+      border: 1px solid #E0DBD2;
+      background: #FFFFFF;
+      color: #4A4540;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .rgpt-faq__category-btn:hover,
+    .rgpt-faq__category-btn.is-active {
+      background: #C4A23E;
+      color: white;
+      border-color: #C4A23E;
+    }
+
+    .rgpt-faq__cta {
+      background: #F5F0E8;
+      border-radius: 12px;
+      padding: 32px 24px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .rgpt-faq__cta-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #2D2A26;
+      margin-bottom: 12px;
+    }
+
+    .rgpt-faq__cta-text {
+      font-size: 14px;
+      color: #4A4540;
+      margin-bottom: 20px;
+    }
+
+    .rgpt-faq__cta-btn {
+      display: inline-block;
+      padding: 12px 32px;
+      background: #C4A23E;
+      color: #2D2A26;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .rgpt-faq__cta-btn:hover {
+      background: #E0C158;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(196, 162, 62, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .rgpt-faq {
+        padding: 40px 16px;
+      }
+
+      .rgpt-faq__toggle {
+        padding: 16px 0;
+      }
+
+      .rgpt-faq__question {
+        font-size: 15px;
+      }
+
+      .rgpt-faq__answer-text {
+        font-size: 14px;
+      }
+
+      .rgpt-faq__cta {
+        padding: 24px 16px;
+      }
+    }
+  </style>
+
+  <div class="rgpt-faq__container">
+    <div class="rgpt-faq__header">
+      <span class="rgpt-faq__label">Questions?</span>
+      <h2 class="rgpt-faq__title">Frequently Asked Questions</h2>
+      <p class="rgpt-faq__subtitle">Everything you need to know about TheoEducation, our courses, and your investment</p>
+    </div>
+
+    <div class="rgpt-faq__list">
+      <div class="rgpt-faq__item">
+        <button class="rgpt-faq__toggle" onclick="this.parentElement.classList.toggle('is-open')">
+          <span class="rgpt-faq__question">Do I need a theology background to start?</span>
+          <span class="rgpt-faq__icon">▼</span>
+        </button>
+        <div class="rgpt-faq__answer">
+          <div class="rgpt-faq__answer-text">
+            Not at all. Our courses are designed for pastors and leaders at every level—from those just beginning their biblical journey to seasoned scholars. Matthew meets you where you are and builds from there. Each course includes foundational lessons before moving to advanced topics.
+          </div>
+        </div>
+      </div>
+
+      <div class="rgpt-faq__item">
+        <button class="rgpt-faq__toggle" onclick="this.parentElement.classList.toggle('is-open')">
+          <span class="rgpt-faq__question">How much time do I need to invest per week?</span>
+          <span class="rgpt-faq__icon">▼</span>
+        </button>
+        <div class="rgpt-faq__answer">
+          <div class="rgpt-faq__answer-text">
+            You set your own pace. Most courses break into modules of 45-90 minutes, so you could complete one module per week or multiple in a day. You have lifetime access, so there's no rush. The average pastor completes a 12-hour course in 8-12 weeks.
+          </div>
+        </div>
+      </div>
+
+      <div class="rgpt-faq__item">
+        <button class="rgpt-faq__toggle" onclick="this.parentElement.classList.toggle('is-open')">
+          <span class="rgpt-faq__question">What exactly is NAD credit and how does it work?</span>
+          <span class="rgpt-faq__icon">▼</span>
+        </button>
+        <div class="rgpt-faq__answer">
+          <div class="rgpt-faq__answer-text">
+            The North American Division (NAD) of the Seventh-day Adventist Church recognizes TheoEducation courses for continuing education credits. Each course earns you official CEU credits that count toward professional development requirements. You'll receive certificates upon completion.
+          </div>
+        </div>
+      </div>
+
+      <div class="rgpt-faq__item">
+        <button class="rgpt-faq__toggle" onclick="this.parentElement.classList.toggle('is-open')">
+          <span class="rgpt-faq__question">Can I download videos to watch offline?</span>
+          <span class="rgpt-faq__icon">▼</span>
+        </button>
+        <div class="rgpt-faq__answer">
+          <div class="rgpt-faq__answer-text">
+            Yes. All course materials, including video lectures, are available for download. You can watch offline, on planes, in your car, or wherever works for your schedule. This is perfect for busy pastors.
+          </div>
+        </div>
+      </div>
+
+      <div class="rgpt-faq__item">
+        <button class="rgpt-faq__toggle" onclick="this.parentElement.classList.toggle('is-open')">
+          <span class="rgpt-faq__question">Do I get access to live Q&A sessions?</span>
+          <span class="rgpt-faq__icon">▼</span>
+        </button>
+        <div class="rgpt-faq__answer">
+          <div class="rgpt-faq__answer-text">
+            Yes. Depending on your plan, you may have access to live Q&A sessions where you can ask Matthew directly about the content. You'll also join a global community of 600+ pastors for peer learning and support.
+          </div>
+        </div>
+      </div>
+
+      <div class="rgpt-faq__item">
+        <button class="rgpt-faq__toggle" onclick="this.parentElement.classList.toggle('is-open')">
+          <span class="rgpt-faq__question">What if I'm not satisfied? Can I get a refund?</span>
+          <span class="rgpt-faq__icon">▼</span>
+        </button>
+        <div class="rgpt-faq__answer">
+          <div class="rgpt-faq__answer-text">
+            Absolutely. We offer a full 14-day money-back guarantee. No questions asked. If the courses don't live up to expectations, contact our support team and we'll process your refund immediately.
+          </div>
+        </div>
+      </div>
+
+      <div class="rgpt-faq__item">
+        <button class="rgpt-faq__toggle" onclick="this.parentElement.classList.toggle('is-open')">
+          <span class="rgpt-faq__question">How long do I keep access to the courses?</span>
+          <span class="rgpt-faq__icon">▼</span>
+        </button>
+        <div class="rgpt-faq__answer">
+          <div class="rgpt-faq__answer-text">
+            Lifetime. Once you purchase a course, it's yours forever. As we add new content, you'll get access to updates at no additional cost. This is a one-time investment that keeps paying dividends.
+          </div>
+        </div>
+      </div>
+
+      <div class="rgpt-faq__item">
+        <button class="rgpt-faq__toggle" onclick="this.parentElement.classList.toggle('is-open')">
+          <span class="rgpt-faq__question">Can I view on my phone or tablet?</span>
+          <span class="rgpt-faq__icon">▼</span>
+        </button>
+        <div class="rgpt-faq__answer">
+          <div class="rgpt-faq__answer-text">
+            Yes. All courses are optimized for mobile devices. Watch on your phone, tablet, or desktop—the experience is seamless on all platforms.
+          </div>
+        </div>
+      </div>
+
+      <div class="rgpt-faq__item">
+        <button class="rgpt-faq__toggle" onclick="this.parentElement.classList.toggle('is-open')">
+          <span class="rgpt-faq__question">What if I have more questions not answered here?</span>
+          <span class="rgpt-faq__icon">▼</span>
+        </button>
+        <div class="rgpt-faq__answer">
+          <div class="rgpt-faq__answer-text">
+            Contact our support team directly at support@theoeducation.com or use the chat on our site. We're here to help and typically respond within 24 hours.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rgpt-faq__cta">
+      <div class="rgpt-faq__cta-title">Still have questions?</div>
+      <p class="rgpt-faq__cta-text">Our support team is ready to help. Reach out anytime—we're here for you.</p>
+      <button class="rgpt-faq__cta-btn" onclick="window.location.href='#'">Contact Support</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Open first FAQ item by default
+      const firstItem = document.querySelector('.rgpt-faq__item');
+      if (firstItem) {
+        firstItem.classList.add('is-open');
+      }
+    });
+  </script>
+</section>

@@ -1,0 +1,370 @@
+<section class="rgpt-how-it-works">
+  <style>
+    .rgpt-how-it-works {
+      background: linear-gradient(to bottom, #FFFFFF 0%, #F5F0E8 100%);
+      padding: 60px 20px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .rgpt-how-it-works__container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .rgpt-how-it-works__header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .rgpt-how-it-works__label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #8B6D2E;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .rgpt-how-it-works__title {
+      font-size: clamp(28px, 4vw, 38px);
+      font-weight: 700;
+      color: #2D2A26;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    .rgpt-how-it-works__subtitle {
+      font-size: 16px;
+      color: #4A4540;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .rgpt-how-it-works__timeline {
+      position: relative;
+      padding: 40px 0;
+      margin-bottom: 40px;
+    }
+
+    .rgpt-how-it-works__timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #C4A23E, #E0DBD2);
+      transform: translateX(-50%);
+    }
+
+    .rgpt-how-it-works__step {
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .rgpt-how-it-works__step:nth-child(odd) {
+      padding-right: 52%;
+      text-align: right;
+    }
+
+    .rgpt-how-it-works__step:nth-child(even) {
+      padding-left: 52%;
+    }
+
+    .rgpt-how-it-works__dot {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      background: #C4A23E;
+      border: 4px solid #FFFFFF;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+
+    .rgpt-how-it-works__dot::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      background: rgba(196, 162, 62, 0.2);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .rgpt-how-it-works__content {
+      background: #FFFFFF;
+      border: 1px solid #E0DBD2;
+      border-radius: 12px;
+      padding: 24px;
+      transition: all 0.3s ease;
+    }
+
+    .rgpt-how-it-works__step:hover .rgpt-how-it-works__content {
+      border-color: #C4A23E;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .rgpt-how-it-works__step-number {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      background: #C4A23E;
+      color: white;
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .rgpt-how-it-works__step-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #2D2A26;
+      margin-bottom: 8px;
+    }
+
+    .rgpt-how-it-works__step-description {
+      font-size: 14px;
+      color: #4A4540;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .rgpt-how-it-works__step-benefit {
+      font-size: 13px;
+      color: #8B6D2E;
+      font-weight: 600;
+      padding-top: 8px;
+      border-top: 1px solid #E0DBD2;
+    }
+
+    .rgpt-how-it-works__features {
+      background: #F5F0E8;
+      border-radius: 12px;
+      padding: 40px 24px;
+      margin-bottom: 40px;
+    }
+
+    .rgpt-how-it-works__features-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #2D2A26;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .rgpt-how-it-works__feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+    }
+
+    .rgpt-how-it-works__feature-item {
+      text-align: center;
+    }
+
+    .rgpt-how-it-works__feature-icon {
+      width: 48px;
+      height: 48px;
+      background: #C4A23E;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      margin: 0 auto 12px;
+    }
+
+    .rgpt-how-it-works__feature-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #2D2A26;
+      margin-bottom: 4px;
+    }
+
+    .rgpt-how-it-works__feature-desc {
+      font-size: 12px;
+      color: #7A7570;
+    }
+
+    .rgpt-how-it-works__cta {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .rgpt-how-it-works__btn {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .rgpt-how-it-works__btn--primary {
+      background: #C4A23E;
+      color: #2D2A26;
+    }
+
+    .rgpt-how-it-works__btn--primary:hover {
+      background: #E0C158;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(196, 162, 62, 0.3);
+    }
+
+    .rgpt-how-it-works__btn--secondary {
+      background: transparent;
+      color: #C4A23E;
+      border: 2px solid #C4A23E;
+    }
+
+    .rgpt-how-it-works__btn--secondary:hover {
+      background: rgba(196, 162, 62, 0.1);
+      border-color: #8B6D2E;
+    }
+
+    @media (max-width: 768px) {
+      .rgpt-how-it-works {
+        padding: 40px 16px;
+      }
+
+      .rgpt-how-it-works__timeline::before {
+        left: 12px;
+      }
+
+      .rgpt-how-it-works__step,
+      .rgpt-how-it-works__step:nth-child(odd),
+      .rgpt-how-it-works__step:nth-child(even) {
+        padding-left: 50px;
+        padding-right: 0;
+        text-align: left;
+        margin-bottom: 30px;
+      }
+
+      .rgpt-how-it-works__dot {
+        left: 12px;
+      }
+
+      .rgpt-how-it-works__feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .rgpt-how-it-works__cta {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .rgpt-how-it-works__btn {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <div class="rgpt-how-it-works__container">
+    <div class="rgpt-how-it-works__header">
+      <span class="rgpt-how-it-works__label">The TheoEducation Journey</span>
+      <h2 class="rgpt-how-it-works__title">How It Works</h2>
+      <p class="rgpt-how-it-works__subtitle">Four simple steps to deepen your biblical scholarship and transform your leadership</p>
+    </div>
+
+    <div class="rgpt-how-it-works__timeline">
+      <div class="rgpt-how-it-works__step">
+        <div class="rgpt-how-it-works__dot"></div>
+        <div class="rgpt-how-it-works__content">
+          <div class="rgpt-how-it-works__step-number">1</div>
+          <div class="rgpt-how-it-works__step-title">Choose Your Path</div>
+          <div class="rgpt-how-it-works__step-description">Pick from 22+ courses designed for pastors at every level—from biblical foundations to advanced exegesis.</div>
+          <div class="rgpt-how-it-works__step-benefit">✓ Self-paced learning</div>
+        </div>
+      </div>
+
+      <div class="rgpt-how-it-works__step">
+        <div class="rgpt-how-it-works__dot"></div>
+        <div class="rgpt-how-it-works__content">
+          <div class="rgpt-how-it-works__step-number">2</div>
+          <div class="rgpt-how-it-works__step-title">Learn at Your Pace</div>
+          <div class="rgpt-how-it-works__step-description">Access 150+ hours of seminary-level video lectures, downloadable resources, and lifetime access to your courses.</div>
+          <div class="rgpt-how-it-works__step-benefit">✓ Lifetime access + offline downloads</div>
+        </div>
+      </div>
+
+      <div class="rgpt-how-it-works__step">
+        <div class="rgpt-how-it-works__dot"></div>
+        <div class="rgpt-how-it-works__content">
+          <div class="rgpt-how-it-works__step-number">3</div>
+          <div class="rgpt-how-it-works__step-title">Engage & Apply</div>
+          <div class="rgpt-how-it-works__step-description">Join live Q&A sessions with Matthew, connect with 600+ pastors worldwide, and apply what you learn to your ministry.</div>
+          <div class="rgpt-how-it-works__step-benefit">✓ Global community of scholars</div>
+        </div>
+      </div>
+
+      <div class="rgpt-how-it-works__step">
+        <div class="rgpt-how-it-works__dot"></div>
+        <div class="rgpt-how-it-works__content">
+          <div class="rgpt-how-it-works__step-number">4</div>
+          <div class="rgpt-how-it-works__step-title">Earn & Grow</div>
+          <div class="rgpt-how-it-works__step-description">Earn NAD continuing education credits, get completion certificates, and deepen your knowledge for a lifetime.</div>
+          <div class="rgpt-how-it-works__step-benefit">✓ NAD approved credentials</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rgpt-how-it-works__features">
+      <div class="rgpt-how-it-works__features-title">What You Get</div>
+      <div class="rgpt-how-it-works__feature-grid">
+        <div class="rgpt-how-it-works__feature-item">
+          <div class="rgpt-how-it-works__feature-icon">📚</div>
+          <div class="rgpt-how-it-works__feature-name">Complete Courses</div>
+          <div class="rgpt-how-it-works__feature-desc">22+ courses with curriculum</div>
+        </div>
+        <div class="rgpt-how-it-works__feature-item">
+          <div class="rgpt-how-it-works__feature-icon">⏱️</div>
+          <div class="rgpt-how-it-works__feature-name">150+ Hours</div>
+          <div class="rgpt-how-it-works__feature-desc">Of video content</div>
+        </div>
+        <div class="rgpt-how-it-works__feature-item">
+          <div class="rgpt-how-it-works__feature-icon">🎓</div>
+          <div class="rgpt-how-it-works__feature-name">NAD Credits</div>
+          <div class="rgpt-how-it-works__feature-desc">CEU recognition</div>
+        </div>
+        <div class="rgpt-how-it-works__feature-item">
+          <div class="rgpt-how-it-works__feature-icon">🌍</div>
+          <div class="rgpt-how-it-works__feature-name">Global Community</div>
+          <div class="rgpt-how-it-works__feature-desc">600+ pastors worldwide</div>
+        </div>
+        <div class="rgpt-how-it-works__feature-item">
+          <div class="rgpt-how-it-works__feature-icon">💬</div>
+          <div class="rgpt-how-it-works__feature-name">Live Q&A</div>
+          <div class="rgpt-how-it-works__feature-desc">Direct interaction</div>
+        </div>
+        <div class="rgpt-how-it-works__feature-item">
+          <div class="rgpt-how-it-works__feature-icon">♾️</div>
+          <div class="rgpt-how-it-works__feature-name">Lifetime Access</div>
+          <div class="rgpt-how-it-works__feature-desc">Forever updates</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rgpt-how-it-works__cta">
+      <a href="#" class="rgpt-how-it-works__btn rgpt-how-it-works__btn--primary">Start Learning Today</a>
+      <a href="#" class="rgpt-how-it-works__btn rgpt-how-it-works__btn--secondary">Browse Courses</a>
+    </div>
+  </div>
+</section>

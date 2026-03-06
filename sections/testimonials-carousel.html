@@ -1,0 +1,318 @@
+<section class="rgpt-testimonials-carousel">
+  <style>
+    .rgpt-testimonials-carousel {
+      background: #FFFFFF;
+      padding: 60px 20px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .rgpt-testimonials-carousel__container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .rgpt-testimonials-carousel__header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .rgpt-testimonials-carousel__label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #8B6D2E;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .rgpt-testimonials-carousel__title {
+      font-size: clamp(28px, 4vw, 38px);
+      font-weight: 700;
+      color: #2D2A26;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    .rgpt-testimonials-carousel__subtitle {
+      font-size: 16px;
+      color: #4A4540;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .rgpt-testimonials-carousel__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .rgpt-testimonials-carousel__card {
+      background: #F5F0E8;
+      border: 1px solid #E0DBD2;
+      border-radius: 12px;
+      padding: 28px 24px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .rgpt-testimonials-carousel__card:hover {
+      background: #FFF;
+      border-color: #C4A23E;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      transform: translateY(-4px);
+    }
+
+    .rgpt-testimonials-carousel__quote-mark {
+      font-size: 48px;
+      color: #C4A23E;
+      opacity: 0.3;
+      margin-bottom: 12px;
+    }
+
+    .rgpt-testimonials-carousel__text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #4A4540;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .rgpt-testimonials-carousel__author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid #E0DBD2;
+    }
+
+    .rgpt-testimonials-carousel__avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #C4A23E, #8B6D2E);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .rgpt-testimonials-carousel__author-info {
+      flex: 1;
+    }
+
+    .rgpt-testimonials-carousel__name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #2D2A26;
+      margin-bottom: 2px;
+    }
+
+    .rgpt-testimonials-carousel__role {
+      font-size: 12px;
+      color: #7A7570;
+      font-weight: 500;
+    }
+
+    .rgpt-testimonials-carousel__rating {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 12px;
+    }
+
+    .rgpt-testimonials-carousel__star {
+      color: #C4A23E;
+      font-size: 14px;
+    }
+
+    .rgpt-testimonials-carousel__stats {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: #F5F0E8;
+      border-radius: 12px;
+      padding: 24px 16px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .rgpt-testimonials-carousel__stat-item {
+      flex: 1;
+    }
+
+    .rgpt-testimonials-carousel__stat-number {
+      font-size: clamp(24px, 5vw, 32px);
+      font-weight: 700;
+      color: #C4A23E;
+      margin-bottom: 4px;
+    }
+
+    .rgpt-testimonials-carousel__stat-label {
+      font-size: 12px;
+      color: #7A7570;
+      font-weight: 500;
+      text-transform: capitalize;
+    }
+
+    .rgpt-testimonials-carousel__cta {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .rgpt-testimonials-carousel__btn {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .rgpt-testimonials-carousel__btn--primary {
+      background: #C4A23E;
+      color: #2D2A26;
+    }
+
+    .rgpt-testimonials-carousel__btn--primary:hover {
+      background: #E0C158;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(196, 162, 62, 0.3);
+    }
+
+    .rgpt-testimonials-carousel__btn--secondary {
+      background: transparent;
+      color: #C4A23E;
+      border: 2px solid #C4A23E;
+    }
+
+    .rgpt-testimonials-carousel__btn--secondary:hover {
+      background: rgba(196, 162, 62, 0.1);
+      border-color: #8B6D2E;
+    }
+
+    @media (max-width: 768px) {
+      .rgpt-testimonials-carousel {
+        padding: 40px 16px;
+      }
+
+      .rgpt-testimonials-carousel__grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .rgpt-testimonials-carousel__stats {
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .rgpt-testimonials-carousel__stat-item {
+        flex: 0 0 calc(50% - 8px);
+      }
+
+      .rgpt-testimonials-carousel__cta {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .rgpt-testimonials-carousel__btn {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <div class="rgpt-testimonials-carousel__container">
+    <div class="rgpt-testimonials-carousel__header">
+      <span class="rgpt-testimonials-carousel__label">Trusted by Leaders</span>
+      <h2 class="rgpt-testimonials-carousel__title">Pastors Share Their Stories</h2>
+      <p class="rgpt-testimonials-carousel__subtitle">Real results from real educators who transformed their teaching approach</p>
+    </div>
+
+    <div class="rgpt-testimonials-carousel__grid">
+      <div class="rgpt-testimonials-carousel__card">
+        <div class="rgpt-testimonials-carousel__rating">
+          <span class="rgpt-testimonials-carousel__star">★</span>
+          <span class="rgpt-testimonials-carousel__star">★</span>
+          <span class="rgpt-testimonials-carousel__star">★</span>
+          <span class="rgpt-testimonials-carousel__star">★</span>
+          <span class="rgpt-testimonials-carousel__star">★</span>
+        </div>
+        <div class="rgpt-testimonials-carousel__quote-mark">"</div>
+        <p class="rgpt-testimonials-carousel__text">The depth of scholarship combined with accessible delivery transformed how I approach biblical leadership. My congregation is noticing the difference.</p>
+        <div class="rgpt-testimonials-carousel__author">
+          <div class="rgpt-testimonials-carousel__avatar">DC</div>
+          <div class="rgpt-testimonials-carousel__author-info">
+            <div class="rgpt-testimonials-carousel__name">David Chen</div>
+            <div class="rgpt-testimonials-carousel__role">Senior Pastor, Seattle WA</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rgpt-testimonials-carousel__card">
+        <div class="rgpt-testimonials-carousel__rating">
+          <span class="rgpt-testimonials-carousel__star">★</span>
+          <span class="rgpt-testimonials-carousel__star">★</span>
+          <span class="rgpt-testimonials-carousel__star">★</span>
+          <span class="rgpt-testimonials-carousel__star">★</span>
+          <span class="rgpt-testimonials-carousel__star">★</span>
+        </div>
+        <div class="rgpt-testimonials-carousel__quote-mark">"</div>
+        <p class="rgpt-testimonials-carousel__text">I was intellectually isolated in my role. This community reconnected me with scholarly rigor and showed me I wasn't alone in my questions.</p>
+        <div class="rgpt-testimonials-carousel__author">
+          <div class="rgpt-testimonials-carousel__avatar">SM</div>
+          <div class="rgpt-testimonials-carousel__author-info">
+            <div class="rgpt-testimonials-carousel__name">Sarah Martinez</div>
+            <div class="rgpt-testimonials-carousel__role">Bible Teacher, Madrid Spain</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rgpt-testimonials-carousel__card">
+        <div class="rgpt-testimonials-carousel__rating">
+          <span class="rgpt-testimonials-carousel__star">★</span>
+          <span class="rgpt-testimonials-carousel__star">★</span>
+          <span class="rgpt-testimonials-carousel__star">★</span>
+          <span class="rgpt-testimonials-carousel__star">★</span>
+          <span class="rgpt-testimonials-carousel__star">★</span>
+        </div>
+        <div class="rgpt-testimonials-carousel__quote-mark">"</div>
+        <p class="rgpt-testimonials-carousel__text">The NAD credits are a bonus. The real value is the intellectual foundation. I'm answering questions I never thought I could tackle before.</p>
+        <div class="rgpt-testimonials-carousel__author">
+          <div class="rgpt-testimonials-carousel__avatar">JO</div>
+          <div class="rgpt-testimonials-carousel__author-info">
+            <div class="rgpt-testimonials-carousel__name">James Okonkwo</div>
+            <div class="rgpt-testimonials-carousel__role">Church Planter, Lagos Nigeria</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rgpt-testimonials-carousel__stats">
+      <div class="rgpt-testimonials-carousel__stat-item">
+        <div class="rgpt-testimonials-carousel__stat-number">4.9★</div>
+        <div class="rgpt-testimonials-carousel__stat-label">Average Rating</div>
+      </div>
+      <div class="rgpt-testimonials-carousel__stat-item">
+        <div class="rgpt-testimonials-carousel__stat-number">93%</div>
+        <div class="rgpt-testimonials-carousel__stat-label">Recommend</div>
+      </div>
+      <div class="rgpt-testimonials-carousel__stat-item">
+        <div class="rgpt-testimonials-carousel__stat-number">12+</div>
+        <div class="rgpt-testimonials-carousel__stat-label">Countries</div>
+      </div>
+    </div>
+
+    <div class="rgpt-testimonials-carousel__cta">
+      <a href="#" class="rgpt-testimonials-carousel__btn rgpt-testimonials-carousel__btn--primary">Join the Community</a>
+      <a href="#" class="rgpt-testimonials-carousel__btn rgpt-testimonials-carousel__btn--secondary">View All Reviews</a>
+    </div>
+  </div>
+</section>
