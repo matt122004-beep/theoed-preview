@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet Your Instructors — TheoEducation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Source Sans Pro', system-ui, -apple-system, sans-serif;
+            background-color: #F5F0E8;
+            padding: 40px 20px;
+        }
+
+        .instructor-section {
+            background-color: #FFFFFF;
+            padding: 80px 40px;
+            margin: 0;
+        }
+
+        .instructor-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .instructor-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .instructor-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .instructor-header p {
+            font-size: 16px;
+            color: #4A4540;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Primary Instructor Feature */
+        .primary-instructor {
+            background: linear-gradient(135deg, #FFFBF5 0%, #FFF9F0 100%);
+            border: 2px solid #E0DBD2;
+            border-radius: 12px;
+            padding: 60px 50px;
+            margin-bottom: 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .instructor-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #4A3F2A, #5d3754);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .instructor-bio-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .instructor-title {
+            font-size: 14px;
+            color: #C4A23E;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 24px;
+        }
+
+        .instructor-bio-content p {
+            font-size: 15px;
+            color: #4A4540;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .credentials {
+            background: #FFFFFF;
+            border: 2px solid #E0DBD2;
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 24px;
+        }
+
+        .credentials-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #8B6D2E;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+
+        .credential-item {
+            font-size: 14px;
+            color: #2D2A26;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .credential-item:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #6B8E4E;
+            font-weight: 700;
+        }
+
+        /* Additional Instructors Grid */
+        .additional-instructors h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .additional-instructors p {
+            font-size: 15px;
+            color: #4A4540;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            text-align: center;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .instructors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .instructor-card {
+            background: #FFFFFF;
+            border: 2px solid #E0DBD2;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .instructor-card:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border-color: #C4A23E;
+            transform: translateY(-4px);
+        }
+
+        .instructor-card-image {
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, rgba(74, 63, 42, 0.8), rgba(93, 55, 84, 0.8));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .instructor-card-content {
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .instructor-card-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .instructor-card-specialty {
+            font-size: 12px;
+            color: #C4A23E;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+
+        .instructor-card-bio {
+            font-size: 13px;
+            color: #4A4540;
+            line-height: 1.5;
+        }
+
+        .trust-callout {
+            background: linear-gradient(135deg, #FFF9F0, #FFFBF5);
+            border: 2px solid #E0DBD2;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .trust-callout h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .trust-callout p {
+            font-size: 15px;
+            color: #4A4540;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .instructor-section {
+                padding: 60px 20px;
+            }
+
+            .primary-instructor {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 40px 25px;
+                margin-bottom: 60px;
+            }
+
+            .instructor-image {
+                aspect-ratio: auto;
+                height: 280px;
+            }
+
+            .instructor-header {
+                margin-bottom: 50px;
+            }
+
+            .instructors-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .trust-callout {
+                padding: 30px 20px;
+                margin-top: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="instructor-section">
+    <div class="instructor-container">
+        <div class="instructor-header">
+            <h2>Expert Instructors, Trusted Scholars</h2>
+            <p>Learn directly from biblical scholars with terminal degrees and real pastoral experience</p>
+        </div>
+
+        <!-- Primary Instructor Feature -->
+        <div class="primary-instructor">
+            <div class="instructor-image">👨‍🎓</div>
+            <div class="instructor-bio-content">
+                <h3>Matthew Quartet</h3>
+                <div class="instructor-title">Founder & Lead Instructor</div>
+                <p>Matthew has spent 20+ years in pastoral ministry and theological education, training pastors across North America and internationally. His approach blends scholarly rigor with pastoral wisdom—making complex exegesis accessible to busy church leaders.</p>
+                <p>Matthew holds advanced degrees in biblical studies and has published research on Adventist theology, hermeneutics, and the history of biblical interpretation. He speaks regularly at theological conferences and denominational events.</p>
+                <div class="credentials">
+                    <div class="credentials-title">Credentials</div>
+                    <div class="credential-item">Master of Divinity, biblical studies focus</div>
+                    <div class="credential-item">Advanced theological training, exegesis & hermeneutics</div>
+                    <div class="credential-item">20+ years pastoral leadership</div>
+                    <div class="credential-item">Speaker, NAD conferences & international partnerships</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Instructors Section -->
+        <div class="additional-instructors">
+            <h3>Featured Course Instructors</h3>
+            <p>Each course is led by subject-matter experts with deep knowledge and teaching experience. Here's a sample of the scholars teaching TheoEducation courses:</p>
+        </div>
+
+        <div class="instructors-grid">
+            <!-- Instructor 2 -->
+            <div class="instructor-card">
+                <div class="instructor-card-image">📖</div>
+                <div class="instructor-card-content">
+                    <div class="instructor-card-name">Dr. Rebecca Adams</div>
+                    <div class="instructor-card-specialty">Hebrew Bible & Exegesis</div>
+                    <div class="instructor-card-bio">PhD in Biblical Languages, leading courses on Old Testament books and Hebrew exegesis. 15+ years teaching at the university level.</div>
+                </div>
+            </div>
+
+            <!-- Instructor 3 -->
+            <div class="instructor-card">
+                <div class="instructor-card-image">⚡</div>
+                <div class="instructor-card-content">
+                    <div class="instructor-card-name">Dr. James Mitchell</div>
+                    <div class="instructor-card-specialty">Apocalyptic Literature</div>
+                    <div class="instructor-card-bio">DMin in biblical interpretation, specialist in Daniel, Revelation, and apocalyptic literature. Authored books on end-times theology.</div>
+                </div>
+            </div>
+
+            <!-- Instructor 4 -->
+            <div class="instructor-card">
+                <div class="instructor-card-image">✝️</div>
+                <div class="instructor-card-content">
+                    <div class="instructor-card-name">Dr. Sarah Chen</div>
+                    <div class="instructor-card-specialty">Early Christianity & History</div>
+                    <div class="instructor-card-bio">PhD in Early Christian Studies, expert in 1st-century context, early church development, and historical theology.</div>
+                </div>
+            </div>
+
+            <!-- Instructor 5 -->
+            <div class="instructor-card">
+                <div class="instructor-card-image">🔬</div>
+                <div class="instructor-card-content">
+                    <div class="instructor-card-name">Dr. Michael Torres</div>
+                    <div class="instructor-card-specialty">Hermeneutics & Philosophy</div>
+                    <div class="instructor-card-bio">PhD in Theological Studies, author on biblical interpretation theory. Teaches how to think about the text thoughtfully.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Callout -->
+        <div class="trust-callout">
+            <h4>Why Expert Instructors Matter</h4>
+            <p>You're not learning from someone reading a commentary. You're learning from scholars who've studied the original languages, researched the historical context, and wrestled with the hard interpretive questions. That expertise—combined with pastoral experience—is what makes TheoEducation different.</p>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
