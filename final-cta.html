@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ready to Get Started — TheoEducation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Source Sans Pro', system-ui, -apple-system, sans-serif;
+            background-color: #F5F0E8;
+            padding: 40px 20px;
+        }
+
+        .final-cta-section {
+            background: linear-gradient(135deg, #4A3F2A, #5d3754);
+            color: #FFFFFF;
+            padding: 100px 40px;
+            margin: 0;
+        }
+
+        .final-cta-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .final-cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .final-cta-section p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+            opacity: 0.95;
+        }
+
+        .subtext {
+            font-size: 16px;
+            opacity: 0.85;
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .btn-primary {
+            background: #C4A23E;
+            color: #2D2A26;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #FFFFFF;
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #FFFFFF;
+            padding: 18px 50px;
+            border: 2px solid #FFFFFF;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: #FFFFFF;
+            color: #4A3F2A;
+        }
+
+        .guarantee-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        .shield-icon {
+            font-size: 24px;
+        }
+
+        .vstack {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .final-cta-section {
+                padding: 70px 25px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                padding: 16px 40px;
+            }
+
+            .final-cta-section h2 {
+                margin-bottom: 16px;
+            }
+
+            .final-cta-section p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="final-cta-section">
+    <div class="final-cta-container">
+        <h2>Ready to Transform Your Ministry?</h2>
+        <p>Join 600+ pastors and theologians who've reclaimed their time, deepened their teaching, and answered their congregation's hardest questions.</p>
+        <p class="subtext">Start today with a free 7-day trial. No credit card required.</p>
+
+        <div class="cta-buttons">
+            <button class="btn-primary">Start Free Trial</button>
+            <button class="btn-secondary">View Plans</button>
+        </div>
+
+        <div class="guarantee-badge">
+            <span class="shield-icon">🛡️</span>
+            <div class="vstack">
+                <strong>14-Day Money-Back Guarantee</strong>
+                <span style="font-size: 13px;">Not satisfied? We'll refund your first month—no questions asked.</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
