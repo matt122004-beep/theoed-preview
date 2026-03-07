@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexible Plans for Every Budget — TheoEducation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Source Sans Pro', system-ui, -apple-system, sans-serif;
+            background-color: #F5F0E8;
+            padding: 0;
+        }
+
+        .pricing-hero {
+            background: linear-gradient(135deg, #4A3F2A, #5d3754);
+            color: #FFFFFF;
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .pricing-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .pricing-hero p {
+            font-size: 17px;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        /* Plans Section */
+        .pricing-section {
+            background-color: #FFFFFF;
+            padding: 80px 40px;
+        }
+
+        .pricing-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .plan-card {
+            background: #FFFFFF;
+            border: 2px solid #E0DBD2;
+            border-radius: 12px;
+            padding: 50px 40px;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .plan-card:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border-color: #C4A23E;
+            transform: translateY(-4px);
+        }
+
+        .plan-card.featured {
+            background: linear-gradient(135deg, #FFF9F0 0%, #FFFBF5 100%);
+            border-color: #C4A23E;
+            box-shadow: 0 12px 40px rgba(196, 162, 62, 0.12);
+            transform: scale(1.05);
+        }
+
+        .plan-card.featured:hover {
+            box-shadow: 0 16px 50px rgba(196, 162, 62, 0.16);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #C4A23E, #8B6D2E);
+            color: #FFFFFF;
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 12px rgba(196, 162, 62, 0.3);
+        }
+
+        .plan-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .plan-desc {
+            font-size: 13px;
+            color: #7A7570;
+            margin-bottom: 24px;
+        }
+
+        .plan-price {
+            margin: 32px 0;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #E0DBD2;
+        }
+
+        .price-amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #C4A23E;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .price-billing {
+            font-size: 13px;
+            color: #7A7570;
+        }
+
+        .features-list {
+            margin-bottom: 32px;
+            flex-grow: 1;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 14px;
+            font-size: 14px;
+            color: #4A4540;
+            line-height: 1.5;
+        }
+
+        .feature-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #6B8E4E;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .feature.unavailable {
+            opacity: 0.5;
+        }
+
+        .feature.unavailable .feature-icon {
+            background: #D0D0D0;
+            color: #999;
+        }
+
+        .plan-cta {
+            display: block;
+            background: #C4A23E;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 14px 24px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-bottom: 12px;
+        }
+
+        .plan-cta:hover {
+            background: #8B6D2E;
+            transform: scale(1.02);
+        }
+
+        .plan-cta.secondary {
+            background: transparent;
+            color: #C4A23E;
+            border: 2px solid #C4A23E;
+        }
+
+        .plan-cta.secondary:hover {
+            background: #C4A23E;
+            color: #FFFFFF;
+        }
+
+        /* Comparison Table */
+        .comparison-section {
+            background: linear-gradient(135deg, #F5F0E8, #FFFBF5);
+            padding: 80px 40px;
+        }
+
+        .comparison-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .comparison-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .comparison-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #FFFFFF;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 18px 20px;
+            text-align: left;
+            border-bottom: 1px solid #E0DBD2;
+            font-size: 14px;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #F5F0E8, #FFFBF5);
+            font-weight: 700;
+            color: #2D2A26;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 12px;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: #2D2A26;
+            width: 35%;
+        }
+
+        .comparison-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: #6B8E4E;
+            font-weight: 700;
+        }
+
+        /* Final CTA */
+        .final-cta-section {
+            background: linear-gradient(135deg, #4A3F2A, #5d3754);
+            color: #FFFFFF;
+            padding: 70px 40px;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .final-cta-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .final-cta-section p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #C4A23E;
+            color: #2D2A26;
+            padding: 14px 40px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #FFFFFF;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .pricing-hero {
+                padding: 60px 25px;
+            }
+
+            .pricing-section {
+                padding: 60px 25px;
+            }
+
+            .plans-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .plan-card.featured {
+                transform: scale(1);
+            }
+
+            .comparison-section {
+                padding: 60px 25px;
+                overflow-x: auto;
+            }
+
+            .comparison-table {
+                font-size: 12px;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 12px 10px;
+            }
+
+            .final-cta-section {
+                padding: 50px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="pricing-hero">
+    <div class="hero-container">
+        <h1>Transparent Pricing, Zero Surprises</h1>
+        <p>Choose the plan that fits your learning style. All plans include full access to our thriving pastor community and 14-day money-back guarantee.</p>
+    </div>
+</section>
+
+<!-- Plans -->
+<section class="pricing-section">
+    <div class="pricing-container">
+        <div class="plans-grid">
+            <!-- Plan 1: Recordings Only -->
+            <div class="plan-card">
+                <div class="plan-name">Recordings Access</div>
+                <div class="plan-desc">Perfect for self-paced learning</div>
+
+                <div class="plan-price">
+                    <div class="price-amount">$6</div>
+                    <div class="price-billing">per week or ~$250/year</div>
+                </div>
+
+                <div class="features-list">
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <span><strong>150+ hours</strong> of recorded content</span>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <span><strong>84+ courses</strong> across all topics</span>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <span><strong>10-year archive</strong> access</span>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <span>Download for offline viewing</span>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <span>Community forum access</span>
+                    </div>
+                    <div class="feature unavailable">
+                        <div class="feature-icon">×</div>
+                        <span>Live Q&A sessions</span>
+                    </div>
+                </div>
+
+                <button class="plan-cta">Start Free Trial</button>
+            </div>
+
+            <!-- Plan 2: Live + Recordings (Featured) -->
+            <div class="plan-card featured">
+                <div class="popular-badge">Most Popular</div>
+                <div class="plan-name">Live + Recordings</div>
+                <div class="plan-desc">Recommended for serious students</div>
+
+                <div class="plan-price">
+                    <div class="price-amount">$8</div>
+                    <div class="price-billing">per week or ~$416/year</div>
+                </div>
+
+                <div class="features-list">
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <span><strong>Everything in Recordings</strong> plan, plus:</span>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <span><strong>Live classes</strong> twice a week</span>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <span><strong>Live Q&A sessions</strong> with instructors</span>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <span><strong>Completion certificates</strong> (NAD approved)</span>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <span><strong>Priority support</strong></span>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+                        <span><strong>Exclusive mastermind group</strong></span>
+                    </div>
+                </div>
+
+                <button class="plan-cta">Start Free Trial</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Comparison Table -->
+<section class="comparison-section">
+    <div class="comparison-container">
+        <div class="comparison-title">
+            <h2>Feature Comparison</h2>
+        </div>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Recordings</th>
+                    <th>Live + Recordings</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>150+ hours recorded lessons</td>
+                    <td class="check-icon">✓</td>
+                    <td class="check-icon">✓</td>
+                </tr>
+                <tr>
+                    <td>84+ full courses</td>
+                    <td class="check-icon">✓</td>
+                    <td class="check-icon">✓</td>
+                </tr>
+                <tr>
+                    <td>Download for offline</td>
+                    <td class="check-icon">✓</td>
+                    <td class="check-icon">✓</td>
+                </tr>
+                <tr>
+                    <td>Community forum</td>
+                    <td class="check-icon">✓</td>
+                    <td class="check-icon">✓</td>
+                </tr>
+                <tr>
+                    <td>Live classes (2/week)</td>
+                    <td>—</td>
+                    <td class="check-icon">✓</td>
+                </tr>
+                <tr>
+                    <td>Live Q&A with instructors</td>
+                    <td>—</td>
+                    <td class="check-icon">✓</td>
+                </tr>
+                <tr>
+                    <td>Completion certificates</td>
+                    <td>—</td>
+                    <td class="check-icon">✓</td>
+                </tr>
+                <tr>
+                    <td>NAD CEU credits</td>
+                    <td class="check-icon">✓</td>
+                    <td class="check-icon">✓</td>
+                </tr>
+                <tr>
+                    <td>Priority email support</td>
+                    <td>—</td>
+                    <td class="check-icon">✓</td>
+                </tr>
+                <tr>
+                    <td>Mastermind group access</td>
+                    <td>—</td>
+                    <td class="check-icon">✓</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta-section">
+    <div class="cta-container">
+        <h3>Ready to Deepen Your Teaching?</h3>
+        <p>Both plans come with a 14-day money-back guarantee. Try risk-free and see the difference quality theological education makes.</p>
+        <button class="cta-button">View Your Plan →</button>
+    </div>
+</section>
+
+</body>
+</html>
