@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About TheoEducation — Our Mission & Story</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Source Sans Pro', system-ui, -apple-system, sans-serif;
+            background-color: #F5F0E8;
+            padding: 0;
+        }
+
+        /* Hero */
+        .about-hero {
+            background: linear-gradient(135deg, #4A3F2A, #5d3754);
+            color: #FFFFFF;
+            padding: 100px 40px;
+            text-align: center;
+        }
+
+        .about-hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.4rem, 6vw, 3.8rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .about-hero p {
+            font-size: 18px;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        /* Story Section */
+        .story-section {
+            background-color: #FFFFFF;
+            padding: 80px 40px;
+        }
+
+        .story-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .story-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #4A3F2A, #5d3754);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+        }
+
+        .story-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .story-content p {
+            font-size: 15px;
+            color: #4A4540;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        /* Mission Section */
+        .mission-section {
+            background: linear-gradient(135deg, #F5F0E8, #FFFBF5);
+            padding: 80px 40px;
+        }
+
+        .mission-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .mission-container h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .mission-statement {
+            font-size: 18px;
+            color: #4A4540;
+            line-height: 1.8;
+            margin-bottom: 60px;
+            font-style: italic;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .value-card {
+            background: #FFFFFF;
+            border: 2px solid #E0DBD2;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .value-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .value-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .value-card p {
+            font-size: 14px;
+            color: #4A4540;
+            line-height: 1.6;
+        }
+
+        /* Impact Section */
+        .impact-section {
+            background-color: #FFFFFF;
+            padding: 80px 40px;
+        }
+
+        .impact-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .impact-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .impact-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .impact-stat {
+            background: linear-gradient(135deg, #FFF9F0, #FFFBF5);
+            border: 2px solid #E0DBD2;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .impact-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            font-weight: 700;
+            color: #C4A23E;
+            margin-bottom: 8px;
+        }
+
+        .impact-label {
+            font-size: 14px;
+            color: #4A4540;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .about-cta {
+            background: linear-gradient(135deg, #4A3F2A, #5d3754);
+            color: #FFFFFF;
+            padding: 70px 40px;
+            text-align: center;
+        }
+
+        .about-cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-cta h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .about-cta p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #C4A23E;
+            color: #2D2A26;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #FFFFFF;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .about-hero {
+                padding: 70px 25px;
+            }
+
+            .story-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .story-image {
+                aspect-ratio: auto;
+                height: 300px;
+            }
+
+            .mission-section,
+            .impact-section,
+            .about-cta {
+                padding: 60px 25px;
+            }
+
+            .story-content h2,
+            .mission-container h2,
+            .impact-header h2,
+            .about-cta h3 {
+                font-size: 24px;
+            }
+
+            .mission-statement {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="about-hero">
+    <div class="about-hero-container">
+        <h1>About TheoEducation</h1>
+        <p>Equipping pastors and theologians with the tools, knowledge, and community to teach Scripture with confidence and depth.</p>
+    </div>
+</section>
+
+<!-- Story -->
+<section class="story-section">
+    <div class="story-container">
+        <div class="story-image">📚</div>
+        <div class="story-content">
+            <h2>Our Story</h2>
+            <p>TheoEducation was born from a simple observation: pastors are brilliant, but isolated. A pastor in rural Montana faces the same exegetical challenges as one in Seattle, but lacks access to the same resources—peer networks, scholars, theological dialogue.</p>
+            <p>We created TheoEducation to solve that. By connecting pastors with expert biblical scholars and a learning community, we're democratizing access to seminary-level theological education.</p>
+            <p>Today, 600+ pastors across North America and internationally use TheoEducation to deepen their teaching, save hours on sermon prep, and answer their congregation's toughest questions with scholarly confidence.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Mission & Values -->
+<section class="mission-section">
+    <div class="mission-container">
+        <h2>Our Mission & Values</h2>
+        <p class="mission-statement">
+            "To empower pastors and theologians with accessible, scholarly biblical education that strengthens teaching, deepens faith, and builds stronger churches."
+        </p>
+
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">🎓</div>
+                <h3>Scholarly Rigor</h3>
+                <p>Every course is taught by credentialed scholars. No shortcuts. No compromises on academic integrity.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">♿</div>
+                <h3>Radical Accessibility</h3>
+                <p>Seminary-level content should be affordable and available to pastors in rural churches, not just urban seminaries.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h3>Community</h3>
+                <p>Learning shouldn't be lonely. We foster peer connection and theological dialogue among our students.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">📖</div>
+                <h3>Practical Wisdom</h3>
+                <p>Education without application is incomplete. Every course includes practical tools for preaching and teaching.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Impact -->
+<section class="impact-section">
+    <div class="impact-container">
+        <div class="impact-header">
+            <h2>Our Impact</h2>
+        </div>
+
+        <div class="impact-stats">
+            <div class="impact-stat">
+                <div class="impact-number">600+</div>
+                <div class="impact-label">Pastors & theologians learning with us</div>
+            </div>
+            <div class="impact-stat">
+                <div class="impact-number">84+</div>
+                <div class="impact-label">Courses covering all major biblical topics</div>
+            </div>
+            <div class="impact-stat">
+                <div class="impact-number">150+</div>
+                <div class="impact-label">Hours of expert-led content</div>
+            </div>
+            <div class="impact-stat">
+                <div class="impact-number">12</div>
+                <div class="impact-label">Nations represented in our learning community</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section class="about-cta">
+    <div class="about-cta-container">
+        <h3>Ready to Join the Community?</h3>
+        <p>Start your free trial today. No credit card required. Experience why 600+ pastors trust TheoEducation for their theological development.</p>
+        <button class="cta-button">Start Free Trial</button>
+    </div>
+</section>
+
+</body>
+</html>
