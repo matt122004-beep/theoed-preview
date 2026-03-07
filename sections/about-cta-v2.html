@@ -1,0 +1,97 @@
+<section class="about-cta-v2">
+  <style>
+    .about-cta-v2 {
+      background: #5d3754;
+      padding: 120px 60px;
+      text-align: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .about-cta-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .about-cta-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .about-cta-subtitle {
+      font-size: 18px;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .about-cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .about-cta-btn {
+      display: inline-block;
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .about-cta-btn-primary {
+      background: #C4A23E;
+      color: #2D2A26;
+    }
+
+    .about-cta-btn-primary:hover {
+      background: #d4b24e;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(196,162,62,0.35);
+    }
+
+    .about-cta-btn-secondary {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+
+    .about-cta-btn-secondary:hover {
+      border-color: #fff;
+      background: rgba(255,255,255,0.05);
+    }
+
+    @media (max-width: 768px) {
+      .about-cta-v2 {
+        padding: 80px 20px;
+      }
+
+      .about-cta-buttons {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .about-cta-btn {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <div class="about-cta-container">
+    <h2 class="about-cta-title">Join the Conversation</h2>
+    <p class="about-cta-subtitle">Whether you're a pastor seeking deeper scholarship, a leader wanting to strengthen your team's biblical foundation, or someone exploring theological questions—there's a place for you at TheoEducation.</p>
+
+    <div class="about-cta-buttons">
+      <a href="#" class="about-cta-btn about-cta-btn-primary">Browse All Courses</a>
+      <a href="#" class="about-cta-btn about-cta-btn-secondary">Schedule a Consultation</a>
+    </div>
+  </div>
+</section>
