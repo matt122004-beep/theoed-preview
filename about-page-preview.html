@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TheoEd — About Page Preview (Mar 6)</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f1e3; }
+
+    .preview-header {
+      background: #3D2B1A;
+      color: #fff;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 2px solid #C4A23E;
+    }
+
+    .preview-header h1 { font-size: 16px; font-weight: 700; color: #C4A23E; }
+    .preview-header p  { font-size: 12px; color: #aaa; margin-top: 2px; }
+
+    .preview-nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .preview-nav a {
+      color: #C4A23E;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 4px 10px;
+      border: 1px solid rgba(196,162,62,0.4);
+      border-radius: 20px;
+    }
+    .preview-nav a:hover { background: rgba(196,162,62,0.15); }
+
+    .section-label {
+      background: #2D2A26;
+      color: #C4A23E;
+      text-align: center;
+      padding: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+<div class="preview-header">
+  <div>
+    <h1>🏗️ About Page Preview</h1>
+    <p>March 6, 2026 — Authority → Story → Credentials → Mission → CTA</p>
+  </div>
+  <nav class="preview-nav">
+    <a href="#hero">Hero</a>
+    <a href="#story">Story</a>
+    <a href="#credentials">Credentials</a>
+    <a href="#mission">Mission</a>
+    <a href="#cta">CTA</a>
+  </nav>
+</div>
+
+<div id="hero" class="section-label">① HERO — Authority positioning</div>
+<iframe src="sections/about-hero-v2.html" width="100%" style="border:none; display:block;" onload="this.style.height=this.contentDocument.body.scrollHeight+'px'"></iframe>
+
+<div id="story" class="section-label">② STORY — Personal journey (2-column: text + image placeholder)</div>
+<iframe src="sections/about-story-v2.html" width="100%" style="border:none; display:block;" onload="this.style.height=this.contentDocument.body.scrollHeight+'px'"></iframe>
+
+<div id="credentials" class="section-label">③ CREDENTIALS — 6 credential blocks (Yale, degrees, La Sierra, author, speaker, innovator)</div>
+<iframe src="sections/about-credentials-v2.html" width="100%" style="border:none; display:block;" onload="this.style.height=this.contentDocument.body.scrollHeight+'px'"></iframe>
+
+<div id="mission" class="section-label">④ MISSION — Mission statement + 3 pillars (depth, access, community)</div>
+<iframe src="sections/about-mission-v2.html" width="100%" style="border:none; display:block;" onload="this.style.height=this.contentDocument.body.scrollHeight+'px'"></iframe>
+
+<div id="cta" class="section-label">⑤ CTA — Final call to action (purple background, two buttons)</div>
+<iframe src="sections/about-cta-v2.html" width="100%" style="border:none; display:block;" onload="this.style.height=this.contentDocument.body.scrollHeight+'px'"></iframe>
+
+<div style="background:#3D2B1A; color:#888; text-align:center; padding:20px; font-size:12px;">
+  Haven 🏗️ — TheoEducation Platform Preview
+</div>
+
+</body>
+</html>
