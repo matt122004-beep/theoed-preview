@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Problem — TheoEducation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Source Sans Pro', system-ui, -apple-system, sans-serif;
+            background-color: #F5F0E8;
+            padding: 40px 20px;
+        }
+
+        .problem-section {
+            background-color: #FFFFFF;
+            padding: 80px 40px;
+            margin: 0;
+        }
+
+        .problem-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .problem-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .problem-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .problem-subheader {
+            font-size: 18px;
+            color: #C4A23E;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+        }
+
+        .problem-header p {
+            font-size: 16px;
+            color: #4A4540;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .problem-item {
+            padding: 40px 32px;
+            background: linear-gradient(135deg, #FFF9F0 0%, #FFFBF5 100%);
+            border-left: 4px solid #C4A23E;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .problem-item:hover {
+            box-shadow: 0 8px 24px rgba(196, 162, 62, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .problem-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .problem-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2D2A26;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .problem-description {
+            font-size: 15px;
+            color: #4A4540;
+            line-height: 1.6;
+        }
+
+        .divider-section {
+            text-align: center;
+            margin: 60px 0;
+            padding: 40px 0;
+            border-top: 1px solid #E0DBD2;
+            border-bottom: 1px solid #E0DBD2;
+        }
+
+        .divider-icon {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .divider-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .divider-subtext {
+            font-size: 16px;
+            color: #7A7570;
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 40px;
+            background: linear-gradient(135deg, #F5F0E8 0%, #FFFBF5 100%);
+            padding: 50px 40px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #C4A23E;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #7A7570;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .problem-section {
+                padding: 60px 20px;
+            }
+
+            .problem-header {
+                margin-bottom: 50px;
+            }
+
+            .problems-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .problem-item {
+                padding: 30px 24px;
+            }
+
+            .divider-section {
+                margin: 40px 0;
+                padding: 30px 0;
+            }
+
+            .divider-text {
+                font-size: 22px;
+            }
+
+            .stats-bar {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+                padding: 40px 20px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="problem-section">
+    <div class="problem-container">
+        <div class="problem-header">
+            <div class="problem-subheader">The Challenge</div>
+            <h2>Teaching the Bible with Depth<br>Doesn't Have to Be Lonely</h2>
+            <p>You know the struggle. You're expected to teach with authority, but finding time to study at seminary-level depth is nearly impossible.</p>
+        </div>
+
+        <div class="problems-grid">
+            <div class="problem-item">
+                <div class="problem-icon">⏳</div>
+                <div class="problem-title">Time Crunch</div>
+                <div class="problem-description">Between leading worship, counseling, administration, and family, how do you find hours each week for serious biblical study?</div>
+            </div>
+
+            <div class="problem-item">
+                <div class="problem-icon">🎓</div>
+                <div class="problem-title">Knowledge Gaps</div>
+                <div class="problem-description">You didn't study Hebrew. Hermeneutics wasn't emphasized at your seminary. Now your congregation asks hard questions you can't answer confidently.</div>
+            </div>
+
+            <div class="problem-item">
+                <div class="problem-icon">🌍</div>
+                <div class="problem-title">Professional Isolation</div>
+                <div class="problem-description">In smaller churches or remote regions, you're the only theological resource. No mentor, no peer network, no second opinion.</div>
+            </div>
+
+            <div class="problem-item">
+                <div class="problem-icon">📚</div>
+                <div class="problem-title">Resource Overload</div>
+                <div class="problem-description">Hundreds of commentaries, podcasts, and blogs. Which ones are trustworthy? Which actually teach, vs. just entertain?</div>
+            </div>
+
+            <div class="problem-item">
+                <div class="problem-icon">💰</div>
+                <div class="problem-title">Cost</div>
+                <div class="problem-description">Seminary programs cost $30K+. Individual courses are scattered across platforms. A unified, affordable system doesn't exist.</div>
+            </div>
+
+            <div class="problem-item">
+                <div class="problem-icon">🚫</div>
+                <div class="problem-title">Theological Drift</div>
+                <div class="problem-description">Without rigorous, ongoing study, it's easy to drift into opinions rather than grounding teaching in solid exegesis.</div>
+            </div>
+        </div>
+
+        <div class="divider-section">
+            <div class="divider-icon">📊</div>
+            <div class="divider-text">The Result?</div>
+            <div class="divider-subtext">Unprepared sermons. Stressed leadership. Congregation questions left unanswered.</div>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-number">73%</div>
+                <div class="stat-label">Of pastors report inadequate study time</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">61%</div>
+                <div class="stat-label">Feel pressure to teach topics outside expertise</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">45%</div>
+                <div class="stat-label">Have no ongoing theological education</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
