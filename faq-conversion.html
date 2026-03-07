@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ — TheoEducation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Source Sans Pro', system-ui, -apple-system, sans-serif;
+            background-color: #F5F0E8;
+            padding: 40px 20px;
+        }
+
+        .faq-section {
+            background-color: #FFFFFF;
+            padding: 80px 40px;
+            margin: 0;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .faq-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .faq-header p {
+            font-size: 16px;
+            color: #4A4540;
+            line-height: 1.6;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            border: 2px solid #E0DBD2;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #FFFFFF;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            border-color: #C4A23E;
+        }
+
+        .faq-question {
+            background: #FFFFFF;
+            border: none;
+            padding: 24px;
+            width: 100%;
+            text-align: left;
+            font-size: 16px;
+            font-weight: 700;
+            color: #2D2A26;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            font-family: 'Inter', 'Source Sans Pro', system-ui, -apple-system, sans-serif;
+        }
+
+        .faq-question:hover {
+            background: #FFF9F0;
+        }
+
+        .faq-question.open {
+            background: linear-gradient(135deg, #FFF9F0, #FFFBF5);
+            border-bottom: 2px solid #E0DBD2;
+        }
+
+        .faq-icon {
+            color: #C4A23E;
+            font-size: 24px;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 12px;
+        }
+
+        .faq-icon.open {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #FFFBF5;
+        }
+
+        .faq-answer.open {
+            max-height: 500px;
+            border-top: 2px solid #E0DBD2;
+        }
+
+        .faq-answer-content {
+            padding: 24px;
+            font-size: 15px;
+            color: #4A4540;
+            line-height: 1.7;
+        }
+
+        .faq-answer-content strong {
+            color: #2D2A26;
+        }
+
+        .faq-answer-content a {
+            color: #C4A23E;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .faq-answer-content a:hover {
+            text-decoration: underline;
+        }
+
+        .objection-category {
+            display: inline-block;
+            background: #E0DBD2;
+            color: #4A4540;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .faq-section {
+                padding: 60px 20px;
+            }
+
+            .faq-header {
+                margin-bottom: 50px;
+            }
+
+            .faq-question {
+                padding: 20px;
+                font-size: 15px;
+            }
+
+            .faq-answer-content {
+                padding: 20px;
+                font-size: 14px;
+            }
+
+            .faq-answer.open {
+                max-height: 800px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="faq-section">
+    <div class="faq-container">
+        <div class="faq-header">
+            <h2>Common Questions</h2>
+            <p>Everything you need to know about TheoEducation</p>
+        </div>
+
+        <div class="faq-list">
+            <!-- Q1: Time Commitment -->
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How much time does TheoEducation require?</span>
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <div class="objection-category">Time Objection</div>
+                        <p>That's the point—TheoEducation <strong>saves</strong> you time. Most pastors spend 15+ hours per week on sermon prep. With TheoEducation:</p>
+                        <ul style="margin-left: 20px; margin-top: 12px; margin-bottom: 12px;">
+                            <li>Watch a 30-minute lesson instead of reading 3 commentaries (saves 3-4 hours)</li>
+                            <li>Use ready-made outlines instead of building from scratch (saves 2-3 hours)</li>
+                            <li>Get exegetical depth in one place, not scattered across 10 resources</li>
+                        </ul>
+                        <p>Average: sermon prep drops from 15 hours to 8 hours per week. You're not adding time—you're reclaiming it.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q2: Denominational Fit -->
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Is TheoEducation specific to Seventh-day Adventists?</span>
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <div class="objection-category">Fit Objection</div>
+                        <p>TheoEducation is <strong>built by Adventists, for pastors everywhere</strong>. While our curriculum emphasizes SDA theology and heritage (NAD-approved), the exegetical foundations apply across traditions.</p>
+                        <p style="margin-top: 12px;"><strong>How it works:</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 8px;">
+                            <li>Courses on hermeneutics, exegesis, biblical history are universal</li>
+                            <li>SDA-specific courses (Daniel, Revelation, Adventist history) are clearly labeled</li>
+                            <li>Free access for SDA pastors; other traditions subscribe at standard rates</li>
+                        </ul>
+                        <p style="margin-top: 12px;">Whether you're SDA or another tradition, you'll find solid scholarship. The Adventist perspective enriches, not limits.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q3: Academic Rigor -->
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Is this really seminary-level content?</span>
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <div class="objection-category">Credibility Objection</div>
+                        <p>Yes. Our instructors hold terminal degrees (PhD, DMA) in biblical studies, theology, and related fields. We're not dumbing down theology—we're making it accessible.</p>
+                        <p style="margin-top: 12px;"><strong>What you get:</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 8px;">
+                            <li>Exegetical rigor (Hebrew, Greek, text criticism covered)</li>
+                            <li>Theological depth (multiple interpretive frameworks presented)</li>
+                            <li>Scholarly current (recent publications and archaeological discoveries included)</li>
+                            <li>NAD CEU credits available (0.1 CEU per hour of content)</li>
+                        </ul>
+                        <p style="margin-top: 12px;">This isn't Sunday school—it's academic biblical studies accessible to pastors with limited time.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q4: Money-Back Guarantee -->
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What if I don't like it?</span>
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <div class="objection-category">Risk Objection</div>
+                        <p><strong>14-day money-back guarantee. No questions asked.</strong></p>
+                        <p style="margin-top: 12px;">Try TheoEducation risk-free. If it's not right for you within 14 days, we'll refund your first month immediately. We're confident in the content—we want you to be confident too.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q5: Technical Requirements -->
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What do I need to access the courses?</span>
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <div class="objection-category">Friction Objection</div>
+                        <p>Just an internet connection and a device (phone, tablet, laptop). No special software. Courses stream in HD and work offline (download episodes to watch later).</p>
+                        <p style="margin-top: 12px;"><strong>Works on:</strong> iPhone, Android, Mac, Windows, iPad. Browser-based—no apps to install.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q6: Live vs. Recorded -->
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Can I watch live classes, or is everything pre-recorded?</span>
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <div class="objection-category">Feature Clarity</div>
+                        <p><strong>Both.</strong> Choose your learning style:</p>
+                        <ul style="margin-left: 20px; margin-top: 8px;">
+                            <li><strong>Recordings plan:</strong> 150+ hours of pre-recorded lessons. Watch on your schedule.</li>
+                            <li><strong>Live + Recordings plan:</strong> Join live classes twice a week (Q&A included) + access to all 150+ hours recorded.</li>
+                        </ul>
+                        <p style="margin-top: 12px;">Live sessions are recorded, so if you miss one, you can catch up anytime. No FOMO. No pressure. Learn how you learn best.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q7: Certificate Value -->
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Do certificates from TheoEducation count for continuing education?</span>
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <div class="objection-category">Value Objection</div>
+                        <p><strong>Yes, for SDA pastors.</strong> TheoEducation is NAD-approved, and we issue 0.1 CEU credits per hour of content completed. These count toward your SDA continuing education requirements.</p>
+                        <p style="margin-top: 12px;">For other traditions, certificates are available and serve as proof of completion for your records.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function toggleFAQ(button) {
+        const item = button.parentElement;
+        const answer = item.querySelector('.faq-answer');
+        const icon = button.querySelector('.faq-icon');
+
+        // Close all other FAQs
+        document.querySelectorAll('.faq-item').forEach(otherItem => {
+            if (otherItem !== item) {
+                otherItem.querySelector('.faq-question').classList.remove('open');
+                otherItem.querySelector('.faq-answer').classList.remove('open');
+                otherItem.querySelector('.faq-icon').classList.remove('open');
+            }
+        });
+
+        // Toggle this one
+        button.classList.toggle('open');
+        answer.classList.toggle('open');
+        icon.classList.toggle('open');
+    }
+</script>
+
+</body>
+</html>
