@@ -1,0 +1,168 @@
+<section class="lm-capture">
+  <style>
+    .lm-capture {
+      background: #111;
+      padding: 100px 60px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .lm-capture-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .lm-capture-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .lm-capture-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .lm-capture-content p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .lm-capture-content p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .lm-capture-form {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 40px;
+    }
+
+    .lm-capture-form h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+
+    .lm-form-group {
+      margin-bottom: 16px;
+    }
+
+    .lm-form-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .lm-form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 6px;
+    }
+
+    .lm-form-input {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px;
+      font-size: 14px;
+      color: #fff;
+      font-family: inherit;
+    }
+
+    .lm-form-input::placeholder {
+      color: rgba(255,255,255,0.3);
+    }
+
+    .lm-form-input:focus {
+      outline: none;
+      border-color: #C4A23E;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .lm-form-button {
+      width: 100%;
+      padding: 14px 24px;
+      background: #C4A23E;
+      color: #2D2A26;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 16px;
+    }
+
+    .lm-form-button:hover {
+      background: #d4b24e;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(196,162,62,0.35);
+    }
+
+    .lm-form-disclaimer {
+      font-size: 11px;
+      color: rgba(255,255,255,0.3);
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .lm-capture {
+        padding: 60px 20px;
+      }
+
+      .lm-capture-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .lm-capture-form {
+        padding: 32px;
+      }
+    }
+  </style>
+
+  <div class="lm-capture-container">
+    <div class="lm-capture-layout">
+      <div class="lm-capture-content">
+        <h2>Get Your Free Guide</h2>
+        <p>Enter your email to receive the complete guide instantly. You'll also be added to our pastoral leadership community—no spam, just scholarship when it matters.</p>
+        <p>✓ Free PDF download<br>✓ Immediate delivery<br>✓ Bonus: weekly study tip emails</p>
+      </div>
+
+      <div class="lm-capture-form">
+        <h3>Download Now</h3>
+        <form>
+          <div class="lm-form-group">
+            <label class="lm-form-label">First Name</label>
+            <input type="text" class="lm-form-input" placeholder="Matthew" required>
+          </div>
+
+          <div class="lm-form-group">
+            <label class="lm-form-label">Email Address</label>
+            <input type="email" class="lm-form-input" placeholder="you@example.com" required>
+          </div>
+
+          <div class="lm-form-group">
+            <label class="lm-form-label">Church/Organization (optional)</label>
+            <input type="text" class="lm-form-input" placeholder="Your church or ministry">
+          </div>
+
+          <button type="submit" class="lm-form-button">Get Your Free Guide</button>
+
+          <p class="lm-form-disclaimer">We respect your privacy. Unsubscribe anytime.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

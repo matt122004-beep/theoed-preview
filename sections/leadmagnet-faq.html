@@ -1,0 +1,191 @@
+<section class="lm-faq">
+  <style>
+    .lm-faq {
+      background: #111;
+      padding: 100px 60px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .lm-faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .lm-faq-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .lm-faq-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .lm-faq-subtitle {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .lm-faq-list {
+      margin-top: 40px;
+    }
+
+    .lm-faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 0;
+    }
+
+    .lm-faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .lm-faq-toggle {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px 0;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .lm-faq-toggle:hover {
+      color: #C4A23E;
+    }
+
+    .lm-faq-question {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.4;
+      flex: 1;
+    }
+
+    .lm-faq-item.is-open .lm-faq-question {
+      color: #C4A23E;
+    }
+
+    .lm-faq-icon {
+      color: #C4A23E;
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      transition: transform 0.3s ease;
+    }
+
+    .lm-faq-item.is-open .lm-faq-icon {
+      transform: rotate(180deg);
+    }
+
+    .lm-faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding: 0;
+    }
+
+    .lm-faq-item.is-open .lm-faq-answer {
+      max-height: 300px;
+      padding-bottom: 12px;
+    }
+
+    .lm-faq-answer-text {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .lm-faq {
+        padding: 60px 20px;
+      }
+    }
+  </style>
+
+  <div class="lm-faq-container">
+    <div class="lm-faq-header">
+      <h2 class="lm-faq-title">Questions?</h2>
+      <p class="lm-faq-subtitle">Everything you need to know about your free guide</p>
+    </div>
+
+    <div class="lm-faq-list">
+      <div class="lm-faq-item is-open">
+        <button class="lm-faq-toggle" onclick="this.parentElement.classList.toggle('is-open')">
+          <span class="lm-faq-question">Is this really free?</span>
+          <span class="lm-faq-icon">▼</span>
+        </button>
+        <div class="lm-faq-answer">
+          <div class="lm-faq-answer-text">Yes. Completely free. We provide it because we believe every pastor deserves access to scholarly biblical study methods, not just those with seminary degrees or expensive books.</div>
+        </div>
+      </div>
+
+      <div class="lm-faq-item">
+        <button class="lm-faq-toggle" onclick="this.parentElement.classList.toggle('is-open')">
+          <span class="lm-faq-question">Will you spam my email?</span>
+          <span class="lm-faq-icon">▼</span>
+        </button>
+        <div class="lm-faq-answer">
+          <div class="lm-faq-answer-text">No. You'll receive one email with your download and a welcome to our pastoral community. After that, we send a weekly study tip email. You can unsubscribe anytime with one click.</div>
+        </div>
+      </div>
+
+      <div class="lm-faq-item">
+        <button class="lm-faq-toggle" onclick="this.parentElement.classList.toggle('is-open')">
+          <span class="lm-faq-question">Do I need a seminary background to use this?</span>
+          <span class="lm-faq-icon">▼</span>
+        </button>
+        <div class="lm-faq-answer">
+          <div class="lm-faq-answer-text">No. This guide is designed for working pastors with no formal theological training. Matthew walks you through every step as if you're learning from scratch.</div>
+        </div>
+      </div>
+
+      <div class="lm-faq-item">
+        <button class="lm-faq-toggle" onclick="this.parentElement.classList.toggle('is-open')">
+          <span class="lm-faq-question">How long does it take to read?</span>
+          <span class="lm-faq-icon">▼</span>
+        </button>
+        <div class="lm-faq-answer">
+          <div class="lm-faq-answer-text">About 30-45 minutes cover-to-cover. But most pastors skim the method, grab the template, and start using it immediately. Return to it as needed.</div>
+        </div>
+      </div>
+
+      <div class="lm-faq-item">
+        <button class="lm-faq-toggle" onclick="this.parentElement.classList.toggle('is-open')">
+          <span class="lm-faq-question">Can I share this with my team?</span>
+          <span class="lm-faq-icon">▼</span>
+        </button>
+        <div class="lm-faq-answer">
+          <div class="lm-faq-answer-text">Absolutely. Share it with your pastors, Bible study leaders, and anyone on your team. That's exactly what we want—more leaders equipped with scholarly methods.</div>
+        </div>
+      </div>
+
+      <div class="lm-faq-item">
+        <button class="lm-faq-toggle" onclick="this.parentElement.classList.toggle('is-open')">
+          <span class="lm-faq-question">What happens after I download?</span>
+          <span class="lm-faq-icon">▼</span>
+        </button>
+        <div class="lm-faq-answer">
+          <div class="lm-faq-answer-text">You'll get an instant email with the PDF download link. You can download to your computer or read in your email. That's it—no follow-up required. You're welcome to explore our full courses whenever you're ready.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.lm-faq-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+          e.preventDefault();
+        });
+      });
+    });
+  </script>
+</section>
