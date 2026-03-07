@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Guide: 7 Exegesis Shortcuts for Busy Pastors</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Source Sans Pro', system-ui, -apple-system, sans-serif;
+            background-color: #F5F0E8;
+            padding: 0;
+        }
+
+        .lead-magnet-hero {
+            background: linear-gradient(135deg, #4A3F2A, #5d3754);
+            color: #FFFFFF;
+            padding: 80px 40px;
+        }
+
+        .hero-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-copy h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero-copy p {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            opacity: 0.95;
+        }
+
+        .pain-points {
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #C4A23E;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 32px;
+        }
+
+        .pain-points h3 {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+            opacity: 0.9;
+        }
+
+        .pain-item {
+            font-size: 14px;
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+
+        .pain-item:before {
+            content: '• ';
+            margin-right: 6px;
+        }
+
+        .form-section {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .form-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .form-subtitle {
+            font-size: 14px;
+            color: #7A7570;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: #2D2A26;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #E0DBD2;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #C4A23E;
+            box-shadow: 0 0 0 3px rgba(196, 162, 62, 0.1);
+        }
+
+        .submit-button {
+            width: 100%;
+            background: linear-gradient(135deg, #C4A23E, #8B6D2E);
+            color: #FFFFFF;
+            padding: 14px 24px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+        }
+
+        .submit-button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 16px rgba(196, 162, 62, 0.3);
+        }
+
+        .form-note {
+            font-size: 12px;
+            color: #7A7570;
+            margin-top: 12px;
+            text-align: center;
+        }
+
+        /* Content Preview Section */
+        .preview-section {
+            background-color: #FFFFFF;
+            padding: 80px 40px;
+        }
+
+        .preview-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .preview-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .preview-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .preview-header p {
+            font-size: 15px;
+            color: #4A4540;
+            line-height: 1.6;
+        }
+
+        .shortcut-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .shortcut-card {
+            background: linear-gradient(135deg, #FFF9F0, #FFFBF5);
+            border: 2px solid #E0DBD2;
+            border-radius: 8px;
+            padding: 28px;
+        }
+
+        .shortcut-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #C4A23E;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .shortcut-title {
+            font-size: 16px;
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .shortcut-desc {
+            font-size: 13px;
+            color: #4A4540;
+            line-height: 1.5;
+        }
+
+        .trust-section {
+            background: linear-gradient(135deg, #F5F0E8, #FFFBF5);
+            padding: 50px 40px;
+            border-radius: 12px;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .trust-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .trust-section p {
+            font-size: 14px;
+            color: #4A4540;
+            line-height: 1.6;
+        }
+
+        .trust-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .hero-copy h1 {
+                font-size: 22px;
+            }
+
+            .form-section {
+                padding: 30px 20px;
+            }
+
+            .preview-section {
+                padding: 60px 20px;
+            }
+
+            .shortcut-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-section {
+                padding: 40px 25px;
+                margin-top: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero + Form -->
+<section class="lead-magnet-hero">
+    <div class="hero-container">
+        <div class="hero-copy">
+            <h1>7 Exegesis Shortcuts for Busy Pastors</h1>
+            <p>Cut your sermon prep time in half while deepening your exegetical rigor. Download the free guide used by 600+ pastors.</p>
+
+            <div class="pain-points">
+                <h3>Inside You'll Discover:</h3>
+                <div class="pain-item">How to read a commentary without getting lost in the weeds</div>
+                <div class="pain-item">The 3-step exegesis framework that works every time</div>
+                <div class="pain-item">Which original language tools actually save time (and which waste it)</div>
+                <div class="pain-item">How to handle controversial passages with confidence</div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="form-title">Get Your Free Guide</div>
+            <div class="form-subtitle">No credit card. No spam. Just better exegesis.</div>
+
+            <form>
+                <div class="form-group">
+                    <label class="form-label" for="name">First Name</label>
+                    <input type="text" id="name" name="name" class="form-input" placeholder="John" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="email">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="john@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="church">Church / Organization</label>
+                    <input type="text" id="church" name="church" class="form-input" placeholder="(optional)">
+                </div>
+
+                <button type="submit" class="submit-button">Download Free Guide →</button>
+
+                <div class="form-note">
+                    ✓ Instant delivery to your email<br>
+                    ✓ Unsubscribe anytime
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Content Preview -->
+<section class="preview-section">
+    <div class="preview-container">
+        <div class="preview-header">
+            <h2>What's Inside the Guide</h2>
+            <p>A sneak peek at the 7 shortcuts and frameworks you'll learn</p>
+        </div>
+
+        <div class="shortcut-grid">
+            <div class="shortcut-card">
+                <div class="shortcut-number">1</div>
+                <div class="shortcut-title">The "Layers" Reading Method</div>
+                <div class="shortcut-desc">Read the text 3 ways (literal, historical, theological) in 15 minutes instead of 2 hours.</div>
+            </div>
+
+            <div class="shortcut-card">
+                <div class="shortcut-number">2</div>
+                <div class="shortcut-title">Commentary Triage</div>
+                <div class="shortcut-desc">Which commentaries to read first, which to skip, and which are worth the deep dive.</div>
+            </div>
+
+            <div class="shortcut-card">
+                <div class="shortcut-number">3</div>
+                <div class="shortcut-title">The Objection Stack</div>
+                <div class="shortcut-desc">Anticipate questions your congregation will ask—before they ask them.</div>
+            </div>
+
+            <div class="shortcut-card">
+                <div class="shortcut-number">4</div>
+                <div class="shortcut-title">Greek/Hebrew Without Fear</div>
+                <div class="shortcut-desc">Use original language tools confidently, even if you don't remember your seminary Greek.</div>
+            </div>
+
+            <div class="shortcut-card">
+                <div class="shortcut-number">5</div>
+                <div class="shortcut-title">Controversial Passage Playbook</div>
+                <div class="shortcut-desc">Framework for handling Daniel, Revelation, sexuality passages, and other contentious texts.</div>
+            </div>
+
+            <div class="shortcut-card">
+                <div class="shortcut-number">6</div>
+                <div class="shortcut-title">Context Checklist</div>
+                <div class="shortcut-desc">7 historical/cultural questions that unlock meaning every time.</div>
+            </div>
+
+            <div class="shortcut-card">
+                <div class="shortcut-number">7</div>
+                <div class="shortcut-title">The Sermon Bridge</div>
+                <div class="shortcut-desc">Turn your exegesis into a compelling sermon outline in 20 minutes.</div>
+            </div>
+        </div>
+
+        <!-- Trust Signal -->
+        <div class="trust-section">
+            <div class="trust-icon">✓</div>
+            <h3>Used by 600+ Pastors</h3>
+            <p>This guide has helped pastors across North America, Europe, and Africa cut sermon prep time while improving theological depth. Now it's your turn.</p>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
