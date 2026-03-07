@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Your Free Trial — TheoEducation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Source Sans Pro', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #F5F0E8, #FFFBF5);
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .signup-container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .signup-card {
+            background: #FFFFFF;
+            border: 2px solid #E0DBD2;
+            border-radius: 12px;
+            padding: 50px 40px;
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.08);
+        }
+
+        .signup-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .signup-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .signup-header p {
+            font-size: 14px;
+            color: #7A7570;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: #2D2A26;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #E0DBD2;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #C4A23E;
+            box-shadow: 0 0 0 3px rgba(196, 162, 62, 0.1);
+        }
+
+        .submit-button {
+            width: 100%;
+            background: linear-gradient(135deg, #C4A23E, #8B6D2E);
+            color: #FFFFFF;
+            padding: 14px 24px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+        }
+
+        .submit-button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 16px rgba(196, 162, 62, 0.3);
+        }
+
+        .terms-notice {
+            font-size: 12px;
+            color: #7A7570;
+            text-align: center;
+            margin-top: 16px;
+            line-height: 1.5;
+        }
+
+        .terms-notice a {
+            color: #C4A23E;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .benefits-list {
+            background: linear-gradient(135deg, #FFF9F0, #FFFBF5);
+            border: 2px solid #E0DBD2;
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 40px;
+        }
+
+        .benefits-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #8B6D2E;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+
+        .benefit-item {
+            font-size: 13px;
+            color: #4A4540;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .benefit-item:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #6B8E4E;
+            font-weight: 700;
+        }
+
+        .benefit-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .guarantee-banner {
+            background: #4A3F2A;
+            color: #FFFFFF;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 24px;
+            text-align: center;
+        }
+
+        .guarantee-banner h3 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .guarantee-banner p {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .divider:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #E0DBD2;
+            top: 50%;
+        }
+
+        .divider span {
+            background: #FFFFFF;
+            padding: 0 12px;
+            font-size: 12px;
+            color: #7A7570;
+            position: relative;
+        }
+
+        .login-link {
+            text-align: center;
+            font-size: 13px;
+            color: #4A4540;
+        }
+
+        .login-link a {
+            color: #C4A23E;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 480px) {
+            .signup-card {
+                padding: 35px 25px;
+            }
+
+            .signup-header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="signup-container">
+    <div class="signup-card">
+        <div class="signup-header">
+            <h1>Start Your Free Trial</h1>
+            <p>7 days free. No credit card required. Cancel anytime.</p>
+        </div>
+
+        <form>
+            <div class="form-group">
+                <label class="form-label" for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first_name" class="form-input" placeholder="John" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last_name" class="form-input" placeholder="Doe" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="email">Email Address</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="john@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="password">Create Password</label>
+                <input type="password" id="password" name="password" class="form-input" placeholder="••••••••" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="church">Church / Organization (Optional)</label>
+                <input type="text" id="church" name="church" class="form-input" placeholder="Your church name">
+            </div>
+
+            <button type="submit" class="submit-button">Start 7-Day Free Trial</button>
+
+            <div class="terms-notice">
+                By signing up, you agree to our <a href="#terms">Terms of Service</a> and <a href="#privacy">Privacy Policy</a>
+            </div>
+        </form>
+
+        <!-- Benefits Callout -->
+        <div class="benefits-list">
+            <div class="benefits-title">Your Trial Includes:</div>
+            <div class="benefit-item">Full access to 150+ hours of content</div>
+            <div class="benefit-item">All 84+ courses unlocked</div>
+            <div class="benefit-item">Live class access (if available)</div>
+            <div class="benefit-item">Certificate programs included</div>
+            <div class="benefit-item">Community forum access</div>
+        </div>
+
+        <!-- Guarantee -->
+        <div class="guarantee-banner">
+            <h3>🛡️ 14-Day Money-Back Guarantee</h3>
+            <p>Not satisfied? We'll refund your first month—no questions asked.</p>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider">
+            <span>Already have an account?</span>
+        </div>
+
+        <!-- Login Link -->
+        <div class="login-link">
+            <a href="#login">Sign in here →</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
