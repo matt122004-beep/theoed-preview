@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Preview — TheoEducation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Source Sans Pro', system-ui, -apple-system, sans-serif;
+            background-color: #F5F0E8;
+            padding: 40px 20px;
+        }
+
+        .curriculum-section {
+            background-color: #FFFFFF;
+            padding: 80px 40px;
+            margin: 0;
+        }
+
+        .curriculum-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .curriculum-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .curriculum-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .curriculum-header p {
+            font-size: 16px;
+            color: #4A4540;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .stats-bar {
+            background: linear-gradient(135deg, #FFF9F0, #FFFBF5);
+            border-radius: 8px;
+            padding: 32px;
+            margin-bottom: 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 40px;
+            text-align: center;
+            border: 1px solid #E0DBD2;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #C4A23E;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: #7A7570;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-bottom: 0;
+        }
+
+        .course-card {
+            background: #FFFFFF;
+            border: 2px solid #E0DBD2;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .course-card:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border-color: #C4A23E;
+            transform: translateY(-4px);
+        }
+
+        .course-header {
+            background: linear-gradient(135deg, #4A3F2A, #5d3754);
+            color: #FFFFFF;
+            padding: 32px 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .course-icon {
+            font-size: 40px;
+            flex-shrink: 0;
+        }
+
+        .course-meta {
+            flex-grow: 1;
+        }
+
+        .course-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .course-lessons {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .course-content {
+            padding: 32px 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-description {
+            font-size: 14px;
+            color: #4A4540;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .course-outcomes {
+            background: #FFF9F0;
+            border-left: 4px solid #C4A23E;
+            padding: 16px;
+            border-radius: 4px;
+            margin-bottom: 0;
+            flex-grow: 1;
+        }
+
+        .outcomes-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #8B6D2E;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .outcome-item {
+            font-size: 13px;
+            color: #4A4540;
+            line-height: 1.5;
+            margin-bottom: 6px;
+        }
+
+        .outcome-item:before {
+            content: '✓ ';
+            color: #6B8E4E;
+            font-weight: 700;
+            margin-right: 6px;
+        }
+
+        .outcome-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #F5F0E8, #FFFBF5);
+            border: 2px solid #E0DBD2;
+            border-radius: 12px;
+            padding: 50px 40px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .cta-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #2D2A26;
+            margin-bottom: 12px;
+        }
+
+        .cta-section p {
+            font-size: 15px;
+            color: #4A4540;
+            margin-bottom: 24px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #C4A23E;
+            color: #FFFFFF;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #8B6D2E;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .curriculum-section {
+                padding: 60px 20px;
+            }
+
+            .curriculum-header {
+                margin-bottom: 50px;
+            }
+
+            .stats-bar {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                padding: 24px;
+                margin-bottom: 40px;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .cta-section {
+                padding: 40px 25px;
+                margin-top: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="curriculum-section">
+    <div class="curriculum-container">
+        <div class="curriculum-header">
+            <h2>Your Learning Curriculum</h2>
+            <p>84+ courses, 150+ hours, covering everything from exegesis to pastoral ministry</p>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-number">84+</div>
+                <div class="stat-label">Courses</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">150+</div>
+                <div class="stat-label">Hours Content</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">600+</div>
+                <div class="stat-label">Active Learners</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Categories</div>
+            </div>
+        </div>
+
+        <div class="courses-grid">
+            <!-- Course 1: How to Study the Bible -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-icon">📖</div>
+                    <div class="course-meta">
+                        <div class="course-title">How to Study the Bible</div>
+                        <div class="course-lessons">8 lessons • 4 hours</div>
+                    </div>
+                </div>
+                <div class="course-content">
+                    <div class="course-description">
+                        Master hermeneutical tools and interpretive frameworks to unlock deeper meaning in Scripture. Learn the methods scholars use.
+                    </div>
+                    <div class="course-outcomes">
+                        <div class="outcomes-title">What You'll Learn</div>
+                        <div class="outcome-item">Historical-grammatical exegesis</div>
+                        <div class="outcome-item">How to use commentaries effectively</div>
+                        <div class="outcome-item">Distinguishing interpretation from application</div>
+                        <div class="outcome-item">Building sermon outlines from text</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 2: Daniel & Revelation -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-icon">⚡</div>
+                    <div class="course-meta">
+                        <div class="course-title">Daniel & Revelation</div>
+                        <div class="course-lessons">18 lessons • 12 hours</div>
+                    </div>
+                </div>
+                <div class="course-content">
+                    <div class="course-description">
+                        The hardest books in the Bible, explained with scholarly depth and pastoral clarity. Navigate prophecy, symbolism, and controversy.
+                    </div>
+                    <div class="course-outcomes">
+                        <div class="outcomes-title">What You'll Learn</div>
+                        <div class="outcome-item">Apocalyptic literature genre</div>
+                        <div class="outcome-item">Preterist, historicist, & futurist views</div>
+                        <div class="outcome-item">Key prophecies explained in context</div>
+                        <div class="outcome-item">How to teach controversial passages</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 3: Biblical Hermeneutics -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-icon">🔬</div>
+                    <div class="course-meta">
+                        <div class="course-title">Biblical Hermeneutics</div>
+                        <div class="course-lessons">12 lessons • 8 hours</div>
+                    </div>
+                </div>
+                <div class="course-content">
+                    <div class="course-description">
+                        Deep dive into interpretation philosophy. Understand how theologians approach the text and why they disagree on tough passages.
+                    </div>
+                    <div class="course-outcomes">
+                        <div class="outcomes-title">What You'll Learn</div>
+                        <div class="outcome-item">Presuppositions & theology</div>
+                        <div class="outcome-item">Literal, allegorical, & spiritual readings</div>
+                        <div class="outcome-item">Addressing interpretive disagreement</div>
+                        <div class="outcome-item">Defending your exegetical choices</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 4: Early Christianity & Adventism -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-icon">✝️</div>
+                    <div class="course-meta">
+                        <div class="course-title">Early Christianity</div>
+                        <div class="course-lessons">10 lessons • 6 hours</div>
+                    </div>
+                </div>
+                <div class="course-content">
+                    <div class="course-description">
+                        How the early church formed, evolved, and shaped Christian doctrine. Understand your theological roots and context.
+                    </div>
+                    <div class="course-outcomes">
+                        <div class="outcomes-title">What You'll Learn</div>
+                        <div class="outcome-item">First-century Judaism & Christianity</div>
+                        <div class="outcome-item">Councils and creedal development</div>
+                        <div class="outcome-item">Denominational distinctions explained</div>
+                        <div class="outcome-item">SDA theological heritage</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 5: Sexuality in the Bible -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-icon">💭</div>
+                    <div class="course-meta">
+                        <div class="course-title">Sexuality in the Bible</div>
+                        <div class="course-lessons">8 lessons • 5 hours</div>
+                    </div>
+                </div>
+                <div class="course-content">
+                    <div class="course-description">
+                        Navigate controversial passages with pastoral sensitivity and exegetical rigor. Understand the text, context, and application.
+                    </div>
+                    <div class="course-outcomes">
+                        <div class="outcomes-title">What You'll Learn</div>
+                        <div class="outcome-item">Greek & Hebrew terms explained</div>
+                        <div class="outcome-item">Cultural context of ancient sexuality</div>
+                        <div class="outcome-item">How scholars interpret key passages</div>
+                        <div class="outcome-item">Pastoral wisdom for congregations</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 6: The Book of Enoch -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-icon">📜</div>
+                    <div class="course-meta">
+                        <div class="course-title">The Book of Enoch</div>
+                        <div class="course-lessons">6 lessons • 4 hours</div>
+                    </div>
+                </div>
+                <div class="course-content">
+                    <div class="course-description">
+                        Explore one of Christianity's most mysterious texts. Understand its relevance, influence, and place in theology and Adventist belief.
+                    </div>
+                    <div class="course-outcomes">
+                        <div class="outcomes-title">What You'll Learn</div>
+                        <div class="outcome-item">Enoch's apocalyptic worldview</div>
+                        <div class="outcome-item">Connection to New Testament</div>
+                        <div class="outcome-item">Canonical vs. non-canonical texts</div>
+                        <div class="outcome-item">Why it matters for Adventists</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Bridge -->
+        <div class="cta-section">
+            <h3>Plus 78 More Courses</h3>
+            <p>From Hebrew Bible foundations to pastoral ministry, leadership, and more. New courses added quarterly. Explore the full catalog when you join.</p>
+            <button class="cta-button">Start Your Free Trial →</button>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
