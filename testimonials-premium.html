@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials — TheoEducation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Source Sans Pro', system-ui, -apple-system, sans-serif;
+            background-color: #F5F0E8;
+            padding: 40px 20px;
+        }
+
+        .testimonials-section {
+            background: linear-gradient(180deg, #FFFFFF 0%, #F5F0E8 100%);
+            padding: 80px 40px;
+            margin: 0;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .testimonials-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .testimonials-header p {
+            font-size: 16px;
+            color: #4A4540;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 50px;
+            margin-bottom: 0;
+        }
+
+        .testimonial-card {
+            display: flex;
+            flex-direction: column;
+            background: #FFFFFF;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+            transform: translateY(-8px);
+        }
+
+        .testimonial-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #3D2B1A, #5d3754);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-image.placeholder {
+            background: linear-gradient(135deg, rgba(61, 43, 26, 0.9), rgba(93, 55, 84, 0.9));
+            font-size: 80px;
+        }
+
+        .testimonial-content {
+            padding: 40px 32px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .testimonial-quote {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #2D2A26;
+            margin-bottom: 24px;
+            font-style: italic;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .testimonial-quote:before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -8px;
+            font-size: 48px;
+            color: #C4A23E;
+            opacity: 0.3;
+        }
+
+        .testimonial-outcome {
+            background: #FFF9F0;
+            border-left: 4px solid #C4A23E;
+            padding: 16px;
+            margin-bottom: 24px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #8B6D2E;
+        }
+
+        .outcome-icon {
+            margin-right: 8px;
+        }
+
+        .testimonial-author {
+            border-top: 1px solid #E0DBD2;
+            padding-top: 20px;
+            margin-top: auto;
+        }
+
+        .author-name {
+            font-weight: 700;
+            font-size: 15px;
+            color: #2D2A26;
+            margin-bottom: 4px;
+        }
+
+        .author-role {
+            font-size: 13px;
+            color: #7A7570;
+        }
+
+        .author-title {
+            font-size: 12px;
+            color: #C4A23E;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 8px;
+        }
+
+        .star-rating {
+            color: #C4A23E;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-section {
+                padding: 60px 20px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .testimonials-header {
+                margin-bottom: 50px;
+            }
+
+            .testimonial-image {
+                height: 220px;
+            }
+
+            .testimonial-content {
+                padding: 30px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="testimonials-section">
+    <div class="testimonials-container">
+        <div class="testimonials-header">
+            <h2>Trusted by Pastors & Theologians</h2>
+            <p>See how TheoEducation has transformed the way thousands teach and preach</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+                <div class="testimonial-image placeholder">👨‍🎓</div>
+                <div class="testimonial-content">
+                    <div class="star-rating">★★★★★</div>
+                    <div class="testimonial-quote">
+                        This resource transformed my sermon preparation. I can now confidently teach the hard passages with scholarly depth.
+                    </div>
+                    <div class="testimonial-outcome">
+                        <span class="outcome-icon">✓</span>
+                        Sermon prep time cut from 15 to 8 hours per week
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-name">Pastor James K.</div>
+                        <div class="author-role">Lead Pastor, Pacific Northwest</div>
+                        <div class="author-title">NAD Member</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+                <div class="testimonial-image placeholder">👩‍🏫</div>
+                <div class="testimonial-content">
+                    <div class="star-rating">★★★★★</div>
+                    <div class="testimonial-quote">
+                        My students are more engaged than ever. Having access to expert theologians explaining these topics is invaluable for a small church.
+                    </div>
+                    <div class="testimonial-outcome">
+                        <span class="outcome-icon">✓</span>
+                        Adult ed attendance up 40% year-over-year
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-name">Dr. Sarah M.</div>
+                        <div class="author-role">Religious Education Director</div>
+                        <div class="author-title">Seventh-day Adventist</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+                <div class="testimonial-image placeholder">👨‍💼</div>
+                <div class="testimonial-content">
+                    <div class="star-rating">★★★★★</div>
+                    <div class="testimonial-quote">
+                        I was intimidated by biblical hermeneutics until I found TheoEducation. Now I'm confident teaching Revelation to my congregation.
+                    </div>
+                    <div class="testimonial-outcome">
+                        <span class="outcome-icon">✓</span>
+                        Launched 2 new advanced courses in my church
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-name">Pastor David L.</div>
+                        <div class="author-role">Youth & Family Pastor</div>
+                        <div class="author-title">NAD Certified</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
