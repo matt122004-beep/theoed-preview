@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Start Your Free 7-Day Trial — TheoEducation</title>
+    <title>Start Your Free Trial — TheoEducation</title>
     <style>
         * {
             margin: 0;
@@ -20,12 +20,12 @@
         .signup-hero {
             background: linear-gradient(135deg, #4A3F2A, #5d3754);
             color: #FFFFFF;
-            padding: 70px 40px;
+            padding: 60px 40px;
             text-align: center;
         }
 
         .hero-container {
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
         }
 
@@ -34,7 +34,6 @@
             font-size: clamp(2rem, 5vw, 2.8rem);
             font-weight: 700;
             margin-bottom: 16px;
-            line-height: 1.2;
         }
 
         .signup-hero p {
@@ -43,33 +42,41 @@
             opacity: 0.95;
         }
 
-        /* Form Section */
+        /* Main Form Section */
         .signup-section {
             background-color: #FFFFFF;
             padding: 80px 40px;
         }
 
         .signup-container {
-            max-width: 900px;
+            max-width: 600px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: flex-start;
         }
 
-        .form-wrapper h2 {
+        .form-card {
+            background: #FFFFFF;
+            border: 2px solid #E0DBD2;
+            border-radius: 12px;
+            padding: 50px;
+        }
+
+        .form-title {
             font-family: 'Playfair Display', serif;
             font-size: 24px;
             color: #2D2A26;
             font-weight: 700;
             margin-bottom: 12px;
+            text-align: center;
         }
 
         .form-subtitle {
             font-size: 14px;
             color: #7A7570;
-            margin-bottom: 32px;
+            text-align: center;
+            margin-bottom: 36px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
         }
 
         .form-group {
@@ -81,7 +88,7 @@
             font-size: 13px;
             font-weight: 700;
             color: #2D2A26;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
@@ -89,12 +96,13 @@
         .form-input,
         .form-select {
             width: 100%;
-            padding: 12px;
+            padding: 12px 14px;
             border: 2px solid #E0DBD2;
             border-radius: 6px;
             font-size: 14px;
             font-family: inherit;
             transition: border-color 0.3s ease;
+            background-color: #FFFFFF;
         }
 
         .form-input:focus,
@@ -104,34 +112,75 @@
             box-shadow: 0 0 0 3px rgba(196, 162, 62, 0.1);
         }
 
-        .form-checkbox {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 16px;
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
         }
 
-        .form-checkbox input {
+        .form-row .form-group {
+            margin-bottom: 20px;
+        }
+
+        .password-note {
+            font-size: 12px;
+            color: #7A7570;
             margin-top: 4px;
-            width: 18px;
-            height: 18px;
-            cursor: pointer;
+            font-style: italic;
         }
 
-        .form-checkbox label {
+        .plan-selection {
+            background: #FFF9F0;
+            border: 2px solid #E0DBD2;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .plan-selection-label {
             font-size: 13px;
-            color: #4A4540;
-            line-height: 1.5;
+            font-weight: 700;
+            color: #8B6D2E;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 12px;
+            background: #FFFFFF;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .radio-option:hover {
+            background: #FFFBF5;
+        }
+
+        .radio-option input[type="radio"] {
+            margin-right: 12px;
             cursor: pointer;
         }
 
-        .checkbox-label-link {
-            color: #C4A23E;
-            text-decoration: none;
+        .radio-option-text {
+            flex-grow: 1;
         }
 
-        .checkbox-label-link:hover {
-            text-decoration: underline;
+        .radio-option-title {
+            font-weight: 700;
+            color: #2D2A26;
+            font-size: 14px;
+        }
+
+        .radio-option-desc {
+            font-size: 12px;
+            color: #7A7570;
+            margin-top: 2px;
         }
 
         .submit-button {
@@ -145,7 +194,6 @@
             font-size: 15px;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-bottom: 16px;
         }
 
         .submit-button:hover {
@@ -153,129 +201,101 @@
             box-shadow: 0 4px 16px rgba(196, 162, 62, 0.3);
         }
 
-        .form-note {
+        .terms-text {
             font-size: 12px;
             color: #7A7570;
             text-align: center;
-        }
-
-        /* Benefits Column */
-        .benefits-column h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            color: #2D2A26;
-            font-weight: 700;
-            margin-bottom: 28px;
-        }
-
-        .benefit-item {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .benefit-icon {
-            font-size: 28px;
-            flex-shrink: 0;
-        }
-
-        .benefit-text h4 {
-            font-size: 14px;
-            color: #2D2A26;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .benefit-text p {
-            font-size: 13px;
-            color: #4A4540;
+            margin-top: 16px;
             line-height: 1.5;
         }
 
-        /* Trust Section */
-        .trust-banner {
-            background: linear-gradient(135deg, #FFF9F0, #FFFBF5);
-            border: 2px solid #E0DBD2;
-            border-radius: 8px;
-            padding: 28px;
+        .terms-text a {
+            color: #C4A23E;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .terms-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
             margin-top: 40px;
-            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid #E0DBD2;
+            flex-wrap: wrap;
         }
 
         .trust-badge {
-            display: inline-block;
-            background: #FFFFFF;
-            border: 2px solid #C4A23E;
-            color: #C4A23E;
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 12px;
-        }
-
-        .trust-banner h4 {
-            font-size: 16px;
-            color: #2D2A26;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .trust-banner p {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             font-size: 13px;
             color: #4A4540;
-            line-height: 1.5;
+            font-weight: 600;
         }
 
-        /* FAQ Section */
-        .faq-compact-section {
-            background-color: #F5F0E8;
+        .badge-icon {
+            font-size: 18px;
+        }
+
+        /* Benefits Below Form */
+        .benefits-section {
+            background: linear-gradient(135deg, #F5F0E8, #FFFBF5);
             padding: 60px 40px;
         }
 
-        .faq-compact-container {
+        .benefits-container {
             max-width: 900px;
             margin: 0 auto;
         }
 
-        .faq-compact-header {
+        .benefits-header {
             text-align: center;
             margin-bottom: 40px;
         }
 
-        .faq-compact-header h2 {
+        .benefits-header h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 24px;
+            font-size: 22px;
             color: #2D2A26;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
-        .faq-compact-list {
+        .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
         }
 
-        .faq-compact-item {
+        .benefit-item {
             background: #FFFFFF;
             border: 2px solid #E0DBD2;
             border-radius: 8px;
-            padding: 24px;
+            padding: 20px;
+            text-align: center;
         }
 
-        .faq-compact-q {
+        .benefit-icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .benefit-title {
             font-weight: 700;
             color: #2D2A26;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-size: 14px;
         }
 
-        .faq-compact-a {
-            font-size: 13px;
-            color: #4A4540;
+        .benefit-desc {
+            font-size: 12px;
+            color: #7A7570;
             line-height: 1.5;
         }
 
@@ -284,20 +304,28 @@
                 padding: 50px 25px;
             }
 
-            .signup-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
             .signup-section {
-                padding: 60px 20px;
+                padding: 60px 25px;
             }
 
-            .faq-compact-section {
-                padding: 50px 20px;
+            .form-card {
+                padding: 30px 20px;
             }
 
-            .faq-compact-list {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-badges {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .benefits-section {
+                padding: 50px 25px;
+            }
+
+            .benefits-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -309,165 +337,129 @@
 <section class="signup-hero">
     <div class="hero-container">
         <h1>Start Your Free 7-Day Trial</h1>
-        <p>No credit card required. Cancel anytime. Full access to all 84+ courses.</p>
+        <p>Full access to all courses, live classes, and resources. No credit card required. Cancel anytime.</p>
     </div>
 </section>
 
-<!-- Signup Form + Benefits -->
+<!-- Form -->
 <section class="signup-section">
     <div class="signup-container">
-        <!-- Form -->
-        <div class="form-wrapper">
-            <h2>Create Your Account</h2>
-            <div class="form-subtitle">Takes 2 minutes. Access starts immediately.</div>
+        <form class="form-card">
+            <div class="form-title">Create Your Account</div>
+            <div class="form-subtitle">Join 600+ pastors learning with TheoEducation</div>
 
-            <form>
+            <!-- Name Row -->
+            <div class="form-row">
                 <div class="form-group">
-                    <label class="form-label" for="first-name">First Name</label>
-                    <input type="text" id="first-name" name="first-name" class="form-input" required>
+                    <label class="form-label" for="first-name">First Name *</label>
+                    <input type="text" id="first-name" name="first_name" class="form-input" required>
                 </div>
-
                 <div class="form-group">
-                    <label class="form-label" for="last-name">Last Name</label>
-                    <input type="text" id="last-name" name="last-name" class="form-input" required>
+                    <label class="form-label" for="last-name">Last Name *</label>
+                    <input type="text" id="last-name" name="last_name" class="form-input" required>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label class="form-label" for="email">Email Address</label>
-                    <input type="email" id="email" name="email" class="form-input" required>
-                </div>
+            <!-- Email -->
+            <div class="form-group">
+                <label class="form-label" for="email">Email Address *</label>
+                <input type="email" id="email" name="email" class="form-input" required>
+            </div>
 
+            <!-- Church/Organization -->
+            <div class="form-group">
+                <label class="form-label" for="church">Church or Organization</label>
+                <input type="text" id="church" name="church" class="form-input" placeholder="(optional)">
+            </div>
+
+            <!-- Password Row -->
+            <div class="form-row">
                 <div class="form-group">
-                    <label class="form-label" for="password">Password</label>
+                    <label class="form-label" for="password">Password *</label>
                     <input type="password" id="password" name="password" class="form-input" required>
+                    <div class="password-note">At least 8 characters</div>
                 </div>
-
                 <div class="form-group">
-                    <label class="form-label" for="plan">Select Plan</label>
-                    <select id="plan" name="plan" class="form-select" required>
-                        <option value="">Choose a plan...</option>
-                        <option value="recordings">Recordings Only ($6/week)</option>
-                        <option value="live">Live + Recordings ($8/week)</option>
-                    </select>
-                </div>
-
-                <div class="form-checkbox">
-                    <input type="checkbox" id="terms" name="terms" required>
-                    <label for="terms">I agree to the <span class="checkbox-label-link">Terms of Service</span> and <span class="checkbox-label-link">Privacy Policy</span></label>
-                </div>
-
-                <div class="form-checkbox">
-                    <input type="checkbox" id="emails" name="emails">
-                    <label for="emails">Send me course recommendations and tips (you can unsubscribe anytime)</label>
-                </div>
-
-                <button type="submit" class="submit-button">Start Free Trial</button>
-
-                <div class="form-note">
-                    ✓ Access starts immediately<br>
-                    ✓ No credit card required
-                </div>
-            </form>
-
-            <!-- Trust Section -->
-            <div class="trust-banner">
-                <div class="trust-badge">🛡️ Money-Back Guarantee</div>
-                <h4>Full Risk-Free Guarantee</h4>
-                <p>Not satisfied in the first 14 days? We'll refund your first month—no questions asked.</p>
-            </div>
-        </div>
-
-        <!-- Benefits Column -->
-        <div class="benefits-column">
-            <h3>What You'll Get Immediately</h3>
-
-            <div class="benefit-item">
-                <div class="benefit-icon">📖</div>
-                <div class="benefit-text">
-                    <h4>84+ Courses</h4>
-                    <p>Full access to every course in our catalog covering Hebrew Bible, exegesis, hermeneutics, and more.</p>
+                    <label class="form-label" for="confirm-password">Confirm Password *</label>
+                    <input type="password" id="confirm-password" name="confirm_password" class="form-input" required>
                 </div>
             </div>
 
-            <div class="benefit-item">
-                <div class="benefit-icon">🎬</div>
-                <div class="benefit-text">
-                    <h4>150+ Hours of Video</h4>
-                    <p>Expert-led lessons you can watch live or on-demand. Download for offline viewing.</p>
+            <!-- Plan Selection -->
+            <div class="plan-selection">
+                <label class="plan-selection-label">Which plan interests you?</label>
+                
+                <div class="radio-option">
+                    <input type="radio" id="plan-recordings" name="plan" value="recordings" checked>
+                    <div class="radio-option-text">
+                        <div class="radio-option-title">Recordings Access</div>
+                        <div class="radio-option-desc">150+ hours at your own pace</div>
+                    </div>
+                </div>
+
+                <div class="radio-option">
+                    <input type="radio" id="plan-live" name="plan" value="live">
+                    <div class="radio-option-text">
+                        <div class="radio-option-title">Live + Recordings (Recommended)</div>
+                        <div class="radio-option-desc">Live classes + full archive</div>
+                    </div>
                 </div>
             </div>
 
-            <div class="benefit-item">
-                <div class="benefit-icon">📚</div>
-                <div class="benefit-text">
-                    <h4>Study Materials</h4>
-                    <p>Sermon outlines, exegesis notes, discussion guides, and reference materials included.</p>
-                </div>
+            <!-- Submit -->
+            <button type="submit" class="submit-button">Start My Free Trial →</button>
+
+            <div class="terms-text">
+                By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.<br>
+                ✓ 14-day money-back guarantee applies after trial ends
             </div>
 
-            <div class="benefit-item">
-                <div class="benefit-icon">👥</div>
-                <div class="benefit-text">
-                    <h4>Community Access</h4>
-                    <p>Connect with 600+ pastors and theologians. Participate in discussions and Q&A sessions.</p>
+            <!-- Trust Badges -->
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <span class="badge-icon">🛡️</span>
+                    <span>Secure signup</span>
+                </div>
+                <div class="trust-badge">
+                    <span class="badge-icon">🔒</span>
+                    <span>No spam</span>
+                </div>
+                <div class="trust-badge">
+                    <span class="badge-icon">✓</span>
+                    <span>Cancel anytime</span>
                 </div>
             </div>
-
-            <div class="benefit-item">
-                <div class="benefit-icon">⏰</div>
-                <div class="benefit-text">
-                    <h4>Lifetime Access</h4>
-                    <p>Once purchased, you own your courses forever. Cancel your subscription anytime.</p>
-                </div>
-            </div>
-
-            <div class="benefit-item">
-                <div class="benefit-icon">📜</div>
-                <div class="benefit-text">
-                    <h4>NAD Certifications</h4>
-                    <p>Courses qualify for NAD continuing education credits (0.1 CEU per hour).</p>
-                </div>
-            </div>
-        </div>
+        </form>
     </div>
 </section>
 
-<!-- FAQ -->
-<section class="faq-compact-section">
-    <div class="faq-compact-container">
-        <div class="faq-compact-header">
-            <h2>Questions About Your Trial?</h2>
+<!-- Benefits Preview -->
+<section class="benefits-section">
+    <div class="benefits-container">
+        <div class="benefits-header">
+            <h3>What You Get in Your Free Trial</h3>
         </div>
 
-        <div class="faq-compact-list">
-            <div class="faq-compact-item">
-                <div class="faq-compact-q">When does billing start?</div>
-                <div class="faq-compact-a">After your 7-day trial ends. You'll get a reminder 24 hours before we charge your card.</div>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="benefit-icon">📚</div>
+                <div class="benefit-title">150+ Hours Content</div>
+                <div class="benefit-desc">Full library of video lessons</div>
             </div>
-
-            <div class="faq-compact-item">
-                <div class="faq-compact-q">Can I change my plan later?</div>
-                <div class="faq-compact-a">Yes. Upgrade or downgrade anytime from your account settings. Changes take effect immediately.</div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🎓</div>
+                <div class="benefit-title">Live Classes</div>
+                <div class="benefit-desc">Twice weekly (Live plan)</div>
             </div>
-
-            <div class="faq-compact-item">
-                <div class="faq-compact-q">What if I cancel during the trial?</div>
-                <div class="faq-compact-a">Your access ends on day 7. You won't be charged. No questions asked.</div>
+            <div class="benefit-item">
+                <div class="benefit-icon">📥</div>
+                <div class="benefit-title">Download & Go</div>
+                <div class="benefit-desc">Watch offline, anytime</div>
             </div>
-
-            <div class="faq-compact-item">
-                <div class="faq-compact-q">Do I get email support?</div>
-                <div class="faq-compact-a">Yes. Our team responds to support emails within 24 hours on weekdays.</div>
-            </div>
-
-            <div class="faq-compact-item">
-                <div class="faq-compact-q">Can I gift a subscription?</div>
-                <div class="faq-compact-a">Absolutely. Purchase a gift code from your account and send to a friend.</div>
-            </div>
-
-            <div class="faq-compact-item">
-                <div class="faq-compact-q">Do you offer team/church licenses?</div>
-                <div class="faq-compact-a">Yes. Email team@theoeducation.com for volume pricing for your church or organization.</div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🤝</div>
+                <div class="benefit-title">Community Access</div>
+                <div class="benefit-desc">Connect with 600+ pastors</div>
             </div>
         </div>
     </div>
