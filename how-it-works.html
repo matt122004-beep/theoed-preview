@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works — TheoEducation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Source Sans Pro', system-ui, -apple-system, sans-serif;
+            background-color: #F5F0E8;
+            padding: 40px 20px;
+        }
+
+        .how-it-works-section {
+            background-color: #FFFFFF;
+            padding: 80px 40px;
+            margin: 0;
+        }
+
+        .how-it-works-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .how-it-works-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .how-it-works-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .how-it-works-header p {
+            font-size: 16px;
+            color: #4A4540;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-bottom: 0;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 80px;
+            background: linear-gradient(180deg, #C4A23E, transparent);
+            left: 30px;
+            top: 100%;
+            display: none;
+        }
+
+        @media (min-width: 1000px) {
+            .steps-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .step:not(:last-child)::after {
+                display: block;
+            }
+        }
+
+        .step-number {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #C4A23E, #8B6D2E);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            flex-shrink: 0;
+        }
+
+        .step-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .step-description {
+            font-size: 14px;
+            color: #4A4540;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .step-benefit {
+            background: #FFF9F0;
+            border-left: 4px solid #C4A23E;
+            padding: 12px 16px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #8B6D2E;
+            font-weight: 600;
+        }
+
+        .benefit-icon {
+            margin-right: 6px;
+        }
+
+        .transformation-section {
+            background: linear-gradient(135deg, #F5F0E8, #FFFBF5);
+            border: 2px solid #E0DBD2;
+            border-radius: 12px;
+            padding: 60px 50px;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .transformation-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .transformation-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .transformation-item {
+            text-align: left;
+        }
+
+        .transformation-item h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #4A4540;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .transformation-item p {
+            font-size: 16px;
+            color: #2D2A26;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .arrow {
+            color: #C4A23E;
+            font-size: 32px;
+        }
+
+        .transformation-item:nth-child(2) {
+            text-align: center;
+        }
+
+        .transformation-item:nth-child(3) {
+            text-align: right;
+        }
+
+        @media (max-width: 768px) {
+            .how-it-works-section {
+                padding: 60px 20px;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .step:not(:last-child)::after {
+                display: none;
+            }
+
+            .how-it-works-header {
+                margin-bottom: 50px;
+            }
+
+            .transformation-section {
+                padding: 40px 25px;
+                margin-top: 60px;
+            }
+
+            .transformation-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .transformation-item {
+                text-align: center;
+            }
+
+            .transformation-item:nth-child(2) {
+                display: none;
+            }
+
+            .transformation-item:nth-child(3) {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="how-it-works-section">
+    <div class="how-it-works-container">
+        <div class="how-it-works-header">
+            <h2>Four Steps to Confident, Scholarly Preaching</h2>
+            <p>TheoEducation is built to fit into your workflow, not replace it</p>
+        </div>
+
+        <div class="steps-grid">
+            <!-- Step 1 -->
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-title">Choose Your Topic</div>
+                <div class="step-description">
+                    Pick the passage, book, or theological topic you're preparing to teach. Browse our 84+ courses or search by passage reference.
+                </div>
+                <div class="step-benefit">
+                    <span class="benefit-icon">⏱️</span>
+                    Saves 2-3 hours vs. hunting commentaries
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-title">Learn from Experts</div>
+                <div class="step-description">
+                    Watch scholar-led lessons covering exegesis, context, historical background, and interpretive frameworks. Go live or watch on your schedule.
+                </div>
+                <div class="step-benefit">
+                    <span class="benefit-icon">🎓</span>
+                    Seminary-level instruction at 1/100th the cost
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-title">Get the Resources</div>
+                <div class="step-description">
+                    Access downloadable notes, theology slides, discussion guides, and teaching outlines. Adapt them for your congregation's context.
+                </div>
+                <div class="step-benefit">
+                    <span class="benefit-icon">✍️</span>
+                    Ready-to-use sermon outlines included
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-title">Teach with Confidence</div>
+                <div class="step-description">
+                    You're now equipped with scholarly depth, multiple perspectives, and confident exegesis. Preach knowing you've covered the hard questions.
+                </div>
+                <div class="step-benefit">
+                    <span class="benefit-icon">💪</span>
+                    Answer your congregation's toughest questions
+                </div>
+            </div>
+        </div>
+
+        <!-- Transformation Section -->
+        <div class="transformation-section">
+            <h3>The Transformation</h3>
+            
+            <div class="transformation-row">
+                <div class="transformation-item">
+                    <h4>Before</h4>
+                    <p>15+ hours sermon prep<br>Scattered resources<br>Theological guesswork</p>
+                </div>
+                <div class="arrow">→</div>
+                <div class="transformation-item">
+                    <h4>After</h4>
+                    <p>8 hours sermon prep<br>Unified curriculum<br>Scholarly confidence</p>
+                </div>
+            </div>
+
+            <div class="transformation-row">
+                <div class="transformation-item">
+                    <h4>Before</h4>
+                    <p>Teaching feels stale<br>Can't handle controversy<br>Congregation asks, you blank</p>
+                </div>
+                <div class="arrow">→</div>
+                <div class="transformation-item">
+                    <h4>After</h4>
+                    <p>Fresh, scholarly lessons<br>Controversial topics covered<br>You answer with authority</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
