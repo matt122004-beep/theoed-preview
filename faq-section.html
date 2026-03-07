@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ — TheoEducation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Source Sans Pro', system-ui, -apple-system, sans-serif;
+            background-color: #F5F0E8;
+            padding: 40px 20px;
+        }
+
+        .faq-section {
+            background: #FFFFFF;
+            padding: 80px 40px;
+            margin: 0;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .faq-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .faq-header p {
+            font-size: 16px;
+            color: #4A4540;
+            line-height: 1.6;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            border: 2px solid #E0DBD2;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #FFFFFF;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.open {
+            border-color: #C4A23E;
+            box-shadow: 0 8px 24px rgba(196, 162, 62, 0.12);
+        }
+
+        .faq-question {
+            padding: 20px 28px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to right, #FFFBF5 0%, #FFFFFF 100%);
+            user-select: none;
+            transition: background 0.3s ease;
+        }
+
+        .faq-item.open .faq-question {
+            background: linear-gradient(to right, #FFF9F0 0%, #FFFBF5 100%);
+        }
+
+        .faq-question:hover {
+            background: linear-gradient(to right, #FFF9F0 0%, #FFFBF5 100%);
+        }
+
+        .faq-question-text {
+            font-size: 15px;
+            font-weight: 700;
+            color: #2D2A26;
+            margin: 0;
+            padding: 0;
+        }
+
+        .faq-toggle {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 16px;
+            font-size: 18px;
+            color: #C4A23E;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.open .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: #FFFFFF;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 500px;
+            padding: 0 28px 28px 28px;
+        }
+
+        .faq-answer-text {
+            font-size: 14px;
+            color: #4A4540;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .faq-answer-text strong {
+            color: #2D2A26;
+            font-weight: 700;
+        }
+
+        .faq-answer-list {
+            list-style: none;
+            margin: 16px 0 0 0;
+            padding: 0;
+        }
+
+        .faq-answer-list li {
+            padding: 8px 0 8px 24px;
+            position: relative;
+            font-size: 14px;
+            color: #4A4540;
+            line-height: 1.5;
+        }
+
+        .faq-answer-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #6B8E4E;
+            font-weight: 700;
+        }
+
+        .category-group {
+            margin-bottom: 50px;
+        }
+
+        .category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #2D2A26;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #E0DBD2;
+        }
+
+        @media (max-width: 768px) {
+            .faq-section {
+                padding: 60px 20px;
+            }
+
+            .faq-header {
+                margin-bottom: 50px;
+            }
+
+            .faq-question {
+                padding: 16px 20px;
+            }
+
+            .faq-item.open .faq-answer {
+                padding: 0 20px 20px 20px;
+            }
+
+            .faq-question-text {
+                font-size: 14px;
+            }
+
+            .faq-toggle {
+                width: 20px;
+                height: 20px;
+                font-size: 16px;
+                margin-left: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="faq-section">
+    <div class="faq-container">
+        <div class="faq-header">
+            <h2>Common Questions</h2>
+            <p>Everything you need to know about TheoEducation, its content, and how it works</p>
+        </div>
+
+        <div class="faq-list">
+            <!-- Access & Enrollment -->
+            <div class="category-group">
+                <div class="category-title">Access & Enrollment</div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="faq-question-text">Who can enroll in TheoEducation?</h3>
+                        <div class="faq-toggle">▼</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">Anyone with a serious interest in biblical theology and pastoral education. Our content is designed for pastors, theologians, seminary students, and laypeople pursuing deeper biblical knowledge. <strong>SDA pastors get free access</strong> as part of NAD professional development.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="faq-question-text">Can I try TheoEducation before committing?</h3>
+                        <div class="faq-toggle">▼</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">Yes! We offer a <strong>7-day free trial</strong> on both our Recordings and Live + Recordings plans. You get full access to all 150+ hours of content during your trial. No credit card required to start.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="faq-question-text">What devices can I use to access courses?</h3>
+                        <div class="faq-toggle">▼</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">TheoEducation works on any device with a browser: laptops, tablets, smartphones, and smart TVs. You can also <strong>download lessons for offline viewing</strong>, perfect for pastors with inconsistent internet access.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content & Curriculum -->
+            <div class="category-group">
+                <div class="category-title">Content & Curriculum</div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="faq-question-text">What topics does TheoEducation cover?</h3>
+                        <div class="faq-toggle">▼</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">We offer <strong>84+ courses</strong> across major biblical and theological topics:</p>
+                        <ul class="faq-answer-list">
+                            <li>Hermeneutics & Exegesis</li>
+                            <li>Old Testament (Books, History, Prophets)</li>
+                            <li>New Testament (Gospels, Paul, John)</li>
+                            <li>Daniel & Revelation (eschatology)</li>
+                            <li>Adventist history & theology</li>
+                            <li>Spiritual formation & pastoral care</li>
+                            <li>Controversial passages & cultural topics</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="faq-question-text">How much content is available?</h3>
+                        <div class="faq-toggle">▼</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">Over <strong>150+ hours</strong> of high-quality instruction from expert theologians and pastors. That's roughly 2-3 years of full-time seminary content, accessible at your own pace.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="faq-question-text">Is the content NAD approved?</h3>
+                        <div class="faq-toggle">▼</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">Yes. TheoEducation is <strong>NAD-approved</strong> and offers CEU credits for professional development. Many courses qualify for continuing education hours toward pastoral licensing and credential maintenance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing & Billing -->
+            <div class="category-group">
+                <div class="category-title">Pricing & Billing</div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="faq-question-text">What's the difference between plans?</h3>
+                        <div class="faq-toggle">▼</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text"><strong>Recordings Only ($6/week):</strong> Access to 150+ hours, download for offline, 10-year archive. <strong>Live + Recordings ($8/week):</strong> Everything above plus live classes 2x/week, Q&A sessions, completion certificates, priority support, and community access.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="faq-question-text">Can I cancel anytime?</h3>
+                        <div class="faq-toggle">▼</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">Absolutely. <strong>Cancel anytime, no questions asked.</strong> Your access continues through your paid period, and there are no hidden fees or penalties. You're not locked into a long-term contract.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="faq-question-text">What if I'm not satisfied?</h3>
+                        <div class="faq-toggle">▼</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">We offer a <strong>14-day money-back guarantee.</strong> If TheoEducation isn't right for you, we'll refund your subscription cost — no questions asked. We want you satisfied or your money back.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="faq-question-text">Is there a group/church discount?</h3>
+                        <div class="faq-toggle">▼</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">Yes! We offer team and institutional pricing for churches, schools, and pastoral training programs. <strong>Contact us for a custom quote</strong> based on group size.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Support -->
+            <div class="category-group">
+                <div class="category-title">Technical Support</div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="faq-question-text">What if I have technical issues?</h3>
+                        <div class="faq-toggle">▼</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">Our support team responds within 24 hours. <strong>Live + Recordings members get priority support.</strong> Email us at support@theoeducation.com or use the contact form in your dashboard.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3 class="faq-question-text">How long do I have access to courses?</h3>
+                        <div class="faq-toggle">▼</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">Live + Recordings members get <strong>lifetime access</strong> to the video library. Recordings-only members have 10-year archive access. You can download and keep your own copies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.querySelector('.faq-question').addEventListener('click', () => {
+            item.classList.toggle('open');
+        });
+    });
+</script>
+
+</body>
+</html>
