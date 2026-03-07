@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Problem — TheoEducation</title>
+    <title>Problem Section — TheoEducation</title>
     <style>
         * {
             margin: 0;
@@ -18,7 +18,7 @@
         }
 
         .problem-section {
-            background-color: #FFFFFF;
+            background: linear-gradient(180deg, #F5F0E8 0%, #FFFBF5 100%);
             padding: 80px 40px;
             margin: 0;
         }
@@ -39,122 +39,137 @@
             color: #2D2A26;
             font-weight: 700;
             margin-bottom: 16px;
-            line-height: 1.2;
-        }
-
-        .problem-subheader {
-            font-size: 18px;
-            color: #C4A23E;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 16px;
         }
 
         .problem-header p {
             font-size: 16px;
             color: #4A4540;
             line-height: 1.6;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
         }
 
-        .problems-grid {
+        .problem-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
-            margin-bottom: 60px;
+            margin-bottom: 0;
         }
 
-        .problem-item {
-            padding: 40px 32px;
-            background: linear-gradient(135deg, #FFF9F0 0%, #FFFBF5 100%);
-            border-left: 4px solid #C4A23E;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .problem-item:hover {
-            box-shadow: 0 8px 24px rgba(196, 162, 62, 0.12);
-            transform: translateY(-4px);
-        }
-
-        .problem-icon {
-            font-size: 48px;
-            margin-bottom: 16px;
-            display: inline-block;
-        }
-
-        .problem-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #2D2A26;
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-
-        .problem-description {
-            font-size: 15px;
-            color: #4A4540;
-            line-height: 1.6;
-        }
-
-        .divider-section {
-            text-align: center;
-            margin: 60px 0;
-            padding: 40px 0;
-            border-top: 1px solid #E0DBD2;
-            border-bottom: 1px solid #E0DBD2;
-        }
-
-        .divider-icon {
-            font-size: 36px;
-            margin-bottom: 16px;
-        }
-
-        .divider-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            color: #2D2A26;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .divider-subtext {
-            font-size: 16px;
-            color: #7A7570;
-        }
-
-        .stats-bar {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 40px;
-            background: linear-gradient(135deg, #F5F0E8 0%, #FFFBF5 100%);
-            padding: 50px 40px;
+        .problem-card {
+            background: #FFFFFF;
+            border: 2px solid #E0DBD2;
             border-radius: 12px;
+            padding: 40px 32px;
             text-align: center;
-        }
-
-        .stat {
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
         }
 
-        .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: #C4A23E;
-            line-height: 1;
-            margin-bottom: 8px;
+        .problem-card:hover {
+            border-color: #8B6D2E;
+            box-shadow: 0 12px 40px rgba(139, 109, 46, 0.08);
+            transform: translateY(-6px);
         }
 
-        .stat-label {
+        .problem-icon {
+            font-size: 56px;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+
+        .problem-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #2D2A26;
+            margin-bottom: 14px;
+        }
+
+        .problem-description {
             font-size: 14px;
-            color: #7A7570;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            color: #4A4540;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .impact-stat {
+            background: #FFF9F0;
+            border-left: 4px solid #C4A23E;
+            padding: 14px 16px;
+            border-radius: 4px;
+            font-size: 13px;
             font-weight: 600;
+            color: #8B6D2E;
+            margin-top: auto;
+        }
+
+        .impact-icon {
+            margin-right: 6px;
+        }
+
+        /* Two-column layout for larger screens */
+        @media (min-width: 1000px) {
+            .problem-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 900px;
+            }
+        }
+
+        .pain-points-list {
+            text-align: left;
+            margin-top: 70px;
+            background: linear-gradient(135deg, rgba(196, 162, 62, 0.05), rgba(139, 109, 46, 0.03));
+            border: 2px solid #E0DBD2;
+            border-radius: 12px;
+            padding: 50px 40px;
+        }
+
+        .pain-points-list h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: #2D2A26;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .pain-points-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .pain-point-item {
+            display: flex;
+            gap: 16px;
+            padding-bottom: 20px;
+        }
+
+        .pain-point-item:not(:last-child) {
+            border-bottom: 1px solid #E0DBD2;
+        }
+
+        .check-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            background: #C4A23E;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .pain-point-text {
+            font-size: 14px;
+            color: #4A4540;
+            line-height: 1.6;
         }
 
         @media (max-width: 768px) {
@@ -166,32 +181,19 @@
                 margin-bottom: 50px;
             }
 
-            .problems-grid {
+            .problem-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
 
-            .problem-item {
-                padding: 30px 24px;
+            .pain-points-list {
+                padding: 40px 24px;
+                margin-top: 50px;
             }
 
-            .divider-section {
-                margin: 40px 0;
-                padding: 30px 0;
-            }
-
-            .divider-text {
-                font-size: 22px;
-            }
-
-            .stats-bar {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
-                padding: 40px 20px;
-            }
-
-            .stat-number {
-                font-size: 2rem;
+            .pain-points-list h3 {
+                font-size: 18px;
+                margin-bottom: 24px;
             }
         }
     </style>
@@ -201,67 +203,95 @@
 <section class="problem-section">
     <div class="problem-container">
         <div class="problem-header">
-            <div class="problem-subheader">The Challenge</div>
-            <h2>Teaching the Bible with Depth<br>Doesn't Have to Be Lonely</h2>
-            <p>You know the struggle. You're expected to teach with authority, but finding time to study at seminary-level depth is nearly impossible.</p>
+            <h2>The Challenge Most Pastors Face</h2>
+            <p>You care deeply about teaching Scripture well, but the gap between pastoral duties and deep theological study is widening.</p>
         </div>
 
-        <div class="problems-grid">
-            <div class="problem-item">
-                <div class="problem-icon">⏳</div>
-                <div class="problem-title">Time Crunch</div>
-                <div class="problem-description">Between leading worship, counseling, administration, and family, how do you find hours each week for serious biblical study?</div>
+        <div class="problem-grid">
+            <!-- Problem 1: Time -->
+            <div class="problem-card">
+                <div class="problem-icon">⏱️</div>
+                <div class="problem-title">Limited Study Time</div>
+                <div class="problem-description">
+                    Sermon prep competes with counseling, hospital visits, administration, and family. Finding time for deep theological study feels impossible.
+                </div>
+                <div class="impact-stat">
+                    <span class="impact-icon">📊</span>
+                    Avg. pastor: 8-10 hrs/week on all duties
+                </div>
             </div>
 
-            <div class="problem-item">
-                <div class="problem-icon">🎓</div>
-                <div class="problem-title">Knowledge Gaps</div>
-                <div class="problem-description">You didn't study Hebrew. Hermeneutics wasn't emphasized at your seminary. Now your congregation asks hard questions you can't answer confidently.</div>
+            <!-- Problem 2: Confidence -->
+            <div class="problem-card">
+                <div class="problem-icon">😟</div>
+                <div class="problem-title">Confidence Gaps</div>
+                <div class="problem-description">
+                    Teaching Revelation, Hermeneutics, or controversial passages without scholarly grounding leaves you vulnerable to pushback.
+                </div>
+                <div class="impact-stat">
+                    <span class="impact-icon">🎯</span>
+                    56% of pastors avoid teaching hard passages
+                </div>
             </div>
 
-            <div class="problem-item">
-                <div class="problem-icon">🌍</div>
-                <div class="problem-title">Professional Isolation</div>
-                <div class="problem-description">In smaller churches or remote regions, you're the only theological resource. No mentor, no peer network, no second opinion.</div>
-            </div>
-
-            <div class="problem-item">
+            <!-- Problem 3: Resources -->
+            <div class="problem-card">
                 <div class="problem-icon">📚</div>
-                <div class="problem-title">Resource Overload</div>
-                <div class="problem-description">Hundreds of commentaries, podcasts, and blogs. Which ones are trustworthy? Which actually teach, vs. just entertain?</div>
+                <div class="problem-title">Fragmented Resources</div>
+                <div class="problem-description">
+                    Seminary notes, commentaries, journals, podcasts — everything scattered. No coherent path to deepen your biblical understanding.
+                </div>
+                <div class="impact-stat">
+                    <span class="impact-icon">⚙️</span>
+                    12+ hours/month finding the right source
+                </div>
             </div>
 
-            <div class="problem-item">
-                <div class="problem-icon">💰</div>
-                <div class="problem-title">Cost</div>
-                <div class="problem-description">Seminary programs cost $30K+. Individual courses are scattered across platforms. A unified, affordable system doesn't exist.</div>
-            </div>
-
-            <div class="problem-item">
-                <div class="problem-icon">🚫</div>
-                <div class="problem-title">Theological Drift</div>
-                <div class="problem-description">Without rigorous, ongoing study, it's easy to drift into opinions rather than grounding teaching in solid exegesis.</div>
+            <!-- Problem 4: Isolation -->
+            <div class="problem-card">
+                <div class="problem-icon">🏜️</div>
+                <div class="problem-title">Ministry Isolation</div>
+                <div class="problem-description">
+                    Small churches lack peers for theological dialogue. Big churches have staff, but no one to discuss hard biblical questions with.
+                </div>
+                <div class="impact-stat">
+                    <span class="impact-icon">👥</span>
+                    72% of pastors feel theologically isolated
+                </div>
             </div>
         </div>
 
-        <div class="divider-section">
-            <div class="divider-icon">📊</div>
-            <div class="divider-text">The Result?</div>
-            <div class="divider-subtext">Unprepared sermons. Stressed leadership. Congregation questions left unanswered.</div>
-        </div>
-
-        <div class="stats-bar">
-            <div class="stat">
-                <div class="stat-number">73%</div>
-                <div class="stat-label">Of pastors report inadequate study time</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">61%</div>
-                <div class="stat-label">Feel pressure to teach topics outside expertise</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">45%</div>
-                <div class="stat-label">Have no ongoing theological education</div>
+        <div class="pain-points-list">
+            <h3>Without Better Resources, You Face:</h3>
+            <div class="pain-points-columns">
+                <div>
+                    <div class="pain-point-item">
+                        <div class="check-icon">→</div>
+                        <div class="pain-point-text"><strong>Weak sermon foundations</strong> that don't survive tough questions</div>
+                    </div>
+                    <div class="pain-point-item">
+                        <div class="check-icon">→</div>
+                        <div class="pain-point-text"><strong>Burned out from endless prep cycles</strong> with no time for your family</div>
+                    </div>
+                    <div class="pain-point-item">
+                        <div class="check-icon">→</div>
+                        <div class="pain-point-text"><strong>Shrinking congregation engagement</strong> because teaching feels surface-level</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="pain-point-item">
+                        <div class="check-icon">→</div>
+                        <div class="pain-point-text"><strong>Stale biblical insights</strong> — recycling old material instead of discovering new depth</div>
+                    </div>
+                    <div class="pain-point-item">
+                        <div class="check-icon">→</div>
+                        <div class="pain-point-text"><strong>Theological imposter syndrome</strong> when facing educated skeptics</div>
+                    </div>
+                    <div class="pain-point-item">
+                        <div class="check-icon">→</div>
+                        <div class="pain-point-text"><strong>Lost opportunity to mentor</strong> the next generation of pastors</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
