@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero + Trust Ribbon — TheoEducation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #ffffff;
+            color: #4a4540;
+        }
+
+        /* Hero Section */
+        .rgpt25x-hero-trust {
+            background: linear-gradient(135deg, #f5f0e8 0%, #ede7d4 100%);
+            padding: 80px 20px 60px;
+            text-align: center;
+        }
+
+        .rgpt25x-hero-trust__container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .rgpt25x-hero-trust__kicker {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: #8b6d2e;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .rgpt25x-hero-trust__headline {
+            font-family: "Playfair Display", "Georgia", serif;
+            font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+            font-weight: 700;
+            line-height: 1.15;
+            color: #2d2a26;
+            margin-bottom: 16px;
+        }
+
+        .rgpt25x-hero-trust__subheading {
+            font-size: 18px;
+            font-weight: 400;
+            color: #4a4540;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .rgpt25x-hero-trust__cta {
+            margin-bottom: 50px;
+        }
+
+        .rgpt25x-hero-trust__btn {
+            display: inline-block;
+            background: #c4a23e;
+            color: #ffffff;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 10px;
+        }
+
+        .rgpt25x-hero-trust__btn:hover {
+            background: #8b6d2e;
+            transform: translateY(-2px);
+        }
+
+        .rgpt25x-hero-trust__btn--secondary {
+            background: transparent;
+            color: #8b6d2e;
+            border: 2px solid #8b6d2e;
+        }
+
+        .rgpt25x-hero-trust__btn--secondary:hover {
+            background: #8b6d2e;
+            color: #ffffff;
+        }
+
+        /* Trust Ribbon Section */
+        .rgpt25x-trust-ribbon {
+            background: #ffffff;
+            padding: 40px 20px;
+            border-top: 1px solid #e0dbd2;
+            border-bottom: 1px solid #e0dbd2;
+        }
+
+        .rgpt25x-trust-ribbon__container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .rgpt25x-trust-ribbon__title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #7a7570;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .rgpt25x-trust-ribbon__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .rgpt25x-trust-stat {
+            text-align: center;
+        }
+
+        .rgpt25x-trust-stat__number {
+            font-family: "Playfair Display", "Georgia", serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #c4a23e;
+            margin-bottom: 8px;
+        }
+
+        .rgpt25x-trust-stat__label {
+            font-size: 14px;
+            color: #4a4540;
+            font-weight: 500;
+        }
+
+        .rgpt25x-trust-badges {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        .rgpt25x-trust-badge {
+            background: #f5f0e8;
+            border: 2px solid #c4a23e;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .rgpt25x-trust-badge:hover {
+            background: #c4a23e;
+            color: #ffffff;
+        }
+
+        .rgpt25x-trust-badge__icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .rgpt25x-trust-badge__text {
+            font-size: 13px;
+            font-weight: 600;
+            color: #2d2a26;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .rgpt25x-hero-trust {
+                padding: 60px 16px 50px;
+            }
+
+            .rgpt25x-hero-trust__subheading {
+                font-size: 16px;
+                margin-bottom: 30px;
+            }
+
+            .rgpt25x-hero-trust__btn {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .rgpt25x-trust-ribbon__grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .rgpt25x-trust-badges {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .rgpt25x-hero-trust__headline {
+                font-size: 1.8rem;
+            }
+
+            .rgpt25x-trust-stat__number {
+                font-size: 1.8rem;
+            }
+
+            .rgpt25x-trust-ribbon__grid,
+            .rgpt25x-trust-badges {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="rgpt25x-hero-trust">
+        <div class="rgpt25x-hero-trust__container">
+            <div class="rgpt25x-hero-trust__kicker">Ministry Made Better</div>
+            <h1 class="rgpt25x-hero-trust__headline">
+                Trusted Bible Scholarship That Isn't Fundamentalist
+            </h1>
+            <p class="rgpt25x-hero-trust__subheading">
+                Seminary-level education for pastors who want to grow deeper, ask better questions, and lead with confidence. No dogma. Just honest scholarship.
+            </p>
+            <div class="rgpt25x-hero-trust__cta">
+                <a href="#" class="rgpt25x-hero-trust__btn">Start Your Free Trial</a>
+                <a href="#" class="rgpt25x-hero-trust__btn rgpt25x-hero-trust__btn--secondary">See All Courses</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Ribbon -->
+    <section class="rgpt25x-trust-ribbon">
+        <div class="rgpt25x-trust-ribbon__container">
+            <div class="rgpt25x-trust-ribbon__title">✅ Trusted by pastors and scholars worldwide</div>
+            
+            <!-- Stats Grid -->
+            <div class="rgpt25x-trust-ribbon__grid">
+                <div class="rgpt25x-trust-stat">
+                    <div class="rgpt25x-trust-stat__number">600+</div>
+                    <div class="rgpt25x-trust-stat__label">Active Learners</div>
+                </div>
+                <div class="rgpt25x-trust-stat">
+                    <div class="rgpt25x-trust-stat__number">84+</div>
+                    <div class="rgpt25x-trust-stat__label">Expert Courses</div>
+                </div>
+                <div class="rgpt25x-trust-stat">
+                    <div class="rgpt25x-trust-stat__number">150+</div>
+                    <div class="rgpt25x-trust-stat__label">Hours of Content</div>
+                </div>
+                <div class="rgpt25x-trust-stat">
+                    <div class="rgpt25x-trust-stat__number">22+</div>
+                    <div class="rgpt25x-trust-stat__label">Years of Expertise</div>
+                </div>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="rgpt25x-trust-badges">
+                <div class="rgpt25x-trust-badge">
+                    <div class="rgpt25x-trust-badge__icon">✓</div>
+                    <div class="rgpt25x-trust-badge__text">NAD Approved</div>
+                </div>
+                <div class="rgpt25x-trust-badge">
+                    <div class="rgpt25x-trust-badge__icon">🎓</div>
+                    <div class="rgpt25x-trust-badge__text">CEU Credits</div>
+                </div>
+                <div class="rgpt25x-trust-badge">
+                    <div class="rgpt25x-trust-badge__icon">🔓</div>
+                    <div class="rgpt25x-trust-badge__text">Lifetime Access</div>
+                </div>
+                <div class="rgpt25x-trust-badge">
+                    <div class="rgpt25x-trust-badge__icon">💰</div>
+                    <div class="rgpt25x-trust-badge__text">14-Day Guarantee</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
