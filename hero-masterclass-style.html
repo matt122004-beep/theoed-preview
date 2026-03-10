@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trusted Bible Scholarship — TheoEducation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+        }
+
+        /* HERO SECTION — MasterClass Inspired */
+        .hero {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1494888286106-ee3f8a95585f?w=1600&h=1000&fit=crop');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.25;
+            mix-blend-mode: multiply;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .hero-headline {
+            font-size: clamp(3.5rem, 10vw, 7.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            font-family: 'Druk Text Wide', 'Founders Grotesk', -apple-system, sans-serif;
+            color: #ffffff;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+        }
+
+        .hero-subheadline {
+            font-size: clamp(1.1rem, 4vw, 1.8rem);
+            font-weight: 300;
+            color: #d4d4d4;
+            margin-bottom: 40px;
+            line-height: 1.5;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffd700;
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: #999;
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .btn {
+            padding: 16px 48px;
+            border: none;
+            border-radius: 50vh;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background: #c4a23e;
+            color: #0a0a0a;
+        }
+
+        .btn-primary:hover {
+            background: #ffd700;
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .btn-secondary:hover {
+            background: #fff;
+            color: #0a0a0a;
+            transform: scale(1.05);
+        }
+
+        /* INSTRUCTOR CARD — Large & Dramatic */
+        .instructor-preview {
+            position: relative;
+            max-width: 320px;
+            margin: 60px auto 0;
+            padding-top: 40px;
+        }
+
+        .instructor-photo {
+            width: 240px;
+            height: 240px;
+            margin: 0 auto 20px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(196, 162, 62, 0.3);
+            border: 3px solid rgba(196, 162, 62, 0.5);
+        }
+
+        .instructor-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .instructor-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .instructor-title {
+            font-size: 0.95rem;
+            color: #999;
+        }
+
+        /* DESKTOP LAYOUT */
+        @media (min-width: 1200px) {
+            .hero {
+                min-height: 120vh;
+            }
+
+            .hero-content {
+                max-width: 1200px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+                gap: 80px;
+                text-align: left;
+                padding: 80px 60px;
+            }
+
+            .hero-headline {
+                font-size: 5.5rem;
+            }
+
+            .hero-subheadline {
+                max-width: 600px;
+                margin-left: 0;
+            }
+
+            .hero-stats {
+                justify-content: flex-start;
+            }
+
+            .hero-cta-group {
+                justify-content: flex-start;
+            }
+
+            .instructor-preview {
+                max-width: none;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+            }
+
+            .instructor-photo {
+                width: 300px;
+                height: 400px;
+                margin: 0 auto 20px;
+            }
+        }
+
+        /* TABLET */
+        @media (max-width: 1199px) {
+            .hero-headline {
+                font-size: 3.5rem;
+            }
+
+            .hero-stats {
+                gap: 20px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .instructor-photo {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: auto;
+                padding: 60px 0;
+            }
+
+            .hero-content {
+                padding: 40px 20px;
+            }
+
+            .hero-headline {
+                font-size: 2.5rem;
+            }
+
+            .hero-subheadline {
+                font-size: 1.05rem;
+            }
+
+            .hero-stats {
+                gap: 15px;
+                margin-bottom: 30px;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .stat-label {
+                font-size: 0.85rem;
+            }
+
+            .btn {
+                padding: 14px 32px;
+                font-size: 0.95rem;
+            }
+
+            .instructor-photo {
+                width: 160px;
+                height: 160px;
+            }
+
+            .instructor-name {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <div>
+                <h1 class="hero-headline">Trusted Bible<br>Scholarship</h1>
+                <p class="hero-subheadline">Learn at seminary level. Taught by scholars who've spent decades with the text.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">600+</span>
+                        <span class="stat-label">Pastors</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">150+</span>
+                        <span class="stat-label">Hours</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">22+</span>
+                        <span class="stat-label">Courses</span>
+                    </div>
+                </div>
+
+                <div class="hero-cta-group">
+                    <a href="#pricing" class="btn btn-primary">Start Learning</a>
+                    <a href="#courses" class="btn btn-secondary">Explore Courses</a>
+                </div>
+            </div>
+
+            <div class="instructor-preview">
+                <div class="instructor-photo">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Instructor">
+                </div>
+                <div class="instructor-name">Matthew Quartey</div>
+                <div class="instructor-title">Founder & Lead Instructor</div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
