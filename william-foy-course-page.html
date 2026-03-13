@@ -1,0 +1,2283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel & Revelation - TheoEducation</title>
+    
+    <!-- Google Font import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Core palette */
+            --mc-black:        #000000;   /* page background — pure black only */
+            --mc-dark:         #191c21;   /* card/tile backgrounds */
+            --mc-input:        #222326;   /* form fields, secondary surfaces */
+            --mc-white:        #ffffff;   /* headings, primary text */
+            --mc-text:         rgba(255,255,255,0.85);  /* body text */
+            --mc-muted:        rgba(255,255,255,0.55);  /* captions, metadata */
+            --mc-divider:      rgba(255,255,255,0.12);  /* horizontal rules */
+            --mc-border:       rgba(255,255,255,0.08);  /* card borders */
+
+            /* TheoEd brand substitution */
+            --cta-gold:        #c4a23e;   /* ONLY on primary CTA button */
+
+            /* Typography */
+            --font-display:    'Barlow Condensed', 'Arial Narrow', Impact, sans-serif;
+            --font-body:       'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+            /* Spacing scale */
+            --section-pad:     64px 0;   /* all major sections */
+            --section-pad-sm:  48px 0;    /* smaller sections */
+            --card-gap:        24px;
+            --content-max:     1200px;
+        }
+
+        /* Base reset */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--mc-black);
+            color: var(--mc-text);
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* -------------------------------------------
+           NAVIGATION (MAIN SITE STYLE)
+           ------------------------------------------- */
+        .glass-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(8, 8, 12, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* --glass-border */
+            transition: all 0.3s ease;
+        }
+        
+        .glass-nav.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(8, 8, 12, 0.9);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            /* Container styling from style.css */
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: #fcfcfc; /* --text-main */
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        .brand-img {
+            height: 40px;
+            width: auto;
+            border-radius: 4px;
+        }
+
+        .main-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #c0c0c0; /* --text-secondary */
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: #d4af37; /* --accent-gold */
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-left: 1rem;
+            border-left: 1px solid rgba(255, 255, 255, 0.08); /* --glass-border */
+            padding-left: 2rem;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #a6841f, #d4af37);
+            color: #000;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+        }
+        
+        .btn-primary.btn-sm {
+            padding: 0.5rem 1.25rem;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
+            color: #000;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 992px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            .main-links {
+                display: none;
+            }
+        }
+
+        /* -------------------------------------------
+           SECTION 1: HERO
+           ------------------------------------------- */
+        .hero-section {
+            padding-top: 80px; /* offset for fixed nav */
+            background: var(--mc-black);
+            min-height: 680px;
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            max-width: var(--content-max);
+            margin: 0 auto;
+            min-height: 680px;
+        }
+
+        .hero-left {
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .hero-left img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .hero-gradient {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 50%;
+            background: linear-gradient(to top, #000000 0%, #000000 15%, rgba(0,0,0,0) 50%);         
+            pointer-events: none;
+        }
+
+        .hero-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 48px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 420px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .course-title {
+            font-family: var(--font-display);
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: clamp(3rem, 7vw, 5rem);
+            line-height: 0.9;
+            letter-spacing: -0.02em;
+            color: var(--mc-white);
+            margin: 0;
+        }
+
+        .hero-overline {
+            font-size: 11px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .hero-desc {
+            font-size: 14px;
+            color: var(--mc-text);
+            max-width: 480px;
+            margin: 16px auto 0;
+            line-height: 1.5;
+        }
+
+        .hero-meta {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--mc-white);
+            margin: 20px 0 32px;
+        }
+
+        .watch-trailer-link {
+            color: var(--mc-white);
+            text-decoration: underline;
+            font-weight: 600;
+            margin-left: 6px;
+            cursor: pointer;
+        }
+
+        .enroll-card {
+            background: var(--mc-dark);
+            border: 1px solid var(--mc-border);
+            border-radius: 12px;
+            padding: 20px 24px;
+            width: 100%;
+            max-width: 380px;
+            text-align: center;
+        }
+
+        .avatars {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid var(--mc-dark);
+            margin-left: -8px;
+            object-fit: cover;
+            position: relative;
+        }
+
+        .avatar:first-child {
+            margin-left: 0;
+        }
+
+        .enroll-card-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--mc-white);
+            margin-bottom: 16px;
+        }
+
+        .btn-enroll-card {
+            display: block;
+            width: 100%;
+            background: var(--cta-gold);
+            color: #000;
+            border-radius: 8px;
+            padding: 14px 24px;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            border: none;
+        }
+
+        .btn-enroll-card:hover {
+            transform: scale(1.03);
+        }
+
+        .enroll-card-subtext {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.5;
+            margin-top: 16px;
+        }
+
+        .enroll-card-subtext strong {
+            color: var(--mc-white);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .hero-layout {
+                grid-template-columns: 1fr;
+            }
+            .hero-left {
+                height: 280px;
+                width: 100%;
+            }
+            .hero-right {
+                padding: 40px 24px;
+            }
+            .course-title {
+                font-size: 2.8rem;
+            }
+            .hero-gradient {
+                height: 60%;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            .btn-large {
+                width: 100%;
+            }
+        }
+
+        /* -------------------------------------------
+           SECTION 2: SKILLS YOU'LL LEARN
+           ------------------------------------------- */
+        .lessons-section {
+            background: var(--mc-black);
+            padding: 80px 0 var(--section-pad);
+        }
+
+        .container {
+            max-width: var(--content-max);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--mc-white);
+            margin-bottom: 4px;
+        }
+
+        .section-subtitle {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--mc-white);
+        }
+
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .lesson-card {
+            background: var(--mc-dark);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            aspect-ratio: 3/4;
+            position: relative;
+        }
+
+        .lesson-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .lesson-img-wrapper {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #222;
+        }
+
+        .lesson-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .lesson-number {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: var(--cta-gold);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--mc-black);
+            z-index: 2;
+        }
+
+        .lesson-body {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 16px 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0) 100%);
+            text-align: center;
+            z-index: 2;
+        }
+
+        .lesson-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--mc-white);
+            line-height: 1.3;
+            margin: 0;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.9);
+        }
+
+        @media (max-width: 992px) {
+            .lessons-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 576px) {
+            .lessons-grid { grid-template-columns: 1fr; }
+        }
+
+        /* -------------------------------------------
+           SECTION 3: COURSE OVERVIEW
+           ------------------------------------------- */
+        .overview-section {
+            background: var(--mc-black);
+            padding: var(--section-pad);
+        }
+
+        .overview-layout {
+            display: grid;
+            grid-template-columns: 65% 35%;
+            gap: 48px;
+            align-items: start;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .overview-left h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--mc-white);
+            margin-bottom: 24px;
+        }
+
+        .benefit-list {
+            list-style: none;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .benefit-icon {
+            color: var(--cta-gold);
+            font-size: 18px;
+            flex-shrink: 0;
+            line-height: 1;
+            margin-top: 2px;
+        }
+
+        .benefit-text {
+            font-size: 15px;
+            color: var(--mc-text);
+        }
+
+        .instructor-card {
+            background: transparent;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-top: 56px; /* Align vertically with the top of the learning grid */
+        }
+
+        .instructor-photo {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            display: block;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .instructor-info {
+            padding: 20px 0;
+        }
+
+        .instructor-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--mc-white);
+            margin: 0 0 4px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .instructor-title {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .overview-layout {
+                grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column-reverse;
+                gap: 24px;
+            }
+            .instructor-card {
+                max-width: 320px;
+                margin: 0 auto 32px auto; /* Reset margin on mobile */
+            }
+        }
+
+        /* -------------------------------------------
+           SECTION 4: VALUE PROPS
+           ------------------------------------------- */
+        .value-props-section {
+            background: var(--mc-black);
+            padding: var(--section-pad-sm);
+        }
+
+        .pillars-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            padding: 0 24px;
+        }
+
+        .pillar {
+            background: var(--mc-input); /* Much brighter than 0.03 transparency */
+            border: 1px solid rgba(255, 255, 255, 0.15); /* Stronger visible border */
+            padding: 40px 32px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s, background 0.3s, box-shadow 0.3s, border-color 0.3s;
+        }
+        
+        .pillar:hover {
+            transform: translateY(-4px);
+            background: #2a2c30; /* Brighten on hover */
+            border-color: var(--cta-gold); /* Solid gold instead of faint rgba */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .pillar-icon {
+            font-size: 32px;
+            color: var(--cta-gold);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .pillar-title {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--mc-white);
+            margin: 0 0 12px 0;
+            line-height: 1.1;
+        }
+
+        .pillar-body {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .pillars-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* -------------------------------------------
+           SECTION 2.5: TRAILER
+           ------------------------------------------- */
+        .trailer-section {
+            background: var(--mc-black);
+            padding: 40px 0 var(--section-pad);
+        }
+
+        .trailer-container {
+            max-width: 1000px; /* Trailer is wide but not full bleed */
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            display: block;
+            position: relative;
+        }
+
+        .trailer-label {
+            position: absolute;
+            top: 24px;
+            right: 32px;
+            z-index: 10;
+            display: flex;
+            gap: 16px;
+            pointer-events: none;
+        }
+
+        .trailer-label-tag {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--mc-white);
+            text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+        }
+
+        .trailer-label-tag.muted {
+            font-weight: 500;
+            color: rgba(255,255,255,0.7);
+        }
+           
+        /* -------------------------------------------
+           SECTION 5: SOCIAL PROOF
+           ------------------------------------------- */
+        .social-proof-section {
+            background: var(--mc-black);
+            padding: var(--section-pad);
+        }
+
+        .social-proof-header {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 700;
+            text-align: center;
+            color: var(--mc-white);
+            margin: 0 0 56px 0;
+            line-height: 1.1;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .quote-icon {
+            font-family: Georgia, serif;
+            font-size: 64px;
+            color: var(--cta-gold);
+            line-height: 0.5;
+            margin-bottom: 16px;
+        }
+
+        .quote-text {
+            font-size: 17px;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.6;
+            margin: 0 0 32px 0;
+            flex-grow: 1;
+        }
+
+        .quote-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--mc-white);
+        }
+
+        .author-role {
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+            margin-top: 4px;
+        }
+
+        @media (max-width: 900px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
+        /* -------------------------------------------
+           SECTION 6: PRICING CTA
+           ------------------------------------------- */
+        .pricing-section {
+            background: var(--mc-black);
+            padding: var(--section-pad);
+        }
+
+        .pricing-content {
+            text-align: center;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .pricing-header {
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--mc-white);
+            margin: 0 0 8px 0;
+        }
+
+        .pricing-subhead {
+            font-size: 17px;
+            color: var(--mc-muted);
+            margin: 0 0 32px 0;
+        }
+
+        .btn-full {
+            display: block;
+            width: 100%;
+            background: var(--cta-gold);
+            color: #000;
+            border-radius: 8px;
+            padding: 18px 32px;
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            text-decoration: none;
+            margin-bottom: 16px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-full:hover {
+            transform: scale(1.02);
+        }
+
+        .guarantee-text {
+            font-size: 13px;
+            color: rgba(255,255,255,0.35);
+            margin: 0;
+        }
+
+        /* -------------------------------------------
+           SECTION 7: FAQ
+           ------------------------------------------- */
+        .faq-section {
+            background: var(--mc-black);
+            padding: var(--section-pad);
+        }
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .faq-container h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--mc-white);
+            margin-bottom: 40px;
+        }
+        .faq-item {
+            border-bottom: 1px solid var(--mc-border);
+        }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--mc-white);
+            cursor: pointer;
+            user-select: none;
+        }
+        .faq-answer {
+            font-size: 15px;
+            color: var(--mc-text);
+            line-height: 1.6;
+            padding-bottom: 24px;
+            display: none;
+        }
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+        .faq-item.open .faq-chevron {
+            transform: rotate(180deg);
+        }
+        .faq-chevron {
+            transition: transform 0.3s ease;
+        }
+
+        /* -------------------------------------------
+           SECTION 8: FROM HERE GO ANYWHERE
+           ------------------------------------------- */
+        .go-anywhere-section {
+            background: var(--mc-black);
+            padding: var(--section-pad);
+            overflow: hidden;
+        }
+
+        .go-anywhere-header {
+            max-width: var(--content-max);
+            margin: 0 auto 32px;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .go-anywhere-title h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--mc-white);
+            margin-bottom: 8px;
+        }
+
+        .go-anywhere-title p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.6);
+            margin: 0;
+        }
+
+        .carousel-nav {
+            display: flex;
+            gap: 12px;
+        }
+
+        .carousel-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .go-anywhere-grid {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none; /* Firefox */
+            padding-bottom: 24px;
+            scroll-padding-left: max(24px, calc((100vw - var(--content-max)) / 2 + 24px));
+        }
+
+        .go-anywhere-grid::before,
+        .go-anywhere-grid::after {
+            content: '';
+            flex: 0 0 max(8px, calc((100vw - var(--content-max)) / 2 + 8px));
+        }
+
+        .go-anywhere-grid::-webkit-scrollbar {
+            display: none; /* Chrome/Safari/Edge */
+        }
+
+        .go-anywhere-card {
+            flex: 0 0 calc((100% - 48px - (16px * 4)) / 5); /* 5 cards visible roughly */
+            min-width: 240px;
+            aspect-ratio: 9/13;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            scroll-snap-align: start;
+            display: block;
+            text-decoration: none;
+            background: #111;
+        }
+
+        .go-anywhere-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .go-anywhere-card:hover img {
+            opacity: 1;
+        }
+
+        .go-card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 32px 16px 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, transparent 100%);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .go-card-logo {
+            font-family: 'Times New Roman', serif; /* Simulating the font from screenshot */
+            font-size: 24px;
+            font-weight: 400;
+            color: white;
+            margin-bottom: 8px;
+            line-height: 1.1;
+        }
+
+        .go-card-divider {
+            width: 12px;
+            height: 2px;
+            background: white;
+            margin: 8px auto;
+        }
+
+        .go-card-desc {
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .btn-watch-trailer {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+        
+        .btn-watch-trailer:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* -------------------------------------------
+           SECTION 9: INFINITE POSSIBILITIES
+           ------------------------------------------- */
+        .infinite-section {
+            background: var(--mc-black);
+            padding: var(--section-pad);
+            text-align: center;
+        }
+
+        .infinite-header h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--mc-white);
+            margin-bottom: 48px;
+            line-height: 1.2;
+        }
+
+        .infinite-grid {
+            max-width: var(--content-max);
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .infinite-card {
+            background: #111;
+            border-radius: 16px;
+            aspect-ratio: 4/5;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 32px;
+            text-decoration: none;
+        }
+
+        .infinite-card img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+            z-index: 1;
+            transition: opacity 0.3s, transform 0.5s ease;
+        }
+
+        .infinite-card:hover img {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        .infinite-gradient {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+            z-index: 2;
+        }
+
+        .infinite-content {
+            position: relative;
+            z-index: 3;
+            text-align: left;
+        }
+
+        .infinite-content p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.7);
+            margin: 0 0 8px 0;
+        }
+
+        .infinite-content h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .infinite-icons {
+            display: flex;
+            gap: 24px;
+            margin-top: 24px;
+            color: rgba(255,255,255,0.5);
+            font-size: 24px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        @media (max-width: 900px) {
+            .infinite-grid { grid-template-columns: 1fr; }
+            .infinite-card { aspect-ratio: 16/9; }
+        }
+
+        /* -------------------------------------------
+           SECTION 10: CERTIFICATES & TEAM
+           ------------------------------------------- */
+        .promo-section {
+            background: var(--mc-black);
+            padding: var(--section-pad);
+        }
+
+        .promo-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .promo-card {
+            background: #191c21;
+            border-radius: 16px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            min-height: 380px;
+        }
+
+        .promo-card.reversed {
+            grid-template-columns: 1fr 1fr; /* Image on left naturally via HTML order */
+        }
+
+        .promo-content {
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .promo-card.certificates .promo-content {
+            background: #2a2c1f; /* Olive tint from screenshot */
+        }
+
+        .promo-brand {
+            font-family: 'Times New Roman', serif;
+            font-size: 20px;
+            color: white;
+            margin-bottom: 24px;
+        }
+
+        .promo-title {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 700;
+            color: white;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+
+        .promo-desc {
+            font-size: 16px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 32px;
+        }
+
+        .btn-promo-gold {
+            background: #d4fc15; /* Bright yellow-green from screenshot */
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s;
+        }
+
+        .btn-promo-gold:hover {
+            transform: scale(1.03);
+        }
+
+        .promo-actions {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .btn-promo-red {
+            background: #e32652;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            border: none;
+            transition: opacity 0.2s;
+        }
+
+        .btn-promo-red:hover {
+            opacity: 0.9;
+        }
+
+        .promo-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .promo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .promo-card, .promo-card.reversed {
+                grid-template-columns: 1fr;
+            }
+            .promo-image {
+                height: 250px;
+            }
+            .promo-content {
+                padding: 32px 24px;
+            }
+        }
+
+        /* -------------------------------------------
+           SECTION 11: NEWSLETTER
+           ------------------------------------------- */
+        .newsletter-section {
+            background: var(--mc-dark);
+            padding: 80px 24px;
+            text-align: center;
+            border-top: 1px solid var(--mc-border);
+            border-bottom: 1px solid var(--mc-border);
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--mc-white);
+            margin-bottom: 12px;
+        }
+
+        .newsletter-section p {
+            font-size: 15px;
+            color: var(--mc-muted);
+            margin-bottom: 32px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 14px 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .newsletter-input:focus {
+            border-color: var(--cta-gold);
+        }
+
+        .newsletter-btn {
+            background: var(--mc-white);
+            color: var(--mc-black);
+            border: none;
+            padding: 0 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .newsletter-btn:hover {
+            opacity: 0.9;
+        }
+
+        @media (max-width: 500px) {
+            .newsletter-form {
+                flex-direction: column;
+            }
+            .newsletter-btn {
+                padding: 14px;
+            }
+        }
+
+        /* -------------------------------------------
+           FOOTER
+           ------------------------------------------- */
+        /* === Site Footer — matches rest of site === */
+        .site-footer {
+            background: #0a0a0d;
+            border-top: 1px solid rgba(212,175,55,0.15);
+            padding: 4rem 0 0;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 4rem;
+            padding-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-brand {
+            max-width: 280px;
+        }
+
+        .footer-brand .logo-icon {
+            font-size: 1.5rem;
+            color: #d4af37;
+            margin-right: 0.5rem;
+        }
+
+        .footer-brand .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .footer-brand p {
+            margin-top: 1rem;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .link-column h4 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 1.25rem;
+        }
+
+        .link-column a {
+            display: block;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+            transition: color 0.2s ease;
+        }
+
+        .link-column a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 1.5rem 0;
+            text-align: center;
+            color: rgba(255,255,255,0.25);
+            font-size: 0.8rem;
+        }
+
+        .footer-bottom p { margin: 0; }
+
+        /* container class for sabbath page */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="glass-nav">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+
+                <span class="logo-text">TheoEducation</span>
+            </a>
+            
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="main-links">
+                <a href="about-us.html" class="nav-link">About Us</a>
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="classes.html" class="nav-link">Classes</a>
+
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <div class="nav-actions">
+                    <a href="https://www.theoeducation.com/users/sign_in" class="nav-link sign-in">Sign In</a>
+                    <a href="https://www.theoeducation.com/order?ct=d8e7467e-4240-4fbe-bb09-f5d71d9111b8" class="btn-primary btn-sm">Start Trial</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SECTION 1: HERO -->
+    <section class="hero-section">
+        <div class="hero-layout">
+            <div class="hero-left">
+                <img src="https://import.cdn.thinkific.com/296355%2Fcustom_site_themes%2Fid%2F3J5SPUFS2yTPZwoJC3Xw_istockphoto-482688849-612x612.jpg" alt="William Foy Hero" style="object-position: top center;">
+                <div class="hero-gradient"></div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-content">
+                    <div class="hero-overline" style="color: var(--cta-gold);">Matthew J. Korpman Teaches Adventist History</div>
+                    <h1 class="course-title" style="margin-bottom: 4px;">WILLIAM<br>FOY</h1>
+                    <p style="font-family: var(--font-display); font-size: clamp(1rem, 2vw, 1.4rem); font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--mc-white); margin: 0 0 16px 0;">REDISCOVERING THE BLACK PROPHET</p>
+                    <p class="hero-desc">Before Ellen White ever received a vision, a Black preacher named William Foy stood at the heart of early Adventism’s prophetic awakening. Explore Foy’s remarkable life, his forgotten visions, and the racial dynamics that shaped Adventist history.</p>
+                    <div class="hero-meta">
+                        4 Lessons &middot; 8 hrs &middot; 0.8 CEU
+                        <a href="#trailer" class="watch-trailer-link">Watch Trailer</a>
+                    </div>
+                    
+                    <div class="enroll-card">
+                        <div class="avatars">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" class="avatar" style="z-index: 5;" alt="Student">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" class="avatar" style="z-index: 4;" alt="Student">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop" class="avatar" style="z-index: 3;" alt="Student">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop" class="avatar" style="z-index: 2;" alt="Student">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop" class="avatar" style="z-index: 1;" alt="Student">
+                        </div>
+                        <h3 class="enroll-card-title">Hebrew Bible &middot; New Testament &middot; Theology</h3>
+                        <a href="https://www.theoeducation.com/order?ct=d8e7467e-4240-4fbe-bb09-f5d71d9111b8" class="btn-enroll-card">Watch Free for 7 Days</a>
+                        <p class="enroll-card-subtext">Starting at <strong>$6/week</strong>, or $250/year.<br>Free for SDA pastors (0.8 CEU).<br><a href="https://www.theoeducation.com/users/sign_in" style="color: white; margin-top: 6px; display: inline-block;">Sign In to Watch</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: SKILLS YOU'LL LEARN -->
+    <section class="lessons-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Skills You'll Learn</h2>
+                <div class="section-subtitle">Episode list</div>
+            </div>
+            <div class="lessons-grid">
+                
+                <a href="#" class="lesson-card">
+                    <div class="lesson-img-wrapper">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg/640px-Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg" style="object-fit: cover; width: 100%; height: 100%;" alt="Gutenberg Bible — Early Religious Printing">
+                    </div>
+                    <div class="lesson-number">1</div>
+                    <div class="lesson-body">
+                        <span style="font-size: 11px; font-weight: 700; color: var(--cta-gold); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; display: block;">Early Movements</span>
+                        <h3 class="lesson-title">How Popular Was Foy and Others Like Him?</h3>
+                    </div>
+                </a>
+
+                <a href="#" class="lesson-card">
+                    <div class="lesson-img-wrapper">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Ellen_G._White_%281875%29-5.jpg/640px-Ellen_G._White_%281875%29-5.jpg" style="object-fit: cover; width: 100%; height: 100%;" alt="Ellen G. White, 1875">
+                    </div>
+                    <div class="lesson-number">2</div>
+                    <div class="lesson-body">
+                        <span style="font-size: 11px; font-weight: 700; color: var(--cta-gold); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; display: block;">Prophetic Influence</span>
+                        <h3 class="lesson-title">How Influential Was Foy on the Young Ellen White?</h3>
+                    </div>
+                </a>
+
+                <a href="#" class="lesson-card">
+                    <div class="lesson-img-wrapper">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Schutzengel.jpg/640px-Schutzengel.jpg" style="object-fit: cover; width: 100%; height: 100%;" alt="Guardian Angel — Bernhard Plockhorst">
+                    </div>
+                    <div class="lesson-number">3</div>
+                    <div class="lesson-body">
+                        <span style="font-size: 11px; font-weight: 700; color: var(--cta-gold); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; display: block;">Missing Theology</span>
+                        <h3 class="lesson-title">Immortal Souls, Dead Angels, and A Missing Holy Spirit</h3>
+                    </div>
+                </a>
+
+                <a href="#" class="lesson-card">
+                    <div class="lesson-img-wrapper">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Torah_scroll.jpg/640px-Torah_scroll.jpg" style="object-fit: cover; width: 100%; height: 100%;" alt="Torah Scroll — Scriptural Inspiration">
+                    </div>
+                    <div class="lesson-number">4</div>
+                    <div class="lesson-body">
+                        <span style="font-size: 11px; font-weight: 700; color: var(--cta-gold); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; display: block;">The Prophetic Word</span>
+                        <h3 class="lesson-title">Ellen White's Surprising View of Inspiration</h3>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2.5: TRAILER EMBED -->
+    <section id="trailer" class="trailer-section">
+        <div class="container">
+            <div class="trailer-container">
+                <div class="trailer-label">
+                    <span class="trailer-label-tag">Trailer</span>
+                    <span class="trailer-label-tag muted">Sample</span>
+                </div>
+<!-- Wistia Embed Code -->
+<script src="https://fast.wistia.com/embed/medias/imuj6qeezy.jsonp" async></script>
+<script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
+<div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+    <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+        <div class="wistia_embed wistia_async_imuj6qeezy seo=true videoFoam=true" style="height:100%;position:relative;width:100%">
+            <div class="wistia_swatch" style="height:100%;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity 200ms;width:100%;">
+                <img src="https://fast.wistia.com/embed/medias/imuj6qeezy/swatch" style="filter:blur(5px);height:100%;object-fit:contain;width:100%;" alt="" aria-hidden="true" onload="this.parentNode.style.opacity=1;" />
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Wistia Play-on-Hover Script -->
+<script>
+window._wq = window._wq || [];
+_wq.push({ id: "imuj6qeezy", onReady: function(video) {
+    const container = document.querySelector('.trailer-container');
+    
+    // Autoplay when scrolled into view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+    }, {
+        threshold: 0.5 // Trigger when at least 50% of the trailer is visible
+    });
+
+    observer.observe(container);
+}});
+</script>
+<!-- End Wistia Embed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: COURSE OVERVIEW -->
+    <section class="overview-section">
+        <div class="container">
+            <div class="overview-layout">
+                <div class="overview-left">
+                    <h2>What You'll Learn</h2>
+                    <style>
+                        .benefits-grid {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 16px;
+                            margin-top: 24px;
+                        }
+                        .benefit-card {
+                            background: var(--mc-input);
+                            border: 1px solid rgba(255, 255, 255, 0.15);
+                            padding: 24px 32px;
+                            border-radius: 12px;
+                            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+                            display: flex;
+                            align-items: center;
+                            gap: 24px;
+                        }
+                        .benefit-card:hover {
+                            background: #2a2c30;
+                            border-color: var(--cta-gold);
+                            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+                            transform: translateY(-2px);
+                        }
+                        .benefit-icon {
+                            font-size: 24px;
+                            color: var(--cta-gold);
+                            opacity: 0.9;
+                            line-height: 1;
+                            flex-shrink: 0;
+                        }
+                        .benefit-card p {
+                            color: #ffffff;
+                            font-size: 17px;
+                            font-weight: 500;
+                            font-family: var(--font-body);
+                            line-height: 1.5;
+                            margin: 0;
+                        }
+                    </style>
+                    <div class="benefits-grid">
+                        <div class="benefit-card">
+                            <div class="benefit-icon"><i class="fa-solid fa-arrow-right"></i></div>
+                            <p>The forgotten life and ministry of William Foy as a Black prophetic voice</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon"><i class="fa-solid fa-arrow-right"></i></div>
+                            <p>Why Foy's visions of the afterlife differ so sharply from modern Adventism</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon"><i class="fa-solid fa-arrow-right"></i></div>
+                            <p>The direct influence Foy had on the young Ellen White's developing gift</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon"><i class="fa-solid fa-arrow-right"></i></div>
+                            <p>How 19th-century racial dynamics led to the erasure of Foy's legacy</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="overview-right">
+                    <div class="instructor-card">
+                        <img src="assets/images/matthew-korpman-headshot.jpg" alt="Matthew J. Korpman" class="instructor-photo">
+                        <div class="instructor-info">
+                            <h3 class="instructor-name">Matthew J. Korpman</h3>
+                            <p style="font-size: 13px; color: var(--mc-muted); margin-top: 8px;">Matthew J. Korpman is an adjunct professor of Biblical Studies and Theology at La Sierra University. He is completing his PhD in New Testament studies and is a graduate of Yale University's Divinity School.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: VALUE PROPS -->
+    <section class="value-props-section">
+        <div class="pillars-wrapper">
+            <div class="pillar">
+                <span class="pillar-icon">&#128214;</span>
+                <h3 class="pillar-title">Seminary-Level Depth</h3>
+                <p class="pillar-body">Taught by a Yale-trained professor with 12+ years in New Testament studies</p>
+            </div>
+            <div class="pillar">
+                <span class="pillar-icon">&#9201;</span>
+                <h3 class="pillar-title">4 Lessons On-Demand</h3>
+                <p class="pillar-body">Watch recordings anytime, pause and rewind, learn at your own pace</p>
+            </div>
+            <div class="pillar">
+                <span class="pillar-icon">&#127757;</span>
+                <h3 class="pillar-title">Trusted by 600+ Pastors<br>& Church Members</h3>
+                <p class="pillar-body">Endorsed by the NAD, used across 12 Adventist conferences worldwide</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SECTION 8: FROM HERE GO ANYWHERE -->
+    <section class="go-anywhere-section">
+        <div class="go-anywhere-header">
+            <div class="go-anywhere-title">
+                <h2>From Here, Go Anywhere</h2>
+                <p>Included with a membership. And 20+ more</p>
+            </div>
+            <div class="carousel-nav">
+                <button class="carousel-btn" id="btn-prev">&lt;</button>
+                <button class="carousel-btn" id="btn-next">&gt;</button>
+            </div>
+        </div>
+        <div class="go-anywhere-grid">
+            <a href="https://www.theoeducation.com/courses/how-we-got-bible" class="go-anywhere-card">
+                <img src="assets/images/courses/a87tZ9K0TTGluukpXW4F_360_F_524659532_uXDuy7vRI0bTm7VOJ2V17eoTowfd2MOl.jpg" alt="How We Got the Bible">
+                <div class="go-card-content">
+                    <span class="go-card-logo" style="font-weight: 700; font-family: var(--font-display); font-size: 28px; line-height: 1.1;">HOW WE GOT<br>THE BIBLE</span>
+                    <div class="go-card-divider"></div>
+                    <span class="go-card-desc" style="margin-top: 8px;">Exploring the Invention of Scripture</span>
+                    <div class="btn-watch-trailer" style="margin-top: 16px;">&#9654; Watch Trailer</div>
+                </div>
+            </a>
+            <a href="https://www.theoeducation.com/courses/immoral-parables-jesus" class="go-anywhere-card">
+                <img src="assets/images/courses/bCRvgb88QkCMpwHK17Os_Jesus-teaching-parables-1024x576.jpg" alt="Immoral Parables of Jesus">
+                <div class="go-card-content">
+                    <span class="go-card-logo" style="font-weight: 700; font-family: var(--font-display); font-size: 28px; line-height: 1.1;">THE IMMORAL<br>PARABLES</span>
+                    <div class="go-card-divider"></div>
+                    <span class="go-card-desc" style="margin-top: 8px;">Breaking the Commandments to Find God</span>
+                    <div class="btn-watch-trailer" style="margin-top: 16px;">&#9654; Watch Trailer</div>
+                </div>
+            </a>
+            <a href="https://www.theoeducation.com/courses/womens-ministry-thecla" class="go-anywhere-card">
+                <img src="assets/images/courses/DSQAcMESRJ6RXrqzC3rB_bsbr200602702l.jpg" alt="Acts of Paul and Thecla">
+                <div class="go-card-content">
+                    <span class="go-card-logo" style="font-weight: 700; font-family: var(--font-display); font-size: 28px; line-height: 1.1;">A FEMALE<br>APOSTLE?</span>
+                    <div class="go-card-divider"></div>
+                    <span class="go-card-desc" style="margin-top: 8px;">Exploring the Acts of Paul and Thecla</span>
+                    <div class="btn-watch-trailer" style="margin-top: 16px;">&#9654; Watch Trailer</div>
+                </div>
+            </a>
+            <a href="https://www.theoeducation.com/courses/the-gospel-of-judas" class="go-anywhere-card">
+                <img src="assets/images/courses/Gxo8oetQQBaWs85DEgjE_800px-Giotto_di_Bondone_-_No._31_Scenes_from_the_Life_of_Christ_-_15._The_Arrest_of_Christ_Kiss_of_Judas_-_WGA09216-1.jpg" alt="The Gospel of Judas">
+                <div class="go-card-content">
+                    <span class="go-card-logo" style="font-weight: 700; font-family: var(--font-display); font-size: 28px; line-height: 1.1;">THE GOSPEL<br>OF JUDAS</span>
+                    <div class="go-card-divider"></div>
+                    <span class="go-card-desc" style="margin-top: 8px;">From the Bible to Gnosticism</span>
+                    <div class="btn-watch-trailer" style="margin-top: 16px;">&#9654; Watch Trailer</div>
+                </div>
+            </a>
+            <a href="https://www.theoeducation.com/courses/hell-and-afterlife" class="go-anywhere-card">
+                <img src="assets/images/courses/tXXmc0AJQ96LSbPG67yF_l-intro-1724778604-2.jpg" alt="Hell and the Afterlife">
+                <div class="go-card-content">
+                    <span class="go-card-logo" style="font-weight: 700; font-family: var(--font-display); font-size: 28px; line-height: 1.1;">HELL AND THE<br>AFTERLIFE</span>
+                    <div class="go-card-divider"></div>
+                    <span class="go-card-desc" style="margin-top: 8px;">Interrogating the Bible's Hottest Topic</span>
+                    <div class="btn-watch-trailer" style="margin-top: 16px;">&#9654; Watch Trailer</div>
+                </div>
+            </a>
+            <a href="https://www.theoeducation.com/courses/william-foy-black-prophet" class="go-anywhere-card">
+                <img src="assets/images/courses/Rg4qi7VQnitEXyjry9cO_apirxpv6s__40245.jpg" alt="William Foy">
+                <div class="go-card-content">
+                    <span class="go-card-logo" style="font-weight: 700; font-family: var(--font-display); font-size: 28px; line-height: 1.1;">WILLIAM<br>FOY</span>
+                    <div class="go-card-divider"></div>
+                    <span class="go-card-desc" style="margin-top: 8px;">Rediscovering Adventism's Black Prophet</span>
+                    <div class="btn-watch-trailer" style="margin-top: 16px;">&#9654; Watch Trailer</div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Carousel Scroll Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.querySelector('.go-anywhere-grid');
+            const btnPrev = document.getElementById('btn-prev');
+            const btnNext = document.getElementById('btn-next');
+            
+            if (grid && btnPrev && btnNext) {
+                const getScrollAmount = () => {
+                    const card = grid.querySelector('.go-anywhere-card');
+                    return card ? card.offsetWidth + 16 : 256;
+                };
+
+                btnPrev.addEventListener('click', () => {
+                    grid.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+                });
+
+                btnNext.addEventListener('click', () => {
+                    grid.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
+
+    <!-- SECTION 9: ONE MEMBERSHIP, INFINITE POSSIBILITIES -->
+    <section class="infinite-section">
+        <div class="infinite-header">
+            <h2>One Membership,<br>Infinite Possibilities</h2>
+        </div>
+        <div class="infinite-grid">
+            <a href="#" class="infinite-card">
+                <img src="assets/images/john-jones.jpg" alt="Learn from seminary professors" style="object-position: center top;">
+                <div class="infinite-gradient"></div>
+                <div class="infinite-content">
+                    <p>Learn from real professors</p>
+                    <h3>For every topic,<br>a seminary expert.</h3>
+                </div>
+            </a>
+            <a href="#" class="infinite-card">
+                <img src="assets/images/how-to-study.jpg" alt="Fits your schedule">
+                <div class="infinite-gradient"></div>
+                <div class="infinite-content">
+                    <p>Fits your schedule</p>
+                    <h3>Turn spare moments<br>into spiritual progress.</h3>
+                </div>
+            </a>
+            <a href="#" class="infinite-card">
+                <img src="assets/images/korpman-ipad.jpg" alt="On all of your devices">
+                <div class="infinite-gradient"></div>
+                <div class="infinite-content">
+                    <p>On all of your devices</p>
+                    <h3>Watch anytime<br>anywhere.</h3>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION 6: PRICING CTA -->
+    <section id="pricing" class="pricing-section">
+        <div class="pricing-content">
+            <h2 class="pricing-header">Start Your Journey Today</h2>
+            <p class="pricing-subhead">Starting at $6/week &middot; Full access to all recordings</p>
+            <button class="btn-full" onclick="location.href='https://www.theoeducation.com/order?ct=d8e7467e-4240-4fbe-bb09-f5d71d9111b8'">Enroll Now</button>
+            <p class="guarantee-text">14-day money-back guarantee &middot; Cancel anytime</p>
+        </div>
+    </section>
+
+    <!-- SECTION 5: SOCIAL PROOF -->
+    <section class="social-proof-section">
+        <div class="container">
+            <h2 class="social-proof-header">What Pastors Are Saying</h2>
+            <div class="testimonials-grid">
+                
+                <div class="testimonial-card">
+                    <div class="quote-icon">&ldquo;</div>
+                    <p class="quote-text">"I've learned more in 3 weeks than 4 years of seminary. The depth of historical analysis combined with pastoral sensitivity is exactly what our conferences have been needing."</p>
+                    <div class="quote-author">
+                        <div class="author-info">
+                            <span class="author-name">Pastor</span>
+                            <span class="author-role">Scandinavian Union Conference</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="quote-icon">&ldquo;</div>
+                    <p class="quote-text">"Finally, someone who treats these questions with academic honesty. Professor Korpman navigates the complex history of early Christianity without resorting to the usual apologetic cliches."</p>
+                    <div class="quote-author">
+                        <div class="author-info">
+                            <span class="author-name">Church Elder</span>
+                            <span class="author-role">Australian Union Conference</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="quote-icon">&ldquo;</div>
+                    <p class="quote-text">"This course changed how I preach. I had no idea how complex this history actually was until we dove deep into the Primary sources. Essential learning."</p>
+                    <div class="quote-author">
+                        <div class="author-info">
+                            <span class="author-name">Lead Pastor</span>
+                            <span class="author-role">North American Division</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 10: PROMOS (CERTIFICATES & AT WORK) -->
+    <section class="promo-section">
+        <div class="promo-container">
+            
+            <!-- Certificates Card -->
+            <div class="promo-card certificates">
+                <div class="promo-content">
+                    <div class="promo-brand">TheoEducation<br><span style="font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">Certificates</span></div>
+                    <h2 class="promo-title">The Fastest Way to<br>Advance Your Ministry</h2>
+                    <p class="promo-desc">Earn an Official Certificate in Adventist Studies, Biblical Themes, & more.</p>
+                    <a href="certificates.html" class="btn-promo-gold">Explore Certificates &#8594;</a>
+                </div>
+                <div class="promo-image-wrapper">
+                    <img src="assets/images/courses/CrdXKvSKRam9hzTCbxSx_academic-journals.jpg" alt="Academic Journals and Pen" class="promo-image">
+                </div>
+            </div>
+
+            <!-- At Work Card (Reversed) -->
+            <div class="promo-card reversed">
+                <div class="promo-image-wrapper">
+                    <img src="assets/images/courses/HTC7LITOQvuDxN6QWhFs_95411484_10158420997734656_1051797805292584960_n.jpg" alt="Adventist Pastors studying together" class="promo-image">
+                </div>
+                <div class="promo-content">
+                    <div class="promo-brand" style="font-family: var(--font-body); font-size: 16px; font-weight: 700;">TheoEducation <span style="font-weight: 400; font-style: italic;">for Pastors</span></div>
+                    <h2 class="promo-title" style="text-transform: uppercase; font-size: 56px;">FREE FOR PASTORS</h2>
+                    <p class="promo-desc">Access 150+ hours of continuing education covered by your conference's fund.</p>
+                    <div class="promo-actions">
+                        <a href="adventist-pastors.html" class="btn-promo-red">Check Eligibility</a>
+                        <a href="adventist-pastors.html" class="promo-link">Learn More &#8594;</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 11: NEWSLETTER -->
+    <style>
+        .mc-newsletter-section {
+            background: var(--mc-black);
+            padding: var(--section-pad);
+            border-bottom: 1px solid var(--mc-border);
+        }
+        .mc-newsletter-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: start;
+        }
+        .mc-newsletter-left h2 {
+            font-family: var(--font-body);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--mc-white);
+            margin: 0 0 16px 0;
+            line-height: 1.2;
+        }
+        .mc-newsletter-left p {
+            font-size: 17px;
+            color: var(--mc-text);
+            margin: 0;
+            max-width: 360px;
+        }
+        .mc-newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .mc-newsletter-row {
+            display: flex;
+            gap: 16px;
+        }
+        .mc-newsletter-input-group {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .mc-newsletter-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--mc-white);
+        }
+        .mc-newsletter-input {
+            width: 100%;
+            background: var(--mc-input);
+            border: 1px solid var(--mc-input);
+            color: var(--mc-white);
+            padding: 16px;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.2s;
+        }
+        .mc-newsletter-input:focus {
+            outline: none;
+            border-color: rgba(255,255,255,0.3);
+        }
+        .mc-newsletter-btn {
+            background: transparent;
+            color: var(--mc-white);
+            border: 1px solid var(--mc-white);
+            padding: 0 32px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            height: 53px; /* Match input height */
+            align-self: flex-end;
+        }
+        .mc-newsletter-btn:hover {
+            background: var(--mc-white);
+            color: var(--mc-black);
+        }
+        .mc-opt-in {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        .mc-checkbox {
+            margin-top: 4px;
+            width: 16px;
+            height: 16px;
+            accent-color: var(--mc-white);
+            cursor: pointer;
+        }
+        .mc-opt-in-text {
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.5;
+        }
+        .mc-opt-in-text a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: underline;
+        }
+        .mc-opt-in-text a:hover {
+            color: var(--mc-white);
+        }
+        @media (max-width: 768px) {
+            .mc-newsletter-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .mc-newsletter-row {
+                flex-direction: column;
+            }
+            .mc-newsletter-btn {
+                width: 100%;
+            }
+        }
+    </style>
+    <section class="mc-newsletter-section">
+        <div class="mc-newsletter-container">
+            <div class="mc-newsletter-left">
+                <h2>Try some of our classes</h2>
+                <p>Enter your email and we'll send you some samples of our favorite classes.</p>
+            </div>
+            <div class="mc-newsletter-right">
+                <form class="mc-newsletter-form">
+                    <div class="mc-newsletter-row">
+                        <div class="mc-newsletter-input-group">
+                            <label class="mc-newsletter-label" for="email">Email</label>
+                            <input type="email" id="email" class="mc-newsletter-input" placeholder="Enter Email Address" required>
+                        </div>
+                        <button type="submit" class="mc-newsletter-btn">Submit</button>
+                    </div>
+                    <div class="mc-opt-in">
+                        <input type="checkbox" id="marketing-consent" class="mc-checkbox" required>
+                        <label for="marketing-consent" class="mc-opt-in-text">
+                            I agree to receive marketing emails about TheoEducation and other related learning products.<br><br>
+                            By clicking "Submit", and sharing your email, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: FAQ -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Who is this course for?</span>
+                    <span class="faq-chevron">&#9662;</span>
+                </div>
+                <div class="faq-answer">
+                    Pastors, ministry leaders, theology students, and any serious Christian who wants to understand the Sabbath/Sunday debate through a scholarly lens — not just a denominational one.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do I need a theology background?</span>
+                    <span class="faq-chevron">&#9662;</span>
+                </div>
+                <div class="faq-answer">
+                    No. Professor Korpman teaches at a level that assumes curiosity, not credentials. If you read the Bible seriously, you can follow this course.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How is this different from a sermon series?</span>
+                    <span class="faq-chevron">&#9662;</span>
+                </div>
+                <div class="faq-answer">
+                    This is academic-level content — primary sources, original languages, historical evidence, and the full range of scholarly debate. It's the kind of content you'd find in a graduate-level religion course.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How many lessons are there?</span>
+                    <span class="faq-chevron">&#9662;</span>
+                </div>
+                <div class="faq-answer">
+                    34 lessons organized into 4 chapters, totaling 8 hours of content. You also earn 0.8 CEU credits (Continuing Education Units), accepted by the NAD.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What if I don't like it?</span>
+                    <span class="faq-chevron">&#9662;</span>
+                </div>
+                <div class="faq-answer">
+                    Full 14-day money-back guarantee. No questions asked.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sticky Bottom CTA Bar -->
+    <div class="sticky-cta-bar">
+        <div class="nav-container sticky-cta-container" style="height: auto;">
+            <div class="sticky-cta-content">
+                <i class="fa-solid fa-gift" style="color: #c4a23e; font-size: 1.5rem; animation: pulse-arrow 2s infinite;"></i>
+                <div class="sticky-cta-text" style="text-align: left;">
+                    <h4 style="color: #fff; font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 500; margin: 0; letter-spacing: 0.5px;">Unlock all 30+ courses.</h4>
+                    <p style="color: rgba(255,255,255,0.7); margin: 0; font-size: 0.95rem;">Start your <span style="color: #c4a23e; font-weight: 600;">7-Day Free Trial</span> today.</p>
+                </div>
+            </div>
+            <a href="https://www.theoeducation.com/order?ct=d8e7467e-4240-4fbe-bb09-f5d71d9111b8" class="btn-primary" style="padding: 0.8rem 2rem; font-size: 1rem; border-radius: 30px; white-space: nowrap;">Start Free Trial</a>
+        </div>
+        <style>
+            .sticky-cta-bar {
+                position: fixed;
+                bottom: -100px; /* Hidden state */
+                left: 50%;
+                transform: translateX(-50%);
+                width: 95%;
+                max-width: 900px;
+                z-index: 1000;
+                background: rgba(15, 12, 18, 0.75);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 1px solid rgba(212, 175, 55, 0.3);
+                border-top: 1px solid rgba(255, 255, 255, 0.15);
+                border-radius: 50px;
+                box-shadow: 0 15px 40px rgba(0,0,0,0.8), inset 0 0 20px rgba(212, 175, 55, 0.05);
+                padding: 1rem 2rem;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            }
+
+            .sticky-cta-bar.active {
+                bottom: 20px;
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .sticky-cta-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 2rem;
+            }
+
+            .sticky-cta-content {
+                display: flex;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            @keyframes pulse-arrow {
+                0%, 100% { transform: translateY(-3px) scale(1); opacity: 0.8; }
+                50% { transform: translateY(3px) scale(1.1); opacity: 1; text-shadow: 0 0 15px rgba(212,175,55,0.6); }
+            }
+
+            @media (max-width: 768px) {
+                .sticky-cta-bar {
+                    width: 100%;
+                    border-radius: 20px 20px 0 0;
+                    padding: 1rem;
+                }
+                .sticky-cta-bar.active {
+                    bottom: 0;
+                }
+                .sticky-cta-container {
+                    flex-direction: column;
+                    gap: 1rem;
+                    text-align: center;
+                }
+                .sticky-cta-content {
+                    flex-direction: column;
+                    gap: 0.5rem;
+                }
+                .sticky-cta-bar .btn-primary {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        </style>
+        <script>
+            // Sticky CTA Bar Scroll Observer
+            document.addEventListener("DOMContentLoaded", () => {
+                const stickyCta = document.querySelector('.sticky-cta-bar');
+                const heroSection = document.querySelector('.hero-section');
+                const footer = document.querySelector('.site-footer');
+
+                if (!stickyCta) return;
+
+                let heroGone = false;
+
+                // IntersectionObserver: show when hero is scrolled past
+                if (heroSection) {
+                    const ctaObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            heroGone = !entry.isIntersecting;
+                            updateCta();
+                        });
+                    }, { threshold: 0.1 });
+                    ctaObserver.observe(heroSection);
+                }
+
+                // Scroll listener: hide when near footer
+                function updateCta() {
+                    if (!heroGone) {
+                        stickyCta.classList.remove('active');
+                        return;
+                    }
+                    const scrollBottom = window.scrollY + window.innerHeight;
+                    const docHeight = document.documentElement.scrollHeight;
+                    const footerHeight = footer ? footer.offsetHeight : 0;
+                    // Hide CTA when within (footer height + 60px buffer) of page bottom
+                    if (scrollBottom >= docHeight - footerHeight - 60) {
+                        stickyCta.classList.remove('active');
+                    } else {
+                        stickyCta.classList.add('active');
+                    }
+                }
+
+                window.addEventListener('scroll', updateCta, { passive: true });
+            });
+        </script>
+    </div>
+
+    <!-- FOOTER -->
+        <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <span class="logo-icon"><i class="fa-solid fa-book-open"></i></span>
+                <span class="logo-text" style="color: white; font-family: 'Playfair Display', serif;">TheoEducation</span>
+                <p style="margin-top: 1rem; color: var(--text-muted);">Seminary-quality Adventist online Bible classes with CEU credit.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Platform</h4>
+                    <a href="about-us.html">About Us</a>
+                    <a href="how-it-works.html">How It Works</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="link-column">
+                    <h4>Resources</h4>
+                    <a href="classes.html">All Classes</a>
+                    <a href="adventist-pastors.html">Adventist Pastors</a>
+                    <a href="group-pricing.html">Group Pricing</a>
+                    <a href="community-forum.html" target="_blank">Community Forum</a>
+                </div>
+                <div class="link-column">
+                    <h4>Legal</h4>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 TheoEducation. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for FAQ -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(function(question) {
+            question.addEventListener('click', function() {
+                var item = this.parentElement;
+                item.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>
