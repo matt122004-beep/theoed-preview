@@ -2340,5 +2340,57 @@ _wq.push({ id: "imuj6qeezy", onReady: function(video) {
     });
     </script>
 
+
+    <script>
+    (function() {
+      function initNewsletterForms() {
+        document.querySelectorAll('.mc-newsletter-form, .newsletter-form').forEach(function(form) {
+          form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            var emailInput = form.querySelector('input[type="email"]');
+            var btn = form.querySelector('button[type="submit"]');
+            var consent = form.querySelector('input[type="checkbox"]');
+            if (!emailInput || !emailInput.value) return;
+            if (consent && !consent.checked) {
+              alert('Please agree to receive marketing emails to continue.');
+              return;
+            }
+            var email = emailInput.value.trim();
+            var origText = btn.textContent;
+            btn.textContent = 'Subscribing…';
+            btn.disabled = true;
+            try {
+              // Step 1: create/find subscriber
+              var r1 = await fetch('https://api.kit.com/v4/subscribers', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'X-Kit-Api-Key': 'kit_e0515336ff2c3deb340b7f1769142166' },
+                body: JSON.stringify({ email_address: email })
+              });
+              var d1 = await r1.json();
+              var sid = d1.subscriber && d1.subscriber.id;
+              if (!sid) throw new Error('No subscriber ID');
+              // Step 2: add to TheoMinute Newsletter sequence
+              await fetch('https://api.kit.com/v4/sequences/2648123/subscribers', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'X-Kit-Api-Key': 'kit_e0515336ff2c3deb340b7f1769142166' },
+                body: JSON.stringify({ id: sid })
+              });
+              // Success
+              form.innerHTML = '<div style="text-align:center;padding:24px 0;"><div style="font-size:32px;margin-bottom:12px;">✓</div><div style="font-size:18px;font-weight:700;margin-bottom:8px;">You're in!</div><div style="font-size:14px;opacity:0.8;">Check your inbox — your first TheoMinute is on its way.</div></div>';
+            } catch(err) {
+              btn.textContent = origText;
+              btn.disabled = false;
+              var errEl = form.querySelector('.kit-error');
+              if (!errEl) { errEl = document.createElement('p'); errEl.className = 'kit-error'; errEl.style.cssText = 'color:#ff6b6b;font-size:13px;margin-top:8px;'; form.appendChild(errEl); }
+              errEl.textContent = 'Something went wrong — please try again.';
+            }
+          });
+        });
+      }
+      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initNewsletterForms); }
+      else { initNewsletterForms(); }
+    })();
+    </script>
+
 </body>
 </html>
