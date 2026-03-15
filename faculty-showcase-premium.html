@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet Your Faculty — Premium Showcase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #4A4540;
+        }
+
+        .faculty-showcase {
+            background: linear-gradient(135deg, #2D2A26 0%, #4A3F2A 100%);
+            padding: 100px 40px;
+            text-align: center;
+        }
+
+        .faculty-showcase__container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .faculty-showcase__header {
+            margin-bottom: 80px;
+        }
+
+        .faculty-showcase__tagline {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #C4A23E;
+            margin-bottom: 16px;
+        }
+
+        .faculty-showcase__headline {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .faculty-showcase__subheading {
+            font-size: 18px;
+            color: #E0DBD2;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            line-height: 1.5;
+        }
+
+        /* Primary Feature: Matthew */
+        .faculty-primary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 100px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 60px;
+            border-radius: 16px;
+            border: 1px solid rgba(196, 162, 62, 0.15);
+        }
+
+        .faculty-primary__image {
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, #5d3754 0%, #2D2A26 100%);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .faculty-primary__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(1.1) contrast(1.05);
+        }
+
+        .faculty-primary__image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(45, 42, 38, 0.8), transparent);
+            pointer-events: none;
+        }
+
+        .faculty-primary__content {
+            text-align: left;
+            color: #FFFFFF;
+        }
+
+        .faculty-primary__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #FFFFFF;
+        }
+
+        .faculty-primary__role {
+            font-size: 16px;
+            font-weight: 600;
+            color: #C4A23E;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 24px;
+        }
+
+        .faculty-primary__credential {
+            font-size: 14px;
+            color: #E0DBD2;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .faculty-primary__credential strong {
+            color: #FFFFFF;
+        }
+
+        .faculty-primary__bio {
+            font-size: 15px;
+            color: #E0DBD2;
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+
+        .faculty-primary__cta {
+            display: inline-block;
+            padding: 14px 40px;
+            background-color: #C4A23E;
+            color: #2D2A26;
+            text-decoration: none;
+            border-radius: 50vh;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 2px solid #C4A23E;
+        }
+
+        .faculty-primary__cta:hover {
+            background-color: transparent;
+            color: #C4A23E;
+        }
+
+        /* Faculty Grid */
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .faculty-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(196, 162, 62, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .faculty-card:hover {
+            border-color: rgba(196, 162, 62, 0.3);
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateY(-4px);
+        }
+
+        .faculty-card__image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, #5d3754 0%, #2D2A26 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .faculty-card__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(1.1) contrast(1.05);
+        }
+
+        .faculty-card__image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(45, 42, 38, 0.9), transparent);
+            pointer-events: none;
+        }
+
+        .faculty-card__content {
+            padding: 28px 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .faculty-card__name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+        }
+
+        .faculty-card__title {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #C4A23E;
+            margin-bottom: 16px;
+        }
+
+        .faculty-card__credential {
+            font-size: 13px;
+            color: #E0DBD2;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .faculty-card__specialty {
+            font-size: 14px;
+            color: #C4A23E;
+            margin-bottom: 0;
+            margin-top: auto;
+            padding-top: 16px;
+            border-top: 1px solid rgba(196, 162, 62, 0.2);
+        }
+
+        /* Trust Callout */
+        .faculty-trust {
+            margin-top: 80px;
+            padding: 48px 40px;
+            background: rgba(196, 162, 62, 0.08);
+            border-radius: 12px;
+            border: 1px solid rgba(196, 162, 62, 0.15);
+        }
+
+        .faculty-trust__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 16px;
+        }
+
+        .faculty-trust__text {
+            font-size: 15px;
+            color: #E0DBD2;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .faculty-showcase {
+                padding: 60px 24px;
+            }
+
+            .faculty-showcase__header {
+                margin-bottom: 50px;
+            }
+
+            .faculty-primary {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 40px 24px;
+                margin-bottom: 60px;
+            }
+
+            .faculty-primary__title {
+                font-size: 1.8rem;
+            }
+
+            .faculty-grid {
+                gap: 20px;
+            }
+
+            .faculty-trust {
+                margin-top: 50px;
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="faculty-showcase">
+        <div class="faculty-showcase__container">
+            <div class="faculty-showcase__header">
+                <p class="faculty-showcase__tagline">Your Instructors</p>
+                <h2 class="faculty-showcase__headline">Learn from PhD-Level Experts</h2>
+                <p class="faculty-showcase__subheading">Trusted by 600+ pastors across 12 denominations. Every course taught by scholars with decades of pastoral and academic experience.</p>
+            </div>
+
+            <!-- Primary Feature: Matthew -->
+            <div class="faculty-primary">
+                <div class="faculty-primary__image">
+                    <img src="https://picsum.photos/400/533?random=1" alt="Matthew Pearce, Founder">
+                </div>
+                <div class="faculty-primary__content">
+                    <h3 class="faculty-primary__title">Matthew Pearce</h3>
+                    <p class="faculty-primary__role">Founder & Lead Instructor</p>
+                    
+                    <p class="faculty-primary__credential">
+                        <strong>20+ years pastoral experience</strong><br>
+                        Founded TheoEducation to make seminary-level theology accessible to busy pastors
+                    </p>
+                    
+                    <p class="faculty-primary__credential">
+                        <strong>Specialized Training</strong><br>
+                        Advanced exegesis, hermeneutics, Adventist theology, church growth
+                    </p>
+                    
+                    <p class="faculty-primary__bio">
+                        Matthew started in small churches, scaling to 1,000+ members. He discovered that pastors struggled most with theological depth + time scarcity. He built TheoEducation to solve that exact problem—seminary rigor in 4-hour courses.
+                    </p>
+                    
+                    <a href="https://picsum.photos" class="faculty-primary__cta">Start Learning Today</a>
+                </div>
+            </div>
+
+            <!-- Faculty Grid -->
+            <h3 class="faculty-showcase__headline" style="margin: 80px 0 40px; font-size: 2rem;">Featured Faculty</h3>
+            
+            <div class="faculty-grid">
+                <!-- Faculty 1 -->
+                <div class="faculty-card">
+                    <div class="faculty-card__image">
+                        <img src="https://picsum.photos/320/427?random=2" alt="Dr. Rebecca Adams">
+                    </div>
+                    <div class="faculty-card__content">
+                        <h4 class="faculty-card__name">Dr. Rebecca Adams</h4>
+                        <p class="faculty-card__title">Hebrew Bible & Exegesis</p>
+                        <p class="faculty-card__credential">PhD Biblical Studies, 15 yrs university teaching</p>
+                        <p class="faculty-card__specialty">Specialization: Ancient Hebrew culture & linguistics</p>
+                    </div>
+                </div>
+
+                <!-- Faculty 2 -->
+                <div class="faculty-card">
+                    <div class="faculty-card__image">
+                        <img src="https://picsum.photos/320/427?random=3" alt="Dr. James Mitchell">
+                    </div>
+                    <div class="faculty-card__content">
+                        <h4 class="faculty-card__name">Dr. James Mitchell</h4>
+                        <p class="faculty-card__title">Apocalyptic Literature</p>
+                        <p class="faculty-card__credential">DMin, Published theologian, 18 yrs ministry</p>
+                        <p class="faculty-card__specialty">Specialization: Daniel, Revelation, Jewish apocalyptic</p>
+                    </div>
+                </div>
+
+                <!-- Faculty 3 -->
+                <div class="faculty-card">
+                    <div class="faculty-card__image">
+                        <img src="https://picsum.photos/320/427?random=4" alt="Dr. Sarah Chen">
+                    </div>
+                    <div class="faculty-card__content">
+                        <h4 class="faculty-card__name">Dr. Sarah Chen</h4>
+                        <p class="faculty-card__title">Early Christianity & History</p>
+                        <p class="faculty-card__credential">PhD Historical Studies, 12 yrs academic research</p>
+                        <p class="faculty-card__specialty">Specialization: 1st-century church, textual history</p>
+                    </div>
+                </div>
+
+                <!-- Faculty 4 -->
+                <div class="faculty-card">
+                    <div class="faculty-card__image">
+                        <img src="https://picsum.photos/320/427?random=5" alt="Dr. Michael Torres">
+                    </div>
+                    <div class="faculty-card__content">
+                        <h4 class="faculty-card__name">Dr. Michael Torres</h4>
+                        <p class="faculty-card__title">Hermeneutics & Philosophy</p>
+                        <p class="faculty-card__credential">PhD Philosophy, 16 yrs pastoral & teaching</p>
+                        <p class="faculty-card__specialty">Specialization: Interpretation theory, theological method</p>
+                    </div>
+                </div>
+
+                <!-- Faculty 5 -->
+                <div class="faculty-card">
+                    <div class="faculty-card__image">
+                        <img src="https://picsum.photos/320/427?random=6" alt="Dr. Lisa Johnson">
+                    </div>
+                    <div class="faculty-card__content">
+                        <h4 class="faculty-card__name">Dr. Lisa Johnson</h4>
+                        <p class="faculty-card__title">New Testament Greek</p>
+                        <p class="faculty-card__credential">PhD Linguistics, 14 yrs language instruction</p>
+                        <p class="faculty-card__specialty">Specialization: Koine Greek, exegetical methodology</p>
+                    </div>
+                </div>
+
+                <!-- Faculty 6 -->
+                <div class="faculty-card">
+                    <div class="faculty-card__image">
+                        <img src="https://picsum.photos/320/427?random=7" alt="Dr. David Martinez">
+                    </div>
+                    <div class="faculty-card__content">
+                        <h4 class="faculty-card__name">Dr. David Martinez</h4>
+                        <p class="faculty-card__title">Systematic Theology</p>
+                        <p class="faculty-card__credential">DMin Theology, 20 yrs pastoral leadership</p>
+                        <p class="faculty-card__specialty">Specialization: Adventist theology, biblical foundations</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Callout -->
+            <div class="faculty-trust">
+                <h4 class="faculty-trust__title">Why Expert Instructors Matter</h4>
+                <p class="faculty-trust__text">
+                    Every TheoEducation course is personally taught (not AI-generated). Our faculty brings 100+ combined years of scholarly research, pastoral experience, and classroom teaching. You're learning from people who've been in the trenches—theology that works in real churches.
+                </p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
