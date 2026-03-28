@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TheoEducation — MasterClass Cinema Hero A/B Test</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@400;500;600&family=Syne:wght@600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; color: #fff; }
+html { scroll-behavior: smooth; }
+
+.preview-note {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.85);
+  color: #E53935;
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  z-index: 1000;
+  letter-spacing: 0.5px;
+}
+
+/* ===== MASTERCLASS CINEMA HERO A/B ===== */
+.rgpt25x-cinema-masterclass {
+  background: #0A0A0A;
+  color: #fff;
+  padding: 120px 20px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hero background — studio lighting effect */
+.rgpt25x-cinema-masterclass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(229, 57, 53, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(229, 57, 53, 0.02) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.rgpt25x-cinema-masterclass__content {
+  max-width: 1100px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* Text column */
+.rgpt25x-cinema-masterclass__text {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.rgpt25x-cinema-masterclass__eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #E53935;
+  margin: 0;
+}
+
+.rgpt25x-cinema-masterclass__headline {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(36px, 7vw, 64px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.rgpt25x-cinema-masterclass__headline-accent {
+  color: #E53935;
+}
+
+.rgpt25x-cinema-masterclass__subheadline {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #D0D0D0;
+  margin: 0;
+  max-width: 500px;
+}
+
+.rgpt25x-cinema-masterclass__cta-group {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.rgpt25x-cinema-masterclass__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 48px;
+  border-radius: 50vh;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.rgpt25x-cinema-masterclass__cta--primary {
+  background: #E53935;
+  color: #fff;
+}
+
+.rgpt25x-cinema-masterclass__cta--primary:hover {
+  background: #FF5252;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(229, 57, 53, 0.4);
+}
+
+.rgpt25x-cinema-masterclass__cta--secondary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.rgpt25x-cinema-masterclass__cta--secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #E53935;
+  color: #E53935;
+}
+
+.rgpt25x-cinema-masterclass__stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rgpt25x-cinema-masterclass__stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.rgpt25x-cinema-masterclass__stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #E53935;
+  margin: 0 0 4px;
+}
+
+.rgpt25x-cinema-masterclass__stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #9A9A9A;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* Image column */
+.rgpt25x-cinema-masterclass__image {
+  position: relative;
+  height: 100%;
+  min-height: 500px;
+}
+
+.rgpt25x-cinema-masterclass__image-wrapper {
+  position: relative;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.rgpt25x-cinema-masterclass__image-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 80%, rgba(0,0,0,0.8) 100%),
+    linear-gradient(90deg, rgba(229,57,53,0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.rgpt25x-cinema-masterclass__image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .rgpt25x-cinema-masterclass {
+    padding: 80px 20px;
+  }
+  
+  .rgpt25x-cinema-masterclass__content {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  .rgpt25x-cinema-masterclass__image {
+    min-height: 400px;
+  }
+  
+  .rgpt25x-cinema-masterclass__headline {
+    font-size: clamp(28px, 6vw, 48px);
+  }
+}
+
+@media (max-width: 640px) {
+  .rgpt25x-cinema-masterclass {
+    padding: 60px 16px;
+    min-height: auto;
+  }
+  
+  .rgpt25x-cinema-masterclass__content {
+    gap: 32px;
+  }
+  
+  .rgpt25x-cinema-masterclass__headline {
+    font-size: 32px;
+  }
+  
+  .rgpt25x-cinema-masterclass__subheadline {
+    font-size: 16px;
+  }
+  
+  .rgpt25x-cinema-masterclass__cta-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .rgpt25x-cinema-masterclass__cta {
+    width: 100%;
+  }
+  
+  .rgpt25x-cinema-masterclass__stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .rgpt25x-cinema-masterclass__image {
+    min-height: 300px;
+  }
+}
+
+/* Comparison notes */
+.comparison-section {
+  background: #1A1A1A;
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.comparison-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.comparison-grid {
+  max-width: 1100px;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  text-align: left;
+}
+
+.comparison-item h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #E53935;
+  margin-bottom: 12px;
+}
+
+.comparison-item ul {
+  list-style: none;
+  padding: 0;
+}
+
+.comparison-item li {
+  font-size: 14px;
+  color: #B0B0B0;
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.comparison-item li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #E53935;
+}
+
+@media (max-width: 768px) {
+  .comparison-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="preview-note">
+  🎬 MASTERCLASS CINEMA HERO A/B TEST | Red CTA · Crushed Black · Studio Lighting
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="rgpt25x-cinema-masterclass">
+  <div class="rgpt25x-cinema-masterclass__content">
+    <!-- Text Column -->
+    <div class="rgpt25x-cinema-masterclass__text">
+      <p class="rgpt25x-cinema-masterclass__eyebrow">Seminary-Level Biblical Scholarship</p>
+      <h1 class="rgpt25x-cinema-masterclass__headline">
+        Master Scripture.<br>
+        <span class="rgpt25x-cinema-masterclass__headline-accent">Transform Leadership.</span>
+      </h1>
+      <p class="rgpt25x-cinema-masterclass__subheadline">
+        Go deeper into Scripture with world-class scholars. Gain the clarity and confidence to lead with conviction—whether you're a pastor, educator, or serious learner.
+      </p>
+      <div class="rgpt25x-cinema-masterclass__cta-group">
+        <a href="https://www.theoeducation.com/pages/pricing" class="rgpt25x-cinema-masterclass__cta rgpt25x-cinema-masterclass__cta--primary">Start Free Trial</a>
+        <a href="https://www.theoeducation.com/collections" class="rgpt25x-cinema-masterclass__cta rgpt25x-cinema-masterclass__cta--secondary">Explore Courses</a>
+      </div>
+      <div class="rgpt25x-cinema-masterclass__stats">
+        <div class="rgpt25x-cinema-masterclass__stat">
+          <p class="rgpt25x-cinema-masterclass__stat-number">657</p>
+          <p class="rgpt25x-cinema-masterclass__stat-label">Students Worldwide</p>
+        </div>
+        <div class="rgpt25x-cinema-masterclass__stat">
+          <p class="rgpt25x-cinema-masterclass__stat-number">150+</p>
+          <p class="rgpt25x-cinema-masterclass__stat-label">Hours of Content</p>
+        </div>
+        <div class="rgpt25x-cinema-masterclass__stat">
+          <p class="rgpt25x-cinema-masterclass__stat-number">NAD</p>
+          <p class="rgpt25x-cinema-masterclass__stat-label">Officially Recognized</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Image Column -->
+    <div class="rgpt25x-cinema-masterclass__image">
+      <div class="rgpt25x-cinema-masterclass__image-wrapper">
+        <img src="https://images.unsplash.com/photo-1507842391343-583f20270319?w=600&h=700&fit=crop&q=85" alt="Scholar reviewing ancient texts">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPARISON NOTES ===== -->
+<section class="comparison-section">
+  <h2>A/B Test Design Notes</h2>
+  <div class="comparison-grid">
+    <div class="comparison-item">
+      <h3>MasterClass Cinema Aesthetic (This Version)</h3>
+      <ul>
+        <li>Background: Pure black (#0A0A0A) = maximum premium feel</li>
+        <li>Headline: Uppercase, bold condensed (film poster energy)</li>
+        <li>CTA color: Red (#E53935) for maximum contrast & attention</li>
+        <li>Padding: 120px vertical (extreme negative space)</li>
+        <li>Image: Studio-lit instructor with gradient overlay</li>
+        <li>Typography: Tight leading (1.1) for impact</li>
+        <li>No color except red CTA (scarcity = attention)</li>
+      </ul>
+    </div>
+    <div class="comparison-item">
+      <h3>Current Gold Version (Production)</h3>
+      <ul>
+        <li>Background: Dark gradient (#3D2B1A to #4A3F2A)</li>
+        <li>Headline: Mixed case, elegant serif (readable premium)</li>
+        <li>CTA color: Gold (#C4A23E) for brand consistency</li>
+        <li>Padding: 100px vertical (comfortable space)</li>
+        <li>Stats: Immediately visible in hero</li>
+        <li>Multiple accent colors (gold creates warmth)</li>
+        <li>Accessible, less theatrical</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
