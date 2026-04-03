@@ -33,21 +33,11 @@
       navActions.classList.add("auth-ready");
     });
 
-    // Update any standalone "Sign In to Watch" links on course pages
+    // Hide "Sign In to Watch" links for signed-in users (they're already signed in)
     document.querySelectorAll('a[href*="users/sign_in"]').forEach(function(link) {
       if (link.closest(".nav-actions")) return;
-      link.textContent = "Go to Course";
-      link.href = "/enrollments";
+      link.style.display = "none";
     });
-
-    // For enrolled users, update "Start Trial" CTAs outside nav
-    if (user.enrolledCourses && user.enrolledCourses.length > 0) {
-      document.querySelectorAll('a[href*="order?ct="]').forEach(function(cta) {
-        if (cta.closest(".nav-actions")) return;
-        cta.textContent = "Continue Learning";
-        cta.href = "/enrollments";
-      });
-    }
   }
 
   if (document.readyState === "loading") {
