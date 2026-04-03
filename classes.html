@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Classes | TheoEducation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=7">
+    
+    <style>
+        .page-header {
+            padding: 10rem 0 4rem;
+            text-align: center;
+        }
+        
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            background: rgba(212, 175, 55, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient-background">
+        <div class="glow-orb orb-primary" style="top: -10%;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="glass-nav">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                
+                <span class="logo-text">TheoEducation</span>
+            </a>
+            
+            <nav class="main-links">
+                <a href="about-us.html" class="nav-link">About Us</a>
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="classes.html" class="nav-link" style="color: var(--accent-gold);">Classes</a>
+                
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <div class="nav-actions">
+                    <a href="https://www.theoeducation.com/users/sign_in" class="nav-link sign-in">Sign In</a>
+                    <a href="https://www.theoeducation.com/order?ct=d8e7467e-4240-4fbe-bb09-f5d71d9111b8" class="btn-primary btn-sm">Start Trial</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container fade-in-up">
+                <h1 class="section-title">Seminary-Level <span class="text-gradient">Catalog</span></h1>
+                <p class="section-subtitle">30+ recorded courses, 150+ hours of content.</p>
+            </div>
+        </section>
+        <section class="section-padding" style="padding-top: 2rem;">
+            <div class="container">
+                
+                
+        
+        <!-- Refined Learning Pathways Section -->
+        
+        <!-- Refined Learning Pathways Section with Tabs -->
+        
+        <!-- Animated Certificate Button -->
+        <section class="fade-in-up" style="margin-top: -2rem; margin-bottom: 4rem; text-align: center;">
+            <div class="container">
+                <a href="certificates.html" class="pulse-button glass-card" style="display: inline-flex; align-items: center; gap: 1rem; padding: 1.5rem 3rem; border-radius: 50px; text-decoration: none; border: 2px solid var(--accent-gold); box-shadow: 0 0 20px var(--accent-gold-glow); transition: all 0.3s ease;">
+                    <i class="fa-solid fa-graduation-cap" style="font-size: 2rem; color: var(--accent-gold);"></i>
+                    <div style="text-align: left;">
+                        <span style="display: block; font-family: var(--font-serif); font-size: 1.4rem; color: var(--text-main); line-height: 1.2;">Earn an Official Certificate</span>
+                        <span style="display: block; font-size: 0.9rem; color: var(--text-muted);">Explore Curated Learning Pathways <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></span>
+                    </div>
+                </a>
+            </div>
+            <style>
+                .pulse-button {
+                    animation: pulse-glow 2s infinite;
+                }
+                .pulse-button:hover {
+                    transform: translateY(-5px) scale(1.02);
+                    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+                }
+                @keyframes pulse-glow {
+                    0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+                    70% { box-shadow: 0 0 0 20px rgba(212, 175, 55, 0); }
+                    100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+                }
+            </style>
+        </section>
+        
+        <div class="container text-center fade-in-up" style="margin-bottom: 3rem;">
+            <h3 style="margin-bottom: 2rem; font-family: var(--font-serif); font-size: 2.5rem;">The Full Seminary Catalog</h3>
+            <div style="width: 2px; height: 50px; background: linear-gradient(to bottom, var(--accent-gold), transparent); margin: 0 auto;"></div>
+        </div>
+
+        <section class="section-padding" style="padding-top: 0rem;">
+            <div class="container">
+                <div class="courses-grid">
+                    <!-- Ellen White Visions Course -->
+                    <a href="ellen-white-visions-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="https://import.cdn.thinkific.com/296355/nm4yM1aSQ3GdYCTSNTyz_ellen_white-1248x1423.jpg" alt="What Did Ellen White See? Introducing Her Visions" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Adventist Studies</span>
+                            <h3 class="course-title">What Did Ellen White See? Introducing Her Visions</h3>
+                            <p class="course-desc">A rigorous, honest introduction to Ellen White's visionary experiences — her changing views, borrowed sources, and the limits of prophetic authority.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 1 -->
+                    <a href="exegesis-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/eYr7UncwQamZbNpaRhk8_lot-and-his-daughters-master-of-the-prodigal-son.jpg" alt="How to Do Exegesis: An Introduction" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Fundamentals</span>
+                            <h3 class="course-title">How to Do Exegesis: An Introduction</h3>
+                            <p class="course-desc">Learn the scholarly methods used at top seminaries to interpret any biblical text — from original languages to literary context — so you can read Scripture with confidence and precision.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 2 -->
+                    <a href="how-to-study-bible-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/FOJFri2SBaGb1AOsnrzW_Bible-Verses-on-Writing-Journaling.jpg" alt="How to Study the Bible: A Guide to Beginners" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Fundamentals</span>
+                            <h3 class="course-title">How to Study the Bible: A Guide to Beginners</h3>
+                            <p class="course-desc">Skip the guesswork. This foundational course teaches evidence-based Bible study methods that cut through centuries of layered interpretation and get you to the actual meaning of the text.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 3 -->
+                    <a href="hell-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/tXXmc0AJQ96LSbPG67yF_l-intro-1724778604-2.jpg" alt="Hell and the Afterlife: Interrogating the Bible’s Hottest Topic" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Fundamentals</span>
+                            <h3 class="course-title">Hell and the Afterlife: Interrogating the Bible’s Hottest Topic</h3>
+                            <p class="course-desc">What did ancient Jews and early Christians actually believe about hell? This course dismantles modern assumptions by going straight to the texts — and what you find may surprise you.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 4 -->
+                    <a href="how-we-got-bible-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/a87tZ9K0TTGluukpXW4F_360_F_524659532_uXDuy7vRI0bTm7VOJ2V17eoTowfd2MOl.jpg" alt="How We Got the Bible: Exploring the Invention of Scripture" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Fundamentals</span>
+                            <h3 class="course-title">How We Got the Bible: Exploring the Invention of Scripture</h3>
+                            <p class="course-desc">Scripture didn't fall from the sky. Explore how the biblical canon was assembled, debated, and defined over centuries — and what that history means for how we read it today.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 5 -->
+                    <a href="william-foy-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/Rg4qi7VQnitEXyjry9cO_apirxpv6s__40245.jpg" alt="William Foy: Rediscovering Adventism's Black Prophet" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Adventist Studies</span>
+                            <h3 class="course-title">William Foy: Rediscovering Adventism's Black Prophet</h3>
+                            <p class="course-desc">Before Ellen White, there was William Foy — a Black man who received prophetic visions that shaped early Adventism and was then erased from the record. This course restores his story.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 6 -->
+                    <a href="immoral-parables-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/bCRvgb88QkCMpwHK17Os_Jesus-teaching-parables-1024x576.jpg" alt="The Immoral Parables of Jesus: Breaking the Commandments to Find God" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">New Testament</span>
+                            <h3 class="course-title">The Immoral Parables of Jesus: Breaking the Commandments to Find God</h3>
+                            <p class="course-desc">Why does Jesus commend a dishonest manager, a persistent widow who badgers a judge, and a prodigal father who humiliates himself? These parables are stranger than you think.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 7 -->
+                    <a href="women-parables-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/2aN0uqS9SnK5ALRbL6c9_dfa015e1c05082752f9fc10d72a7ad9a.jpg" alt="Women in the Parables of Jesus: What Secrets Do They Hold?" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">New Testament</span>
+                            <h3 class="course-title">Women in the Parables of Jesus: What Secrets Do They Hold?</h3>
+                            <p class="course-desc">The women in Jesus's parables are not background characters. This course recovers their theology, their agency, and the subversive message buried in stories we thought we knew.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 8 -->
+                    <a href="what-is-inspiration-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/AgUqHdySBeNq4MDwV3rF_Murphy-photos-10-11-14.jpg" alt="What is Inspiration? Fixing Our False Beliefs" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Fundamentals</span>
+                            <h3 class="course-title">What is Inspiration? Fixing Our False Beliefs</h3>
+                            <p class="course-desc">Is every word of the Bible dictated by God? Is it merely human literature? This course traces the history of biblical inspiration and offers a more honest, nuanced framework.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 9 -->
+                    <a href="snakes-poisons-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/Nm363i7Rai26VkUQLjNp_264068.p.jpg" alt="Snakes &amp; Poisons: The Unusual Endings of Mark's Gospel" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">New Testament</span>
+                            <h3 class="course-title">Snakes &amp; Poisons: The Unusual Endings of Mark's Gospel</h3>
+                            <p class="course-desc">Did Mark's Gospel originally end at 16:8 with an empty tomb and silent women? Explore the manuscript evidence behind one of the Bible's most fascinating unresolved mysteries.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 10 -->
+                    <a href="jonah-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/HcqRKuSkTmeKhWEle3W9_1024px-Pieter_Lastman_-_Jonah_and_the_Whale_-_Google_Art_Project.jpg" alt="The Book of Jonah: Bias of the Pious" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Old Testament</span>
+                            <h3 class="course-title">The Book of Jonah: Bias of the Pious</h3>
+                            <p class="course-desc">Jonah is a satirical masterpiece — not a fish story. This course reveals the book's sharp critique of religious nationalism and the prophet who was furious that God showed mercy.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 11 -->
+                    <a href="galatians-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/mh2k4xc7QmazCtmri4oZ_6cf450f7-0364-456d-bfef-b3731c991b08_921x1041.jpg" alt="Galatians: A Guide to the Early Church" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">New Testament</span>
+                            <h3 class="course-title">Galatians: A Guide to the Early Church</h3>
+                            <p class="course-desc">Paul's most passionate letter was written in crisis. This course unpacks Galatians as a window into early Christian conflict over law, grace, and what it meant to follow Jesus.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 12 -->
+                    <a href="rewriting-scripture-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/HD41rUnXQLyA289Qu3QJ_James-and-Ellen.jpg" alt="Rewriting Scripture: Did Ellen White Try to Replace the Bible?" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Adventist Studies</span>
+                            <h3 class="course-title">Rewriting Scripture: Did Ellen White Try to Replace the Bible?</h3>
+                            <p class="course-desc">Critics have long accused Ellen White of elevating her own writings above Scripture. This course examines what she actually said, what her sources were, and how to read her fairly.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 13 -->
+                    <a href="https://www.theoeducation.com/courses/academic-writing-bootcamp" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/CrdXKvSKRam9hzTCbxSx_academic-journals.jpg" alt="Academic Writing Bootcamp: Get Published in Top Journals" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Fundamentals</span>
+                            <h3 class="course-title">Academic Writing Bootcamp: Get Published in Top Journals</h3>
+                            <p class="course-desc">Designed for pastors, educators, and serious students — this bootcamp teaches the writing craft, argumentation style, and submission strategies used in peer-reviewed theological publishing.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 14 -->
+                    <a href="gospel-of-judas-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/Gxo8oetQQBaWs85DEgjE_800px-Giotto_di_Bondone_-_No._31_Scenes_from_the_Life_of_Christ_-_15._The_Arrest_of_Christ_Kiss_of_Judas_-_WGA09216-1.jpg" alt="The Gospel of Judas: From the Bible to Gnosticism" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Apocrypha & Legends</span>
+                            <h3 class="course-title">The Gospel of Judas: From the Bible to Gnosticism</h3>
+                            <p class="course-desc">Judas as victim, not villain. This Gnostic gospel, hidden for centuries, portrays Judas as the only disciple who truly understood Jesus. Where did it come from — and what does it mean?</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 15 -->
+                    <a href="hermeneutics-101-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/5v2sBAxT4eIb85rnUhKk_jefferson-bible-sources1.jpg" alt="Hermeneutics 101: Can We Criticize Scripture?" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Fundamentals</span>
+                            <h3 class="course-title">Hermeneutics 101: Can We Criticize Scripture?</h3>
+                            <p class="course-desc">Is it faithful to question the Bible? This course explores the history and theory of biblical interpretation — asking how we can read Scripture honestly without abandoning it.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 16 -->
+                    <a href="abrahams-sacrifice-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/Qjh5LngQGizF7ppbSy6D_Isaac-Bible-GettyImages-146266872-585bfe475f9b586e02539045-2.jpg" alt="Abraham's Sacrifice of Isaac: Faithful Obedience or Radical Faithfulness?" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Old Testament</span>
+                            <h3 class="course-title">Abraham's Sacrifice of Isaac: Faithful Obedience or Radical Faithfulness?</h3>
+                            <p class="course-desc">Genesis 22 is one of the most disturbing stories in the Bible. This course takes it seriously — exploring what ancient audiences heard, what it tells us about God, and why it still matters.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 17 -->
+                    <a href="is-god-good-job-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/rfhHYzmYRd2OkXnfOV0l_william-blake-the-lord-answering-job-out-of-the-whirlwind-the-culturium.jpg" alt="Is God Good? Wrestling with the Book of Job's Ending" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Old Testament</span>
+                            <h3 class="course-title">Is God Good? Wrestling with the Book of Job's Ending</h3>
+                            <p class="course-desc">Job ends with God restoring everything — but does that actually solve the problem of suffering? This course wrestles with the theology of Job and refuses to leave you with easy answers.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 18 -->
+                    <a href="faking-paul-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/EKRCPrdGQZmh6CYfkgRC_112874.jpeg" alt="Faking Paul: Are there Forged Letters in the New Testament?" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">New Testament</span>
+                            <h3 class="course-title">Faking Paul: Are there Forged Letters in the New Testament?</h3>
+                            <p class="course-desc">Scholars have long suspected that not all letters attributed to Paul were written by him. This course examines the evidence, what pseudepigraphy meant in the ancient world, and what's at stake.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 19 -->
+                    <a href="jesus-as-a-child-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/uSxZoSW6QdiKYqrJMP5U_dsc7892.jpg" alt="Jesus As A Child: Early Legends Among Christians" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Apocrypha & Legends</span>
+                            <h3 class="course-title">Jesus As A Child: Early Legends Among Christians</h3>
+                            <p class="course-desc">The Gospels say almost nothing about Jesus's childhood — but early Christians couldn't stop imagining it. This course explores the Infancy Gospels and what they reveal about early devotion.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 20 -->
+                    <a href="born-of-a-virgin-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/OtizlMd5SxOGgZNYb7wZ_Virgin-Birth.jpg" alt="Born of A Virgin? The Origins and Fiction of the Earliest Christmas Tradition" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Fundamentals</span>
+                            <h3 class="course-title">Born of A Virgin? The Origins and Fiction of the Earliest Christmas Tradition</h3>
+                            <p class="course-desc">Was the virgin birth always understood literally? This course traces the origins, translation choices, and theological development behind one of Christianity's most debated doctrines.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 21 -->
+                    <a href="job-origins-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/UOuuWekVQSCtR18tStDL_job.jpg" alt="The Book of Job: Origins and Controversies" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Old Testament</span>
+                            <h3 class="course-title">The Book of Job: Origins and Controversies</h3>
+                            <p class="course-desc">Who wrote Job? Is it history or parable? Why does the prose framing contradict the poetry? This course traces the book's origins and why its contradictions are part of its genius.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 22 -->
+                    <a href="sabbath-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/u0ibUWRFRwmSp9BJ1DW4_e13c369739471c0061c541bdc76511b4.jpg" alt="The Sabbath and Sunday in Scripture &amp; History" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Adventist Studies</span>
+                            <h3 class="course-title">The Sabbath and Sunday in Scripture &amp; History</h3>
+                            <p class="course-desc">How did Christians move from Sabbath to Sunday? This course traces the theological, historical, and political forces that reshaped weekly worship — and what the original texts actually say.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 23 -->
+                    <a href="early-jesus-traditions-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/HTC7LITOQvuDxN6QWhFs_95411484_10158420997734656_1051797805292584960_n.jpg" alt="Early Jesus Traditions: Sayings Gospels and Agrapha" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">New Testament</span>
+                            <h3 class="course-title">Early Jesus Traditions: Sayings Gospels and Agrapha</h3>
+                            <p class="course-desc">Dozens of sayings attributed to Jesus exist outside the New Testament canon. This course investigates the Agrapha, the Gospel of Thomas, and Q — asking what they tell us about the historical Jesus.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 24 -->
+                    <a href="revelation-enoch-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/dPXFlUG0TxGvlZV6iReb_enoch-1200x400.jpg" alt="John's Apocalypse and Enoch's Prophecy: Reading Revelation with 1 Enoch" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Apocrypha & Legends</span>
+                            <h3 class="course-title">John's Apocalypse and Enoch's Prophecy: Reading Revelation with 1 Enoch</h3>
+                            <p class="course-desc">Much of Revelation only makes sense through the lens of 1 Enoch. This course reads both texts side by side, revealing the shared symbolic universe of ancient Jewish apocalypticism.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 25 -->
+                    <a href="parables-of-enoch-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/WHa2ld2SOC9fjqGdnmDQ_shaNclgTRXyODpPfROyB_maxresdefault-17.jpg" alt="The Parables of Enoch: Messianic Prophecies at the time of Jesus" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Apocrypha & Legends</span>
+                            <h3 class="course-title">The Parables of Enoch: Messianic Prophecies at the time of Jesus</h3>
+                            <p class="course-desc">The Parables of Enoch contain some of the most striking messianic imagery in Jewish literature — and Jesus may have known them. This course explores their meaning and influence.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 26 -->
+                    <a href="lost-prophecies-daniel-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/Z89HldVlSEugJ7blNfJP_daniel-in-the-lions-den-briton-riviere.jpg" alt="Lost Prophecies of Daniel? Forgotten Apocryphal Traditions" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Apocrypha & Legends</span>
+                            <h3 class="course-title">Lost Prophecies of Daniel? Forgotten Apocryphal Traditions</h3>
+                            <p class="course-desc">The canonical Daniel is just the beginning. This course investigates the additions to Daniel found in Greek manuscripts and the apocryphal traditions that were nearly lost to history.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 27 -->
+                    <a href="gender-sexuality-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/AwLiUzWdQWSOeWC7Kvdm_queer-bible-thumb.jpg" alt="Gender and Sexuality in the Bible: Revealing Forgotten Facts from Scripture" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Fundamentals</span>
+                            <h3 class="course-title">Gender and Sexuality in the Bible: Revealing Forgotten Facts from Scripture</h3>
+                            <p class="course-desc">What did the ancient world think about gender and sexuality — and how does that differ from what we've been told the Bible says? This course goes to the primary texts without flinching.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 28 -->
+                    <a href="thecla-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/DSQAcMESRJ6RXrqzC3rB_bsbr200602702l.jpg" alt="A Female Apostle? Exploring the Acts of Paul and Thecla" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">New Testament</span>
+                            <h3 class="course-title">A Female Apostle? Exploring the Acts of Paul and Thecla</h3>
+                            <p class="course-desc">Thecla baptized herself, defied marriage, and traveled as an apostle. This early Christian text was beloved — then suppressed. This course explores why, and what it tells us about the early church.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 29 -->
+                    <a href="lgbtq-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/TRaLvpvQSeqRAXNUJPDW_gay_bible.jpg" alt="LGBTQ+ and the Bible: Separating Fact from Fiction" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Fundamentals</span>
+                            <h3 class="course-title">LGBTQ+ and the Bible: Separating Fact from Fiction</h3>
+                            <p class="course-desc">Only six passages in the entire Bible address same-sex behavior — and none of them say what most people think they say. This course examines each text in its original language and cultural context.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Course 30 -->
+                    <a href="book-of-watchers-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/3IAP1hqhQMiuavAQxY9c_1114-LSCROLL-War-Scroll-2.jpg" alt="The Book of Watchers: An Adventist Study of the Book of Enoch" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Apocrypha & Legends</span>
+                            <h3 class="course-title">The Book of Watchers: An Adventist Study of the Book of Enoch</h3>
+                            <p class="course-desc">The Book of Enoch was once considered Scripture by some early Christians. This course examines the Book of Watchers through an Adventist lens, tracing its influence on the New Testament.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                </div>
+</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Sticky Bottom CTA Bar -->
+    <div class="sticky-cta-bar observe-fade">
+        <div class="container sticky-cta-container">
+            <div class="sticky-cta-content">
+                <i class="fa-solid fa-gift" style="color: var(--accent-gold); font-size: 1.5rem; animation: pulse-arrow 2s infinite;"></i>
+                <div class="sticky-cta-text">
+                    <h4 style="color: #fff; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; margin: 0; letter-spacing: 0.5px;">Unlock all 30+ courses.</h4>
+                    <p style="color: var(--text-secondary); margin: 0; font-size: 0.95rem;">Start your <span style="color: var(--accent-gold); font-weight: 600;">7-Day Free Trial</span> today.</p>
+                </div>
+            </div>
+            <a href="https://www.theoeducation.com/order?ct=d8e7467e-4240-4fbe-bb09-f5d71d9111b8" class="btn-primary" style="padding: 0.8rem 2rem; font-size: 1rem; border-radius: 30px; white-space: nowrap;">Start Free Trial</a>
+        </div>
+        <style>
+            .sticky-cta-bar {
+                position: fixed;
+                bottom: 20px; /* Floating slightly above the true bottom */
+                left: 50%;
+                transform: translateX(-50%);
+                width: 95%;
+                max-width: 900px;
+                z-index: 1000;
+                background: rgba(15, 12, 18, 0.75);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 1px solid rgba(212, 175, 55, 0.3);
+                border-top: 1px solid rgba(255, 255, 255, 0.15);
+                border-radius: 50px;
+                box-shadow: 0 15px 40px rgba(0,0,0,0.8), inset 0 0 20px rgba(212, 175, 55, 0.05);
+                padding: 1rem 2rem;
+                opacity: 0; /* Starts hidden until js intersection observer or simple animation catches it if desired, but we'll fade it in globally */
+                animation: slide-up-fade 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards 0.5s;
+            }
+
+            @keyframes slide-up-fade {
+                0% { bottom: -100px; opacity: 0; }
+                100% { bottom: 20px; opacity: 1; }
+            }
+
+            .sticky-cta-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 2rem;
+            }
+
+            .sticky-cta-content {
+                display: flex;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            @keyframes pulse-arrow {
+                0%, 100% { transform: translateY(-3px) scale(1); opacity: 0.8; }
+                50% { transform: translateY(3px) scale(1.1); opacity: 1; text-shadow: 0 0 15px rgba(212,175,55,0.6); }
+            }
+
+            @media (max-width: 768px) {
+                .sticky-cta-bar {
+                    bottom: 0;
+                    width: 100%;
+                    border-radius: 20px 20px 0 0;
+                    padding: 1rem;
+                }
+                .sticky-cta-container {
+                    flex-direction: column;
+                    gap: 1rem;
+                    text-align: center;
+                }
+                .sticky-cta-content {
+                    flex-direction: column;
+                    gap: 0.5rem;
+                }
+                .btn-primary {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        </style>
+        <script>
+            // Hide sticky CTA when near footer
+            (function() {
+                const bar = document.querySelector('.sticky-cta-bar');
+                const footer = document.querySelector('.site-footer');
+                if (!bar) return;
+                function checkScroll() {
+                    const scrollBottom = window.scrollY + window.innerHeight;
+                    const docHeight = document.documentElement.scrollHeight;
+                    const footerHeight = footer ? footer.offsetHeight : 0;
+                    if (scrollBottom >= docHeight - footerHeight - 60) {
+                        bar.style.opacity = '0';
+                        bar.style.pointerEvents = 'none';
+                    } else {
+                        bar.style.opacity = '';
+                        bar.style.pointerEvents = '';
+                    }
+                }
+                window.addEventListener('scroll', checkScroll, { passive: true });
+                checkScroll();
+            })();
+        </script>
+    </div>
+
+    <!-- Footer Space -->
+        <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <span class="logo-icon"><i class="fa-solid fa-book-open"></i></span>
+                <span class="logo-text" style="color: white; font-family: 'Playfair Display', serif;">TheoEducation</span>
+                <p style="margin-top: 1rem; color: var(--text-muted);">Seminary-quality Adventist online Bible classes with CEU credit.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Platform</h4>
+                    <a href="about-us.html">About Us</a>
+                    <a href="how-it-works.html">How It Works</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="link-column">
+                    <h4>Resources</h4>
+                    <a href="classes.html">All Classes</a>
+                    <a href="adventist-pastors.html">Adventist Pastors</a>
+                    <a href="group-pricing.html">Group Pricing</a>
+                    <a href="community-forum.html" target="_blank">Community Forum</a>
+                </div>
+                <div class="link-column">
+                    <h4>Legal</h4>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 TheoEducation. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

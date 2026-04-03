@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Last Chance Offer - TheoEducation</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css?v=5">
+    
+    <style>
+        body {
+            /* Distinct, urgent crimson/dark background for the downsell page */
+            background-color: #0d0404;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(212, 30, 30, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 85% 30%, rgba(130, 20, 20, 0.1) 0%, transparent 60%);
+        }
+
+        /* Ambient Orbs Fix */
+        .ambient-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            animation: drift 25s infinite alternate ease-in-out;
+        }
+
+        /* Distraction-free header */
+        .oto-header {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(10, 8, 13, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        /* Dramatic Hero */
+        .oto-hero {
+            padding: 6rem 0 4rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .oto-price-tag {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin: 2rem 0;
+            padding: 1.5rem 3rem;
+            background: rgba(212, 175, 55, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.1);
+            position: relative;
+        }
+
+        .oto-price-tag::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 20px;
+            border: 2px solid rgba(212, 175, 55, 0.5);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            animation: pulse-ring 3s infinite;
+        }
+
+        .price-current {
+            font-family: var(--font-serif);
+            font-size: 5rem;
+            line-height: 1;
+            color: var(--accent-gold);
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            font-weight: 700;
+        }
+
+        .price-crossed {
+            font-size: 2.5rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        /* Value Prop Grid */
+        .oto-value-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 4rem auto;
+            max-width: 1000px;
+        }
+
+        @media (max-width: 768px) {
+            .oto-value-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .oto-value-card {
+            padding: 2.5rem;
+            background: rgba(20, 20, 25, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .oto-value-card:hover {
+            background: rgba(30, 30, 35, 0.8);
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(212, 175, 55, 0.05);
+        }
+
+        .oto-icon {
+            font-size: 2rem;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Crossroads CTA */
+        .crossroads-container {
+            max-width: 600px;
+            margin: 4rem auto 6rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .btn-massive-accept {
+            width: 100%;
+            padding: 1.8rem 2rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #aa8624 100%);
+            color: #000;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-massive-accept::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            20% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        .btn-massive-accept:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.6), inset 0 2px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-reject {
+            font-size: 1rem;
+            color: var(--text-muted);
+            text-decoration: underline;
+            transition: color 0.3s ease;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .btn-reject:hover {
+            color: var(--text-main);
+        }
+        
+        /* Countdown Timer */
+        .urgent-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: linear-gradient(90deg, #8b0000 0%, #d80000 50%, #8b0000 100%);
+            color: #fff;
+            text-align: center;
+            padding: 0.85rem;
+            font-size: 1.05rem;
+            font-weight: 700;
+            box-shadow: 0 4px 20px rgba(216, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .timer-box {
+            background: rgba(0,0,0,0.4);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+        }
+        
+        /* Premium Checkout Box Glow */
+        .checkout-box {
+            position: relative;
+            padding: 3.5rem; 
+            text-align: center; 
+            background: radial-gradient(circle at top right, rgba(212,175,55,0.08), transparent 60%), rgba(20,20,25,0.85); 
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: 24px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+        
+        .checkout-box::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 24px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(212,175,55,0.6), transparent 40%, transparent 60%, rgba(212,175,55,0.3));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            z-index: -1;
+            animation: pulse-ring 4s infinite alternate;
+        }
+    </style>
+</head>
+<body>
+    <!-- Urgent Ambient Lighting (Red/Orange) -->
+    <div class="ambient-orbs">
+        <div class="orb orb-1" style="background: linear-gradient(to right, #6b0000, #ff4c4c); width: 600px; height: 600px; filter: blur(80px); opacity: 0.15;"></div>
+        <div class="orb orb-2" style="background: linear-gradient(to right, #3d0000, #ff0000); filter: blur(60px); opacity: 0.2; right: -100px;"></div>
+    </div>
+
+    <!-- Urgent Banner -->
+    <div class="urgent-banner">
+        <span><i class="fa-solid fa-triangle-exclamation pulse-warning" style="margin-right: 0.5rem; color: #ffeb3b;"></i> 
+        URGENT: This 50% Off Special Offer is reserved for the next:</span>
+        <div class="timer-box" id="countdownTimer">15:00</div>
+    </div>
+
+    <!-- Distraction Free Header -->
+    <header class="oto-header">
+        <div class="logo">
+            <span class="logo-icon"><i class="fa-solid fa-book-open"></i></span>
+            <span class="logo-text">TheoEducation</span>
+        </div>
+    </header>
+
+    <main>
+        <!-- Focused Single-Column Downsell Hero -->
+        <section class="oto-hero container" style="max-width: 800px; padding: 2rem 1rem 3rem 1rem;">
+            <div class="checkout-box" style="padding: 2.5rem 3rem; background: radial-gradient(circle at top, rgba(212,30,30,0.1), transparent 70%), rgba(15,10,10,0.9); border-radius: 32px; box-shadow: 0 40px 80px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,100,100,0.15);">
+                
+                <span class="topic-badge" style="background: rgba(212,30,30,0.15); border-color: #ff4c4c; color: #ff6b6b; margin-bottom: 1rem; display: inline-block; font-size: 0.95rem; padding: 0.4rem 1.5rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700;">Wait, Before You Go...</span>
+                
+                <h1 style="font-family: var(--font-serif); font-size: 3.2rem; margin-bottom: 0.5rem; line-height: 1.1; color: #fff;">Unlock All Recordings — <span class="text-gradient" style="background: linear-gradient(135deg, #ff6b6b, #ff0000); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">67% Off</span></h1>
+                
+                <p style="font-size: 1.15rem; color: rgba(255,255,255,0.8); margin: 1rem auto 2rem; max-width: 650px; line-height: 1.5;">This is 67% off the regular $300 price — your <strong>last chance today</strong> to get full, in-depth classes that deepen your understanding and transform your study. You’ll never see this price again.</p>
+                
+                <div class="oto-price-tag" style="margin: 0 auto 2rem auto; width: 100%; max-width: 400px; justify-content: center; padding: 1.5rem 0; background: rgba(0,0,0,0.5); border-color: rgba(255,50,50,0.3); border-radius: 20px;">
+                    <span class="price-current" style="font-size: 4.5rem; color: #fff; text-shadow: 0 0 30px rgba(255,50,50,0.4);">$99<span style="font-size: 2rem; opacity: 0.8;">.99</span></span>
+                    <span class="price-crossed" style="font-size: 2.2rem; color: #888;">$300</span>
+                </div>
+                
+                <div style="max-width: 500px; margin: 0 auto;">
+                    <a href="https://www.theoeducation.com/enroll/3081563?price_id=4456353" class="btn-massive-accept" style="font-size: 1.25rem; padding: 1.25rem; border-radius: 12px; display: block; margin-bottom: 1rem; background: linear-gradient(135deg, #e53935 0%, #b71c1c 100%); color: #fff; box-shadow: 0 15px 30px rgba(229,57,53,0.3), inset 0 2px 0 rgba(255,255,255,0.2);">
+                        Yes! Unlock All Classes For $99.99
+                    </a>
+                    
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin: 1rem 0; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 500;"> 
+                        <i class="fa-brands fa-stripe" style="color: #635bff; font-size: 1.2rem;"></i> Secure checkout powered by Stripe
+                    </p>
+                    
+                    <div style="border-top: 1px solid rgba(255,255,255,0.1); margin: 1.5rem 0 0 0; padding-top: 1.5rem;">
+                        <a href="https://www.theoeducation.com/enrollments" class="btn-reject" style="display: block; font-size: 0.95rem; color: rgba(255,255,255,0.5);">
+                            No thanks, I'll pass on this final offer and continue to my free account.
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Showcase (Scroll Bonus) -->
+        <section class="courses-section section-padding" style="background: rgba(15, 12, 18, 0.4); border-top: 1px solid rgba(255,255,255,0.05); margin-top: 2rem;">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Explore controversial topics, <span class="text-gradient">minus the bias.</span></h2>
+                    <p class="section-subtitle">Unlock immediate access to these courses and dozens more today.</p>
+                </div>
+
+                <div class="courses-grid" style="margin-top: 3rem;">
+                    <!-- Course Card 1 -->
+                    <div class="glass-card course-card">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/3IAP1hqhQMiuavAQxY9c_1114-LSCROLL-War-Scroll-2.jpg" alt="The Book of Enoch" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Apocrypha</span>
+                            <h3 class="course-title">The Book of Enoch</h3>
+                            <p class="course-desc">Discover ancient Jewish legends of the Watchers and their influence on the New Testament.</p>
+                        </div>
+                    </div>
+                    <!-- Course Card 2 -->
+                    <div class="glass-card course-card">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/EKRCPrdGQZmh6CYfkgRC_112874.jpeg" alt="Faking Paul" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">New Testament</span>
+                            <h3 class="course-title">Faking Paul</h3>
+                            <p class="course-desc">Investigating Pseudepigraphy and the authorship of the Pauline epistles.</p>
+                        </div>
+                    </div>
+                    <!-- Course Card 3 -->
+                    <div class="glass-card course-card">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/dPXFlUG0TxGvlZV6iReb_enoch-1200x400.jpg" alt="Revelation and 1 Enoch" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Prophecy</span>
+                            <h3 class="course-title">Revelation and 1 Enoch</h3>
+                            <p class="course-desc">Decoding Prophecy by examining the apocalyptic imagery shared between texts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Urgency Countdown Timer (15 Minutes)
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = 0; // Stop at 0
+                    display.style.color = "#ff4444";
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            let fifteenMinutes = 60 * 15,
+                display = document.querySelector('#countdownTimer');
+            if(display) {
+                startTimer(fifteenMinutes, display);
+            }
+        };
+    </script>
+</body>
+</html>

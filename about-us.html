@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   About Us | TheoEducation
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <link href="style.css?v=3" rel="stylesheet"/>
+  <style>
+        /* Stats Ribbon */
+        .stats-ribbon {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            padding: 2.5rem;
+            background: linear-gradient(90deg, rgba(20,20,25,0.9), rgba(212,175,55,0.05), rgba(20,20,25,0.9));
+            border-top: 1px solid rgba(212,175,55,0.2);
+            border-bottom: 1px solid rgba(212,175,55,0.2);
+            margin-top: -3rem;
+            position: relative;
+            z-index: 10;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: var(--accent-gold);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 20px rgba(212,175,55,0.4);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Value Props */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .value-card {
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(212,175,55,0.15);
+            border-color: rgba(212,175,55,0.4);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Founder Block */
+        .founder-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin: 8rem 0;
+            padding: 4rem;
+            background: rgba(0,0,0,0.3);
+            border-radius: 24px;
+            border: 1px solid rgba(212,175,55,0.15);
+            position: relative;
+        }
+
+        @media (max-width: 900px) {
+            .founder-section {
+                grid-template-columns: 1fr;
+                padding: 2rem;
+                text-align: center;
+            }
+        }
+
+        .founder-quote {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-style: italic;
+            color: var(--accent-gold);
+            line-height: 1.4;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .founder-quote::before {
+            content: '"';
+            position: absolute;
+            top: -2rem;
+            left: -1rem;
+            font-size: 5rem;
+            color: rgba(212,175,55,0.1);
+            font-family: serif;
+        }
+        
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+        
+        .faculty-card {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212,175,55,0.4);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(212,175,55,0.1) inset;
+        }
+        
+        .faculty-avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: var(--glass-border);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--accent-gold);
+            box-shadow: 0 0 0 4px rgba(212,175,55,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .faculty-card:hover .faculty-avatar {
+            box-shadow: 0 0 0 6px rgba(212,175,55,0.4)
+        }
+  </style>
+ </head>
+ <body>
+  <div class="ambient-background">
+   <div class="glow-orb orb-primary" style="top: 10%; left: 20%;">
+   </div>
+   <div class="glow-orb orb-secondary" style="top: 60%; right: 10%;">
+   </div>
+  </div>
+  <!-- Navigation -->
+  <header class="glass-nav">
+   <div class="container nav-container">
+    <a class="brand-logo" href="index.html">
+     <span class="logo-text">TheoEducation</span>
+    </a>
+
+    <button class="mobile-menu-btn" aria-label="Toggle menu">
+     <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <nav class="main-links">
+     <a class="nav-link" href="about-us.html" style="color: var(--accent-gold);">About Us</a>
+     <a class="nav-link" href="how-it-works.html">How It Works</a>
+     <a class="nav-link" href="classes.html">Classes</a>
+     <a class="nav-link" href="pricing.html">Pricing</a>
+     <div class="nav-actions">
+      <a class="nav-link sign-in" href="https://www.theoeducation.com/users/sign_in">Sign In</a>
+      <a class="btn-primary btn-sm" href="https://www.theoeducation.com/order?ct=d8e7467e-4240-4fbe-bb09-f5d71d9111b8">Start Trial</a>
+     </div>
+    </nav>
+   </div>
+  </header>
+  <main>
+   <!-- Hero Section -->
+   <section class="page-header" style="position: relative; overflow: hidden; padding: 10rem 0 4rem;">
+    <video autoplay="" class="hero-bg-video" loop="" muted="" playsinline="">
+     <source src="https://import.cdn.thinkific.com/296355/P4hwfG0rQe6xXup0CT5w_Untitled%20design-2-2.mp4?v=nocache5" type="video/mp4"/>
+    </video>
+    <div class="hero-overlay">
+    </div>
+    <div class="container fade-in-up" style="position: relative; z-index: 2; text-align: center;">
+     <div class="tagline">
+      SDA Bible Study
+     </div>
+     <h1 class="hero-title" style="margin-bottom: 2rem;">
+      About
+      <span class="text-gradient">
+       TheoEducation
+      </span>
+     </h1>
+     <div class="hero-accent-line"></div>
+     <p class="hero-sub" style="max-width: 800px; margin: 0 auto 3.5rem; text-align: center;">
+      Pastors, leaders, and curious truth-seekers worldwide are deepening their theological training through our premium online platform.
+     </p>
+    </div>
+   </section>
+   <!-- Social Proof Stats -->
+   <div class="stats-ribbon fade-in-up">
+    <div class="stat-item">
+     <div class="stat-number">
+      <span class="counter" data-target="600">
+       0
+      </span>
+      +
+     </div>
+     <div class="stat-label">
+      Thriving Students
+     </div>
+    </div>
+    <div class="stat-item">
+     <div class="stat-number">
+      <span class="counter" data-target="11">
+       0
+      </span>
+      +
+     </div>
+     <div class="stat-label">
+      Countries Globally
+     </div>
+    </div>
+    <div class="stat-item">
+     <div class="stat-number">
+      <span class="counter" data-target="150">
+       0
+      </span>
+      +
+     </div>
+     <div class="stat-label">
+      Hours of Content
+     </div>
+    </div>
+   </div>
+   <!-- Value Propositions -->
+   <section class="section-padding" style="position: relative; overflow: hidden; padding-bottom: 0;">
+
+    <div class="container" style="position: relative; z-index: 3;">
+     <div class="section-header text-center fade-in-up">
+      <div class="tagline">
+       The TheoEducation Difference
+      </div>
+      <h2 class="section-title">
+       Why Learn With Us?
+      </h2>
+      <div style="width: 2px; height: 40px; background: linear-gradient(to bottom, var(--accent-gold), transparent); margin: 2rem auto 0;">
+      </div>
+     </div>
+     <div class="values-grid">
+      <div class="glass-card value-card observe-fade">
+       <i class="fa-solid fa-graduation-cap value-icon">
+       </i>
+       <h3 style="margin-bottom: 1rem; color: var(--text-main);">
+        Taught By Experts
+       </h3>
+       <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+        Every class is curated and led by a trained biblical scholar and historian who knows what the facts are and what misinformation has been spread on that issue.
+       </p>
+      </div>
+      <div class="glass-card value-card observe-fade" style="transition-delay: 0.1s;">
+       <i class="fa-solid fa-brain value-icon">
+       </i>
+       <h3 style="margin-bottom: 1rem; color: var(--text-main);">
+        Critical Thinking
+       </h3>
+       <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+        Students are expected in every class to utilize critical thinking skills, including doubting and questioning their instructor. The highest goal is to gain independence of thought.
+       </p>
+      </div>
+      <div class="glass-card value-card observe-fade" style="transition-delay: 0.2s;">
+       <i class="fa-solid fa-book-open-reader value-icon">
+       </i>
+       <h3 style="margin-bottom: 1rem; color: var(--text-main);">
+        Unique Curriculum
+       </h3>
+       <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+        Every class sets itself apart by specializing in a different focus or discussing profound theological topics for which there are not readily available courses elsewhere.
+       </p>
+      </div>
+     </div>
+
+      <!-- Founder's Story & Promo Video (Merged into Video Background Section) -->
+      <div class="founder-section observe-fade" style="margin-top: 8rem; margin-bottom: 0;">
+      <div class="founder-image" style="text-align: center;">
+       <div style="width: 280px; height: 280px; border-radius: 50%; overflow: hidden; margin: 0 auto; border: 4px solid rgba(212,175,55,0.3); box-shadow: 0 0 30px rgba(212,175,55,0.15);">
+        <img alt="Matthew J. Korpman" src="assets/images/korpman-ipad.jpg" style="width: 100%; height: 100%; object-fit: cover;"/>
+       </div>
+       <h4 style="margin-top: 1.5rem; font-family: var(--font-serif); font-size: 1.5rem;">
+        Matthew J. Korpman
+       </h4>
+       <p style="color: var(--accent-gold); font-weight: 500;">
+        Founder of TheoEducation
+       </p>
+      </div>
+      <div class="founder-content">
+       <div class="founder-quote">
+        "I created TheoEducation for people just like you... taking the knowledge that was once locked in a stuffy classroom and moving it into the comfort of your living room."
+       </div>
+       <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6;">
+        If you've got a desire to learn, you're ready to start. As a graduate of Yale Divinity School and an adjunct professor of biblical studies and theology at La Sierra University, I've guided thousands of students ranging from curious churchgoers to seminarians.
+       </p>
+       <p style="color: var(--text-secondary); line-height: 1.6;">
+        This platform exists to provide uncompromised, academic-level Adventist Bible study to anyone with a hunger for the truth.
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+
+   <!-- Faculty Section -->
+   <section id="faculty" style="background-color: var(--bg-dark); padding-top: 6rem; padding-bottom: 6rem;">
+    <div class="container" style="position: relative; z-index: 2;">
+     <div class="section-header text-center">
+      <h2 class="section-title">
+       Teaching
+       <span class="text-gradient">
+        Faculty
+       </span>
+      </h2>
+     </div>
+     <div class="faculty-grid">
+      <div class="glass-card faculty-card observe-fade">
+       <div class="faculty-avatar" style="overflow: hidden; padding: 0;">
+        <img alt="Matthew J. Korpman" src="assets/images/matthew-korpman-headshot.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"/>
+       </div>
+       <h3 style="font-family: var(--font-serif); font-size: 1.3rem;">
+        Matthew J. Korpman
+       </h3>
+       <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.5;">
+        Matthew J. Korpman is an adjunct professor of Bible at La Sierra University and is a graduate of Yale Divinity School. He is the founder of TheoEducation.
+       </p>
+      </div>
+      <div class="glass-card faculty-card observe-fade" style="transition-delay: 0.1s;">
+       <div class="faculty-avatar" style="overflow: hidden; padding: 0;">
+        <img alt="Ingram London" src="assets/images/ingram-london-headshot.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"/>
+       </div>
+       <h3 style="font-family: var(--font-serif); font-size: 1.3rem;">
+        Ingram London
+       </h3>
+       <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.5;">
+        Ingram London is Assistant Professor of Systematic Theology &amp; Ethics at Oakwood University.
+       </p>
+      </div>
+      <div class="glass-card faculty-card observe-fade" style="transition-delay: 0.2s;">
+       <div class="faculty-avatar" style="overflow: hidden; padding: 0;">
+        <img alt="Greg Hoenes" src="assets/images/greg-hoenes.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"/>
+       </div>
+       <h3 style="font-family: var(--font-serif); font-size: 1.3rem;">
+        Greg Hoenes
+       </h3>
+       <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.5;">
+        Adjunct Professor and Graduate Advisor at La Sierra University.
+       </p>
+      </div>
+     </div>
+     <div class="section-header text-center" style="margin-top: 6rem;">
+      <h2 class="section-title">
+       Visiting
+       <span class="text-gradient">
+        Faculty
+       </span>
+      </h2>
+     </div>
+     <div class="faculty-grid" style="margin-bottom: 6rem;">
+      <div class="glass-card faculty-card observe-fade">
+       <div class="faculty-avatar" style="overflow: hidden; padding: 0;">
+        <img alt="Sigve K. Tonstad" src="assets/images/sigve-tonstad.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"/>
+       </div>
+       <h3 style="font-family: var(--font-serif); font-size: 1.3rem;">
+        Sigve K. Tonstad
+       </h3>
+       <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.5;">
+        Sigve K. Tonstad (PhD, University of St. Andrews) is professor of religion and assistant professor of medicine at Loma Linda University in Loma Linda, California.
+       </p>
+      </div>
+      <div class="glass-card faculty-card observe-fade" style="transition-delay: 0.1s;">
+       <div class="faculty-avatar" style="overflow: hidden; padding: 0;">
+        <img alt="Lena Toews" src="assets/images/lena-toews.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"/>
+       </div>
+       <h3 style="font-family: var(--font-serif); font-size: 1.3rem;">
+        Lena Toews
+       </h3>
+       <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.5;">
+        Lena Toews is an adjunct professor of New Testament at Union Adventist University. She has served as the president of the Adventist Society for Religious Studies.
+       </p>
+      </div>
+      <div class="glass-card faculty-card observe-fade" style="transition-delay: 0.2s;">
+       <div class="faculty-avatar" style="overflow: hidden; padding: 0;">
+        <img alt="Maury Jackson" src="assets/images/maury-jackson.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"/>
+       </div>
+       <h3 style="font-family: var(--font-serif); font-size: 1.3rem;">
+        Maury Jackson
+       </h3>
+       <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.5;">
+        Maury Jackson is the Associate Dean of the H.M.S. Richards Divinity School at La Sierra University.
+       </p>
+      </div>
+      <div class="glass-card faculty-card observe-fade">
+       <div class="faculty-avatar" style="overflow: hidden; padding: 0;">
+        <img alt="Warren C. Trenchard" src="assets/images/warren-trenchard.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"/>
+       </div>
+       <h3 style="font-family: var(--font-serif); font-size: 1.3rem;">
+        Warren C. Trenchard
+       </h3>
+       <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.5;">
+        Warren C. Trenchard was Professor of New Testament and early Christian literature and director of graduate programs in the Richards Divinity School at La Sierra University, prior to his retirement.
+       </p>
+      </div>
+      <div class="glass-card faculty-card observe-fade" style="transition-delay: 0.1s;">
+       <div class="faculty-avatar" style="overflow: hidden; padding: 0;">
+        <img alt="Laurence Turner" src="assets/images/laurence-turner.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"/>
+       </div>
+       <h3 style="font-family: var(--font-serif); font-size: 1.3rem;">
+        Laurence Turner
+       </h3>
+       <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.5;">
+        Laurence Turner is Principal Lecturer Emeritus in Old Testament at Newbold College of Higher Education.
+       </p>
+      </div>
+      <div class="glass-card faculty-card observe-fade" style="transition-delay: 0.2s;">
+       <div class="faculty-avatar" style="overflow: hidden; padding: 0;">
+        <img alt="John R. Jones" src="assets/images/john-jones.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"/>
+       </div>
+       <h3 style="font-family: var(--font-serif); font-size: 1.3rem;">
+        John R. Jones
+       </h3>
+       <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.5;">
+        John R. Jones currently serves on the faculty of the H.M.S. Richards Divinity School of La Sierra University, in the areas of New Testament studies, and world religions.
+       </p>
+      </div>
+      <div class="glass-card faculty-card observe-fade" style="transition-delay: 0.2s;">
+       <div class="faculty-avatar" style="overflow: hidden; padding: 0;">
+        <img alt="Bernard Taylor" src="assets/images/bernard-taylor.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"/>
+       </div>
+       <h3 style="font-family: var(--font-serif); font-size: 1.3rem;">
+        Bernard Taylor
+       </h3>
+       <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.5;">
+        Bernard Taylor was Collaborating Professor of Biblical Languages and Old Testament Theology at La Sierra University from 1991-2021 and a Research Professor at Loma Linda University before his passing in 2025. The classes hosted here at TheoEducation honor his memory and scholarship.
+       </p>
+      </div>
+      <div class="glass-card faculty-card observe-fade">
+       <div class="faculty-avatar" style="overflow: hidden; padding: 0;">
+        <img alt="Tom de Bruin" src="assets/images/tom-de-bruin.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"/>
+       </div>
+       <h3 style="font-family: var(--font-serif); font-size: 1.3rem;">
+        Tom de Bruin
+       </h3>
+       <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.5;">
+        Tom de Bruin (he/they, PhD Leiden University) is an Assistant Professor in Early Judaism and Ancient Christianity at Radboud Universiteit and is general editor of the Journal for Interdisciplinary Biblical Studies.
+       </p>
+      </div>
+      <div class="glass-card faculty-card observe-fade" style="transition-delay: 0.1s;">
+       <div class="faculty-avatar" style="overflow: hidden; padding: 0;">
+        <img alt="Andreas Bochmann" src="assets/images/andreas-bochmann.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"/>
+       </div>
+       <h3 style="font-family: var(--font-serif); font-size: 1.3rem;">
+        Andreas Bochmann
+       </h3>
+       <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.5;">
+        Andreas Bochmann, Ph.D., is Professor for Counseling and Pastoral Care at Friedensau Adventist University.
+       </p>
+      </div>
+      </div> <!-- Closes faculty-grid -->
+
+      <!-- Trusted By Section (Infinite Marquee with Native Alpha PNGs) -->
+      <div class="observe-fade" style="width: 100%; margin: 6rem 0; padding: 4rem 0; overflow: hidden;">
+        
+        <div style="text-align: center; margin-bottom: 3rem; position: relative; z-index: 2;">
+          <h2 style="font-family: var(--font-serif); font-size: 2.2rem; color: var(--text-main); font-weight: 300; letter-spacing: 2px;">
+            Trusted by <span style="font-style: italic; color: var(--accent-gold);">leading institutions</span> globally
+          </h2>
+        </div>
+
+        <style>
+          .marquee-container {
+            display: flex;
+            width: 200%; /* Double width for smooth infinite scroll */
+            animation: scrollMarquee 40s linear infinite;
+            align-items: center;
+          }
+          
+          .marquee-container:hover {
+            animation-play-state: paused;
+          }
+
+          @keyframes scrollMarquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+
+          .marquee-logo {
+            flex: 0 0 auto;
+            width: 200px;
+            height: 100px;
+            margin: 0 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.65;
+            transition: all 0.4s ease;
+            position: relative;
+          }
+
+          .marquee-logo:hover {
+            opacity: 1;
+            transform: scale(1.1);
+            filter: drop-shadow(0 10px 20px rgba(212,175,55,0.2));
+          }
+
+          .marquee-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+          }
+          
+          /* Fade edges */
+          .marquee-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+          }
+        </style>
+
+        <div class="marquee-wrapper">
+          <div class="marquee-container">
+            <!-- Set 1 -->
+            <div class="marquee-logo"><img src="assets/images/logo-nad-real-transparent.png" alt="North American Division"></div>
+            <div class="marquee-logo"><img src="assets/images/logo-lasierra-real-transparent.png" alt="La Sierra University"></div>
+            <div class="marquee-logo"><img src="assets/images/logo-australian-real-transparent.png" alt="Australian Union"></div>
+            <div class="marquee-logo"><img src="assets/images/logo-norwegian-real-transparent.png" alt="Norwegian Union"></div>
+            <div class="marquee-logo"><img src="assets/images/logo-branson-legacy-transparent.png" alt="Branson Legacy"></div>
+            <div class="marquee-logo"><img src="assets/images/logo-hanseatic-transparent.png" alt="Hanseatic Conference"></div>
+            <div class="marquee-logo"><img src="assets/images/logo-potomac-transparent.png" alt="Potomac Conference"></div>
+            <div class="marquee-logo"><img src="assets/images/logo-adventist-today-transparent.png" alt="Adventist Today"></div>
+            
+            <!-- Set 2 -->
+            <div class="marquee-logo"><img src="assets/images/logo-nad-real-transparent.png" alt="North American Division"></div>
+            <div class="marquee-logo"><img src="assets/images/logo-lasierra-real-transparent.png" alt="La Sierra University"></div>
+            <div class="marquee-logo"><img src="assets/images/logo-australian-real-transparent.png" alt="Australian Union"></div>
+            <div class="marquee-logo"><img src="assets/images/logo-norwegian-real-transparent.png" alt="Norwegian Union"></div>
+            <div class="marquee-logo"><img src="assets/images/logo-branson-legacy-transparent.png" alt="Branson Legacy"></div>
+            <div class="marquee-logo"><img src="assets/images/logo-hanseatic-transparent.png" alt="Hanseatic Conference"></div>
+            <div class="marquee-logo"><img src="assets/images/logo-potomac-transparent.png" alt="Potomac Conference"></div>
+            <div class="marquee-logo"><img src="assets/images/logo-adventist-today-transparent.png" alt="Adventist Today"></div>
+
+            <!-- Set 3 (For Infinite Scrolling Loop) -->
+            <div class="marquee-logo"><img src="assets/images/logo-nad-real-transparent.png" alt="North American Division"></div>
+            <div class="marquee-logo"><img src="assets/images/logo-lasierra-real-transparent.png" alt="La Sierra University"></div>
+            <div class="marquee-logo"><img src="assets/images/logo-australian-real-transparent.png" alt="Australian Union"></div>
+            <div class="marquee-logo"><img src="assets/images/logo-norwegian-real-transparent.png" alt="Norwegian Union"></div>
+            <div class="marquee-logo"><img src="assets/images/logo-branson-legacy-transparent.png" alt="Branson Legacy"></div>
+            <div class="marquee-logo"><img src="assets/images/logo-hanseatic-transparent.png" alt="Hanseatic Conference"></div>
+            <div class="marquee-logo"><img src="assets/images/logo-potomac-transparent.png" alt="Potomac Conference"></div>
+            <div class="marquee-logo"><img src="assets/images/logo-adventist-today-transparent.png" alt="Adventist Today"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+   </section>
+  </main>
+  <!-- Footer Space -->
+      <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <span class="logo-icon"><i class="fa-solid fa-book-open"></i></span>
+                <span class="logo-text" style="color: white; font-family: 'Playfair Display', serif;">TheoEducation</span>
+                <p style="margin-top: 1rem; color: var(--text-muted);">Seminary-quality Adventist online Bible classes with CEU credit.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Platform</h4>
+                    <a href="about-us.html">About Us</a>
+                    <a href="how-it-works.html">How It Works</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="link-column">
+                    <h4>Resources</h4>
+                    <a href="classes.html">All Classes</a>
+                    <a href="adventist-pastors.html">Adventist Pastors</a>
+                    <a href="group-pricing.html">Group Pricing</a>
+                    <a href="community-forum.html" target="_blank">Community Forum</a>
+                </div>
+                <div class="link-column">
+                    <h4>Legal</h4>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 TheoEducation. All rights reserved.</p>
+        </div>
+    </footer>
+  <script src="app.js">
+  </script>
+  <script>
+   // Premium Counter Animation Logic
+        const counters = document.querySelectorAll('.counter');
+        
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                // Ensure starting from 0
+                counter.innerText = '0';
+                
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    
+                    // Fixed duration across all counters
+                    const duration = 2000; // 2 seconds
+                    const frameDuration = 1000 / 60; // 60fps
+                    const totalFrames = Math.round(duration / frameDuration);
+                    const inc = target / totalFrames;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, frameDuration);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        };
+
+        // Observe elements with fade-in variations
+        const observeElements = () => {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const pageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        
+                        // If it's the stats ribbon, trigger the counter
+                        if (entry.target.classList.contains('stats-ribbon')) {
+                            animateCounters();
+                        }
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all elements with observe-fade
+            document.querySelectorAll('.observe-fade').forEach(el => pageObserver.observe(el));
+            
+            // Also observe the stats ribbon specifically for the counter logic
+            const ribbon = document.querySelector('.stats-ribbon');
+            if (ribbon) {
+                pageObserver.observe(ribbon);
+                // Also remove the fade-in-up class so it works with our observer instead
+                ribbon.classList.remove('fade-in-up');
+                ribbon.classList.add('observe-fade');
+            }
+        };
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', observeElements);
+  </script>
+ </body>
+</html>

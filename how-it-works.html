@@ -3,325 +3,1403 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How It Works — TheoEducation</title>
+    <title>How It Works | TheoEducation</title>
+    <meta name="description" content="Discover how TheoEducation works — engage with top Bible scholars, access 100+ hours of courses, and grow in your faith and ministry.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* ============================================
+           HOW IT WORKS — "The Journey" Page Styles
+           Unique design language for this page only
+           ============================================ */
 
-        body {
-            font-family: 'Inter', 'Source Sans Pro', system-ui, -apple-system, sans-serif;
-            background-color: #F5F0E8;
-            padding: 40px 20px;
-        }
+        html { scroll-behavior: smooth; }
 
-        .how-it-works-section {
-            background-color: #FFFFFF;
-            padding: 80px 40px;
-            margin: 0;
-        }
-
-        .how-it-works-container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .how-it-works-header {
-            text-align: center;
-            margin-bottom: 70px;
-        }
-
-        .how-it-works-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 5vw, 3rem);
-            color: #2D2A26;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .how-it-works-header p {
-            font-size: 16px;
-            color: #4A4540;
-            line-height: 1.6;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
-            margin-bottom: 0;
-        }
-
-        .step {
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-
-        .step:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            height: 80px;
-            background: linear-gradient(180deg, #C4A23E, transparent);
-            left: 30px;
-            top: 100%;
-            display: none;
-        }
-
-        @media (min-width: 1000px) {
-            .steps-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-
-            .step:not(:last-child)::after {
-                display: block;
-            }
-        }
-
-        .step-number {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #C4A23E, #8B6D2E);
-            color: #FFFFFF;
+        /* Cinematic Hero */
+        .journey-hero {
+            min-height: 85vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            flex-shrink: 0;
-        }
-
-        .step-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            color: #2D2A26;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .step-description {
-            font-size: 14px;
-            color: #4A4540;
-            line-height: 1.6;
-            margin-bottom: 16px;
-        }
-
-        .step-benefit {
-            background: #FFF9F0;
-            border-left: 4px solid #C4A23E;
-            padding: 12px 16px;
-            border-radius: 4px;
-            font-size: 13px;
-            color: #8B6D2E;
-            font-weight: 600;
-        }
-
-        .benefit-icon {
-            margin-right: 6px;
-        }
-
-        .transformation-section {
-            background: linear-gradient(135deg, #F5F0E8, #FFFBF5);
-            border: 2px solid #E0DBD2;
-            border-radius: 12px;
-            padding: 60px 50px;
-            margin-top: 80px;
             text-align: center;
+            padding: 12rem 0 6rem;
+            position: relative;
         }
 
-        .transformation-section h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8rem, 4vw, 2.6rem);
-            color: #2D2A26;
-            font-weight: 700;
-            margin-bottom: 24px;
+        /* Radial glow behind hero title */
+        .journey-hero::before {
+            content: '';
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            width: 700px;
+            height: 700px;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(212,175,55,0.06) 0%, rgba(74,43,109,0.04) 40%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
         }
 
-        .transformation-row {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 40px;
+        .journey-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Orb Ambient Drifting */
+        .ambient-background .glow-orb {
+            animation: slowDrift 20s ease-in-out infinite alternate;
+        }
+        .ambient-background .orb-secondary {
+            animation-duration: 25s;
+            animation-direction: alternate-reverse;
+        }
+
+        @keyframes slowDrift {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(3vw, -5vh) scale(1.05); }
+            66% { transform: translate(-2vw, 4vh) scale(0.95); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        /* Animated accent line under hero heading */
+        .hero-accent-line {
+            width: 80px;
+            height: 3px;
+            margin: 0 auto 2.5rem;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+            border-radius: 2px;
+            animation: accent-shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes accent-shimmer {
+            0%, 100% { opacity: 0.4; width: 80px; }
+            50% { opacity: 1; width: 120px; }
+        }
+
+        .journey-hero h1 {
+            font-size: 5rem;
+            line-height: 1.05;
+            max-width: 900px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .journey-hero .hero-sub {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 0 auto 3.5rem;
+            line-height: 1.7;
+        }
+
+        .scroll-indicator {
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            margin-bottom: 40px;
-        }
-
-        .transformation-item {
-            text-align: left;
-        }
-
-        .transformation-item h4 {
-            font-size: 15px;
-            font-weight: 700;
-            color: #4A4540;
-            margin-bottom: 8px;
+            gap: 0.75rem;
+            color: var(--accent-gold);
+            font-size: 0.8rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            animation: pulse-down 2.5s ease-in-out infinite;
         }
 
-        .transformation-item p {
-            font-size: 16px;
-            color: #2D2A26;
+        .scroll-indicator i {
+            font-size: 1.2rem;
+        }
+
+        @keyframes pulse-down {
+            0%, 100% { transform: translateY(0); opacity: 0.5; }
+            50% { transform: translateY(10px); opacity: 1; }
+        }
+
+        /* Designed Scroll Button Indicator */
+        .continue-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            width: max-content;
+            margin: 2rem auto 4rem auto;
+            padding: 1.2rem 3rem;
+            color: #fff;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             font-weight: 600;
-            line-height: 1.5;
+            text-decoration: none;
+            
+            /* Glassmorphism Pill */
+            background: rgba(15, 12, 18, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(212, 175, 55, 0.05);
+            
+            position: relative;
+            z-index: 10;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: float-pill 4s ease-in-out infinite;
         }
 
-        .arrow {
-            color: #C4A23E;
-            font-size: 32px;
+        @keyframes float-pill {
+            0%, 100% { transform: translateY(0); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(212, 175, 55, 0.05); }
+            50% { transform: translateY(10px); box-shadow: 0 25px 45px rgba(212, 175, 55, 0.12), inset 0 0 30px rgba(212, 175, 55, 0.1); }
         }
 
-        .transformation-item:nth-child(2) {
+        .continue-indicator:hover {
+            background: rgba(212, 175, 55, 0.12);
+            border-color: rgba(212, 175, 55, 0.7);
+            color: var(--accent-gold);
+            transform: scale(1.05);
+            animation-play-state: paused;
+        }
+
+        .continue-indicator i {
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+            animation: pulse-arrow 2s infinite;
+        }
+
+        @keyframes pulse-arrow {
+            0%, 100% { transform: translateY(-3px); opacity: 0.7; }
+            50% { transform: translateY(3px); opacity: 1; }
+        }
+
+        /* The Golden Timeline Spine */
+        .journey-timeline {
+            position: relative;
+            padding: 6rem 0;
+        }
+
+        .journey-timeline {
+            position: relative;
+            z-index: 1;
+        }
+
+        .pillar-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-left: 3rem; /* Space for the timeline on the left */
+        }
+
+        .journey-timeline::before {
+            content: '';
+            position: absolute;
+            left: 5rem; /* Offsets into the container */
+            top: 2rem;
+            bottom: 2rem;
+            width: 2px;
+            background: linear-gradient(to bottom, 
+                transparent 0%, 
+                rgba(212,175,55,0.15) 10%, 
+                rgba(212,175,55,0.15) 90%, 
+                transparent 100%
+            );
+            z-index: -1;
+        }
+
+        /* Gold fill that grows with scroll */
+        .timeline-progress-fill {
+            position: absolute;
+            left: 5rem;
+            top: 2rem;
+            bottom: auto;
+            max-height: 90%;
+            width: 2px;
+            background: linear-gradient(to bottom, rgba(212,175,55,0.2) 0%, var(--accent-gold) 100%);
+            z-index: -1;
+            height: 0%; /* Dynamic via JS */
+            box-shadow: 0 0 15px var(--accent-gold), 0 0 30px rgba(212,175,55,0.4);
+        }
+
+        /* Numbered Pillar Cards */
+        .pillar-card {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            width: 100%;
+            margin: 0 0 6rem 0;
+            position: relative;
+            animation: subtleFloat 8s ease-in-out infinite;
+        }
+
+        @keyframes subtleFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .pillar-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .pillar-number {
+            flex-shrink: 0;
+            font-family: var(--font-serif);
+            font-size: 8rem;
+            font-weight: 700;
+            line-height: 1;
+            /* Animated gradient */
+            background: linear-gradient(180deg, rgba(212,175,55,0.5) 0%, rgba(212,175,55,0.15) 50%, rgba(212,175,55,0.02) 100%);
+            background-size: 100% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            width: 120px; /* Reduced slightly to match left-align */
             text-align: center;
+            position: relative; /* To sit above the timeline line */
+            z-index: 2;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: text-gradient-shift 8s ease infinite;
         }
 
-        .transformation-item:nth-child(3) {
-            text-align: right;
+        @keyframes text-gradient-shift {
+            0%, 100% { background-position: 0% 0%; }
+            50% { background-position: 0% 100%; }
         }
 
-        @media (max-width: 768px) {
-            .how-it-works-section {
-                padding: 60px 20px;
-            }
+        .pillar-card:hover .pillar-number {
+            background: linear-gradient(180deg, rgba(255,215,0,0.9) 0%, rgba(212,175,55,0.4) 50%, rgba(212,175,55,0.1) 100%);
+            background-size: 100% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            transform: scale(1.05) translateY(-5px);
+            text-shadow: 0 10px 30px rgba(212,175,55,0.3);
+        }
 
-            .steps-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
+        .pillar-body {
+            flex: 1;
+            padding: 3rem;
+            background: rgba(8, 8, 12, 0.6); /* Slightly darker/more opaque glass so text stays highly readable over the gold line */
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-top: 1px solid rgba(255,255,255,0.15); /* Glass edge highlight */
+            border-radius: 16px;
+            border-left: 3px solid rgba(212,175,55,0.4);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            /* Mouse tracking variables updated via JS */
+            --mouse-x: 50%;
+            --mouse-y: 50%;
+        }
 
-            .step:not(:last-child)::after {
-                display: none;
-            }
+        /* Mouse-tracking Spotlight Glow */
+        .pillar-spotlight {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle 350px at var(--mouse-x) var(--mouse-y), rgba(212,175,55,0.06), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 0;
+        }
 
-            .how-it-works-header {
-                margin-bottom: 50px;
-            }
+        .pillar-body:hover .pillar-spotlight {
+            opacity: 1;
+        }
 
-            .transformation-section {
-                padding: 40px 25px;
-                margin-top: 60px;
-            }
+        /* Subtle gradient overlay on hover */
+        .pillar-body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212,175,55,0.03) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
 
-            .transformation-row {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                text-align: center;
-            }
+        .pillar-body:hover::before {
+            opacity: 1;
+        }
 
-            .transformation-item {
-                text-align: center;
-            }
+        .pillar-body:hover {
+            background: var(--glass-hover);
+            border-left-color: var(--accent-gold);
+            transform: translateX(8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4), -4px 0 25px rgba(212,175,55,0.08);
+        }
 
-            .transformation-item:nth-child(2) {
-                display: none;
-            }
+        .pillar-icon {
+            font-size: 1.8rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.25rem;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
 
-            .transformation-item:nth-child(3) {
-                text-align: center;
-            }
+        .pillar-body:hover .pillar-icon {
+            opacity: 1;
+        }
+
+        .pillar-body h3 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .pillar-body p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Timeline dot on the line */
+        .pillar-card::after {
+            content: '';
+            position: absolute;
+            left: 2rem; /* Exact overlap with left: 5rem of container timeline - 3rem padding = 2rem */
+            top: 50%;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px var(--accent-gold-glow), 0 0 40px rgba(212,175,55,0.15);
+            z-index: 3;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .pillar-card:hover::after {
+            width: 18px;
+            height: 18px;
+            box-shadow: 0 0 30px var(--accent-gold), 0 0 60px rgba(212,175,55,0.4);
+            background: #fff;
+        }
+
+        /* Scrolling Testimonial Ticker */
+        .testimonial-ticker {
+            overflow: hidden;
+            padding: 5rem 0;
+            position: relative;
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+            background: linear-gradient(to right, transparent, rgba(74, 43, 109, 0.06), transparent);
+        }
+
+        /* Edge fade masks */
+        .testimonial-ticker::before,
+        .testimonial-ticker::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 150px;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .testimonial-ticker::before {
+            left: 0;
+            background: linear-gradient(to right, var(--bg-base), transparent);
+        }
+
+        .testimonial-ticker::after {
+            right: 0;
+            background: linear-gradient(to left, var(--bg-base), transparent);
+        }
+
+        .ticker-track {
+            display: flex;
+            width: max-content;
+            animation: ticker-scroll 35s linear infinite;
+        }
+
+        .ticker-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes ticker-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .ticker-item {
+            flex: 0 0 auto;
+            width: 500px;
+            padding: 0 3rem;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .ticker-quote {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            position: relative;
+            padding-top: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .ticker-quote::before {
+            content: '\201C';
+            font-size: 4rem;
+            color: rgba(212,175,55,0.2);
+            position: absolute;
+            top: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--font-serif);
+        }
+
+        .ticker-author {
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .ticker-role {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+        }
+
+        /* CTA Banner - Masterclass 3D Float Design */
+        .cta-banner {
+            padding: 8rem 0;
+            text-align: center;
+            position: relative;
+            overflow: visible; /* Prevent clipping glow */
+        }
+
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            inset: -50px;
+            background: radial-gradient(ellipse at center, rgba(212,175,55,0.1) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .cta-banner-card {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 6rem 4rem;
+            background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(212,175,55,0.02) 100%);
+            border: 1px solid rgba(212,175,55,0.2);
+            border-top: 1px solid rgba(255,255,255,0.25);
+            border-bottom: 1px solid rgba(0,0,0,0.5);
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6), inset 0 0 60px rgba(212,175,55,0.05);
+            transform: translateY(0);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1;
+        }
+        
+        .cta-banner-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.8), inset 0 0 80px rgba(212,175,55,0.12);
+            border: 1px solid rgba(212,175,55,0.4);
+            border-top: 1px solid rgba(255,255,255,0.4);
+        }
+
+        .cta-banner-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(212,175,55,0.12) 0%, transparent 70%);
+            opacity: 0.5;
+            animation: cta-pulse 4s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        @keyframes cta-pulse {
+            0% { opacity: 0.3; transform: scale(0.9); }
+            100% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        .cta-banner h2 {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Growth Steps (vertical timeline) */
+        .growth-section {
+            padding: 6rem 0;
+        }
+
+        .steps-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .steps-container::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: calc(100% - 30px);
+            background: linear-gradient(to bottom, 
+                transparent 0%, 
+                rgba(212,175,55,0.15) 10%, 
+                rgba(212,175,55,0.15) 90%, 
+                transparent 100%
+            );
+            left: 24px;
+            top: 15px;
+            z-index: 0;
+        }
+
+        /* Gold fill that grows with scroll for Growth Steps */
+        .growth-progress-fill {
+            position: absolute;
+            left: 24px;
+            top: 15px;
+            bottom: auto;
+            width: 2px;
+            background: linear-gradient(to bottom, rgba(212,175,55,0.2) 0%, var(--accent-gold) 100%);
+            z-index: 1;
+            height: 0%; /* Dynamic via JS */
+            box-shadow: 0 0 15px var(--accent-gold), 0 0 30px rgba(212,175,55,0.4);
+            max-height: calc(100% - 30px);
+        }
+
+        .step-item {
+            position: relative;
+            padding-left: 7rem;
+            margin-bottom: 6rem;
+            z-index: 1;
+        }
+
+        .step-number {
+            position: absolute;
+            left: -8px; /* Pulled slightly left due to increased width/circle size */
+            top: -8px;
+            width: 66px;
+            height: 66px;
+            background: radial-gradient(circle, var(--bg-darker) 0%, #151000 100%);
+            border: 2px solid var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff; /* Improved contrast */
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            box-shadow: 0 0 30px var(--accent-gold-glow), inset 0 0 20px rgba(212,175,55,0.3);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 2;
+        }
+
+        .step-item:hover .step-number {
+            box-shadow: 0 0 40px var(--accent-gold), inset 0 0 30px rgba(212,175,55,0.6);
+            transform: scale(1.15) rotate(5deg);
+            color: #fff;
+            border-color: #fff;
+        }
+
+        .step-content {
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(212,175,55,0.02) 100%);
+            border: 1px solid rgba(212,175,55,0.15);
+            border-top: 1px solid rgba(255,255,255,0.15);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .step-item:hover .step-content {
+            transform: translateX(12px) translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 40px rgba(212,175,55,0.1);
+            border-color: rgba(212,175,55,0.4);
+        }
+
+        .step-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .step-content p {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+
+        /* Faculty Spotlight — Auto-scrolling Marquee */
+        .faculty-spotlight {
+            padding: 8rem 0;
+            position: relative;
+            background: linear-gradient(to bottom, transparent 0%, rgba(8,8,12,0.8) 50%, transparent 100%);
+        }
+
+        .faculty-marquee-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 95%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 95%, rgba(0,0,0,0) 100%);
+            padding: 2rem 0;
+        }
+
+        .faculty-scroll-track {
+            display: flex;
+            width: max-content;
+            animation: scrolLFaculty 60s linear infinite;
+        }
+        
+        .faculty-scroll-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrolLFaculty {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .faculty-chip {
+            flex: 0 0 auto;
+            width: 380px;
+            background: rgba(255,255,255,0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-radius: 60px;
+            padding: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            margin: 0 1.5rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .faculty-chip::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(212,175,55,0.05) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 60px;
+        }
+
+        .faculty-chip:hover::before {
+            opacity: 1;
+        }
+
+        .faculty-chip:hover {
+            background: var(--glass-hover);
+            border-color: rgba(212,175,55,0.4);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 20px rgba(212,175,55,0.08);
+        }
+
+        .faculty-chip-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(212,175,55,0.3);
+            flex-shrink: 0;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .faculty-chip:hover .faculty-chip-avatar {
+            border-color: rgba(212,175,55,0.6);
+            box-shadow: 0 0 15px rgba(212,175,55,0.2);
+        }
+
+        .faculty-chip-info {
+            position: relative;
+        }
+
+        .faculty-chip-info h4 {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            color: var(--text-main);
+            margin-bottom: 0.2rem;
+        }
+
+        .faculty-chip-info p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .journey-hero h1 { font-size: 3rem; }
+            .pillar-card { flex-direction: column !important; gap: 1.5rem; animation: none !important; }
+            .pillar-number { font-size: 5rem; width: auto; animation: none; text-align: left; }
+            .pillar-card::after { display: none; }
+            .journey-timeline::before, .timeline-progress-fill { display: none; }
+            .pillar-container { padding-left: 0; }
+            .ticker-item { width: 350px; padding: 0 2rem; }
+            .section-divider { padding: 2rem 0; }
+            .cta-banner-card { padding: 3rem 2rem; }
+            .step-item { padding-left: 4rem; }
+        }
+
+        /* Sweeping button shine */
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+            transform: skewX(-20deg);
+            animation: shine 4s ease-in-out infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            20%, 100% { left: 200%; }
         }
     </style>
 </head>
 <body>
-
-<section class="how-it-works-section">
-    <div class="how-it-works-container">
-        <div class="how-it-works-header">
-            <h2>Four Steps to Confident, Scholarly Preaching</h2>
-            <p>TheoEducation is built to fit into your workflow, not replace it</p>
-        </div>
-
-        <div class="steps-grid">
-            <!-- Step 1 -->
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-title">Choose Your Topic</div>
-                <div class="step-description">
-                    Pick the passage, book, or theological topic you're preparing to teach. Browse our 84+ courses or search by passage reference.
-                </div>
-                <div class="step-benefit">
-                    <span class="benefit-icon">⏱️</span>
-                    Saves 2-3 hours vs. hunting commentaries
-                </div>
-            </div>
-
-            <!-- Step 2 -->
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-title">Learn from Experts</div>
-                <div class="step-description">
-                    Watch scholar-led lessons covering exegesis, context, historical background, and interpretive frameworks. Go live or watch on your schedule.
-                </div>
-                <div class="step-benefit">
-                    <span class="benefit-icon">🎓</span>
-                    Seminary-level instruction at 1/100th the cost
-                </div>
-            </div>
-
-            <!-- Step 3 -->
-            <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-title">Get the Resources</div>
-                <div class="step-description">
-                    Access downloadable notes, theology slides, discussion guides, and teaching outlines. Adapt them for your congregation's context.
-                </div>
-                <div class="step-benefit">
-                    <span class="benefit-icon">✍️</span>
-                    Ready-to-use sermon outlines included
-                </div>
-            </div>
-
-            <!-- Step 4 -->
-            <div class="step">
-                <div class="step-number">4</div>
-                <div class="step-title">Teach with Confidence</div>
-                <div class="step-description">
-                    You're now equipped with scholarly depth, multiple perspectives, and confident exegesis. Preach knowing you've covered the hard questions.
-                </div>
-                <div class="step-benefit">
-                    <span class="benefit-icon">💪</span>
-                    Answer your congregation's toughest questions
-                </div>
-            </div>
-        </div>
-
-        <!-- Transformation Section -->
-        <div class="transformation-section">
-            <h3>The Transformation</h3>
-            
-            <div class="transformation-row">
-                <div class="transformation-item">
-                    <h4>Before</h4>
-                    <p>15+ hours sermon prep<br>Scattered resources<br>Theological guesswork</p>
-                </div>
-                <div class="arrow">→</div>
-                <div class="transformation-item">
-                    <h4>After</h4>
-                    <p>8 hours sermon prep<br>Unified curriculum<br>Scholarly confidence</p>
-                </div>
-            </div>
-
-            <div class="transformation-row">
-                <div class="transformation-item">
-                    <h4>Before</h4>
-                    <p>Teaching feels stale<br>Can't handle controversy<br>Congregation asks, you blank</p>
-                </div>
-                <div class="arrow">→</div>
-                <div class="transformation-item">
-                    <h4>After</h4>
-                    <p>Fresh, scholarly lessons<br>Controversial topics covered<br>You answer with authority</p>
-                </div>
-            </div>
-        </div>
+    <!-- Background -->
+    <div class="ambient-background">
+        <div class="glow-orb orb-primary" style="top: 5%; right: -5%;"></div>
+        <div class="glow-orb orb-secondary" style="top: 50%; left: -15%;"></div>
     </div>
-</section>
 
+    <!-- Navigation -->
+    <header class="glass-nav">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                
+                <span class="logo-text">TheoEducation</span>
+            </a>
+            
+            <nav class="main-links">
+                <a href="about-us.html" class="nav-link">About Us</a>
+                <a href="how-it-works.html" class="nav-link" style="color: var(--accent-gold);">How It Works</a>
+                <a href="classes.html" class="nav-link">Classes</a>
+                
+                <a href="theoai.html" class="nav-link">TheoAI</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <div class="nav-actions">
+                    <a href="https://www.theoeducation.com/users/sign_in" class="nav-link sign-in">Sign In</a>
+                    <a href="https://www.theoeducation.com/order?ct=d8e7467e-4240-4fbe-bb09-f5d71d9111b8" class="btn-primary btn-sm">Start Trial</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ============================
+             1. CINEMATIC HERO
+             ============================ -->
+        <section class="journey-hero">
+            <!-- Ambient Video Background -->
+            <div class="hero-video-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; overflow: hidden; opacity: 0.15; mask-image: linear-gradient(to bottom, black 40%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);">
+                <script src="https://fast.wistia.com/embed/medias/e0v0z11sn3.jsonp" async></script>
+                <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
+                <div class="wistia_embed wistia_async_e0v0z11sn3 videoFoam=true autoPlay=true muted=true loop=true controlsVisibleOnLoad=false fullscreenButton=false playbackRateControl=false qualityControl=false playbar=false settingsControl=false volumeControl=false" style="height:100%; width:100%; pointer-events:none;">&nbsp;</div>
+            </div>
+
+            <div class="container fade-in-up">
+                <div class="tagline">How It Works</div>
+                <h1>Your Path to <span class="text-gradient">Deeper Understanding</span></h1>
+                <div class="hero-accent-line"></div>
+                <p class="hero-sub">See how TheoEducation transforms curious seekers and dedicated pastors into confident, well-equipped scholars — one conversation at a time.</p>
+                <div class="scroll-indicator">
+                    <span>Begin the Journey</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================
+             2. THE THREE PILLARS (Timeline)
+             ============================ -->
+        <section class="journey-timeline" id="journey-timeline">
+            <div class="container">
+                <div class="section-header text-center observe-fade" style="margin-bottom: 6rem;">
+                    <div class="tagline">What You'll Experience</div>
+                    <h2 class="section-title" style="font-size: 3.2rem;">Three Pillars of <span class="text-gradient">Growth</span></h2>
+                </div>
+
+                <div class="pillar-container">
+                    <!-- Dynamic Scroll Line -->
+                    <div class="timeline-progress-fill" id="timeline-progress"></div>
+                    
+                    <!-- Pillar 1 -->
+                    <div class="pillar-card observe-fade">
+                        <div class="pillar-number">01</div>
+                        <div class="pillar-body">
+                            <div class="pillar-spotlight"></div>
+                            <div class="pillar-icon"><i class="fa-solid fa-users"></i></div>
+                            <h3>Engage Directly with Top Scholars</h3>
+                            <p>Engage directly with top Bible teachers in sessions designed for your schedule — ask questions, share insights, and experience real connection.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="pillar-card observe-fade">
+                        <div class="pillar-number">02</div>
+                        <div class="pillar-body">
+                            <div class="pillar-spotlight"></div>
+                            <div class="pillar-icon"><i class="fa-solid fa-play-circle"></i></div>
+                            <h3>100+ Hours at Your Own Pace</h3>
+                            <p>Access 100+ hours of recorded courses at your own pace. Revisit topics, deepen your knowledge, and find answers when you need them most.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="pillar-card observe-fade">
+                        <div class="pillar-number">03</div>
+                        <div class="pillar-body">
+                            <div class="pillar-spotlight"></div>
+                            <div class="pillar-icon"><i class="fa-solid fa-seedling"></i></div>
+                            <h3>Real Growth in Your Ministry</h3>
+                            <p>Take what you learn straight into your preaching, teaching, and leadership. See real growth — in your faith, your ministry, and your community.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Animated Continue Indicator (Targeting Testimonials) -->
+        <a href="#testimonials" class="continue-indicator observe-fade">
+            Continue the Journey
+            <i class="fa-solid fa-chevron-down"></i>
+        </a>
+
+        <!-- ============================
+             3. SCROLLING TESTIMONIAL TICKER
+             ============================ -->
+        <section id="testimonials" class="testimonial-ticker observe-fade">
+            <div class="ticker-track">
+                <!-- Set 1 -->
+                <div class="ticker-item">
+                    <p class="ticker-quote">The class experience is fun and educational!</p>
+                    <div class="ticker-author">Justin Bone</div>
+                    <div class="ticker-role">Ministerial Director, Victorian Adventist Conference</div>
+                </div>
+                <div class="ticker-item">
+                    <p class="ticker-quote">These courses are of high quality! These classes are recommended for continuing education for pastors.</p>
+                    <div class="ticker-author">Vidar Hovden</div>
+                    <div class="ticker-role">Ministerial Director, Norwegian Adventist Union</div>
+                </div>
+                <div class="ticker-item">
+                    <p class="ticker-quote">These classes are beneficial to those interested in learning.</p>
+                    <div class="ticker-author">Dennis Meier</div>
+                    <div class="ticker-role">Conference President, Hanseatic Adventist Conference</div>
+                </div>
+                <!-- Set 2 (duplicate for seamless loop) -->
+                <div class="ticker-item">
+                    <p class="ticker-quote">The class experience is fun and educational!</p>
+                    <div class="ticker-author">Justin Bone</div>
+                    <div class="ticker-role">Ministerial Director, Victorian Adventist Conference</div>
+                </div>
+                <div class="ticker-item">
+                    <p class="ticker-quote">These courses are of high quality! These classes are recommended for continuing education for pastors.</p>
+                    <div class="ticker-author">Vidar Hovden</div>
+                    <div class="ticker-role">Ministerial Director, Norwegian Adventist Union</div>
+                </div>
+                <div class="ticker-item">
+                    <p class="ticker-quote">These classes are beneficial to those interested in learning.</p>
+                    <div class="ticker-author">Dennis Meier</div>
+                    <div class="ticker-role">Conference President, Hanseatic Adventist Conference</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================
+             4. CTA BANNER
+             ============================ -->
+        <section class="cta-banner observe-fade">
+            <div class="container">
+                <div class="cta-banner-card">
+                    <h2>Special offer: Try Our Classes <span class="text-gradient">FREE</span> for 7 days</h2>
+                    <a href="https://www.theoeducation.com/order?ct=d8e7467e-4240-4fbe-bb09-f5d71d9111b8" class="btn-primary btn-lg">Start Your 7-Day Free Trial</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Animated Continue Indicator (Targeting Growth Steps) -->
+        <a href="#why-grow" class="continue-indicator observe-fade" style="margin-top: 4rem;">
+            Continue the Journey
+            <i class="fa-solid fa-chevron-down"></i>
+        </a>
+
+        <!-- ============================
+             5. WHY TAKE THE NEXT STEP NOW
+             ============================ -->
+        <section id="why-grow" class="growth-section section-padding">
+            <div class="container">
+                <div class="section-header text-center observe-fade">
+                    <div class="tagline">How You'll Grow</div>
+                    <h2 class="section-title">Why Take the Next Step <span class="text-gradient">Now?</span></h2>
+                    <p style="color: var(--text-secondary); max-width: 800px; margin: 1.5rem auto 0; font-size: 1.1rem; line-height: 1.7;">Every moment you wait is a moment your questions — and your growth — are on hold. Join now and see how open conversation can reshape your understanding and your faith.</p>
+                </div>
+
+                <div class="steps-container" id="growth-steps" style="margin-top: 4rem;">
+                    <!-- Dynamic Scroll Line -->
+                    <div class="growth-progress-fill" id="growth-progress"></div>
+                    
+                    <div class="step-item observe-fade">
+                        <div class="step-number">1</div>
+                        <div class="glass-card step-content">
+                            <h3>Grow Bold in Your Curiosity</h3>
+                            <p>Speak up about what really matters. Develop the clarity and confidence to wrestle with Scripture, lead honest conversations, and bring deeper meaning to every message.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item observe-fade">
+                        <div class="step-number">2</div>
+                        <div class="glass-card step-content">
+                            <h3>Gain Insights That Actually Matter</h3>
+                            <p>Find practical, relevant answers from real scholars — no more surface-level theory. Tackle the hardest questions in your church and bring fresh understanding to every discussion.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item observe-fade">
+                        <div class="step-number">3</div>
+                        <div class="glass-card step-content">
+                            <h3>Belong to a Community That Cares</h3>
+                            <p>Journey with other seekers, pastors, and learners who value curiosity and honest dialogue. Here, you're never alone in your questions or your growth.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item observe-fade">
+                        <div class="step-number">4</div>
+                        <div class="glass-card step-content">
+                            <h3>Get Real Guidance — Without Barriers</h3>
+                            <p>Join live and recorded classes with accessible experts who care about your journey. Break free from echo chambers and experience diverse perspectives — all without the burden of tuition or debt.</p>
+                            <a href="#" class="btn-primary" style="display: inline-block; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; color: #000; font-weight: bold; margin-top: 1.5rem;">Start Your 7-Day Free Trial</a>
+                        </div>
+                    </div>
+                </div>
+            </div        <!-- ============================
+             6. FACULTY SPOTLIGHT (Marquee)
+             ============================ -->
+        <section class="faculty-spotlight">
+            <div class="container">
+                <div class="section-header text-center observe-fade">
+                    <div class="tagline">Your Scholars</div>
+                    <h2 class="section-title">Learn With Scholars Who Welcome <span class="text-gradient">Conversation</span></h2>
+                    <p style="color: var(--text-secondary); max-width: 700px; margin: 1rem auto 0; font-size: 1.05rem;">We invite only those who combine scholarly expertise with openness — because your questions deserve thoughtful, caring answers.</p>
+                </div>
+            </div>
+
+            <div class="faculty-marquee-wrapper observe-fade">
+                <div class="faculty-scroll-track">
+                    <!-- Set 1 -->
+                    <div class="faculty-chip">
+                        <img class="faculty-chip-avatar" src="assets/images/maury-jackson.jpg" alt="Maury Jackson">
+                        <div class="faculty-chip-info">
+                            <h4>Maury Jackson</h4>
+                            <p>Associate Dean, H.M.S. Richards Divinity School</p>
+                        </div>
+                    </div>
+                    <div class="faculty-chip">
+                        <img class="faculty-chip-avatar" src="assets/images/ingram-london-headshot.jpg" alt="Ingram London">
+                        <div class="faculty-chip-info">
+                            <h4>Ingram London</h4>
+                            <p>Assistant Prof. of Systematic Theology, Oakwood</p>
+                        </div>
+                    </div>
+                    <div class="faculty-chip">
+                        <img class="faculty-chip-avatar" src="assets/images/matthew-korpman-headshot.jpg" alt="Matthew J. Korpman">
+                        <div class="faculty-chip-info">
+                            <h4>Matthew J. Korpman</h4>
+                            <p>Adjunct Professor of Bible, La Sierra University</p>
+                        </div>
+                    </div>
+                    <div class="faculty-chip">
+                        <img class="faculty-chip-avatar" src="assets/images/laurence-turner.jpg" alt="Laurence Turner">
+                        <div class="faculty-chip-info">
+                            <h4>Laurence Turner</h4>
+                            <p>Principal Lecturer Emeritus, Newbold College</p>
+                        </div>
+                    </div>
+                    <div class="faculty-chip">
+                        <img class="faculty-chip-avatar" src="assets/images/lena-toews.jpg" alt="Lena Toews">
+                        <div class="faculty-chip-info">
+                            <h4>Lena Toews</h4>
+                            <p>Adjunct Professor of New Testament, Union</p>
+                        </div>
+                    </div>
+                    <div class="faculty-chip">
+                        <img class="faculty-chip-avatar" src="assets/images/sigve-tonstad.jpg" alt="Sigve K. Tonstad">
+                        <div class="faculty-chip-info">
+                            <h4>Sigve K. Tonstad</h4>
+                            <p>Professor of Religion, Loma Linda University</p>
+                        </div>
+                    </div>
+
+                    <!-- Set 2 (Duplicate for seamless scroll) -->
+                    <div class="faculty-chip">
+                        <img class="faculty-chip-avatar" src="assets/images/maury-jackson.jpg" alt="Maury Jackson">
+                        <div class="faculty-chip-info">
+                            <h4>Maury Jackson</h4>
+                            <p>Associate Dean, H.M.S. Richards Divinity School</p>
+                        </div>
+                    </div>
+                    <div class="faculty-chip">
+                        <img class="faculty-chip-avatar" src="assets/images/ingram-london-headshot.jpg" alt="Ingram London">
+                        <div class="faculty-chip-info">
+                            <h4>Ingram London</h4>
+                            <p>Assistant Prof. of Systematic Theology, Oakwood</p>
+                        </div>
+                    </div>
+                    <div class="faculty-chip">
+                        <img class="faculty-chip-avatar" src="assets/images/matthew-korpman-headshot.jpg" alt="Matthew J. Korpman">
+                        <div class="faculty-chip-info">
+                            <h4>Matthew J. Korpman</h4>
+                            <p>Adjunct Professor of Bible, La Sierra University</p>
+                        </div>
+                    </div>
+                    <div class="faculty-chip">
+                        <img class="faculty-chip-avatar" src="assets/images/laurence-turner.jpg" alt="Laurence Turner">
+                        <div class="faculty-chip-info">
+                            <h4>Laurence Turner</h4>
+                            <p>Principal Lecturer Emeritus, Newbold College</p>
+                        </div>
+                    </div>
+                    <div class="faculty-chip">
+                        <img class="faculty-chip-avatar" src="assets/images/lena-toews.jpg" alt="Lena Toews">
+                        <div class="faculty-chip-info">
+                            <h4>Lena Toews</h4>
+                            <p>Adjunct Professor of New Testament, Union</p>
+                        </div>
+                    </div>
+                    <div class="faculty-chip">
+                        <img class="faculty-chip-avatar" src="assets/images/sigve-tonstad.jpg" alt="Sigve K. Tonstad">
+                        <div class="faculty-chip-info">
+                            <h4>Sigve K. Tonstad</h4>
+                            <p>Professor of Religion, Loma Linda University</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container text-center" style="margin-top: 1rem;">
+                <a href="about-us.html#faculty" class="nav-link" style="color: var(--accent-gold); font-weight: 500; font-size: 1.05rem;">See Our Full List of Adventist Faculty <i class="fa-solid fa-arrow-right" style="margin-left: 0.5rem;"></i></a>
+            </div>
+        </section>
+
+        <!-- Animated Continue Indicator (Targeting Final CTA) -->
+        <a href="#final-cta" class="continue-indicator observe-fade" style="margin: 2rem auto;">
+            Choose Your Path
+            <i class="fa-solid fa-chevron-down"></i>
+        </a>
+
+        <!-- ============================
+             7. FINAL CTA
+             ============================ -->
+        <section id="final-cta" style="position: relative; padding: 2rem 0 4rem 0; overflow: hidden;">
+            <!-- Deep Ambient glowing backplate -->
+            <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(212,175,55,0.06) 0%, transparent 70%); pointer-events: none; z-index: 0;"></div>
+            
+            <div class="container text-center observe-fade" style="position: relative; z-index: 1;">
+                <style>
+                    /* Reduce footer top padding specifically for this page so it hugs the CTA */
+                    .site-footer {
+                        padding-top: 1rem !important;
+                        margin-top: 0 !important;
+                        border-top: none !important;
+                    }
+                    .final-cta-hover-card {
+                        position: relative;
+                        transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                        background: rgba(15, 12, 18, 0.8);
+                        backdrop-filter: blur(24px);
+                        -webkit-backdrop-filter: blur(24px);
+                        border-radius: 32px;
+                        padding: 4rem 6rem; /* Reduced padding for dramatic horizontal rectangle */
+                        box-shadow: 0 40px 100px rgba(0,0,0,0.9), inset 0 0 0 1px rgba(255,255,255,0.08);
+                        overflow: hidden;
+                    }
+
+                    /* Animated glowing gradient border trick */
+                    .final-cta-hover-card::before {
+                        content: '';
+                        position: absolute;
+                        top: -50%; left: -50%; width: 200%; height: 200%;
+                        background: conic-gradient(
+                            from 0deg,
+                            transparent 0%,
+                            rgba(212, 175, 55, 0.1) 25%,
+                            transparent 50%,
+                            rgba(212, 175, 55, 0.3) 75%,
+                            transparent 100%
+                        );
+                        animation: rotate-border 10s linear infinite;
+                        z-index: -2;
+                    }
+                    
+                    .final-cta-hover-card::after {
+                        content: '';
+                        position: absolute;
+                        inset: 2px;
+                        background: inherit;
+                        border-radius: 30px;
+                        z-index: -1;
+                    }
+
+                    @keyframes rotate-border {
+                        100% { transform: rotate(360deg); }
+                    }
+
+                    .final-cta-hover-card:hover {
+                        transform: translateY(-12px) scale(1.02);
+                        box-shadow: 0 60px 140px rgba(0,0,0,0.95), 0 0 60px rgba(212,175,55,0.1) !important;
+                    }
+
+                    .cta-icon-wrapper {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 80px;
+                        height: 80px;
+                        background: linear-gradient(135deg, rgba(212,175,55,0.2) 0%, rgba(212,175,55,0.05) 100%);
+                        border-radius: 50%;
+                        position: relative;
+                        margin-bottom: 2rem;
+                    }
+
+                    .cta-icon-wrapper::after {
+                        content: '';
+                        position: absolute;
+                        inset: -8px;
+                        border-radius: 50%;
+                        border: 1px solid rgba(212,175,55,0.3);
+                        animation: pulse-ring 3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+                    }
+
+                    @keyframes pulse-ring {
+                        0% { transform: scale(0.8); opacity: 0; }
+                        50% { opacity: 1; }
+                        100% { transform: scale(1.5); opacity: 0; }
+                    }
+
+                    /* New Layout specific to rectangular variant */
+                    .cta-flex-layout {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        gap: 4rem;
+                        text-align: left;
+                    }
+                    
+                    .cta-flex-left {
+                        flex: 1;
+                        max-width: 600px;
+                    }
+                    
+                    .cta-flex-right {
+                        flex: 0 0 auto;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 1.5rem;
+                        width: 350px;
+                    }
+                    
+                    /* Buttons for flex box */
+                    .cta-btn-primary, .cta-btn-secondary {
+                        width: 100%;
+                        text-align: center;
+                    }
+
+                    .cta-btn-primary {
+                        padding: 1.4rem 4rem;
+                        font-size: 1.2rem;
+                        border-radius: 50px;
+                        background: linear-gradient(135deg, var(--accent-gold) 0%, #aa8624 100%);
+                        color: #000;
+                        font-weight: 700;
+                        text-decoration: none; /* Remove underline */
+                        box-shadow: 0 10px 30px rgba(212,175,55,0.4), inset 0 2px 0 rgba(255,255,255,0.3);
+                        transition: all 0.3s ease;
+                    }
+
+                    .cta-btn-primary:hover {
+                        transform: translateY(-3px);
+                        box-shadow: 0 15px 40px rgba(212,175,55,0.6), inset 0 2px 0 rgba(255,255,255,0.5);
+                        color: #000;
+                    }
+
+                    .cta-btn-secondary {
+                        padding: 1.4rem 4rem;
+                        font-size: 1.2rem;
+                        border-radius: 50px;
+                        border: 1px solid rgba(255,255,255,0.4); /* Visible border */
+                        color: #fff;
+                        background: transparent;
+                        transition: all 0.3s ease;
+                        text-decoration: none;
+                    }
+
+                    .cta-btn-secondary:hover {
+                        background: rgba(255,255,255,0.05);
+                        border-color: #fff;
+                        box-shadow: 0 0 20px rgba(255,255,255,0.1); /* Slight glow */
+                    }
+                </style>
+
+                <div class="final-cta-hover-card" style="max-width: 1150px; margin: 0 auto; background: rgba(10, 8, 14, 0.9);"> <!-- Darker background for contrast -->
+                    <div class="cta-flex-layout">
+                        
+                        <!-- Left Text Content -->
+                        <div class="cta-flex-left">
+                            <div class="cta-icon-wrapper"> 
+                                <i class="fa-solid fa-book-open" style="font-size: 2.5rem; color: #dbaf48;"></i> 
+                            </div>
+                            <h2 style="font-family: var(--font-serif); font-size: 3.5rem; color: #fff; margin-bottom: 1.5rem; line-height: 1.1; letter-spacing: -1px;">Ready to <span style="background: linear-gradient(to right, #e0b345, #b88a25); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Start?</span></h2>
+                            <p style="color: var(--text-secondary); font-size: 1.2rem; margin: 0; line-height: 1.7;">Begin your journey into the biblical texts and forever transform the way you think about the Bible.</p>
+                        </div>
+                        
+                        <!-- Right Action Content -->
+                        <div class="cta-flex-right">
+                            <a href="#" class="cta-btn-primary">Try Free for 7 Days</a>
+                            <a href="#" class="cta-btn-secondary">See More Details</a>
+                            
+                            <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem; opacity: 0.9; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 500;"> 
+                                <i class="fa-brands fa-stripe" style="color: #635bff; font-size: 1.5rem; margin-right: 0.2rem;"></i> Secured by Stripe
+                            </p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+        <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <span class="logo-icon"><i class="fa-solid fa-book-open"></i></span>
+                <span class="logo-text" style="color: white; font-family: 'Playfair Display', serif;">TheoEducation</span>
+                <p style="margin-top: 1rem; color: var(--text-muted);">Seminary-quality Adventist online Bible classes with CEU credit.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Platform</h4>
+                    <a href="about-us.html">About Us</a>
+                    <a href="how-it-works.html">How It Works</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="link-column">
+                    <h4>Resources</h4>
+                    <a href="classes.html">All Classes</a>
+                    <a href="adventist-pastors.html">Adventist Pastors</a>
+                    <a href="group-pricing.html">Group Pricing</a>
+                    <a href="community-forum.html" target="_blank">Community Forum</a>
+                </div>
+                <div class="link-column">
+                    <h4>Legal</h4>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 TheoEducation. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+
+    <!-- Page Special Wow Effects JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Interactive Mouse Spotlight on Cards
+            const cards = document.querySelectorAll('.pillar-body');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+
+            // 2. Scroll-drawing Timeline Pulse
+            const timeline = document.getElementById('journey-timeline');
+            const fill = document.getElementById('timeline-progress');
+            
+            if (timeline && fill) {
+                window.addEventListener('scroll', () => {
+                    const rect = timeline.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    // Top of timeline enters middle of screen
+                    const start = rect.top - (windowHeight / 2); 
+                    // Bottom of timeline
+                    const end = rect.height; 
+                    
+                    let progress = 0;
+                    if (start < 0) {
+                        progress = Math.min(100, (Math.abs(start) / end) * 110); // 110 mult makes it complete slightly early
+                    }
+                    
+                    fill.style.height = `${progress}%`;
+                });
+            }
+            // 3. Scroll-drawing Growth Steps Pulse
+            const growthTimeline = document.getElementById('growth-steps');
+            const growthFill = document.getElementById('growth-progress');
+            
+            if (growthTimeline && growthFill) {
+                window.addEventListener('scroll', () => {
+                    const rect = growthTimeline.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    // Top enters middle of screen
+                    const start = rect.top - (windowHeight / 2); 
+                    const end = rect.height; 
+                    
+                    let progress = 0;
+                    if (start < 0) {
+                        progress = Math.min(100, (Math.abs(start) / end) * 110);
+                    }
+                    
+                    growthFill.style.height = `${progress}%`;
+                });
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,112 +1,595 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TheoEducation — Haven Preview Hub</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Inter', sans-serif; background: #F5F0E8; color: #2D2A26; }
-.banner { background: #3D2B1A; color: #C4A23E; text-align: center; padding: 12px; font-size: 12px; font-weight: 700; letter-spacing: 1px; }
-.header { background: #3D2B1A; color: #fff; padding: 60px 40px; text-align: center; }
-.header h1 { font-family: 'Playfair Display', serif; font-size: 40px; margin-bottom: 10px; }
-.header p { color: #E0DBD2; font-size: 15px; max-width: 500px; margin: 0 auto; }
-.container { max-width: 1000px; margin: 0 auto; padding: 60px 40px; }
-.section-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #7A7570; margin-bottom: 20px; }
-.pages-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; margin-bottom: 60px; }
-.page-card { background: #fff; border: 2px solid #E0DBD2; border-radius: 10px; padding: 28px 24px; text-decoration: none; color: inherit; display: block; transition: all 0.2s ease; }
-.page-card:hover { border-color: #C4A23E; transform: translateY(-3px); box-shadow: 0 6px 24px rgba(0,0,0,0.1); }
-.page-card-icon { font-size: 32px; margin-bottom: 14px; }
-.page-card h2 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; margin-bottom: 6px; }
-.page-card-meta { font-size: 12px; color: #7A7570; margin-bottom: 10px; }
-.page-card p { font-size: 13px; color: #4A4540; line-height: 1.6; }
-.page-card .cta { margin-top: 16px; display: inline-block; background: #C4A23E; color: #fff; padding: 8px 18px; border-radius: 50vh; font-size: 12px; font-weight: 600; }
-.divider { border: none; border-top: 2px solid #E0DBD2; margin: 0 0 40px 0; }
-.section-link-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
-.section-link { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: #fff; border: 1px solid #E0DBD2; border-radius: 6px; text-decoration: none; color: #4A4540; font-size: 13px; transition: all 0.15s ease; }
-.section-link:hover { border-color: #C4A23E; color: #2D2A26; }
-.section-link-num { font-size: 11px; font-weight: 700; color: #C4A23E; min-width: 24px; }
-@media (max-width: 768px) { .container { padding: 40px 20px; } .header { padding: 40px 20px; } .header h1 { font-size: 28px; } }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheoEducation | Premium Adventist Online Bible Classes</title>
+    <meta name="description" content="Seminary-quality Adventist and SDA online Bible classes with CEU credit for pastors, teachers, and church members. Flexible, affordable, and 100% Adventist.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
+    <!-- Background Elements -->
+    <div class="ambient-background">
+        <div class="glow-orb orb-primary"></div>
+    </div>
 
-<div class="banner">🏗️ HAVEN PREVIEW HUB — NOT LIVE ON THEOEDUCATION.COM</div>
+    <!-- Navigation -->
+    <header class="glass-nav">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                
+                <span class="logo-text">TheoEducation</span>
+            </a>
+            
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
 
-<div class="header">
-  <h1>TheoEducation Preview Hub</h1>
-  <p>Complete page previews. Review before anything touches the live site.</p>
-</div>
+            <nav class="main-links">
+                <a href="about-us.html" class="nav-link">About Us</a>
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="classes.html" class="nav-link">Classes</a>
+                
+                <a href="theoai.html" class="nav-link">TheoAI</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <div class="nav-actions">
+                    <a href="https://www.theoeducation.com/users/sign_in" class="nav-link sign-in">Sign In</a>
+                    <a href="https://www.theoeducation.com/order?ct=d8e7467e-4240-4fbe-bb09-f5d71d9111b8" class="btn-primary btn-sm">Start Trial</a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-<div class="container">
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" style="position: relative; overflow: hidden; padding-bottom: 4rem;">
+            <!-- Hero Background Video -->
+            <video autoplay muted loop playsinline class="hero-bg-video">
+                <source src="https://import.cdn.thinkific.com/296355/iSHrzavTF2qUiCohgYJw_Untitled%20design-3-3.mp4?v=5" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="container hero-container" style="position: relative; z-index: 2;">
+                <div class="hero-content fade-in-up">
+                    <div class="tagline">Trusted Bible Scholarship</div>
+                    <h1 class="hero-title">Get the Answers You've Been <span class="text-gradient">Searching For</span></h1>
+                    <p class="hero-subtitle">A subscription to seminary-level classes that make the Bible clear and relevant. Learn from leading scholars, explore with honesty, and grow in your understanding.</p>
+                    
+                    <div class="hero-actions">
+                        <a href="https://www.theoeducation.com/order?ct=d8e7467e-4240-4fbe-bb09-f5d71d9111b8" class="btn-primary btn-lg">Start Your 7-Day Free Trial</a>
+                        <a href="#classes" class="btn-secondary btn-lg">Explore Classes</a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual fade-in">
+                     <div class="glass-card floating-card card-1">
+                         <div class="card-icon"><i class="fa-solid fa-video"></i></div>
+                         <div class="card-text">
+                             <strong>Live Online Classes</strong>
+                             <span>Real-time with professors</span>
+                         </div>
+                     </div>
+                     <div class="glass-card floating-card card-2">
+                         <div class="card-icon"><i class="fa-solid fa-layer-group"></i></div>
+                         <div class="card-text">
+                             <strong>150+ Hours</strong>
+                             <span>Seminary recorded</span>
+                         </div>
+                     </div>
+                     <div class="glass-card floating-card card-3">
+                         <div class="card-icon"><i class="fa-solid fa-users"></i></div>
+                         <div class="card-text">
+                             <strong>Thriving Community</strong>
+                             <span>600+ lifelong learners</span>
+                         </div>
+                     </div>
+                </div>
+            </div>
+        </section>
 
-  <div class="section-label">Complete Pages — Start Here</div>
-  <div class="pages-grid">
+        <!-- Stats Banner -->
+        <section class="stats-banner">
+            <div class="container stats-container">
+                <div class="stat-item fade-in-up" style="animation-delay: 0.1s">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Recorded Courses</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item fade-in-up" style="animation-delay: 0.2s">
+                    <div class="stat-number">84+</div>
+                    <div class="stat-label">In-depth Lessons</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item fade-in-up" style="animation-delay: 0.3s">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Hours of Content</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item fade-in-up" style="animation-delay: 0.4s">
+                    <div class="stat-number"><i class="fa-solid fa-check-circle" style="color: var(--accent-gold);"></i></div>
+                    <div class="stat-label">N.A.D. Approved</div>
+                </div>
+            </div>
+        </section>
 
-    <a href="homepage.html" class="page-card">
-      <div class="page-card-icon">🏠</div>
-      <h2>Homepage</h2>
-      <div class="page-card-meta">9 sections · Full funnel</div>
-      <p>Hero → Trust → Problem → Solution → Courses → Bio → Testimonials → Pricing → FAQ</p>
-      <span class="cta">View Full Page →</span>
-    </a>
+        <!-- Features Section -->
+        <section id="how-it-works" class="features-section section-padding">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Learn in Ways That <span class="text-gradient">Truly Last</span></h2>
+                    <p class="section-subtitle">Say goodbye to scattered lessons and endless Googling. In just 30 days, you'll grow deeper in understanding Scripture.</p>
+                </div>
 
-    <a href="landing-page.html" class="page-card">
-      <div class="page-card-icon">🎯</div>
-      <h2>Landing Page</h2>
-      <div class="page-card-meta">10 sections · Course sales</div>
-      <p>Outcome Hero → Proof → Benefits → How It Works → Curriculum → Bio → Testimonials → Pricing → FAQ → CTA</p>
-      <span class="cta">View Full Page →</span>
-    </a>
+                <div class="features-grid">
+                    <div class="glass-card feature-card observe-fade">
+                        <div class="feature-icon"><i class="fa-solid fa-comments"></i></div>
+                        <h3 class="feature-title">Face the Big Questions Together</h3>
+                        <p>Bring your hardest questions and deepest doubts—nothing is off limits. Our scholars don’t shy away from controversy; they help you find wisdom, clarity, and courage.</p>
+                    </div>
 
-    <a href="lead-magnet.html" class="page-card">
-      <div class="page-card-icon">📥</div>
-      <h2>Lead Magnet</h2>
-      <div class="page-card-meta">6 sections · Email capture</div>
-      <p>Hero → Benefits → Inside the Guide → Social Proof → Signup Form → FAQ</p>
-      <span class="cta">View Full Page →</span>
-    </a>
+                    <div class="glass-card feature-card observe-fade" style="transition-delay: 0.1s">
+                        <div class="feature-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                        <h3 class="feature-title">Live & Recorded Formats</h3>
+                        <p>Join interactive, real-time classes on Zoom with real college Bible professors, or browse our huge library of recorded classes that rival academic masters programs.</p>
+                    </div>
 
-    <a href="about.html" class="page-card">
-      <div class="page-card-icon">👤</div>
-      <h2>About Page</h2>
-      <div class="page-card-meta">3 sections · Authority build</div>
-      <p>Matthew's story → Credentials → Mission + Values + CTA</p>
-      <span class="cta">View Full Page →</span>
-    </a>
+                    <div class="glass-card feature-card observe-fade" style="transition-delay: 0.2s">
+                        <div class="feature-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                        <h3 class="feature-title">Explore Without Bias</h3>
+                        <p>We tackle Historical Jesus, Biblical Authority, Dead Sea Scrolls, and more. Experience teaching that’s interactive, engaging, and memorable—never dry or distant.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  </div>
+        <!-- Course Showcase -->
+        <section id="classes" class="courses-section section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Featured <span class="text-gradient">Seminary Classes</span></h2>
+                    <p class="section-subtitle">Explore controversial topics, minus the bias.</p>
+                </div>
 
-  <hr class="divider">
-  <div class="section-label">Individual Sections (for copy-paste reference)</div>
-  <div class="section-link-list">
-    <a href="sections/improved-hero-theoeed.html" class="section-link"><span class="section-link-num">HP1</span> Hero</a>
-    <a href="sections/trust-section-theoeed.html" class="section-link"><span class="section-link-num">HP2</span> Trust Bar</a>
-    <a href="sections/problem-section-theoeed.html" class="section-link"><span class="section-link-num">HP3</span> Problem</a>
-    <a href="sections/solution-section-theoeed.html" class="section-link"><span class="section-link-num">HP4</span> Solution</a>
-    <a href="sections/course-showcase-theoeed.html" class="section-link"><span class="section-link-num">HP5</span> Course Showcase</a>
-    <a href="sections/bio-section-theoeed.html" class="section-link"><span class="section-link-num">HP6</span> Bio / Instructor</a>
-    <a href="sections/testimonials-section-theoeed.html" class="section-link"><span class="section-link-num">HP7</span> Testimonials</a>
-    <a href="sections/pricing-cta-section-theoeed.html" class="section-link"><span class="section-link-num">HP8</span> Pricing + CTA</a>
-    <a href="sections/faq-section-theoeed.html" class="section-link"><span class="section-link-num">HP9</span> FAQ</a>
-    <a href="sections/landing-hero-theoeed.html" class="section-link"><span class="section-link-num">LP1</span> Landing Hero</a>
-    <a href="sections/landing-proof-theoeed.html" class="section-link"><span class="section-link-num">LP2</span> Landing Proof</a>
-    <a href="sections/landing-benefits-theoeed.html" class="section-link"><span class="section-link-num">LP3</span> Landing Benefits</a>
-    <a href="sections/landing-how-it-works-theoeed.html" class="section-link"><span class="section-link-num">LP4</span> How It Works</a>
-    <a href="sections/landing-curriculum-theoeed.html" class="section-link"><span class="section-link-num">LP5</span> Curriculum</a>
-    <a href="sections/landing-final-cta-theoeed.html" class="section-link"><span class="section-link-num">LP6</span> Final CTA</a>
-    <a href="sections/leadmagnet-hero-theoeed.html" class="section-link"><span class="section-link-num">LM1</span> Lead Magnet Hero</a>
-    <a href="sections/leadmagnet-benefits-theoeed.html" class="section-link"><span class="section-link-num">LM2</span> LM Benefits</a>
-    <a href="sections/leadmagnet-preview-theoeed.html" class="section-link"><span class="section-link-num">LM3</span> LM Preview</a>
-    <a href="sections/leadmagnet-proof-theoeed.html" class="section-link"><span class="section-link-num">LM4</span> LM Proof</a>
-    <a href="sections/leadmagnet-cta-signup-theoeed.html" class="section-link"><span class="section-link-num">LM5</span> Email Signup</a>
-    <a href="sections/leadmagnet-faq-theoeed.html" class="section-link"><span class="section-link-num">LM6</span> LM FAQ</a>
-    <a href="sections/about-hero-theoeed.html" class="section-link"><span class="section-link-num">AB1</span> About Hero</a>
-    <a href="sections/about-story-credentials-theoeed.html" class="section-link"><span class="section-link-num">AB2</span> Story + Credentials</a>
-    <a href="sections/about-mission-cta-theoeed.html" class="section-link"><span class="section-link-num">AB3</span> Mission + CTA</a>
-  </div>
+                <div class="courses-grid">
+                    <!-- Sabbath -->
+                    <a href="sabbath-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/u0ibUWRFRwmSp9BJ1DW4_e13c369739471c0061c541bdc76511b4.jpg" alt="The Sabbath" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Adventist Studies</span>
+                            <h3 class="course-title">The Sabbath: History, Theology & Controversy</h3>
+                            <p class="course-desc">Trace the Sabbath from Eden to the early church — challenging assumptions and uncovering what Scripture actually teaches about the seventh day.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
 
-</div>
+                    <!-- Hell -->
+                    <a href="hell-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/tXXmc0AJQ96LSbPG67yF_l-intro-1724778604-2.jpg" alt="Hell and the Afterlife" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Fundamentals</span>
+                            <h3 class="course-title">Hell and the Afterlife</h3>
+                            <p class="course-desc">Interrogating the Bible's hottest topic — what does Scripture really say about hell?</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- How to Study the Bible -->
+                    <a href="how-to-study-bible-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/FOJFri2SBaGb1AOsnrzW_Bible-Verses-on-Writing-Journaling.jpg" alt="How to Study the Bible" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Fundamentals</span>
+                            <h3 class="course-title">How to Study the Bible</h3>
+                            <p class="course-desc">A beginner's guide to reading Scripture with scholarly tools, context, and critical thinking.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Early Jesus Traditions -->
+                    <a href="early-jesus-traditions-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/HTC7LITOQvuDxN6QWhFs_95411484_10158420997734656_1051797805292584960_n.jpg" alt="Early Jesus Traditions" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">New Testament</span>
+                            <h3 class="course-title">Early Jesus Traditions</h3>
+                            <p class="course-desc">Exploring the Sayings Gospels and Agrapha — the words of Jesus outside the canon.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- William Foy -->
+                    <a href="william-foy-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/Rg4qi7VQnitEXyjry9cO_apirxpv6s__40245.jpg" alt="William Foy" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Adventist Studies</span>
+                            <h3 class="course-title">William Foy</h3>
+                            <p class="course-desc">Rediscovering Adventism's Black Prophet and his forgotten role in the early movement.</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- LGBTQ+ -->
+                    <a href="lgbtq-course-page.html" class="glass-card course-card observe-fade" style="text-decoration:none;display:block;cursor:pointer;">
+                        <div class="course-image-wrapper">
+                            <img src="assets/images/courses/TRaLvpvQSeqRAXNUJPDW_gay_bible.jpg" alt="LGBTQ+ and the Bible" class="course-img" style="object-fit: cover; width: 100%; height: 100%;">
+                        </div>
+                        <div class="course-content">
+                            <span class="course-category">Fundamentals</span>
+                            <h3 class="course-title">LGBTQ+ and the Bible</h3>
+                            <p class="course-desc">Separating fact from fiction — what does Scripture actually say, and what have we assumed?</p>
+                            <span class="course-link">View Course <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="text-center" style="margin-top: 4rem;">
+                    <a href="classes.html" class="pulse-button glass-card" style="display: inline-flex; align-items: center; gap: 1rem; padding: 1.5rem 3.5rem; border-radius: 50px; text-decoration: none; border: 2px solid var(--accent-gold); box-shadow: 0 0 20px var(--accent-gold-glow); transition: all 0.3s ease; background: rgba(20,20,25,0.8);">
+                        <div style="text-align: center;">
+                            <span style="display: block; font-family: var(--font-serif); font-size: 1.6rem; color: var(--text-main); line-height: 1.2;">View All Classes</span>
+                            <span style="display: block; font-size: 0.95rem; color: var(--accent-gold); margin-top: 0.2rem; font-weight: 500;">Explore the Full Seminary Catalog <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section section-padding" style="position: relative; background: linear-gradient(180deg, var(--bg-base) 0%, rgba(20, 20, 25, 0.8) 100%);">
+            <div class="container" style="max-width: 1150px; margin: 0 auto;">
+                <div class="glass-card observe-fade" style="padding: 3rem 4rem; display: flex; flex-direction: row; flex-wrap: wrap; gap: 2rem; align-items: center; border-color: rgba(212, 175, 55, 0.2); background: radial-gradient(circle at center, rgba(30,30,40,0.8) 0%, rgba(20,20,25,0.9) 100%); position: relative; overflow: hidden;">
+                    <!-- Decorative background glow -->
+                    <div style="position: absolute; top: -50%; left: -10%; width: 60%; height: 200%; background: radial-gradient(circle, rgba(212,175,55,0.05) 0%, transparent 70%); transform: rotate(15deg); pointer-events: none;"></div>
+                    
+                    <div style="flex: 1; text-align: left; position: relative; z-index: 1;">
+                        <span class="topic-badge" style="background: rgba(212,175,55,0.1); border-color: var(--accent-gold); color: var(--accent-gold); margin-bottom: 1rem; display: inline-block;">Premium Updates</span>
+                        <h2 class="section-title" style="font-size: 2rem; text-align: left; margin-bottom: 0.5rem;">The <span class="text-gradient">TheoEducation</span> Newsletter</h2>
+                        <p class="section-subtitle" style="text-align: left; margin: 0; font-size: 1.05rem; max-width: 450px;">Join thousands of students and pastors. Get exclusive early access to new courses, special discounts, and weekly theological insights.</p>
+                    </div>
+                    
+                    <div style="flex: 1; min-width: 400px; position: relative; z-index: 1;">
+                        <form style="display: flex; flex-direction: column; gap: 0.5rem;" onsubmit="event.preventDefault(); this.innerHTML = '<div style=\'text-align: center; padding: 2rem; background: rgba(212,175,55,0.1); border: 1px solid var(--accent-gold); border-radius: 12px;\'><i class=\'fa-solid fa-check-circle\' style=\'color: var(--accent-gold); font-size: 2.5rem; margin-bottom: 0.5rem;\'></i><h3 style=\'color: var(--text-main); font-family: var(--font-serif);\'>Welcome to the list!</h3><p style=\'color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;\'>Keep an eye on your inbox for our next insight.</p></div>';">
+                            <div style="display: flex; gap: 0.5rem; width: 100%;">
+                                <input type="email" placeholder="Enter your best email address..." required style="flex: 1; padding: 1.2rem 1.5rem; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; font-family: var(--font-sans); outline: none; transition: border-color 0.3s ease;" onfocus="this.style.borderColor='var(--accent-gold)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+                                <button type="submit" class="btn-primary" style="padding: 1.2rem 2rem; display: flex; justify-content: center; gap: 0.5rem; align-items: center; font-size: 1.05rem; white-space: nowrap;">
+                                    Subscribe <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                            </div>
+                            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem; margin-left: 0.5rem;">We respect your inbox. Unsubscribe anytime.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Topics Marquee / Cloud -->
+        <section class="topics-section section-padding">
+            <div class="container text-center">
+                <div class="section-header">
+                    <div class="tagline">Our Curriculum</div>
+                    <h2 class="section-title">Explore <span class="text-gradient">Uncharted Depth</span></h2>
+                    <p class="section-subtitle">Seminary-level topics you won't find in a pew bulletin.</p>
+                </div>
+            </div>
+            <div class="topics-marquee observe-fade">
+                <!-- Track 1: Normal Direction -->
+                <div class="topics-track track-1">
+                    <a href="#classes" class="topic-badge">Historical Jesus</a>
+                    <a href="#classes" class="topic-badge">Biblical Authority</a>
+                    <a href="#classes" class="topic-badge">Archaeology</a>
+                    <a href="#classes" class="topic-badge">Inspiration</a>
+                    <a href="#classes" class="topic-badge">Inerrancy</a>
+                    <a href="#classes" class="topic-badge">Critical Scholarship</a>
+                    
+                    <!-- Loop -->
+                    <a href="#classes" class="topic-badge">Historical Jesus</a>
+                    <a href="#classes" class="topic-badge">Biblical Authority</a>
+                    <a href="#classes" class="topic-badge">Archaeology</a>
+                    <a href="#classes" class="topic-badge">Inspiration</a>
+                    <a href="#classes" class="topic-badge">Inerrancy</a>
+                    <a href="#classes" class="topic-badge">Critical Scholarship</a>
+                    
+                    <!-- Loop 2 -->
+                    <a href="#classes" class="topic-badge">Historical Jesus</a>
+                    <a href="#classes" class="topic-badge">Biblical Authority</a>
+                    <a href="#classes" class="topic-badge">Archaeology</a>
+                    <a href="#classes" class="topic-badge">Inspiration</a>
+                    <a href="#classes" class="topic-badge">Inerrancy</a>
+                    <a href="#classes" class="topic-badge">Critical Scholarship</a>
+                </div>
+
+                <!-- Track 2: Reverse Direction (Faster) -->
+                <div class="topics-track track-2">
+                    <a href="#classes" class="topic-badge">Second Temple Judaism</a>
+                    <a href="#classes" class="topic-badge">Pseudepigrapha</a>
+                    <a href="#classes" class="topic-badge">Apocalypticism</a>
+                    <a href="#classes" class="topic-badge">Source Criticism</a>
+                    <a href="#classes" class="topic-badge">Hermeneutics</a>
+                    <a href="#classes" class="topic-badge">Apocrypha</a>
+                    
+                    <!-- Loop -->
+                    <a href="#classes" class="topic-badge">Second Temple Judaism</a>
+                    <a href="#classes" class="topic-badge">Pseudepigrapha</a>
+                    <a href="#classes" class="topic-badge">Apocalypticism</a>
+                    <a href="#classes" class="topic-badge">Source Criticism</a>
+                    <a href="#classes" class="topic-badge">Hermeneutics</a>
+                    <a href="#classes" class="topic-badge">Apocrypha</a>
+
+                    <!-- Loop 2 -->
+                    <a href="#classes" class="topic-badge">Second Temple Judaism</a>
+                    <a href="#classes" class="topic-badge">Pseudepigrapha</a>
+                    <a href="#classes" class="topic-badge">Apocalypticism</a>
+                    <a href="#classes" class="topic-badge">Source Criticism</a>
+                    <a href="#classes" class="topic-badge">Hermeneutics</a>
+                    <a href="#classes" class="topic-badge">Apocrypha</a>
+                </div>
+
+                <!-- Track 3: Normal Direction (Slower) -->
+                <div class="topics-track track-3">
+                    <a href="#classes" class="topic-badge">Messianism</a>
+                    <a href="#classes" class="topic-badge">Dead Sea Scrolls</a>
+                    <a href="#classes" class="topic-badge">Theology</a>
+                    <a href="#classes" class="topic-badge">Canon</a>
+                    <a href="#classes" class="topic-badge">Textual Criticism</a>
+                    <a href="#classes" class="topic-badge">Parables</a>
+                    
+                    <!-- Loop -->
+                    <a href="#classes" class="topic-badge">Messianism</a>
+                    <a href="#classes" class="topic-badge">Dead Sea Scrolls</a>
+                    <a href="#classes" class="topic-badge">Theology</a>
+                    <a href="#classes" class="topic-badge">Canon</a>
+                    <a href="#classes" class="topic-badge">Textual Criticism</a>
+                    <a href="#classes" class="topic-badge">Parables</a>
+
+                    <!-- Loop 2 -->
+                    <a href="#classes" class="topic-badge">Messianism</a>
+                    <a href="#classes" class="topic-badge">Dead Sea Scrolls</a>
+                    <a href="#classes" class="topic-badge">Theology</a>
+                    <a href="#classes" class="topic-badge">Canon</a>
+                    <a href="#classes" class="topic-badge">Textual Criticism</a>
+                    <a href="#classes" class="topic-badge">Parables</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial Section -->
+        <section class="testimonial-section section-padding">
+            <div class="container">
+                <div class="glass-card testimonial-card observe-fade">
+                    <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                    <blockquote class="testimonial-text">
+                        "I have been looking for theological training outside the box. TheoEducation and the classes they offer have provided that and more."
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <strong>Anthony Nix</strong>
+                        <span>SDA Pastor in Potomac Adventist Conference</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- FINAL CTA Section -->
+        <section id="final-cta" style="position: relative; padding: 2rem 0 4rem 0; overflow: hidden; margin-top: 2rem;">
+            <!-- Deep Ambient glowing backplate -->
+            <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(212,175,55,0.06) 0%, transparent 70%); pointer-events: none; z-index: 0;"></div>
+            
+            <div class="container text-center observe-fade" style="position: relative; z-index: 1;">
+                <style>
+                    .final-cta-hover-card {
+                        position: relative;
+                        transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                        background: rgba(15, 12, 18, 0.8);
+                        backdrop-filter: blur(24px);
+                        -webkit-backdrop-filter: blur(24px);
+                        border-radius: 32px;
+                        padding: 4rem 6rem;
+                        box-shadow: 0 40px 100px rgba(0,0,0,0.9), inset 0 0 0 1px rgba(255,255,255,0.08);
+                        overflow: hidden;
+                    }
+
+                    .final-cta-hover-card::before {
+                        content: '';
+                        position: absolute;
+                        top: -50%; left: -50%; width: 200%; height: 200%;
+                        background: conic-gradient(
+                            from 0deg,
+                            transparent 0%,
+                            rgba(212, 175, 55, 0.1) 25%,
+                            transparent 50%,
+                            rgba(212, 175, 55, 0.3) 75%,
+                            transparent 100%
+                        );
+                        animation: rotate-border 10s linear infinite;
+                        z-index: -2;
+                    }
+                    
+                    .final-cta-hover-card::after {
+                        content: '';
+                        position: absolute;
+                        inset: 2px;
+                        background: inherit;
+                        border-radius: 30px;
+                        z-index: -1;
+                    }
+
+                    @keyframes rotate-border {
+                        100% { transform: rotate(360deg); }
+                    }
+
+                    .final-cta-hover-card:hover {
+                        transform: translateY(-12px) scale(1.02);
+                        box-shadow: 0 60px 140px rgba(0,0,0,0.95), 0 0 60px rgba(212,175,55,0.1) !important;
+                    }
+
+                    .cta-icon-wrapper {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 80px;
+                        height: 80px;
+                        background: linear-gradient(135deg, rgba(212,175,55,0.2) 0%, rgba(212,175,55,0.05) 100%);
+                        border-radius: 50%;
+                        position: relative;
+                        margin-bottom: 2rem;
+                    }
+
+                    .cta-icon-wrapper::after {
+                        content: '';
+                        position: absolute;
+                        inset: -8px;
+                        border-radius: 50%;
+                        border: 1px solid rgba(212,175,55,0.3);
+                        animation: pulse-ring 3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+                    }
+
+                    @keyframes pulse-ring {
+                        0% { transform: scale(0.8); opacity: 0; }
+                        50% { opacity: 1; }
+                        100% { transform: scale(1.5); opacity: 0; }
+                    }
+
+                    .cta-flex-layout {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        gap: 4rem;
+                        text-align: left;
+                    }
+                    
+                    .cta-flex-left {
+                        flex: 1;
+                        max-width: 600px;
+                    }
+                    
+                    .cta-flex-right {
+                        flex: 0 0 auto;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 1.5rem;
+                        width: 350px;
+                    }
+                    
+                    .cta-btn-primary, .cta-btn-secondary {
+                        width: 100%;
+                        text-align: center;
+                    }
+
+                    .cta-btn-primary {
+                        padding: 1.4rem 4rem;
+                        font-size: 1.2rem;
+                        border-radius: 50px;
+                        background: linear-gradient(135deg, var(--accent-gold) 0%, #aa8624 100%);
+                        color: #000;
+                        font-weight: 700;
+                        text-decoration: none;
+                        box-shadow: 0 10px 30px rgba(212,175,55,0.4), inset 0 2px 0 rgba(255,255,255,0.3);
+                        transition: all 0.3s ease;
+                    }
+
+                    .cta-btn-primary:hover {
+                        transform: translateY(-3px);
+                        box-shadow: 0 15px 40px rgba(212,175,55,0.6), inset 0 2px 0 rgba(255,255,255,0.5);
+                        color: #000;
+                    }
+
+                    .cta-btn-secondary {
+                        padding: 1.4rem 4rem;
+                        font-size: 1.2rem;
+                        border-radius: 50px;
+                        border: 1px solid rgba(255,255,255,0.4);
+                        color: #fff;
+                        background: transparent;
+                        transition: all 0.3s ease;
+                        text-decoration: none;
+                    }
+
+                    .cta-btn-secondary:hover {
+                        background: rgba(255,255,255,0.05);
+                        border-color: #fff;
+                        box-shadow: 0 0 20px rgba(255,255,255,0.1);
+                    }
+                </style>
+
+                <div class="final-cta-hover-card" style="max-width: 1150px; margin: 0 auto; background: rgba(10, 8, 14, 0.9);">
+                    <div class="cta-flex-layout">
+                        <!-- Left Text Content -->
+                        <div class="cta-flex-left">
+                            <div class="cta-icon-wrapper"> 
+                                <i class="fa-solid fa-graduation-cap" style="font-size: 2.5rem; color: #dbaf48;"></i> 
+                            </div>
+                            <h2 style="font-family: var(--font-serif); font-size: 3.5rem; color: #fff; margin-bottom: 1.5rem; line-height: 1.1; letter-spacing: -1px;">Ready to <span style="background: linear-gradient(to right, #e0b345, #b88a25); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Start?</span></h2>
+                            <p style="color: var(--text-secondary); font-size: 1.2rem; margin: 0; line-height: 1.7;">Trusted by 600+ Lifelong Learners and Leaders. Join a network of passionate learners, share insights, and grow together.</p>
+                        </div>
+                        
+                        <!-- Right Action Content -->
+                        <div class="cta-flex-right">
+                            <a href="https://www.theoeducation.com/order?ct=d8e7467e-4240-4fbe-bb09-f5d71d9111b8" class="cta-btn-primary">Try Free for 7 Days</a>
+                            <a href="classes.html" class="cta-btn-secondary">View All Classes</a>
+                            
+                            <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem; opacity: 0.9; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 500;"> 
+                                <i class="fa-brands fa-stripe" style="color: #635bff; font-size: 1.5rem; margin-right: 0.2rem;"></i> Secured by Stripe
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <span class="logo-icon"><i class="fa-solid fa-book-open"></i></span>
+                <span class="logo-text" style="color: white; font-family: 'Playfair Display', serif;">TheoEducation</span>
+                <p style="margin-top: 1rem; color: var(--text-muted);">Seminary-quality Adventist online Bible classes with CEU credit.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Platform</h4>
+                    <a href="about-us.html">About Us</a>
+                    <a href="how-it-works.html">How It Works</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="link-column">
+                    <h4>Resources</h4>
+                    <a href="classes.html">All Classes</a>
+                    <a href="adventist-pastors.html">Adventist Pastors</a>
+                    <a href="group-pricing.html">Group Pricing</a>
+                    <a href="community-forum.html" target="_blank">Community Forum</a>
+                </div>
+                <div class="link-column">
+                    <h4>Legal</h4>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 TheoEducation. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
 </body>
 </html>

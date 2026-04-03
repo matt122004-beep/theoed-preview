@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheoAI — The Future Won't Wait for the Church | TheoEducation</title>
+    <meta name="description" content="Free weekly webinar exploring AI through the lens of Adventist prophecy, Scripture, and practical ministry. Built for pastors. Open to everyone.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <!-- SHARED SITE STYLESHEET -->
+    <link rel="stylesheet" href="style.css?v=5">
+
+    <!-- TheoAI-specific additions -->
+    <style>
+        /* ---- HERO: full viewport cinematic ---- */
+        .theoai-hero {
+            min-height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            text-align: center; position: relative; overflow: hidden;
+            padding: 140px 2rem 100px;
+        }
+        .theoai-hero .hero-bg-video {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; z-index: 0; opacity: 0.1;
+            -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+        }
+        .theoai-hero .hero-overlay {
+            position: absolute; inset: 0; z-index: 1;
+            background: radial-gradient(ellipse at center, transparent 30%, var(--bg-base) 80%);
+        }
+        .theoai-hero-content {
+            position: relative; z-index: 3; max-width: 740px;
+        }
+        .theoai-hero-content .tagline { margin-bottom: 24px; }
+
+        /* Hero title line reveal animation */
+        .theoai-hero-content h1 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900; text-transform: uppercase;
+            font-size: clamp(3.5rem, 9vw, 7rem); line-height: 0.88;
+            margin-bottom: 24px;
+        }
+        .theoai-hero-content h1 .line {
+            display: block; overflow: hidden;
+        }
+        .theoai-hero-content h1 .line-inner {
+            display: block;
+            clip-path: inset(0 0 100% 0);
+            animation: clipReveal 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+        }
+        .theoai-hero-content h1 .line:nth-child(1) .line-inner { animation-delay: 0.2s; }
+        .theoai-hero-content h1 .line:nth-child(2) .line-inner {
+            animation: clipReveal 1s cubic-bezier(0.77, 0, 0.175, 1) forwards 0.4s,
+                       glitchFlash 0.15s ease 1.3s 3;
+        }
+        .theoai-hero-content h1 .line:nth-child(3) .line-inner { animation-delay: 0.6s; }
+        @keyframes clipReveal {
+            0% { clip-path: inset(0 0 100% 0); }
+            100% { clip-path: inset(0 0 0% 0); }
+        }
+        @keyframes glitchFlash {
+            0% { transform: translateX(0); filter: brightness(1); }
+            25% { transform: translateX(-4px) skewX(-2deg); filter: brightness(2) hue-rotate(20deg); }
+            50% { transform: translateX(3px) skewX(1deg); filter: brightness(1.5); }
+            75% { transform: translateX(-2px); filter: brightness(2.5) hue-rotate(-10deg); }
+            100% { transform: translateX(0); filter: brightness(1); }
+        }
+
+        .theoai-hero-content .hero-body {
+            font-family: var(--font-serif); font-style: italic;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--text-secondary); line-height: 1.7;
+            opacity: 0; animation: fadeUp 1s ease forwards 0.9s;
+        }
+        .theoai-hero-content .hero-actions {
+            justify-content: center; margin-top: 40px;
+            opacity: 0; animation: fadeUp 1s ease forwards 1.1s;
+        }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Neural constellation canvas */
+        #neural-constellation {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%; z-index: 1; pointer-events: none;
+        }
+
+        /* Cursor gold glow */
+        .cursor-glow {
+            position: fixed; width: 300px; height: 300px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(212,175,55,0.04), transparent 70%);
+            pointer-events: none; z-index: 0;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s;
+        }
+
+        /* Signup input gold sweep on focus */
+        .signup-row input {
+            background-image: linear-gradient(var(--accent-gold), var(--accent-gold));
+            background-size: 0% 2px;
+            background-position: bottom left;
+            background-repeat: no-repeat;
+            transition: border-color 0.3s, background-size 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+        .signup-row input:focus { background-size: 100% 2px !important; }
+
+        /* Manifesto hover number glow */
+        .manifesto-block:hover .manifesto-number {
+            background: linear-gradient(180deg, rgba(212,175,55,0.35), transparent);
+            -webkit-background-clip: text;
+            filter: drop-shadow(0 0 30px rgba(212,175,55,0.15));
+            transition: all 0.5s ease;
+        }
+
+        /* Manifesto block dramatic entrance */
+        .manifesto-block .manifesto-inner {
+            transform: translateX(-20px) scale(0.97);
+        }
+        .manifesto-block .manifesto-inner.is-visible {
+            transform: translateX(0) scale(1);
+        }
+
+        /* Manifesto number parallax drift (set via JS) */
+        .manifesto-number {
+            transition: transform 0.1s linear;
+            will-change: transform;
+        }
+
+        /* Manifesto gold line grows on enter */
+        .manifesto-line {
+            transform: scaleX(0); transform-origin: left;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+        }
+        .manifesto-inner.is-visible .manifesto-line {
+            transform: scaleX(1);
+        }
+
+        /* Manifesto h2 subtle fade-and-slide */
+        .manifesto-inner h2 {
+            opacity: 0; transform: translateY(16px);
+            transition: opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s;
+        }
+        .manifesto-inner.is-visible h2 {
+            opacity: 1; transform: translateY(0);
+        }
+        .manifesto-inner p {
+            opacity: 0; transform: translateY(12px);
+            transition: opacity 0.7s ease 0.55s, transform 0.7s ease 0.55s;
+        }
+        .manifesto-inner.is-visible p {
+            opacity: 1; transform: translateY(0);
+        }
+
+        /* Prophecy counter */
+        .prophecy-counter {
+            margin-top: 24px; font-size: 13px; color: var(--text-muted);
+            letter-spacing: 0.05em;
+            opacity: 0; animation: fadeUp 1s ease forwards 1.6s;
+        }
+        .prophecy-counter .count {
+            color: var(--accent-gold);
+            font-variant-numeric: tabular-nums;
+            font-weight: 600;
+        }
+
+        /* Question bubbles */
+        .question-bubble-container {
+            position: absolute; inset: 0; z-index: 2;
+            pointer-events: none; overflow: hidden;
+        }
+        .question-bubble {
+            position: absolute;
+            background: rgba(255,255,255,0.04);
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 20px; padding: 10px 18px;
+            font-size: 13px; color: rgba(255,255,255,0.5);
+            white-space: nowrap; pointer-events: none;
+            opacity: 0;
+            animation: bubbleLife 6s ease-in-out forwards;
+        }
+        @keyframes bubbleLife {
+            0% { opacity: 0; transform: translateY(10px) scale(0.9); }
+            12% { opacity: 0.7; transform: translateY(0) scale(1); }
+            75% { opacity: 0.5; transform: translateY(-8px) scale(1); }
+            100% { opacity: 0; transform: translateY(-20px) scale(0.95); }
+        }
+        @media (max-width: 768px) {
+            .question-bubble { font-size: 11px; padding: 8px 14px; }
+        }
+
+        .hero-scroll-hint {
+            position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+            z-index: 3; color: var(--text-muted); font-size: 13px; letter-spacing: 0.12em;
+            text-transform: uppercase;
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
+            animation: hintBounce 2.5s ease infinite;
+        }
+        @keyframes hintBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        @media (max-width: 768px) {
+            .theoai-hero { padding: 120px 1.5rem 80px; }
+            .theoai-hero-content .hero-actions { flex-direction: column; align-items: center; }
+            .theoai-hero-content .hero-actions .btn-primary,
+            .theoai-hero-content .hero-actions .btn-secondary {
+                width: 100%; max-width: 320px; justify-content: center;
+            }
+        }
+
+        /* ---- MANIFESTO: VERTICAL DESCENT (cinematic) ---- */
+        #manifesto { position: relative; padding: 100px 0 60px; overflow: hidden; }
+        #manifesto::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(180deg, transparent, rgba(74,43,109,0.04) 50%, transparent);
+            pointer-events: none;
+        }
+        #manifesto-canvas {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; pointer-events: none; opacity: 0.6;
+        }
+        .manifesto-header { text-align: center; margin-bottom: 80px; position: relative; z-index: 1; }
+        .manifesto-stack {
+            position: relative; z-index: 1;
+            max-width: 960px; margin: 0 auto; padding: 0 2rem;
+        }
+
+        /* Each row is a big cinematic moment */
+        .manifesto-row {
+            display: grid; grid-template-columns: 160px 1fr; gap: 40px;
+            align-items: center; padding: 80px 0;
+            position: relative;
+            opacity: 0;
+            transition: opacity 1s cubic-bezier(0.16,1,0.3,1), transform 1s cubic-bezier(0.16,1,0.3,1);
+        }
+
+        /* Each row enters differently for variety */
+        .manifesto-row:nth-child(odd) { transform: translateX(-60px); }
+        .manifesto-row:nth-child(even) { transform: translateX(60px); }
+        .manifesto-row.visible { opacity: 1; transform: translateX(0); }
+
+        /* Divider between rows — gold pulse */
+        .manifesto-divider {
+            width: 100%; height: 1px; position: relative; margin: 0;
+            background: linear-gradient(to right, transparent 10%, rgba(212,175,55,0.08) 50%, transparent 90%);
+        }
+        .manifesto-divider::after {
+            content: ''; position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+            width: 80px; height: 3px;
+            background: var(--accent-gold); opacity: 0;
+            transition: opacity 0.8s ease 0.5s, width 0.8s cubic-bezier(0.16,1,0.3,1) 0.5s;
+        }
+        .manifesto-divider.glow::after { opacity: 0.6; width: 160px; }
+
+        /* HUGE number on the left */
+        .manifesto-num-col {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(7rem, 12vw, 10rem); font-weight: 900; line-height: 0.85;
+            background: linear-gradient(180deg, rgba(212,175,55,0.06), rgba(212,175,55,0.01));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            user-select: none;
+            transition: all 0.8s cubic-bezier(0.16,1,0.3,1);
+            transform: scale(0.7);
+            opacity: 0;
+        }
+        .manifesto-row.visible .manifesto-num-col {
+            transform: scale(1); opacity: 1;
+            background: linear-gradient(180deg, rgba(212,175,55,0.25), rgba(212,175,55,0.03));
+            -webkit-background-clip: text;
+        }
+        .manifesto-row:hover .manifesto-num-col {
+            background: linear-gradient(180deg, rgba(212,175,55,0.5), rgba(212,175,55,0.1));
+            -webkit-background-clip: text;
+            filter: drop-shadow(0 0 30px rgba(212,175,55,0.2));
+        }
+
+        /* Text content — staggered reveals */
+        .manifesto-text-col { padding-top: 0; }
+        .manifesto-text-col .m-line {
+            width: 64px; height: 2px; background: var(--accent-gold); margin-bottom: 20px;
+            transform: scaleX(0); transform-origin: left;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.4s;
+        }
+        .manifesto-row.visible .m-line { transform: scaleX(1); }
+
+        .manifesto-text-col h2 {
+            font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
+            text-transform: uppercase; font-size: clamp(2rem, 3.5vw, 2.8rem);
+            line-height: 1.06; margin-bottom: 16px; color: #fff;
+            opacity: 0; transform: translateY(20px);
+            transition: opacity 0.7s ease 0.3s, transform 0.7s ease 0.3s;
+        }
+        .manifesto-row.visible .manifesto-text-col h2 { opacity: 1; transform: translateY(0); }
+
+        .manifesto-text-col p {
+            color: var(--text-muted); font-size: 16px; line-height: 1.8;
+            max-width: 540px;
+            opacity: 0; transform: translateY(16px);
+            transition: opacity 0.7s ease 0.5s, transform 0.7s ease 0.5s, color 0.3s;
+        }
+        .manifesto-row.visible .manifesto-text-col p { opacity: 1; transform: translateY(0); }
+        .manifesto-row:hover .manifesto-text-col p { color: var(--text-secondary); }
+
+        /* Ambient glow behind row on hover */
+        .manifesto-row::before {
+            content: ''; position: absolute; inset: -16px -32px; border-radius: 16px;
+            background: radial-gradient(ellipse at 20% 50%, rgba(212,175,55,0.04), transparent 70%);
+            opacity: 0; transition: opacity 0.5s; pointer-events: none;
+        }
+        .manifesto-row:hover::before { opacity: 1; }
+
+        @media (max-width: 768px) {
+            .manifesto-row { grid-template-columns: 90px 1fr; gap: 24px; padding: 56px 0; }
+            .manifesto-num-col { font-size: clamp(5rem, 10vw, 6rem); }
+            .manifesto-text-col h2 { font-size: clamp(1.6rem, 5vw, 2rem); }
+        }
+
+        /* ---- INLINE SIGNUP ---- */
+        .inline-signup {
+            padding: 100px 0; text-align: center; position: relative;
+            background: linear-gradient(180deg, transparent, rgba(212,175,55,0.02), transparent);
+        }
+        .inline-signup::before {
+            content: ''; position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(74,43,109,0.08), transparent 50%),
+                radial-gradient(ellipse at 80% 50%, rgba(212,175,55,0.04), transparent 50%);
+            pointer-events: none;
+        }
+        .inline-signup::after {
+            content: ''; position: absolute; bottom: 0; left: 10%; right: 10%; height: 1px;
+            background: linear-gradient(to right, transparent, rgba(212,175,55,0.15), transparent);
+        }
+        .inline-signup h2 { font-family: var(--font-serif); font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.3; margin-bottom: 12px; position: relative; }
+        .inline-signup .subtitle { color: var(--text-muted); margin-bottom: 32px; position: relative; }
+        .signup-row { display: flex; gap: 10px; max-width: 560px; margin: 0 auto; position: relative; }
+        .signup-row input {
+            flex: 1; padding: 16px 18px; background: rgba(255,255,255,0.03);
+            border: 1px solid var(--glass-border); border-radius: 8px; color: white;
+            font-family: var(--font-ui); font-size: 15px; outline: none; transition: border-color 0.3s;
+        }
+        .signup-row input:focus { border-color: var(--accent-gold); }
+        .signup-row input::placeholder { color: var(--text-muted); }
+        .signup-row button {
+            padding: 16px 24px; border-radius: 8px;
+            background: linear-gradient(135deg, #a6841f, var(--accent-gold));
+            color: #000; border: none; font-weight: 700; font-size: 15px;
+            cursor: pointer; transition: all 0.3s; font-family: var(--font-ui); white-space: nowrap;
+        }
+        .signup-row button:hover { box-shadow: 0 8px 24px var(--accent-gold-glow); transform: translateY(-2px); }
+        .signup-fine { font-size: 12px; color: var(--text-muted); margin-top: 12px; position: relative; }
+        @media (max-width: 600px) { .signup-row { flex-direction: column; } }
+
+        /* ---- AUDIENCE: Illuminated Corridor ---- */
+        .audience-section { position: relative; padding: 0; overflow: hidden; }
+        .audience-corridor {
+            position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            width: 2px; height: 100%;
+            background: linear-gradient(to bottom, transparent 5%, rgba(122,101,32,0.4) 20%, rgba(122,101,32,0.4) 80%, transparent 95%);
+            pointer-events: none; z-index: 0;
+        }
+        .audience-chapters { position: relative; z-index: 2; padding-bottom: 40px; }
+        .audience-chapter {
+            position: relative;
+            display: grid; grid-template-columns: 1fr 80px 1fr; align-items: center;
+            min-height: 280px; padding: 0 clamp(16px, 5vw, 80px);
+            cursor: default;
+            opacity: 0;
+            transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+        }
+        .audience-chapter:nth-of-type(odd) { transform: translateX(-50px); }
+        .audience-chapter:nth-of-type(even) { transform: translateX(50px); }
+        .audience-chapter.visible,
+        .audience-chapter.visible:nth-of-type(odd),
+        .audience-chapter.visible:nth-of-type(even) { opacity: 1; transform: translateX(0); }
+
+        /* Hover spotlight: dim siblings — only affect opacity, never touch transform */
+        .audience-chapters:has(.audience-chapter:hover) .audience-chapter:not(:hover) { opacity: 0.25; }
+        .audience-chapters:has(.audience-chapter:hover) .audience-chapter:hover { opacity: 1; }
+
+        /* Ambient glow on hover */
+        .audience-chapter::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(212,175,55,0.08), transparent 65%);
+            opacity: 0; transition: opacity 0.5s ease; pointer-events: none; border-radius: 2px;
+        }
+        .audience-chapter:hover::before { opacity: 1; }
+
+        /* Grid placement — alternating sides */
+        .audience-chapter:nth-of-type(odd) .aud-text  { grid-column: 1; text-align: right; }
+        .audience-chapter:nth-of-type(odd) .aud-node  { grid-column: 2; }
+        .audience-chapter:nth-of-type(odd) .aud-icon  { grid-column: 3; justify-self: start; }
+        .audience-chapter:nth-of-type(even) .aud-icon { grid-column: 1; justify-self: end; }
+        .audience-chapter:nth-of-type(even) .aud-node { grid-column: 2; }
+        .audience-chapter:nth-of-type(even) .aud-text { grid-column: 3; text-align: left; }
+
+        /* Node dot on corridor */
+        .aud-node { display: flex; align-items: center; justify-content: center; }
+        .aud-node-dot {
+            width: 14px; height: 14px; border-radius: 50%;
+            background: rgba(122,101,32,0.6); border: 2px solid rgba(122,101,32,0.6);
+            transition: all 0.4s ease; z-index: 3;
+        }
+        .audience-chapter:hover .aud-node-dot {
+            background: var(--accent-gold); border-color: var(--accent-gold);
+            box-shadow: 0 0 0 6px rgba(212,175,55,0.15), 0 0 30px rgba(212,175,55,0.5);
+        }
+
+        /* Icon with rings */
+        .aud-icon { padding: 40px 36px; }
+        .aud-icon-frame {
+            position: relative; width: 90px; height: 90px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .aud-icon-frame i {
+            font-size: 2rem; color: rgba(122,101,32,0.7);
+            transition: color 0.4s ease, filter 0.4s ease;
+            position: relative; z-index: 2;
+        }
+        .audience-chapter:hover .aud-icon-frame i {
+            color: var(--accent-gold); filter: drop-shadow(0 0 12px rgba(212,175,55,0.7));
+        }
+        .aud-ring {
+            position: absolute; inset: 0; border-radius: 50%;
+            border: 1px solid rgba(122,101,32,0.3); opacity: 0.5;
+            transition: all 0.5s ease;
+        }
+        .aud-ring.outer { inset: -12px; opacity: 0.2; }
+        .audience-chapter:hover .aud-ring { opacity: 0.7; border-color: var(--accent-gold); transform: scale(1.08); }
+        .audience-chapter:hover .aud-ring.outer { opacity: 0.35; transform: scale(1.15); }
+
+        /* Text */
+        .aud-text { padding: 32px 24px; }
+        .aud-label {
+            font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+            color: var(--accent-gold); opacity: 0.7; margin-bottom: 10px;
+        }
+        .aud-title {
+            font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+            font-size: clamp(1.4rem, 2.5vw, 2rem); text-transform: uppercase;
+            color: var(--text-main); margin-bottom: 12px; line-height: 1.1;
+        }
+        .aud-title-inner { position: relative; display: inline-block; }
+        .aud-title-inner::after {
+            content: ''; position: absolute; left: 0; bottom: -3px;
+            width: 0; height: 1px; background: var(--accent-gold);
+            transition: width 0.5s cubic-bezier(0.16,1,0.3,1);
+        }
+        .audience-chapter:hover .aud-title-inner::after { width: 100%; }
+        .aud-desc { font-size: 14px; line-height: 1.65; color: var(--text-muted); font-style: italic; transition: color 0.3s; }
+        .audience-chapter:hover .aud-desc { color: rgba(255,255,255,0.7); }
+
+        /* Divider between chapters */
+        .aud-divider { width: calc(100% - clamp(32px, 10vw, 160px)); margin: 0 auto; height: 1px; background: linear-gradient(to right, transparent, rgba(212,175,55,0.1), transparent); }
+
+        /* Footer line */
+        .audience-footer {
+            text-align: center; padding: 48px 24px 80px; position: relative; z-index: 2;
+        }
+        .audience-footer p { font-family: var(--font-serif); font-style: italic; color: var(--text-muted); font-size: 1rem; }
+
+        @media (max-width: 768px) {
+            .audience-chapter {
+                grid-template-columns: 1fr; text-align: center; padding: 0 20px; min-height: unset;
+            }
+            .audience-chapter:nth-of-type(odd), .audience-chapter:nth-of-type(even) { transform: translateY(30px); }
+            .audience-chapter.visible { transform: translateY(0); }
+            .audience-chapter:nth-of-type(odd) .aud-text, .audience-chapter:nth-of-type(even) .aud-text { grid-column: 1; text-align: center; order: 1; }
+            .audience-chapter:nth-of-type(odd) .aud-node, .audience-chapter:nth-of-type(even) .aud-node { display: none; }
+            .audience-chapter:nth-of-type(odd) .aud-icon, .audience-chapter:nth-of-type(even) .aud-icon { grid-column: 1; justify-self: center; order: 2; padding: 16px 0 24px; }
+            .audience-corridor { display: none; }
+            .aud-title-inner::after { display: none; }
+        }
+
+        /* ---- SCROLL PROGRESS BAR ---- */
+        #scroll-progress-bar {
+            position: fixed; top: 0; left: 0; height: 2px; width: 100%;
+            transform-origin: left; transform: scaleX(0);
+            background: linear-gradient(to right, rgba(212,175,55,0.4), var(--accent-gold));
+            z-index: 10000; pointer-events: none;
+        }
+
+        /* ---- SECTION BREATH DIVIDER ---- */
+        .section-breath {
+            height: 80px;
+            background: linear-gradient(to bottom, transparent, rgba(212,175,55,0.015) 50%, transparent);
+            pointer-events: none;
+        }
+
+        /* ---- WEBINAR: edge-to-edge cinematic split ---- */
+        .webinar-split {
+            display: grid; grid-template-columns: 1.15fr 0.85fr;
+            min-height: 580px; margin-top: -40px; position: relative; z-index: 2;
+        }
+        .webinar-image { position: relative; overflow: hidden; }
+        .webinar-image img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: transform 8s ease-out; }
+        .webinar-split:hover .webinar-image img { transform: scale(1.06); }
+        .webinar-image-fade {
+            position: absolute; inset: 0;
+            background: linear-gradient(to right, transparent 50%, var(--bg-base) 100%);
+        }
+        .webinar-image-badge {
+            position: absolute; top: 28px; left: 28px;
+            background: rgba(220,38,38,0.85); color: white;
+            padding: 6px 14px; border-radius: 4px; font-size: 11px;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .webinar-image-badge .live-dot { width: 6px; height: 6px; background: white; border-radius: 50%; animation: livePulse 1.5s infinite; }
+        @keyframes livePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
+        .webinar-info {
+            display: flex; flex-direction: column; justify-content: center;
+            padding: 56px 48px; position: relative;
+        }
+        .webinar-info::before {
+            content: ''; position: absolute; left: 0; top: 12%; bottom: 12%;
+            width: 1px; background: linear-gradient(to bottom, transparent, var(--accent-gold), transparent);
+        }
+        .webinar-info h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 2.5rem; font-weight: 800; text-transform: uppercase; line-height: 1; margin-bottom: 14px; }
+        .webinar-info .desc { color: var(--text-secondary); margin-bottom: 20px; }
+        .webinar-details { list-style: none; margin-bottom: 24px; }
+        .webinar-details li { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--text-secondary); padding: 5px 0; }
+        .webinar-details li i { color: var(--accent-gold); width: 16px; text-align: center; }
+        @media (max-width: 768px) {
+            .webinar-split { grid-template-columns: 1fr; margin-top: 0; }
+            .webinar-image { height: 300px; }
+            .webinar-image-fade { background: linear-gradient(to bottom, transparent 50%, var(--bg-base) 100%); }
+            .webinar-info { padding: 32px 2rem; }
+            .webinar-info::before { display: none; }
+        }
+
+        /* ---- HOST: cinematic reveal ---- */
+        .host-section { padding: 100px 0; position: relative; overflow: hidden; }
+        .host-bg-name {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(8rem, 20vw, 18rem); font-weight: 900;
+            text-transform: uppercase; color: rgba(255,255,255,0.015);
+            white-space: nowrap; user-select: none; pointer-events: none;
+            animation: nameDrift 20s linear infinite alternate;
+        }
+        @keyframes nameDrift {
+            0% { transform: translate(-50%, -50%) translateX(-3%); }
+            100% { transform: translate(-50%, -50%) translateX(3%); }
+        }
+        .host-layout { display: flex; align-items: center; gap: 48px; max-width: 900px; margin: 0 auto; position: relative; z-index: 2; }
+        .host-portrait {
+            flex: 0 0 280px; height: 360px; border-radius: 16px; overflow: hidden; position: relative;
+            transition: box-shadow 0.5s ease, transform 0.5s ease;
+        }
+        .host-portrait img { width: 100%; height: 100%; object-fit: cover; }
+        .host-portrait::after { content: ''; position: absolute; inset: 0; border: 1px solid rgba(212,175,55,0.15); border-radius: 16px; }
+        .host-portrait:hover { box-shadow: 0 0 60px rgba(212,175,55,0.12); transform: translateY(-4px); }
+        .host-text { flex: 1; }
+        .host-text::before { content: ''; display: block; width: 48px; height: 2px; background: var(--accent-gold); margin-bottom: 20px; }
+        .host-text h3 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 4px; }
+        .host-text .host-title { font-size: 14px; color: var(--accent-gold); margin-bottom: 16px; }
+        .host-text p { color: var(--text-secondary); font-size: 15px; line-height: 1.8; }
+        @media (max-width: 768px) {
+            .host-layout { flex-direction: column; text-align: center; gap: 28px; }
+            .host-portrait { flex: 0 0 auto; width: 200px; height: 260px; margin: 0 auto; }
+            .host-text::before { margin: 0 auto 20px; }
+        }
+
+        /* ---- COURSES: horizontal scroll ---- */
+        .courses-scroll-section { padding: 80px 0; }
+        .courses-scroll-header { margin-bottom: 28px; }
+        .courses-scroll-header h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 800; text-transform: uppercase; }
+        .courses-scroll-header p { color: var(--text-muted); font-size: 14px; margin-top: 4px; }
+        .courses-scroll { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 16px; scrollbar-width: none; }
+        .courses-scroll::-webkit-scrollbar { display: none; }
+        .course-scroll-card {
+            flex: 0 0 280px; aspect-ratio: 3/4; border-radius: 12px;
+            position: relative; overflow: hidden; background: rgba(0,0,0,0.3);
+            scroll-snap-align: start; transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .course-scroll-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .course-scroll-card img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(60%) brightness(0.45); transition: all 0.4s; }
+        .course-scroll-card:hover img { filter: grayscale(30%) brightness(0.55); transform: scale(1.05); }
+        .course-scroll-overlay {
+            position: absolute; inset: 0; z-index: 2;
+            background: linear-gradient(to top, rgba(8,8,12,0.95) 0%, transparent 55%);
+            display: flex; flex-direction: column; justify-content: flex-end; padding: 24px 20px;
+        }
+        .course-scroll-overlay .badge {
+            position: absolute; top: 14px; right: 14px;
+            background: rgba(212,175,55,0.12); border: 1px solid rgba(212,175,55,0.25);
+            color: var(--accent-gold); padding: 3px 10px; border-radius: 4px;
+            font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+        }
+        .course-scroll-overlay h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 800; text-transform: uppercase; line-height: 1.1; }
+        .course-scroll-overlay .sub { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+
+        /* ---- FAQ: smooth expand ---- */
+        .theoai-faq { padding: 80px 0; position: relative; }
+        .theoai-faq::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(180deg, transparent, rgba(0,0,0,0.3), transparent);
+            pointer-events: none;
+        }
+        .faq-list { max-width: 680px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--glass-border); }
+        .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; font-size: 16px; font-weight: 600; cursor: pointer; transition: color 0.2s; }
+        .faq-q:hover { color: var(--accent-gold); }
+        .faq-a {
+            font-size: 14px; color: var(--text-secondary); line-height: 1.7;
+            max-height: 0; overflow: hidden; opacity: 0;
+            transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.3s ease;
+            padding-bottom: 0;
+        }
+        .faq-item.open .faq-a { max-height: 200px; opacity: 1; padding-bottom: 20px; }
+        .faq-item.open .faq-chevron { transform: rotate(180deg); }
+        .faq-chevron { transition: transform 0.3s; color: var(--text-muted); }
+
+        /* ---- FINAL CTA ---- */
+        .theoai-final-cta { padding: 120px 0; text-align: center; position: relative; }
+        .theoai-final-cta .glow {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 500px; height: 500px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(212,175,55,0.05), transparent 70%);
+            pointer-events: none;
+        }
+        .theoai-final-cta h2 { font-family: var(--font-serif); font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.3; margin-bottom: 14px; position: relative; }
+        .theoai-final-cta .subtitle { color: var(--text-muted); margin-bottom: 36px; position: relative; }
+
+        /* ---- STICKY BAR ---- */
+        .sticky-cta-bar {
+            position: fixed; bottom: -80px; left: 50%; transform: translateX(-50%);
+            width: 90%; max-width: 640px; z-index: 999;
+            background: rgba(8,8,12,0.9); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border); border-radius: 14px; padding: 14px 20px;
+            transition: bottom 0.4s, opacity 0.4s; opacity: 0; visibility: hidden;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.6);
+        }
+        .sticky-cta-bar.active { bottom: 20px; opacity: 1; visibility: visible; }
+        .sticky-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+        .sticky-cta-text strong { font-size: 14px; }
+        .sticky-cta-text span { color: var(--text-muted); font-size: 13px; }
+        .sticky-cta-text .gold { color: var(--accent-gold); }
+        @media (max-width: 500px) { .sticky-cta-inner { flex-direction: column; text-align: center; gap: 8px; } }
+    </style>
+</head>
+<body>
+    <!-- SCROLL PROGRESS BAR -->
+    <div id="scroll-progress-bar" aria-hidden="true"></div>
+
+    <!-- Background Elements (SITE STANDARD) -->
+    <div class="ambient-background">
+        <div class="glow-orb orb-primary"></div>
+    </div>
+
+    <!-- Navigation (SITE STANDARD) -->
+    <header class="glass-nav">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo"><span class="logo-text">TheoEducation</span></a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+            <nav class="main-links">
+                <a href="about-us.html" class="nav-link">About Us</a>
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="classes.html" class="nav-link">Classes</a>
+                <a href="theoai.html" class="nav-link" style="color: var(--accent-gold);">TheoAI</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <div class="nav-actions">
+                    <a href="https://www.theoeducation.com/users/sign_in" class="nav-link sign-in">Sign In</a>
+                    <a href="https://www.theoeducation.com/order?ct=d8e7467e-4240-4fbe-bb09-f5d71d9111b8" class="btn-primary btn-sm">Start Trial</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+    <!-- HERO -->
+    <section class="theoai-hero">
+        <video autoplay muted loop playsinline class="hero-bg-video">
+            <source src="https://videos.pexels.com/video-files/6963744/6963744-uhd_2560_1440_25fps.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <canvas id="neural-constellation"></canvas>
+        <div class="question-bubble-container" id="question-bubbles"></div>
+
+        <div class="theoai-hero-content">
+            <div class="tagline">Free Live Webinar — Every Friday</div>
+            <h1>
+                <span class="line"><span class="line-inner">The Future</span></span>
+                <span class="line"><span class="line-inner"><span class="text-gradient">Won't Wait</span></span></span>
+                <span class="line"><span class="line-inner">for the Church</span></span>
+            </h1>
+            <p class="hero-body">Every week, AI advances. Every week, your congregation has new questions. TheoAI gives you the answers — free, live, and grounded in Scripture.</p>
+            <div class="hero-actions">
+                <a href="#signup" class="btn-primary btn-lg"><i class="fa-solid fa-bolt" style="margin-right:6px;"></i> Reserve My Free Seat</a>
+                <a href="#manifesto" class="btn-secondary btn-lg"><i class="fa-solid fa-chevron-down" style="margin-right:6px;"></i> Why This Matters</a>
+            </div>
+            <div class="prophecy-counter">
+                <span class="count" id="ai-counter">0</span> AI queries answered while you read this page
+            </div>
+        </div>
+        <div class="hero-scroll-hint"><span>Scroll</span><i class="fa-solid fa-chevron-down"></i></div>
+    </section>
+
+    <!-- STATS BANNER -->
+    <section class="stats-banner">
+        <div class="container stats-container">
+            <div class="stat-item observe-fade">
+                <div class="stat-number"><i class="fa-solid fa-microchip" style="color:var(--accent-gold);"></i></div>
+                <div class="stat-label">AI + Theology</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item observe-fade" style="transition-delay:0.1s;">
+                <div class="stat-number" style="font-size:2.5rem;">Free</div>
+                <div class="stat-label">Weekly Webinar</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item observe-fade" style="transition-delay:0.2s;">
+                <div class="stat-number" style="font-size:2.5rem;">Live</div>
+                <div class="stat-label">Q&A Every Friday</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item observe-fade" style="transition-delay:0.3s;">
+                <div class="stat-number"><i class="fa-solid fa-book-bible" style="color:var(--accent-gold);"></i></div>
+                <div class="stat-label">Scripture-Grounded</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MANIFESTO: VERTICAL DESCENT -->
+    <section id="manifesto" data-chapter="manifesto">
+        <canvas id="manifesto-canvas"></canvas>
+        <div class="container manifesto-header observe-fade">
+            <div class="tagline">Why This Matters</div>
+            <h2 class="section-title">The Church Is <span class="text-gradient">Asleep</span></h2>
+            <p class="section-subtitle">AI is not. These are the three truths every pastor needs to face.</p>
+        </div>
+        <div class="manifesto-stack">
+            <div class="manifesto-row">
+                <div class="manifesto-num-col">01</div>
+                <div class="manifesto-text-col">
+                    <div class="m-line"></div>
+                    <h2>AI Can Now Simulate<br>Human Thought</h2>
+                    <p>What does that mean for the image of the beast? For end-time deception? For everything your church has taught about the last days? These are not hypothetical questions anymore.</p>
+                </div>
+            </div>
+            <div class="manifesto-divider"></div>
+            <div class="manifesto-row">
+                <div class="manifesto-num-col">02</div>
+                <div class="manifesto-text-col">
+                    <div class="m-line"></div>
+                    <h2>Your Members Are<br>Already Using It</h2>
+                    <p>At work. At school. To ask questions about God. They are not waiting for your permission — or your guidance. The question is whether you'll lead or be left behind.</p>
+                </div>
+            </div>
+            <div class="manifesto-divider"></div>
+            <div class="manifesto-row">
+                <div class="manifesto-num-col">03</div>
+                <div class="manifesto-text-col">
+                    <div class="m-line"></div>
+                    <h2>Silence Is Not<br>a Strategy</h2>
+                    <p>Every week a pastor ignores AI is a week their congregation looks elsewhere for answers. TheoAI gives you the theological framework to lead — not react.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="section-breath"></div>
+
+    <!-- INLINE SIGNUP -->
+    <section id="signup" class="inline-signup" data-chapter="invitation">
+        <div class="container observe-fade">
+            <h2>The webinar is free. The knowledge is urgent.<br>The seat is yours.</h2>
+            <p class="subtitle">Join hundreds of pastors and believers every Friday morning.</p>
+            <form class="signup-row" onsubmit="handleTheoAISignup(event, this);"><input type="email" placeholder="Your best email" required><button type="submit"><i class="fa-solid fa-bolt"></i> I'm In</button></form>
+            <p class="signup-fine">Free. No credit card. Unsubscribe anytime.</p>
+        </div>
+    </section>
+
+    <!-- AUDIENCE: Illuminated Corridor -->
+    <section class="audience-section" data-chapter="belonging">
+        <div class="audience-corridor"></div>
+        <div class="container">
+            <div class="section-header text-center observe-fade" style="padding: 80px 0 40px;">
+                <div class="tagline">The Call</div>
+                <h2 class="section-title">This Is For the <span class="text-gradient">Ones Who Refuse</span></h2>
+                <p class="section-subtitle" style="font-style:italic;">Four kinds of people. One urgent question.</p>
+            </div>
+        </div>
+
+        <div class="audience-chapters">
+            <article class="audience-chapter">
+                <div class="aud-text">
+                    <div class="aud-label">Chapter I</div>
+                    <h3 class="aud-title"><span class="aud-title-inner">Adventist Pastors</span></h3>
+                    <p class="aud-desc">Who refuse to let their congregations face AI without a biblical framework.</p>
+                </div>
+                <div class="aud-node"><div class="aud-node-dot"></div></div>
+                <div class="aud-icon"><div class="aud-icon-frame"><div class="aud-ring"></div><div class="aud-ring outer"></div><i class="fa-solid fa-cross"></i></div></div>
+            </article>
+            <div class="aud-divider"></div>
+
+            <article class="audience-chapter">
+                <div class="aud-icon"><div class="aud-icon-frame"><div class="aud-ring"></div><div class="aud-ring outer"></div><i class="fa-solid fa-book-bible"></i></div></div>
+                <div class="aud-node"><div class="aud-node-dot"></div></div>
+                <div class="aud-text">
+                    <div class="aud-label">Chapter II</div>
+                    <h3 class="aud-title"><span class="aud-title-inner">Bible Students</span></h3>
+                    <p class="aud-desc">Fascinated by prophecy and technology — the image of the beast, end-time deception, and what Scripture actually says.</p>
+                </div>
+            </article>
+            <div class="aud-divider"></div>
+
+            <article class="audience-chapter">
+                <div class="aud-text">
+                    <div class="aud-label">Chapter III</div>
+                    <h3 class="aud-title"><span class="aud-title-inner">Christian Educators</span></h3>
+                    <p class="aud-desc">Who need to understand AI for their schools, churches, and organizations.</p>
+                </div>
+                <div class="aud-node"><div class="aud-node-dot"></div></div>
+                <div class="aud-icon"><div class="aud-icon-frame"><div class="aud-ring"></div><div class="aud-ring outer"></div><i class="fa-solid fa-graduation-cap"></i></div></div>
+            </article>
+            <div class="aud-divider"></div>
+
+            <article class="audience-chapter">
+                <div class="aud-icon"><div class="aud-icon-frame"><div class="aud-ring"></div><div class="aud-ring outer"></div><i class="fa-solid fa-compass"></i></div></div>
+                <div class="aud-node"><div class="aud-node-dot"></div></div>
+                <div class="aud-text">
+                    <div class="aud-label">Chapter IV</div>
+                    <h3 class="aud-title"><span class="aud-title-inner">Curious Believers</span></h3>
+                    <p class="aud-desc">Who want real answers — not from Silicon Valley, but from Scripture.</p>
+                </div>
+            </article>
+        </div>
+
+        <div class="audience-footer observe-fade">
+            <p>If you saw yourself in any of these — this seat was made for you.</p>
+        </div>
+    </section>
+    <div class="section-breath"></div>
+
+    <!-- TOPICS MARQUEE -->
+    <section class="section-padding">
+        <div class="container text-center observe-fade">
+            <div class="section-header">
+                <div class="tagline">Our Topics</div>
+                <h2 class="section-title">What We <span class="text-gradient">Cover</span></h2>
+                <p class="section-subtitle">Webinar topics that keep pastors up at night.</p>
+            </div>
+        </div>
+        <div class="topics-marquee observe-fade">
+            <div class="topics-track track-1">
+                <span class="topic-badge">Mark of the Beast & AI</span><span class="topic-badge">Image of the Beast</span><span class="topic-badge">AI-Powered Deception</span><span class="topic-badge">Sermon Prep with AI</span><span class="topic-badge">Vatican & AI</span><span class="topic-badge">Digital Sabbath</span>
+                <span class="topic-badge">Mark of the Beast & AI</span><span class="topic-badge">Image of the Beast</span><span class="topic-badge">AI-Powered Deception</span><span class="topic-badge">Sermon Prep with AI</span><span class="topic-badge">Vatican & AI</span><span class="topic-badge">Digital Sabbath</span>
+                <span class="topic-badge">Mark of the Beast & AI</span><span class="topic-badge">Image of the Beast</span><span class="topic-badge">AI-Powered Deception</span><span class="topic-badge">Sermon Prep with AI</span><span class="topic-badge">Vatican & AI</span><span class="topic-badge">Digital Sabbath</span>
+            </div>
+            <div class="topics-track track-2">
+                <span class="topic-badge">Sunday Law & Technology</span><span class="topic-badge">Deepfakes in Ministry</span><span class="topic-badge">AI Church Growth</span><span class="topic-badge">Thought-Reading Tech</span><span class="topic-badge">Ellen White & AI</span><span class="topic-badge">Protecting Your Flock</span>
+                <span class="topic-badge">Sunday Law & Technology</span><span class="topic-badge">Deepfakes in Ministry</span><span class="topic-badge">AI Church Growth</span><span class="topic-badge">Thought-Reading Tech</span><span class="topic-badge">Ellen White & AI</span><span class="topic-badge">Protecting Your Flock</span>
+                <span class="topic-badge">Sunday Law & Technology</span><span class="topic-badge">Deepfakes in Ministry</span><span class="topic-badge">AI Church Growth</span><span class="topic-badge">Thought-Reading Tech</span><span class="topic-badge">Ellen White & AI</span><span class="topic-badge">Protecting Your Flock</span>
+            </div>
+            <div class="topics-track track-3">
+                <span class="topic-badge">SuperAI & Prophecy</span><span class="topic-badge">AI Ethics for Christians</span><span class="topic-badge">Family & AI Safety</span><span class="topic-badge">AI in Education</span><span class="topic-badge">Apocalypse or Progress?</span><span class="topic-badge">Pastoral AI Toolkit</span>
+                <span class="topic-badge">SuperAI & Prophecy</span><span class="topic-badge">AI Ethics for Christians</span><span class="topic-badge">Family & AI Safety</span><span class="topic-badge">AI in Education</span><span class="topic-badge">Apocalypse or Progress?</span><span class="topic-badge">Pastoral AI Toolkit</span>
+                <span class="topic-badge">SuperAI & Prophecy</span><span class="topic-badge">AI Ethics for Christians</span><span class="topic-badge">Family & AI Safety</span><span class="topic-badge">AI in Education</span><span class="topic-badge">Apocalypse or Progress?</span><span class="topic-badge">Pastoral AI Toolkit</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- WEBINAR SPLIT -->
+    <section class="webinar-split" data-chapter="action">
+        <div class="webinar-image">
+            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=900&h=700&fit=crop&q=80" alt="AI and Theology">
+            <div class="webinar-image-fade"></div>
+            <div class="webinar-image-badge"><span class="live-dot"></span> Live Every Friday</div>
+        </div>
+        <div class="webinar-info observe-fade">
+            <div class="tagline">Free Weekly Webinar</div>
+            <h2>Join Us Live</h2>
+            <p class="desc">Straight answers. Hard questions. Every Friday morning with live Q&A.</p>
+            <ul class="webinar-details">
+                <li><i class="fa-solid fa-calendar"></i> Every Friday morning</li>
+                <li><i class="fa-solid fa-clock"></i> ~40 minutes + live Q&A</li>
+                <li><i class="fa-solid fa-unlock"></i> Completely free — no card needed</li>
+                <li><i class="fa-solid fa-clock"></i> Live only — attend to experience it</li>
+            </ul>
+            <form class="signup-row" onsubmit="handleTheoAISignup(event, this);"><input type="email" placeholder="Your email" required><button type="submit">Save My Spot</button></form>
+            <p class="signup-fine" style="margin-top:8px;">No spam. Unsubscribe anytime.</p>
+        </div>
+    </section>
+
+    <!-- TESTIMONIAL (SITE PATTERN) -->
+    <section class="testimonial-section section-padding">
+        <div class="container">
+            <div class="glass-card testimonial-card observe-fade">
+                <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <blockquote class="testimonial-text">"I have been looking for theological training outside the box. TheoEducation and the classes they offer have provided that and more."</blockquote>
+                <div class="testimonial-author">
+                    <strong>Anthony Nix</strong>
+                    <span>SDA Pastor in Potomac Adventist Conference</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOST -->
+    <section class="host-section">
+        <div class="host-bg-name">Korpman</div>
+        <div class="container">
+            <div class="host-layout observe-fade">
+                <div class="host-portrait">
+                    <img src="assets/images/matthew-korpman-headshot.jpg" alt="Matthew Korpman">
+                </div>
+                <div class="host-text">
+                    <div class="tagline">Your Host</div>
+                    <h3>Matthew Korpman</h3>
+                    <p class="host-title">Adjunct Professor, La Sierra University &bull; Founder, TheoEducation</p>
+                    <p>Matthew is a biblical scholar with 50+ journal and chapter publications, a bestselling author, and a celebrated teacher with 80+ courses taught at university and online. A graduate of Yale Divinity School and recipient of La Sierra University's Rising Star Award, he has spent the past year on the cutting edge of AI — and now he's bringing that knowledge to the church.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COURSES: horizontal scroll -->
+    <section class="courses-scroll-section">
+        <div class="container courses-scroll-header observe-fade">
+            <h2>Coming <span class="text-gradient">Soon</span></h2>
+            <p>Deep-dive courses on the questions that keep coming up.</p>
+        </div>
+        <div class="container">
+            <div class="courses-scroll">
+                <div class="course-scroll-card"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=533&fit=crop&q=80" alt="Is AI Good or Evil?"><div class="course-scroll-overlay"><span class="badge">Coming Soon</span><h3>Is AI Good<br>or Evil?</h3><p class="sub">Theology &bull; Ethics</p></div></div>
+                <div class="course-scroll-card"><img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=400&h=533&fit=crop&q=80" alt="How to Use AI in Ministry"><div class="course-scroll-overlay"><span class="badge">Coming Soon</span><h3>How to Use AI<br>in Ministry</h3><p class="sub">Practical &bull; Tools</p></div></div>
+                <div class="course-scroll-card"><img src="https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=400&h=533&fit=crop&q=80" alt="AI and Bible Prophecy"><div class="course-scroll-overlay"><span class="badge">Coming Soon</span><h3>AI and Bible<br>Prophecy</h3><p class="sub">Eschatology &bull; Prophecy</p></div></div>
+                <div class="course-scroll-card"><img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=533&fit=crop&q=80" alt="Made in the Image of Man"><div class="course-scroll-overlay"><span class="badge">Coming Soon</span><h3>Made in the<br>Image of Man</h3><p class="sub">Creation &bull; Identity</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="theoai-faq">
+        <div class="container">
+            <div class="section-header text-center observe-fade">
+                <div class="tagline">Common Questions</div>
+                <h2 class="section-title">Questions</h2>
+            </div>
+            <div class="faq-list observe-fade">
+                <div class="faq-item"><div class="faq-q">Do I need any technical experience? <i class="fa-solid fa-chevron-down faq-chevron"></i></div><div class="faq-a">None. TheoAI is built for pastors and believers, not engineers. We explain everything in plain language.</div></div>
+                <div class="faq-item"><div class="faq-q">Is this really free? <i class="fa-solid fa-chevron-down faq-chevron"></i></div><div class="faq-a">The weekly webinar is 100% free. We'll offer optional deeper courses later, but the live webinar will always be free.</div></div>
+                <div class="faq-item"><div class="faq-q">Will this conflict with my Adventist theology? <i class="fa-solid fa-chevron-down faq-chevron"></i></div><div class="faq-a">TheoAI is built by an Adventist scholar for Adventist pastors. We take the text seriously, wrestle honestly, and let Scripture lead.</div></div>
+                <div class="faq-item"><div class="faq-q">What if I miss the live session? <i class="fa-solid fa-chevron-down faq-chevron"></i></div><div class="faq-a">The live session is your chance — recordings become part of our course library for TheoEducation members. If you want to see it free, show up live.</div></div>
+                <div class="faq-item"><div class="faq-q">How is this different from other AI courses? <i class="fa-solid fa-chevron-down faq-chevron"></i></div><div class="faq-a">Most AI courses teach productivity. TheoAI is a prophetic preparedness resource that teaches AI along the way.</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="theoai-final-cta">
+        <div class="glow"></div>
+        <div class="container observe-fade" style="position:relative;">
+            <h2>Don't be the pastor who had nothing to say<br>when <span class="text-gradient">AI changed everything.</span></h2>
+            <p class="subtitle">The webinar is free. The knowledge is urgent. The seat is yours.</p>
+            <form class="signup-row" style="max-width:560px;margin:0 auto;" onsubmit="handleTheoAISignup(event, this);"><input type="email" placeholder="Your best email" required><button type="submit"><i class="fa-solid fa-bolt"></i> I'm In</button></form>
+            <p class="signup-fine">Free. No credit card. Unsubscribe anytime.</p>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- STICKY CTA BAR -->
+    <div class="sticky-cta-bar">
+        <div class="sticky-cta-inner">
+            <div class="sticky-cta-text">
+                <strong>TheoAI — Free Live Webinar</strong><br>
+                <span>Every Friday. <span class="gold">Reserve your seat.</span></span>
+            </div>
+            <a href="#signup" class="btn-primary btn-sm" style="border-radius:30px;">Save My Spot</a>
+        </div>
+    </div>
+
+    <!-- Footer (SITE STANDARD) -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <span class="logo-icon"><i class="fa-solid fa-book-open"></i></span>
+                <span class="logo-text" style="color:white;font-family:'Playfair Display',serif;">TheoEducation</span>
+                <p style="margin-top:1rem;color:var(--text-muted);">Seminary-quality Adventist online Bible classes with CEU credit.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-column"><h4>Platform</h4><a href="about-us.html">About Us</a><a href="how-it-works.html">How It Works</a><a href="pricing.html">Pricing</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
+                <div class="link-column"><h4>Resources</h4><a href="classes.html">All Classes</a><a href="theoai.html">TheoAI</a><a href="adventist-pastors.html">Adventist Pastors</a><a href="group-pricing.html">Group Pricing</a><a href="community-forum.html" target="_blank">Community Forum</a></div>
+                <div class="link-column"><h4>Legal</h4><a href="#">Terms of Service</a><a href="#">Privacy Policy</a></div>
+            </div>
+        </div>
+        <div class="container footer-bottom"><p>&copy; 2026 TheoEducation. All rights reserved.</p></div>
+    </footer>
+
+    <!-- SITE JS -->
+    <script src="app.js"></script>
+
+    <!-- TheoAI-specific JS -->
+    <script>
+        // =============================================
+        // THEOAI SIGNUP HANDLER
+        // =============================================
+        const KIT_FORM_ID = '9280624'; // TheoAI Webinar Signup form
+        const THINKIFIC_FREE_URL = 'https://www.theoeducation.com/order?ct=909d1b7b-a6ea-4c00-91d3-b77209840279';
+
+        async function handleTheoAISignup(e, form) {
+            e.preventDefault();
+            const emailInput = form.querySelector('input[type="email"]');
+            const email = emailInput.value.trim();
+            if (!email) return;
+
+            const btn = form.querySelector('button');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Signing up...';
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+
+            // POST to Kit's public form endpoint (no API key needed)
+            try {
+                await fetch(`https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email_address: email })
+                });
+            } catch (err) {
+                console.error('Kit signup error (still redirecting):', err);
+            }
+
+            // Redirect to Thinkific free membership with email in URL
+            const encodedEmail = encodeURIComponent(email);
+            window.location.href = `${THINKIFIC_FREE_URL}&email=${encodedEmail}`;
+        }
+
+        // FAQ smooth toggle
+        document.querySelectorAll('.faq-q').forEach(q => {
+            q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
+        });
+
+        // Mobile menu real toggle
+        const mb = document.querySelector('.mobile-menu-btn');
+        if (mb) mb.addEventListener('click', () => document.querySelector('.main-links').classList.toggle('open'));
+
+        // Sticky CTA bar
+        (() => {
+            const bar = document.querySelector('.sticky-cta-bar');
+            const hero = document.querySelector('.theoai-hero');
+            const footer = document.querySelector('.site-footer');
+            if (!bar || !hero) return;
+            const obs = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (!e.isIntersecting) {
+                        const sb = window.scrollY + window.innerHeight;
+                        const fh = footer ? footer.offsetHeight : 0;
+                        if (sb < document.documentElement.scrollHeight - fh - 60) bar.classList.add('active');
+                    } else bar.classList.remove('active');
+                });
+            }, { threshold: 0.1 });
+            obs.observe(hero);
+            window.addEventListener('scroll', () => {
+                const sb = window.scrollY + window.innerHeight;
+                const fh = footer ? footer.offsetHeight : 0;
+                if (sb >= document.documentElement.scrollHeight - fh - 60) bar.classList.remove('active');
+            }, { passive: true });
+        })();
+
+        // =============================================
+        // NEURAL CONSTELLATION — interactive hero background
+        // =============================================
+        (() => {
+            const canvas = document.getElementById('neural-constellation');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let w, h, nodes = [], mouse = { x: -1000, y: -1000 };
+
+            function resize() {
+                const dpr = window.devicePixelRatio || 1;
+                w = canvas.offsetWidth;
+                h = canvas.offsetHeight;
+                canvas.width = w * dpr;
+                canvas.height = h * dpr;
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            }
+
+            function init() {
+                resize();
+                nodes = [];
+                const count = Math.min(55, Math.floor((w * h) / 14000));
+                const cx = w / 2, cy = h / 2;
+                const radius = Math.min(cx, cy) * 0.5;
+                for (let i = 0; i < count; i++) {
+                    const angle = Math.random() * Math.PI * 2;
+                    const r = radius * (0.3 + Math.random() * 0.7);
+                    nodes.push({
+                        x: cx + Math.cos(angle) * r,
+                        y: cy + Math.sin(angle) * r,
+                        baseX: cx + Math.cos(angle) * r,
+                        baseY: cy + Math.sin(angle) * r,
+                        vx: (Math.random() - 0.5) * 0.3,
+                        vy: (Math.random() - 0.5) * 0.3,
+                        radius: 1.5 + Math.random() * 2,
+                        pulse: Math.random() * Math.PI * 2
+                    });
+                }
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, w, h);
+                const gold = [212, 175, 55];
+                const connectDist = 130;
+
+                nodes.forEach(n => {
+                    n.pulse += 0.012;
+                    n.x = n.baseX + Math.sin(n.pulse) * 10;
+                    n.y = n.baseY + Math.cos(n.pulse * 0.7) * 10;
+                    const dx = n.x - mouse.x, dy = n.y - mouse.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 150) {
+                        n.x += (dx / dist) * 3;
+                        n.y += (dy / dist) * 3;
+                    }
+                });
+
+                for (let i = 0; i < nodes.length; i++) {
+                    for (let j = i + 1; j < nodes.length; j++) {
+                        const dx = nodes[i].x - nodes[j].x;
+                        const dy = nodes[i].y - nodes[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < connectDist) {
+                            const alpha = (1 - dist / connectDist) * 0.12;
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(${gold[0]},${gold[1]},${gold[2]},${alpha})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.moveTo(nodes[i].x, nodes[i].y);
+                            ctx.lineTo(nodes[j].x, nodes[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                nodes.forEach(n => {
+                    const glow = 0.25 + Math.sin(n.pulse * 2) * 0.15;
+                    ctx.beginPath();
+                    ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(${gold[0]},${gold[1]},${gold[2]},${glow})`;
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(n.x, n.y, n.radius * 3, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(${gold[0]},${gold[1]},${gold[2]},${glow * 0.08})`;
+                    ctx.fill();
+                });
+
+                requestAnimationFrame(draw);
+            }
+
+            canvas.style.pointerEvents = 'auto';
+            canvas.addEventListener('mousemove', e => {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            });
+            canvas.addEventListener('mouseleave', () => { mouse.x = -1000; mouse.y = -1000; });
+            canvas.style.pointerEvents = 'none';
+
+            // Listen on the hero section instead for mouse tracking
+            const heroEl = document.querySelector('.theoai-hero');
+            if (heroEl) {
+                heroEl.addEventListener('mousemove', e => {
+                    const rect = canvas.getBoundingClientRect();
+                    mouse.x = e.clientX - rect.left;
+                    mouse.y = e.clientY - rect.top;
+                });
+                heroEl.addEventListener('mouseleave', () => { mouse.x = -1000; mouse.y = -1000; });
+            }
+
+            window.addEventListener('resize', () => { resize(); init(); });
+            init();
+            draw();
+        })();
+
+        // =============================================
+        // MAGNETIC BUTTONS
+        // =============================================
+        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+            btn.addEventListener('mousemove', e => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                btn.style.transform = 'translate(0, 0)';
+                setTimeout(() => btn.style.transition = '', 500);
+            });
+        });
+
+        // =============================================
+        // CURSOR GOLD GLOW
+        // =============================================
+        (() => {
+            const glow = document.createElement('div');
+            glow.className = 'cursor-glow';
+            document.body.appendChild(glow);
+            let raf;
+            document.addEventListener('mousemove', e => {
+                cancelAnimationFrame(raf);
+                raf = requestAnimationFrame(() => {
+                    glow.style.left = e.clientX + 'px';
+                    glow.style.top = e.clientY + 'px';
+                });
+            });
+        })();
+
+        // =============================================
+        // QUESTION BUBBLES — living proof of urgency
+        // =============================================
+        (() => {
+            const container = document.getElementById('question-bubbles');
+            if (!container) return;
+
+            const questions = [
+                "Is AI the mark of the beast?",
+                "Can I use ChatGPT for sermons?",
+                "Should our school ban AI?",
+                "Will AI replace pastors?",
+                "Is this the image of the beast?",
+                "My kids are using AI to pray...",
+                "Can AI be demon-possessed?",
+                "What does Ellen White say about this?",
+                "Is it a sin to use AI?",
+                "How do I protect my congregation?",
+                "Will AI cause the Sunday law?",
+                "Can AI read our thoughts?",
+                "Should I preach about AI?",
+                "Is AI part of the final deception?",
+                "My youth group is obsessed with AI",
+                "Can AI interpret prophecy?",
+                "Is technology the new Babylon?",
+                "What would Jesus say about AI?",
+                "Are deepfakes the false prophet?",
+                "How is AI changing worship?",
+                "Should Christians fear AI?",
+                "AI wrote a better sermon than me...",
+                "My elder says AI is satanic",
+                "Can AI have a soul?",
+                "How do I teach my kids about AI?"
+            ];
+
+            let index = 0;
+            const activeBubbles = [];
+
+            function isTooClose(x, y) {
+                const now = Date.now();
+                for (let i = activeBubbles.length - 1; i >= 0; i--) {
+                    if (activeBubbles[i].exp < now) { activeBubbles.splice(i, 1); continue; }
+                    if (Math.abs(activeBubbles[i].x - x) < 16 && Math.abs(activeBubbles[i].y - y) < 7) return true;
+                }
+                return false;
+            }
+
+            function spawnBubble() {
+                let x, y, side, tries = 0;
+                do {
+                    side = Math.random() > 0.5 ? 'left' : 'right';
+                    x = Math.random() * 18 + 1; // 1-19% from edge
+                    y = Math.random() * 45 + 18; // 18-63%
+                    tries++;
+                } while (isTooClose(x, y) && tries < 10);
+                if (tries >= 10) return;
+
+                const duration = 5 + Math.random() * 3;
+                activeBubbles.push({ x, y, exp: Date.now() + duration * 1000 });
+
+                const bubble = document.createElement('div');
+                bubble.className = 'question-bubble';
+                bubble.textContent = questions[index % questions.length];
+                index++;
+                if (side === 'left') {
+                    bubble.style.left = x + '%';
+                    bubble.style.right = 'auto';
+                } else {
+                    bubble.style.right = x + '%';
+                    bubble.style.left = 'auto';
+                }
+                bubble.style.top = y + '%';
+                bubble.style.animationDuration = duration + 's';
+                container.appendChild(bubble);
+                setTimeout(() => bubble.remove(), duration * 1000 + 100);
+            }
+
+            // Stagger initial burst — 6 bubbles in the first few seconds
+            setTimeout(() => spawnBubble(), 800);
+            setTimeout(() => spawnBubble(), 1400);
+            setTimeout(() => spawnBubble(), 2100);
+            setTimeout(() => spawnBubble(), 2900);
+            setTimeout(() => spawnBubble(), 3600);
+            setTimeout(() => spawnBubble(), 4400);
+
+            // Then keep spawning rapidly
+            setInterval(() => {
+                const hero = document.querySelector('.theoai-hero');
+                if (hero) {
+                    const rect = hero.getBoundingClientRect();
+                    if (rect.bottom > 0 && rect.top < window.innerHeight) {
+                        spawnBubble();
+                    }
+                }
+            }, 900);
+        })();
+
+        // =============================================
+        // AI COUNTER
+        // =============================================
+        (() => {
+            const el = document.getElementById('ai-counter');
+            if (!el) return;
+            let count = 0;
+            const rate = 47;
+            function tick() {
+                count += rate;
+                el.textContent = count.toLocaleString();
+                requestAnimationFrame(tick);
+            }
+            setTimeout(tick, 2500);
+        })();
+
+        // =============================================
+        // MANIFESTO CONSTELLATION CANVAS
+        // =============================================
+        (() => {
+            const canvas = document.getElementById('manifesto-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let w, h, dots = [], running = false;
+            function resize() {
+                const dpr = window.devicePixelRatio || 1;
+                w = canvas.offsetWidth; h = canvas.offsetHeight;
+                canvas.width = w * dpr; canvas.height = h * dpr;
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            }
+            function init() {
+                resize(); dots = [];
+                const count = Math.min(35, Math.floor((w * h) / 20000));
+                for (let i = 0; i < count; i++) {
+                    dots.push({ x: Math.random()*w, y: Math.random()*h, vx: (Math.random()-0.5)*0.15, vy: (Math.random()-0.5)*0.15, r: 1+Math.random()*1.5, phase: Math.random()*Math.PI*2 });
+                }
+            }
+            function draw() {
+                if (!running) return;
+                ctx.clearRect(0, 0, w, h);
+                const g = [212,175,55], dist = 150;
+                dots.forEach(d => { d.phase += 0.008; d.x += d.vx + Math.sin(d.phase)*0.2; d.y += d.vy + Math.cos(d.phase*0.6)*0.2; if(d.x<-20)d.x=w+20; if(d.x>w+20)d.x=-20; if(d.y<-20)d.y=h+20; if(d.y>h+20)d.y=-20; });
+                for (let i=0; i<dots.length; i++) for (let j=i+1; j<dots.length; j++) { const dx=dots[i].x-dots[j].x, dy=dots[i].y-dots[j].y, d=Math.sqrt(dx*dx+dy*dy); if(d<dist){ctx.beginPath();ctx.strokeStyle=`rgba(${g[0]},${g[1]},${g[2]},${(1-d/dist)*0.08})`;ctx.lineWidth=0.5;ctx.moveTo(dots[i].x,dots[i].y);ctx.lineTo(dots[j].x,dots[j].y);ctx.stroke();} }
+                dots.forEach(d => { const a=0.15+Math.sin(d.phase*2)*0.1; ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);ctx.fillStyle=`rgba(${g[0]},${g[1]},${g[2]},${a})`;ctx.fill(); });
+                requestAnimationFrame(draw);
+            }
+            const obs = new IntersectionObserver(e => { e.forEach(en => { if(en.isIntersecting&&!running){running=true;draw();} }); }, {threshold:0.1});
+            obs.observe(document.getElementById('manifesto'));
+            window.addEventListener('resize', () => { resize(); init(); });
+            init();
+        })();
+
+        // =============================================
+        // MANIFESTO ROW REVEALS + DIVIDER GLOW
+        // =============================================
+        (() => {
+            const rows = document.querySelectorAll('.manifesto-row');
+            const dividers = document.querySelectorAll('.manifesto-divider');
+            if (!rows.length) return;
+
+            const rowObs = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('visible');
+                        rowObs.unobserve(e.target);
+                        // Glow the divider ABOVE this row
+                        const idx = Array.from(rows).indexOf(e.target);
+                        if (idx > 0 && dividers[idx - 1]) {
+                            dividers[idx - 1].classList.add('glow');
+                        }
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '-25% 0px -25% 0px' });
+
+            rows.forEach(r => rowObs.observe(r));
+        })();
+
+        // =============================================
+        // SMOOTH SCROLL TO CENTER
+        // =============================================
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', e => {
+                const id = link.getAttribute('href');
+                if (id === '#') return;
+                const target = document.querySelector(id);
+                if (!target) return;
+                e.preventDefault();
+                const rect = target.getBoundingClientRect();
+                const targetCenter = window.scrollY + rect.top + rect.height / 2;
+                window.scrollTo({ top: Math.max(0, targetCenter - window.innerHeight / 2), behavior: 'smooth' });
+            });
+        });
+
+        // =============================================
+        // AUDIENCE CORRIDOR REVEAL (triggers at screen center)
+        // =============================================
+        (() => {
+            const chapters = document.querySelectorAll('.audience-chapter');
+            if (!chapters.length) return;
+            const chObs = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) { e.target.classList.add('visible'); chObs.unobserve(e.target); }
+                });
+            }, { threshold: 0.1, rootMargin: '-40% 0px -40% 0px' });
+            chapters.forEach(ch => chObs.observe(ch));
+        })();
+
+        // =============================================
+        // SCROLL PROGRESS BAR
+        // =============================================
+        (() => {
+            const bar = document.getElementById('scroll-progress-bar');
+            if (!bar) return;
+            window.addEventListener('scroll', () => {
+                const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+                bar.style.transform = `scaleX(${pct})`;
+            }, { passive: true });
+        })();
+
+        // =============================================
+        // CHAPTER ATMOSPHERE SHIFTS
+        // =============================================
+        (() => {
+            const sections = document.querySelectorAll('[data-chapter]');
+            if (!sections.length) return;
+            const chObs = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) document.body.setAttribute('data-chapter', e.target.dataset.chapter);
+                });
+            }, { rootMargin: '-40% 0px -40% 0px', threshold: 0 });
+            sections.forEach(s => chObs.observe(s));
+        })();
+
+        // =============================================
+        // WEBINAR PARALLAX
+        // =============================================
+        window.addEventListener('scroll', () => {
+            const section = document.querySelector('.webinar-split');
+            if (!section) return;
+            const rect = section.getBoundingClientRect();
+            const progress = -rect.top / window.innerHeight;
+            const img = section.querySelector('.webinar-image img');
+            if (img && progress > -1 && progress < 2) {
+                img.style.transform = `scale(1.06) translateY(${progress * -25}px)`;
+            }
+        }, { passive: true });
+    </script>
+</body>
+</html>

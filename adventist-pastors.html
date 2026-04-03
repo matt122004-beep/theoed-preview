@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continuing Education for Adventist Pastors | TheoEducation</title>
+    <meta name="description" content="Use your conference-provided Continuing Education Funds to access premium theological training and earn your NAD required 2.0 CEUs.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css?v=6">
+
+    <style>
+        /* Pastors Page Specific Styles */
+        .pastors-hero {
+            position: relative;
+            padding: 12rem 0 8rem;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: #050508;
+            text-align: center;
+        }
+
+        .pastors-hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            z-index: 0;
+            filter: grayscale(80%) sepia(20%) hue-rotate(5deg);
+        }
+
+        .pastors-hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(5,5,8,0.3) 0%, rgba(5,5,8,1) 100%);
+            z-index: 1;
+        }
+
+        .pastors-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .pastors-title {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-serif);
+        }
+
+        .pastors-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        /* 3 Column Grid */
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: -4rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .value-card {
+            padding: 3rem 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .value-card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* How it works steps */
+        .steps-container {
+            max-width: 900px;
+            margin: 4rem auto 0;
+        }
+
+        .step-row {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .step-row:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--bg-base), #1a1a24);
+            border: 2px solid var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: var(--font-serif);
+            color: var(--accent-gold);
+            box-shadow: 0 0 20px var(--accent-gold-glow);
+        }
+
+        .step-content {
+            flex-grow: 1;
+        }
+
+        .step-content h3 {
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .step-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        @media (max-width: 992px) {
+            .value-grid {
+                grid-template-columns: 1fr;
+                margin-top: 2rem;
+            }
+            .step-row {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="ambient-background">
+        <div class="glow-orb orb-primary"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="glass-nav">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                
+                <span class="logo-text">TheoEducation</span>
+            </a>
+            
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="main-links">
+                <a href="about-us.html" class="nav-link">About Us</a>
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="classes.html" class="nav-link">Classes</a>
+                
+                <a href="theoai.html" class="nav-link">TheoAI</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <div class="nav-actions">
+                    <a href="https://www.theoeducation.com/users/sign_in" class="nav-link sign-in">Sign In</a>
+                    <a href="https://www.theoeducation.com/order?ct=d8e7467e-4240-4fbe-bb09-f5d71d9111b8" class="btn-primary btn-sm">Start Trial</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="pastors-hero">
+            <img src="https://images.unsplash.com/photo-1544833058-e70f66b0c208?w=1920&h=1080&fit=crop" alt="Theological Study" class="pastors-hero-bg">
+            <div class="pastors-hero-overlay"></div>
+            
+            <div class="container fade-in-up">
+                <div class="tagline text-gradient" style="font-size: 1.25rem; font-family: var(--font-ui); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">Pastoral Continuing Education</div>
+                <h1 class="pastors-title">Premium Theological Training.<br><span class="text-gradient">Fully Funded.</span></h1>
+                <p class="pastors-subtitle">Earn your required 2.0 CEUs using your conference-provided Continuing Education Funds. It's effectively free for you to stay sharp and engaged.</p>
+                <div style="margin-top: 2rem;">
+                    <a href="classes.html" class="btn-primary btn-lg">Explore the Catalog</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Value Proposition Grid -->
+        <section style="background: var(--bg-base); position: relative; padding-bottom: 6rem;">
+            <div class="container">
+                <div class="value-grid">
+                    <div class="glass-card value-card observe-fade">
+                        <div class="value-icon"><i class="fa-solid fa-award"></i></div>
+                        <h3>The Requirement</h3>
+                        <p>The North American Division requires pastors to achieve 2 Continuing Education Units (2.0 CEUs) minimally per year to remain properly educated throughout their careers.</p>
+                    </div>
+
+                    <div class="glass-card value-card observe-fade" style="transition-delay: 0.1s">
+                        <div class="value-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                        <h3>The Provision</h3>
+                        <p>Most conferences provide their pastors with a Continuing Education Fund of $200-$500 annually explicitly for this purpose. You have the funds waiting to be used.</p>
+                    </div>
+
+                    <div class="glass-card value-card observe-fade" style="transition-delay: 0.2s">
+                        <div class="value-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                        <h3>Global Access</h3>
+                        <p>Whether submitting receipts to your Ministerial Director for NAD reimbursement, or utilizing upfront pastoral book funds in Australia or Europe, your education is covered.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="section-padding" style="background: var(--bg-darker); border-top: 1px solid var(--glass-border);">
+            <div class="container">
+                <div class="section-header text-center fade-in-up">
+                    <h2 class="section-title">How Reimbursement <span class="text-gradient">Works</span></h2>
+                    <p class="section-subtitle">A simple, straightforward process to utilize your conference funds.</p>
+                </div>
+
+                <div class="steps-container">
+                    <div class="step-row observe-fade">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Sign Up for TheoEducation</h3>
+                            <p>Choose the annual subscription or enroll in a specific class. Pay upfront using your preferred payment method on our secure Stripe checkout.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-row observe-fade" style="transition-delay: 0.1s">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Learn & Earn CEUs</h3>
+                            <p>Complete your coursework on your own schedule. Once finished, you will automatically receive an official certificate detailing your earned Continuing Education Units (CEUs).</p>
+                        </div>
+                    </div>
+
+                    <div class="step-row observe-fade" style="transition-delay: 0.2s">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Submit for Reimbursement</h3>
+                            <p>Simply submit your TheoEducation receipt alongside your completion certificate to your conference Ministerial Director for full, seamless reimbursement.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center" style="margin-top: 4rem;">
+                    <a href="classes.html" class="btn-primary btn-lg">Start Your First Class</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Space -->
+            <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <span class="logo-icon"><i class="fa-solid fa-book-open"></i></span>
+                <span class="logo-text" style="color: white; font-family: 'Playfair Display', serif;">TheoEducation</span>
+                <p style="margin-top: 1rem; color: var(--text-muted);">Seminary-quality Adventist online Bible classes with CEU credit.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Platform</h4>
+                    <a href="about-us.html">About Us</a>
+                    <a href="how-it-works.html">How It Works</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="link-column">
+                    <h4>Resources</h4>
+                    <a href="classes.html">All Classes</a>
+                    <a href="adventist-pastors.html">Adventist Pastors</a>
+                    <a href="group-pricing.html">Group Pricing</a>
+                    <a href="community-forum.html" target="_blank">Community Forum</a>
+                </div>
+                <div class="link-column">
+                    <h4>Legal</h4>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 TheoEducation. All rights reserved.</p>
+        </div>
+    </footer>
+    </main>
+
+    <!-- Sticky Bottom CTA Bar -->
+    <div class="sticky-cta-bar">
+        <div class="container sticky-cta-container">
+            <div class="sticky-cta-content">
+                <i class="fa-solid fa-gift" style="color: var(--accent-gold); font-size: 1.5rem; animation: pulse-arrow 2s infinite;"></i>
+                <div class="sticky-cta-text">
+                    <h4 style="color: #fff; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; margin: 0; letter-spacing: 0.5px;">Unlock all 22+ courses.</h4>
+                    <p style="color: var(--text-secondary); margin: 0; font-size: 0.95rem;">Start your <span style="color: var(--accent-gold); font-weight: 600;">7-Day Free Trial</span> today.</p>
+                </div>
+            </div>
+            <a href="https://www.theoeducation.com/order?ct=d8e7467e-4240-4fbe-bb09-f5d71d9111b8" class="btn-primary" style="padding: 0.8rem 2rem; font-size: 1rem; border-radius: 30px; white-space: nowrap;">Start Free Trial</a>
+        </div>
+        <style>
+            .sticky-cta-bar {
+                position: fixed;
+                bottom: -100px; /* Hidden state */
+                left: 50%;
+                transform: translateX(-50%);
+                width: 95%;
+                max-width: 900px;
+                z-index: 1000;
+                background: rgba(15, 12, 18, 0.75);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 1px solid rgba(212, 175, 55, 0.3);
+                border-top: 1px solid rgba(255, 255, 255, 0.15);
+                border-radius: 50px;
+                box-shadow: 0 15px 40px rgba(0,0,0,0.8), inset 0 0 20px rgba(212, 175, 55, 0.05);
+                padding: 1rem 2rem;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            }
+
+            .sticky-cta-bar.active {
+                bottom: 20px;
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .sticky-cta-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 2rem;
+            }
+
+            .sticky-cta-content {
+                display: flex;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            @keyframes pulse-arrow {
+                0%, 100% { transform: translateY(-3px) scale(1); opacity: 0.8; }
+                50% { transform: translateY(3px) scale(1.1); opacity: 1; text-shadow: 0 0 15px rgba(212,175,55,0.6); }
+            }
+
+            @media (max-width: 768px) {
+                .sticky-cta-bar {
+                    width: 100%;
+                    border-radius: 20px 20px 0 0;
+                    padding: 1rem;
+                }
+                .sticky-cta-bar.active {
+                    bottom: 0;
+                }
+                .sticky-cta-container {
+                    flex-direction: column;
+                    gap: 1rem;
+                    text-align: center;
+                }
+                .sticky-cta-content {
+                    flex-direction: column;
+                    gap: 0.5rem;
+                }
+                .sticky-cta-bar .btn-primary {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        </style>
+        <script>
+            // Sticky CTA Bar Scroll Observer
+            document.addEventListener("DOMContentLoaded", () => {
+                const stickyCta = document.querySelector('.sticky-cta-bar');
+                const heroSection = document.querySelector('.pastors-hero');
+
+                if (stickyCta && heroSection) {
+                    const ctaObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            // If the hero section is out of bounds, show the sticky CTA
+                            if (!entry.isIntersecting) {
+                                stickyCta.classList.add('active');
+                            } else {
+                                stickyCta.classList.remove('active');
+                            }
+                        });
+                    }, { threshold: 0.1 }); 
+                    
+                    ctaObserver.observe(heroSection);
+                }
+            });
+        </script>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

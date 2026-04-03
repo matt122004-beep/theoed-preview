@@ -1442,6 +1442,7 @@
                 <a href="how-it-works.html" class="nav-link">How It Works</a>
                 <a href="classes.html" class="nav-link">Classes</a>
 
+<a href="theoai.html" class="nav-link">TheoAI</a>
                 <a href="pricing.html" class="nav-link">Pricing</a>
                 <div class="nav-actions">
                     <a href="https://www.theoeducation.com/users/sign_in" class="nav-link sign-in">Sign In</a>
@@ -1497,7 +1498,7 @@
                 
                 <a href="#" class="lesson-card">
                     <div class="lesson-img-wrapper">
-                        <img src="assets/lesson-images/sabbath-1-moses-commandments.jpg" style="object-fit: cover; width: 100%; height: 100%;" alt="Moses with the Ten Commandments — Met Museum">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Rembrandt_-_Moses_with_the_Ten_Commandments_-_Google_Art_Project.jpg/640px-Rembrandt_-_Moses_with_the_Ten_Commandments_-_Google_Art_Project.jpg" style="object-fit: cover; width: 100%; height: 100%;" alt="Moses with the Ten Commandments — Rembrandt">
                     </div>
                     <div class="lesson-number">1</div>
                     <div class="lesson-body">
@@ -1508,7 +1509,7 @@
 
                 <a href="#" class="lesson-card">
                     <div class="lesson-img-wrapper">
-                        <img src="assets/lesson-images/sabbath-2-sermon-mount.jpg" style="object-fit: cover; width: 100%; height: 100%;" alt="Journey to Emmaus — Early Christian Relief">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Bloch-SermonOnTheMount.jpg/640px-Bloch-SermonOnTheMount.jpg" style="object-fit: cover; width: 100%; height: 100%;" alt="Sermon on the Mount — Carl Bloch">
                     </div>
                     <div class="lesson-number">2</div>
                     <div class="lesson-body">
@@ -1519,7 +1520,7 @@
 
                 <a href="#" class="lesson-card">
                     <div class="lesson-img-wrapper">
-                        <img src="assets/lesson-images/sabbath-3-saint-paul.jpg" style="object-fit: cover; width: 100%; height: 100%;" alt="Saint Paul — Early Christian Fresco, Ephesus">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Bartolomeo_Montagna_-_Saint_Paul_-_Google_Art_Project.jpg/640px-Bartolomeo_Montagna_-_Saint_Paul_-_Google_Art_Project.jpg" style="object-fit: cover; width: 100%; height: 100%;" alt="Saint Paul — Bartolomeo Montagna">
                     </div>
                     <div class="lesson-number">3</div>
                     <div class="lesson-body">
@@ -1530,7 +1531,7 @@
 
                 <a href="#" class="lesson-card">
                     <div class="lesson-img-wrapper">
-                        <img src="assets/lesson-images/sabbath-4-isaiah-scroll.jpg" style="object-fit: cover; width: 100%; height: 100%;" alt="Hebrew Bible, 1300–1350 — Met Museum">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Great_Isaiah_Scroll.jpg/640px-Great_Isaiah_Scroll.jpg" style="object-fit: cover; width: 100%; height: 100%;" alt="Great Isaiah Scroll — Dead Sea Scrolls">
                     </div>
                     <div class="lesson-number">4</div>
                     <div class="lesson-body">
@@ -2279,91 +2280,5 @@ _wq.push({ id: "1lqr54pxv6", onReady: function(video) {
             });
         });
     </script>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const form = document.querySelector('.mc-newsletter-form');
-        if (!form) return;
-        
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const emailInput = form.querySelector('input[type="email"]');
-            const consentCheckbox = form.querySelector('#marketing-consent');
-            const btn = form.querySelector('.mc-newsletter-btn');
-            
-            if (!emailInput || !emailInput.value || !consentCheckbox.checked) {
-                alert('Please enter your email and agree to receive marketing emails.');
-                return;
-            }
-            
-            // Show loading state
-            btn.disabled = true;
-            const originalText = btn.textContent;
-            btn.textContent = 'Subscribing...';
-            
-            try {
-                // Kit API: Subscribe to sequence
-                const response = await fetch('https://api.kit.com/v4/subscribers', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        email_address: emailInput.value,
-                        subscribe_to_sequences: [2648123],
-                        source: 'theoed_course_page'
-                    })
-                });
-                
-                if (response.ok) {
-                    // Success
-                    emailInput.value = '';
-                    consentCheckbox.checked = false;
-                    btn.textContent = '✓ Subscribed!';
-                    btn.style.backgroundColor = '#6B8E4E';
-                    setTimeout(() => {
-                        btn.disabled = false;
-                        btn.textContent = originalText;
-                        btn.style.backgroundColor = '';
-                    }, 3000);
-                } else {
-                    throw new Error(`HTTP ${response.status}`);
-                }
-            } catch (err) {
-                console.error('Subscription error:', err);
-                alert('Subscription failed. Please try again.');
-                btn.disabled = false;
-                btn.textContent = originalText;
-            }
-        });
-    });
-    </script>
-
-
-    <script>
-    (function() {
-      function initNewsletterForms() {
-        document.querySelectorAll('.mc-newsletter-form, .newsletter-form').forEach(function(form) {
-          form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            var emailInput = form.querySelector('input[type="email"]');
-            var consent   = form.querySelector('input[type="checkbox"]');
-            if (!emailInput || !emailInput.value) return;
-            if (consent && !consent.checked) {
-              alert('Please agree to receive marketing emails to continue.');
-              return;
-            }
-            var email = encodeURIComponent(emailInput.value.trim());
-            // Redirect to Thinkific free signup with email pre-filled
-            window.location.href = 'https://www.theoeducation.com/order?ct=7fb2de24-8b8d-45c3-a6f5-d56125279cc2&email=' + email;
-          });
-        });
-      }
-      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initNewsletterForms); }
-      else { initNewsletterForms(); }
-    })();
-    </script>
-
 </body>
 </html>

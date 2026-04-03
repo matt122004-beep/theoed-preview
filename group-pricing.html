@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Pricing | TheoEducation</title>
+    <meta name="description" content="Special pricing for churches, schools, universities, and organizations. Schedule a call to find the perfect bulk solution for your group.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css?v=6">
+
+    <style>
+        /* Group Pricing Page Styles */
+        .group-hero {
+            padding: 9rem 0 5rem;
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .group-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 500px;
+            background: radial-gradient(ellipse at top, rgba(212,175,55,0.12) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .group-hero > .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .group-hero h1 {
+            font-size: clamp(2.8rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 1.25rem;
+        }
+
+        .group-hero .lead {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+        }
+
+        /* Who this is for — audience cards */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            margin: 0 auto 5rem;
+            max-width: 1000px;
+        }
+
+        .audience-card {
+            padding: 1.75rem 1.25rem;
+            border-radius: 16px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .audience-icon {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: rgba(212,175,55,0.1);
+            border: 1px solid rgba(212,175,55,0.25);
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .audience-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin: 0;
+        }
+
+        .audience-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Benefits list */
+        .group-benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            text-align: left;
+            max-width: 520px;
+            margin: 0 auto 4rem;
+        }
+
+        .group-benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .group-benefit-item i {
+            color: var(--accent-gold);
+            font-size: 1rem;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        /* Calendly Section */
+        .calendly-section {
+            background: var(--bg-darker);
+            border-top: 1px solid var(--glass-border);
+            padding: 5rem 0 6rem;
+        }
+
+        .calendly-wrapper {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.5);
+        }
+
+        @media (max-width: 900px) {
+            .audience-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            .audience-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="ambient-background">
+        <div class="glow-orb orb-primary" style="top: -10%;"></div>
+        <div class="glow-orb orb-secondary" style="top: 50%; left: -20%;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="glass-nav">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                
+                <span class="logo-text">TheoEducation</span>
+            </a>
+            
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="main-links">
+                <a href="about-us.html" class="nav-link">About Us</a>
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="classes.html" class="nav-link">Classes</a>
+                
+                <a href="theoai.html" class="nav-link">TheoAI</a>
+                <a href="pricing.html" class="nav-link" style="color: var(--accent-gold);">Pricing</a>
+                <div class="nav-actions">
+                    <a href="https://www.theoeducation.com/users/sign_in" class="nav-link sign-in">Sign In</a>
+                    <a href="https://www.theoeducation.com/order?ct=d8e7467e-4240-4fbe-bb09-f5d71d9111b8" class="btn-primary btn-sm">Start Trial</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="group-hero">
+            <div class="container fade-in-up">
+                <a href="pricing.html" style="display: inline-flex; align-items: center; gap: 6px; color: var(--text-muted); font-size: 0.9rem; text-decoration: none; margin-bottom: 1.5rem; transition: color 0.2s ease;" onmouseover="this.style.color='var(--accent-gold)'" onmouseout="this.style.color='var(--text-muted)'">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Pricing
+                </a>
+                <div class="tagline text-gradient" style="font-size: 1rem; font-family: var(--font-ui); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">Group &amp; Institutional Pricing</div>
+                <h1>Premium Theological Training<br>for Your <span class="text-gradient">Entire Organization</span></h1>
+                <p class="lead">Churches, schools, universities, and conferences can unlock special bulk pricing to equip every member of their team. Let's find the right plan for you.</p>
+
+                <!-- Who it's for -->
+                <div class="audience-grid">
+                    <div class="glass-card audience-card observe-fade">
+                        <div class="audience-icon"><i class="fa-solid fa-church"></i></div>
+                        <h4>Churches</h4>
+                        <p>Equip your congregation and leadership team with seminary-level Bible knowledge.</p>
+                    </div>
+                    <div class="glass-card audience-card observe-fade" style="transition-delay: 0.1s">
+                        <div class="audience-icon"><i class="fa-solid fa-school"></i></div>
+                        <h4>Schools</h4>
+                        <p>Supplement your Bible and theology curriculum with expert, accredited content.</p>
+                    </div>
+                    <div class="glass-card audience-card observe-fade" style="transition-delay: 0.2s">
+                        <div class="audience-icon"><i class="fa-solid fa-building-columns"></i></div>
+                        <h4>Universities</h4>
+                        <p>Provide continuing education resources for faculty, pastors, and graduate students.</p>
+                    </div>
+                    <div class="glass-card audience-card observe-fade" style="transition-delay: 0.3s">
+                        <div class="audience-icon"><i class="fa-solid fa-users"></i></div>
+                        <h4>Conferences</h4>
+                        <p>Give your pastors and administrative staff access to a growing library of courses.</p>
+                    </div>
+                </div>
+
+                <!-- What they get -->
+                <div class="group-benefits">
+                    <div class="group-benefit-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Significant discounts on bulk memberships (the more people, the more you save)</span>
+                    </div>
+                    <div class="group-benefit-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Flexible invoicing and payment options for institutions</span>
+                    </div>
+                    <div class="group-benefit-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Dedicated account support and onboarding for your team</span>
+                    </div>
+                    <div class="group-benefit-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>CEU certificates for every participant upon course completion</span>
+                    </div>
+                    <div class="group-benefit-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Access to all 30+ recorded courses plus any new releases</span>
+                    </div>
+                </div>
+
+                <a href="#schedule" class="btn-primary btn-lg" style="display: inline-flex; align-items: center; gap: 10px;">
+                    <i class="fa-solid fa-calendar-check"></i> Schedule a Free Call
+                </a>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">No commitment required. We'll find the right solution together.</p>
+                <a href="pricing.html" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem; text-decoration: none; transition: color 0.2s ease;" onmouseover="this.style.color='var(--accent-gold)'" onmouseout="this.style.color='var(--text-muted)'">
+                    <i class="fa-solid fa-tag"></i> View individual pricing plans
+                </a>
+            </div>
+        </section>
+
+        <!-- Calendly Booking Section -->
+        <section class="calendly-section" id="schedule">
+            <div class="container fade-in-up">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Schedule a <span class="text-gradient">Free Call</span></h2>
+                    <p class="section-subtitle">Book a 1-on-1 meeting with Matthew Korpman to discuss the best group plan for your organization.</p>
+                </div>
+
+                <div class="calendly-wrapper">
+                    <!-- Calendly inline widget begin -->
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/mkorpman/meeting1on1" style="min-width:320px;height:700px;"></div>
+                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                    <!-- Calendly inline widget end -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+        <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <span class="logo-icon"><i class="fa-solid fa-book-open"></i></span>
+                <span class="logo-text" style="color: white; font-family: 'Playfair Display', serif;">TheoEducation</span>
+                <p style="margin-top: 1rem; color: var(--text-muted);">Seminary-quality Adventist online Bible classes with CEU credit.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Platform</h4>
+                    <a href="about-us.html">About Us</a>
+                    <a href="how-it-works.html">How It Works</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="link-column">
+                    <h4>Resources</h4>
+                    <a href="classes.html">All Classes</a>
+                    <a href="adventist-pastors.html">Adventist Pastors</a>
+                    <a href="group-pricing.html">Group Pricing</a>
+                    <a href="community-forum.html" target="_blank">Community Forum</a>
+                </div>
+                <div class="link-column">
+                    <h4>Legal</h4>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 TheoEducation. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
