@@ -1851,5 +1851,31 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 </script>
+
+<!-- Auth listener: receives user state from parent Thinkific page -->
+<script>
+window.addEventListener("message",function(e){
+  if(!e.data||e.data.type!=="thinkific-auth"||!e.data.signedIn)return;
+  document.querySelectorAll(".nav-actions").forEach(function(n){
+    n.innerHTML="";
+    var d=document.createElement("a");
+    d.href="https://www.theoeducation.com/enrollments";
+    d.className="nav-link sign-in";
+    d.textContent="My Dashboard";
+    d.target="_top";
+    d.style.cssText="color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.9rem;";
+    n.appendChild(d);
+    var b=document.createElement("a");
+    b.href="https://www.theoeducation.com/enrollments";
+    b.className="btn-primary btn-sm";
+    b.target="_top";
+    b.textContent=e.data.firstName?"Hi, "+e.data.firstName:"My Courses";
+    n.appendChild(b);
+  });
+  document.querySelectorAll('a[href*="users/sign_in"],a[href*="sign_in"]').forEach(function(l){
+    if(!l.closest(".nav-actions"))l.style.display="none";
+  });
+});
+</script>
 </body>
 </html>
