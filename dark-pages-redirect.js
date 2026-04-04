@@ -61,15 +61,36 @@
     darkFile = courseMap[courseMatch[1]];
   }
 
-  /* ── Match site pages ── */
+  /* ── Match site pages (iframe mode) ── */
+  var iframePage = null;
   if (!darkFile) {
     var normalized = path.replace(/\/$/, "") || "/";
     if (pageMap[normalized]) {
-      darkFile = pageMap[normalized];
+      iframePage = pageMap[normalized];
     }
   }
 
-  if (!darkFile) return;
+  if (!darkFile && !iframePage) return;
+
+  /* ── SITE PAGES: Full iframe (CSS isolation) ── */
+  if (iframePage) {
+    var iframeHide = document.createElement("style");
+    iframeHide.textContent = [
+      "body > *:not(#dark-page-iframe):not(script):not(style) { display: none !important; }",
+      "html, body { margin: 0 !important; padding: 0 !important; overflow: hidden !important; height: 100% !important; background: #0a0a0f !important; }",
+      "#dark-page-iframe { display: block; position: fixed; top: 0; left: 0; width: 100%; height: 100%; border: none; z-index: 99999; background: #0a0a0f; }"
+    ].join("\n");
+    document.documentElement.appendChild(iframeHide);
+
+    var iframe = document.createElement("iframe");
+    iframe.id = "dark-page-iframe";
+    iframe.src = GITHUB_BASE + iframePage;
+    iframe.setAttribute("allowfullscreen", "");
+    document.body.appendChild(iframe);
+    return;
+  }
+
+  /* ── COURSE PAGES: Fetch + inject (inline CSS, no conflicts) ── */
 
   /* ── STEP 1: Immediately hide Thinkific content ── */
   var hideStyle = document.createElement("style");
