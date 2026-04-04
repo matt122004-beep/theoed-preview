@@ -37,7 +37,8 @@
     "LGBTQ-Bible":                            "lgbtq-course-page.html"
   };
 
-  /* ── Site page path → dark page file ── */
+  /* ── Site pages disabled for now (external CSS conflicts with Thinkific)
+     TODO: Convert site pages to inline CSS like course pages, then re-enable
   var pageMap = {
     "/":                        "index.html",
     "/pages/home":              "index.html",
@@ -50,6 +51,8 @@
     "/pages/certificates":      "certificates.html",
     "/pages/contact":           "contact.html"
   };
+  */
+  var pageMap = {};
 
   var path = window.location.pathname;
   var darkFile = null;
