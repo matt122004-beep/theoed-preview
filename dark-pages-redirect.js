@@ -119,18 +119,31 @@
       var container = document.createElement("div");
       container.id = "dark-page-container";
 
-      /* Inject font links */
+      /* Inject stylesheet links — fix relative paths to point to GitHub Pages */
       links.forEach(function(link) {
-        if (!document.querySelector('link[href="' + link.href + '"]')) {
-          var newLink = link.cloneNode(true);
+        var href = link.getAttribute("href");
+        /* Rewrite relative paths to absolute GitHub Pages URLs */
+        if (href && !href.startsWith("http") && !href.startsWith("//")) {
+          href = GITHUB_BASE + href.replace(/^\.\//, "");
+        }
+        if (!document.querySelector('link[href="' + href + '"]')) {
+          var newLink = document.createElement("link");
+          newLink.rel = "stylesheet";
+          newLink.href = href;
+          if (link.crossOrigin) newLink.crossOrigin = link.crossOrigin;
           document.head.appendChild(newLink);
         }
       });
 
-      /* Inject style blocks */
+      /* Inject style blocks — fix relative url() paths */
       styles.forEach(function(s) {
         var newStyle = document.createElement("style");
-        newStyle.textContent = s.textContent;
+        var cssText = s.textContent;
+        /* Rewrite relative url() paths in CSS to absolute */
+        cssText = cssText.replace(/url\(\s*['"]?(?!https?:\/\/|data:|\/\/)([^'")]+)['"]?\s*\)/g, function(match, p1) {
+          return "url('" + GITHUB_BASE + p1 + "')";
+        });
+        newStyle.textContent = cssText;
         document.head.appendChild(newStyle);
       });
 
@@ -148,7 +161,12 @@
       scripts.forEach(function(oldScript) {
         var newScript = document.createElement("script");
         if (oldScript.src) {
-          newScript.src = oldScript.src;
+          var scriptSrc = oldScript.getAttribute("src");
+          /* Fix relative script paths */
+          if (scriptSrc && !scriptSrc.startsWith("http") && !scriptSrc.startsWith("//")) {
+            scriptSrc = GITHUB_BASE + scriptSrc.replace(/^\.\//, "");
+          }
+          newScript.src = scriptSrc;
           if (oldScript.async) newScript.async = true;
         } else {
           newScript.textContent = oldScript.textContent;
