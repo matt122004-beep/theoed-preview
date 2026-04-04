@@ -2,7 +2,7 @@
   "use strict";
 
   var GITHUB_BASE = "https://matt122004-beep.github.io/theoed-preview/";
-  var CACHE_VERSION = "v20";
+  var CACHE_VERSION = "v21";
 
   /* ── Course slug → dark page file ── */
   var courseMap = {
@@ -90,6 +90,18 @@
     iframe.src = GITHUB_BASE + iframePage;
     iframe.setAttribute("allowfullscreen", "");
     document.body.appendChild(iframe);
+
+    /* Send auth state to iframe once loaded */
+    iframe.addEventListener("load", function() {
+      var user = window.ThinkificUser;
+      if (user && user.signedIn) {
+        iframe.contentWindow.postMessage({
+          type: "thinkific-auth",
+          signedIn: true,
+          firstName: user.firstName || ""
+        }, "*");
+      }
+    });
     return;
   }
 
@@ -239,6 +251,66 @@
           a.setAttribute("href", reversePageMap[href]);
         }
       }
+    });
+
+    /* ── Auth-aware nav update (runs AFTER injection) ── */
+    applyAuthNav(container);
+  }
+
+  /* ── Update nav for signed-in users ── */
+  function applyAuthNav(root) {
+    var user = window.ThinkificUser;
+    if (!user || !user.signedIn) return;
+
+    root.querySelectorAll(".nav-actions").forEach(function(navActions) {
+      navActions.innerHTML = "";
+
+      var dashLink = document.createElement("a");
+      dashLink.href = "/enrollments";
+      dashLink.className = "nav-link sign-in";
+      dashLink.textContent = "My Dashboard";
+      dashLink.style.cssText = "color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem;";
+      navActions.appendChild(dashLink);
+
+      var wrap = document.createElement("div");
+      wrap.style.cssText = "position: relative; display: inline-block;";
+
+      var btn = document.createElement("span");
+      btn.className = "btn-primary btn-sm";
+      btn.style.cssText = "cursor: pointer; user-select: none;";
+      btn.innerHTML = (user.firstName ? "Hi, " + user.firstName : "My Courses") +
+                      ' <span style="display:inline-block;margin-left:6px;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;transition:transform 0.2s;"></span>';
+      wrap.appendChild(btn);
+
+      var menu = document.createElement("div");
+      menu.style.cssText = "display:none;position:absolute;top:calc(100% + 8px);right:0;min-width:200px;background:rgba(20,20,25,0.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:0.5rem 0;box-shadow:0 12px 40px rgba(0,0,0,0.5);z-index:10000;";
+      var menuLinkStyle = "display:flex;align-items:center;gap:0.75rem;padding:0.7rem 1.25rem;color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.9rem;";
+      menu.innerHTML = [
+        '<a href="/enrollments" style="' + menuLinkStyle + '">My Dashboard</a>',
+        '<a href="/account" style="' + menuLinkStyle + '">My Account</a>',
+        '<div style="height:1px;background:rgba(255,255,255,0.08);margin:0.35rem 0;"></div>',
+        '<a href="/users/sign_out" style="' + menuLinkStyle + '">Sign Out</a>'
+      ].join("");
+      wrap.appendChild(menu);
+      navActions.appendChild(wrap);
+
+      btn.addEventListener("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var showing = menu.style.display === "block";
+        menu.style.display = showing ? "none" : "block";
+      });
+    });
+
+    document.addEventListener("click", function() {
+      root.querySelectorAll(".nav-actions div[style*='position: absolute']").forEach(function(m) {
+        if (m.style.minWidth) m.style.display = "none";
+      });
+    });
+
+    /* Hide "Sign In to Watch" links */
+    root.querySelectorAll('a[href*="users/sign_in"]').forEach(function(link) {
+      if (!link.closest(".nav-actions")) link.style.display = "none";
     });
   }
 

@@ -79,4 +79,34 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    /* ── Auth: listen for parent postMessage (when loaded in iframe) ── */
+    window.addEventListener("message", function(e) {
+        if (!e.data || e.data.type !== "thinkific-auth") return;
+        if (!e.data.signedIn) return;
+
+        document.querySelectorAll(".nav-actions").forEach(function(navActions) {
+            navActions.innerHTML = "";
+
+            var dashLink = document.createElement("a");
+            dashLink.href = "https://www.theoeducation.com/enrollments";
+            dashLink.className = "nav-link sign-in";
+            dashLink.textContent = "My Dashboard";
+            dashLink.target = "_top";
+            dashLink.style.cssText = "color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem;";
+            navActions.appendChild(dashLink);
+
+            var btn = document.createElement("a");
+            btn.href = "https://www.theoeducation.com/enrollments";
+            btn.className = "btn-primary btn-sm";
+            btn.target = "_top";
+            btn.textContent = e.data.firstName ? "Hi, " + e.data.firstName : "My Courses";
+            navActions.appendChild(btn);
+        });
+
+        /* Hide "Sign In to Watch" links */
+        document.querySelectorAll('a[href*="users/sign_in"], a[href*="sign_in"]').forEach(function(link) {
+            if (!link.closest(".nav-actions")) link.style.display = "none";
+        });
+    });
 });
