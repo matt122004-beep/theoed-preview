@@ -2,7 +2,7 @@
   "use strict";
 
   var GITHUB_BASE = "https://matt122004-beep.github.io/theoed-preview/";
-  var CACHE_VERSION = "v4";
+  var CACHE_VERSION = "v5";
 
   /* ── Course slug → dark page file ── */
   var courseMap = {
@@ -52,7 +52,7 @@
     "/pages/contact":           "contact.html",
     "/pages/adventist-pastors":              "adventist-pastors.html",
     "/pages/group-pricing":                  "group-pricing.html",
-    "/products/communities/theoeducation":   "community-forum.html"
+    "/pages/community-forum":                "community-forum.html"
   };
 
   var path = window.location.pathname;
