@@ -263,7 +263,7 @@
                     </div>
                     
                     <div style="flex: 1; min-width: 400px; position: relative; z-index: 1;">
-                        <form style="display: flex; flex-direction: column; gap: 0.5rem;" onsubmit="event.preventDefault(); this.innerHTML = '<div style=\'text-align: center; padding: 2rem; background: rgba(212,175,55,0.1); border: 1px solid var(--accent-gold); border-radius: 12px;\'><i class=\'fa-solid fa-check-circle\' style=\'color: var(--accent-gold); font-size: 2.5rem; margin-bottom: 0.5rem;\'></i><h3 style=\'color: var(--text-main); font-family: var(--font-serif);\'>Welcome to the list!</h3><p style=\'color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;\'>Keep an eye on your inbox for our next insight.</p></div>';">
+                        <form style="display: flex; flex-direction: column; gap: 0.5rem;" id="homepage-newsletter-form" onsubmit="handleHomepageNewsletter(event, this);">
                             <div style="display: flex; gap: 0.5rem; width: 100%;">
                                 <input type="email" placeholder="Enter your best email address..." required style="flex: 1; padding: 1.2rem 1.5rem; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; font-family: var(--font-sans); outline: none; transition: border-color 0.3s ease;" onfocus="this.style.borderColor='var(--accent-gold)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
                                 <button type="submit" class="btn-primary" style="padding: 1.2rem 2rem; display: flex; justify-content: center; gap: 0.5rem; align-items: center; font-size: 1.05rem; white-space: nowrap;">
@@ -591,5 +591,35 @@
     </footer>
 
     <script src="app.js"></script>
+
+    <!-- Newsletter Signup Handler -->
+    <script>
+        var NEWSLETTER_FORM_ID = '9286004';
+        var FREE_ACCOUNT_URL = 'https://www.theoeducation.com/cart/add_product/3324111?price_id=4226108';
+
+        function handleHomepageNewsletter(e, form) {
+            e.preventDefault();
+            var emailInput = form.querySelector('input[type="email"]');
+            var email = emailInput ? emailInput.value.trim() : '';
+            if (!email) return;
+
+            var btn = form.querySelector('button[type="submit"]');
+            if (btn) {
+                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Signing up...';
+                btn.disabled = true;
+                btn.style.opacity = '0.7';
+            }
+
+            fetch('https://app.kit.com/forms/' + NEWSLETTER_FORM_ID + '/subscriptions', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email_address: email })
+            }).catch(function(err) {
+                console.error('Kit signup error:', err);
+            }).finally(function() {
+                window.location.href = FREE_ACCOUNT_URL + '&email=' + encodeURIComponent(email);
+            });
+        }
+    </script>
 </body>
 </html>

@@ -2281,5 +2281,39 @@ _wq.push({ id: "1lqr54pxv6", onReady: function(video) {
             });
         });
     </script>
+
+    <!-- Newsletter Signup Handler -->
+    <script>
+        (function() {
+            var NEWSLETTER_FORM_ID = '9286004';
+            var FREE_ACCOUNT_URL = 'https://www.theoeducation.com/cart/add_product/3324111?price_id=4226108';
+
+            document.querySelectorAll('form.mc-newsletter-form').forEach(function(form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    var emailInput = this.querySelector('input[type="email"]');
+                    var email = emailInput ? emailInput.value.trim() : '';
+                    if (!email) return;
+
+                    var btn = this.querySelector('.mc-newsletter-btn');
+                    if (btn) {
+                        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Signing up...';
+                        btn.disabled = true;
+                        btn.style.opacity = '0.7';
+                    }
+
+                    fetch('https://app.kit.com/forms/' + NEWSLETTER_FORM_ID + '/subscriptions', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email_address: email })
+                    }).catch(function(err) {
+                        console.error('Kit signup error:', err);
+                    }).finally(function() {
+                        window.location.href = FREE_ACCOUNT_URL + '&email=' + encodeURIComponent(email);
+                    });
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
