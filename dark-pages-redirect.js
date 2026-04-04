@@ -2,7 +2,7 @@
   "use strict";
 
   var GITHUB_BASE = "https://matt122004-beep.github.io/theoed-preview/";
-  var CACHE_VERSION = "v21";
+  var CACHE_VERSION = "v22";
 
   /* ── Course slug → dark page file ── */
   var courseMap = {
@@ -93,14 +93,19 @@
 
     /* Send auth state to iframe once loaded */
     iframe.addEventListener("load", function() {
-      var user = window.ThinkificUser;
-      if (user && user.signedIn) {
-        iframe.contentWindow.postMessage({
-          type: "thinkific-auth",
-          signedIn: true,
-          firstName: user.firstName || ""
-        }, "*");
+      function sendAuth() {
+        var u = getThinkificUser();
+        if (u && u.signedIn) {
+          iframe.contentWindow.postMessage({
+            type: "thinkific-auth",
+            signedIn: true,
+            firstName: u.firstName || ""
+          }, "*");
+        }
       }
+      sendAuth();
+      /* Also listen for delayed init */
+      window.addEventListener("thnc.current_user-initialized", sendAuth);
     });
     return;
   }
@@ -254,15 +259,45 @@
     });
 
     /* ── Auth-aware nav update (runs AFTER injection) ── */
-    applyAuthNav(container);
+    /* Use Thinkific's native current_user instead of broken Liquid bridge */
+    var tUser = getThinkificUser();
+    if (tUser) {
+      applyAuthNav(container, tUser);
+    } else {
+      /* current_user not ready yet — listen for the event */
+      window.addEventListener("thnc.current_user-initialized", function() {
+        var u = getThinkificUser();
+        if (u) applyAuthNav(document.getElementById("dark-page-container"), u);
+      });
+    }
+  }
+
+  /* ── Get user from Thinkific's native objects ── */
+  function getThinkificUser() {
+    /* Try native Thinkific object first */
+    var t = window.Thinkific;
+    if (t && t.current_user && t.current_user.id) {
+      return { signedIn: true, firstName: t.current_user.first_name || "" };
+    }
+    /* Fallback: try our Liquid bridge if it parsed OK */
+    try {
+      var u = window.ThinkificUser;
+      if (u && u.signedIn === true) {
+        return { signedIn: true, firstName: u.firstName || "" };
+      }
+    } catch(e) {}
+    return null;
   }
 
   /* ── Update nav for signed-in users ── */
-  function applyAuthNav(root) {
-    var user = window.ThinkificUser;
-    if (!user || !user.signedIn) return;
+  function applyAuthNav(root, user) {
+    if (!root || !user || !user.signedIn) return;
 
     root.querySelectorAll(".nav-actions").forEach(function(navActions) {
+      /* Don't re-apply if already done */
+      if (navActions.dataset.authApplied) return;
+      navActions.dataset.authApplied = "1";
+
       navActions.innerHTML = "";
 
       var dashLink = document.createElement("a");
