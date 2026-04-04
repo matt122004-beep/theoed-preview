@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheoAI — The Future Won't Wait for the Church | TheoEducation</title>
+    <meta name="description" content="Free weekly webinar exploring AI through the lens of Adventist prophecy, Scripture, and practical ministry. Built for pastors. Open to everyone.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --mc-black:        #000000;
+            --bg-base:         #08080c;
+            --mc-dark:         #191c21;
+            --mc-input:        #222326;
+            --mc-white:        #ffffff;
+            --mc-text:         rgba(255,255,255,0.85);
+            --mc-muted:        rgba(255,255,255,0.55);
+            --mc-divider:      rgba(255,255,255,0.12);
+            --mc-border:       rgba(255,255,255,0.08);
+            --cta-gold:        #c4a23e;
+            --accent-gold:     #d4af37;
+            --accent-gold-glow: rgba(212, 175, 55, 0.4);
+            --accent-purple:   #4a2b6d;
+            --glass-bg:        rgba(255, 255, 255, 0.03);
+            --glass-border:    rgba(255, 255, 255, 0.08);
+            --glass-hover:     rgba(255, 255, 255, 0.06);
+            --font-display:    'Barlow Condensed', 'Arial Narrow', Impact, sans-serif;
+            --font-body:       'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --font-serif:      'Playfair Display', serif;
+            --section-pad:     80px 0;
+            --content-max:     1200px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--bg-base);
+            color: var(--mc-text);
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: var(--content-max); margin: 0 auto; padding: 0 2rem; }
+
+        /* =============================================
+           AMBIENT BACKGROUND (from homepage)
+           ============================================= */
+        .ambient-background {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+            background: #050508;
+        }
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.5;
+            animation: drift 25s infinite alternate ease-in-out;
+        }
+        .orb-primary {
+            width: 600px; height: 600px;
+            background: rgba(30, 60, 140, 0.25);
+            top: -200px; right: -100px;
+        }
+        .orb-secondary {
+            width: 500px; height: 500px;
+            background: rgba(212, 175, 55, 0.12);
+            bottom: -100px; left: -200px;
+            animation-delay: -10s;
+        }
+        @keyframes drift {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-100px, 100px) scale(1.2); }
+        }
+
+        /* =============================================
+           NAVIGATION
+           ============================================= */
+        .glass-nav {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            background: rgba(8, 8, 12, 0.7);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+        .glass-nav.scrolled { padding: 0.5rem 0; background: rgba(8, 8, 12, 0.9); }
+        .nav-container {
+            display: flex; justify-content: space-between; align-items: center;
+            height: 80px; max-width: 1280px; margin: 0 auto; padding: 0 2rem;
+        }
+        .brand-logo {
+            display: flex; align-items: center; gap: 0.75rem;
+            text-decoration: none; color: #fcfcfc; font-size: 1.5rem;
+        }
+        .logo-text { font-family: var(--font-serif); font-weight: 600; }
+        .main-links { display: flex; align-items: center; gap: 2rem; }
+        .nav-link {
+            color: #c0c0c0; text-decoration: none; font-size: 0.95rem;
+            transition: color 0.3s ease; font-family: var(--font-body); font-weight: 500;
+        }
+        .nav-link:hover, .nav-link.active { color: var(--accent-gold); }
+        .nav-actions {
+            display: flex; align-items: center; gap: 1.5rem;
+            margin-left: 1rem; border-left: 1px solid var(--glass-border); padding-left: 2rem;
+        }
+        .btn-primary {
+            display: inline-flex; align-items: center; justify-content: center;
+            text-decoration: none; font-weight: 600; border-radius: 8px;
+            transition: all 0.3s ease; cursor: pointer; font-family: var(--font-body);
+            background: linear-gradient(135deg, #a6841f, var(--accent-gold));
+            color: #000; border: none; padding: 1rem 2.5rem; font-size: 1rem;
+        }
+        .btn-primary.btn-sm { padding: 0.5rem 1.25rem; font-size: 0.9rem; }
+        .btn-primary:hover {
+            box-shadow: 0 0 20px var(--accent-gold-glow);
+            transform: translateY(-2px); color: #000;
+        }
+        .mobile-menu-btn {
+            display: none; background: transparent; border: none;
+            color: #ffffff; font-size: 1.5rem; cursor: pointer;
+        }
+        @media (max-width: 992px) {
+            .mobile-menu-btn { display: block; }
+            .main-links { display: none; }
+            .main-links.open {
+                display: flex; flex-direction: column; position: absolute;
+                top: 80px; left: 0; right: 0; background: rgba(8, 8, 12, 0.95);
+                backdrop-filter: blur(16px); padding: 2rem; gap: 1.5rem;
+                border-bottom: 1px solid var(--glass-border);
+            }
+            .nav-actions { border-left: none; padding-left: 0; margin-left: 0; flex-direction: column; width: 100%; }
+        }
+
+        /* =============================================
+           HERO
+           ============================================= */
+        .hero-section {
+            padding-top: 80px;
+            min-height: 100vh;
+            display: flex; align-items: center;
+            position: relative; overflow: hidden;
+        }
+        .hero-bg-video {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; z-index: 0; opacity: 0.12;
+            -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+        }
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, var(--bg-base) 0%, transparent 30%, transparent 70%, var(--bg-base) 100%);
+            z-index: 1;
+        }
+        .hero-grid {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: 1; animation: gridPulse 8s ease-in-out infinite;
+        }
+        @keyframes gridPulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.6; } }
+
+        .hero-inner {
+            position: relative; z-index: 2;
+            display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center;
+            max-width: var(--content-max); margin: 0 auto; padding: 80px 2rem;
+        }
+        .hero-content { max-width: 640px; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(196, 162, 62, 0.1); border: 1px solid rgba(196, 162, 62, 0.3);
+            border-radius: 100px; padding: 8px 20px; font-size: 12px; font-weight: 700;
+            color: var(--cta-gold); text-transform: uppercase; letter-spacing: 0.1em;
+            margin-bottom: 24px;
+        }
+        .hero-title {
+            font-family: var(--font-display); font-weight: 900; text-transform: uppercase;
+            font-size: clamp(3rem, 6vw, 5rem); line-height: 0.92; letter-spacing: -0.02em;
+            color: var(--mc-white); margin: 0 0 20px 0;
+        }
+        .hero-title .gold {
+            background: linear-gradient(135deg, #c4a23e, #e8d48b, #c4a23e);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .hero-subtitle {
+            font-family: var(--font-serif); font-size: 1.15rem;
+            color: var(--mc-text); line-height: 1.7; margin-bottom: 32px;
+        }
+        .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+        .btn-hero {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 16px 32px; border-radius: 50px; font-size: 15px; font-weight: 700;
+            text-decoration: none; transition: all 0.3s ease; cursor: pointer;
+            border: none; font-family: var(--font-body);
+        }
+        .btn-hero.gold {
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #aa8624 100%);
+            color: #000;
+            box-shadow: 0 10px 30px rgba(212,175,55,0.3);
+        }
+        .btn-hero.gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212,175,55,0.5);
+        }
+        .btn-hero.outline {
+            background: transparent; color: var(--mc-white);
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+        .btn-hero.outline:hover {
+            border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.05);
+        }
+
+        /* Floating cards in hero */
+        .hero-visual { position: relative; height: 400px; }
+        .floating-card {
+            position: absolute; padding: 1.25rem; display: flex; align-items: center; gap: 1rem;
+            background: var(--glass-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border); border-radius: 16px; width: 260px;
+            animation: float 6s ease-in-out infinite;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .floating-card:hover { background: var(--glass-hover); border-color: rgba(212,175,55,0.3); transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.4); }
+        .floating-card.card-1 { top: 8%; left: 10%; animation-delay: 0s; }
+        .floating-card.card-2 { top: 42%; right: 0%; animation-delay: -2s; }
+        .floating-card.card-3 { bottom: 8%; left: 18%; animation-delay: -4s; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        .card-icon {
+            width: 48px; height: 48px; border-radius: 12px;
+            background: rgba(212,175,55,0.1); color: var(--accent-gold);
+            display: flex; align-items: center; justify-content: center; font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        .card-text { display: flex; flex-direction: column; }
+        .card-text strong { font-size: 1rem; font-weight: 600; color: var(--mc-white); }
+        .card-text span { font-size: 0.85rem; color: var(--mc-muted); }
+
+        @media (max-width: 992px) {
+            .hero-inner { grid-template-columns: 1fr; text-align: center; padding: 48px 2rem; }
+            .hero-content { max-width: 100%; margin: 0 auto; }
+            .hero-cta { justify-content: center; }
+            .hero-visual { display: none; }
+        }
+        @media (max-width: 768px) {
+            .btn-hero { width: 100%; max-width: 340px; justify-content: center; }
+            .hero-cta { flex-direction: column; align-items: center; }
+        }
+
+        /* =============================================
+           STATS BANNER (from homepage)
+           ============================================= */
+        .stats-banner {
+            border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);
+            background: rgba(0,0,0,0.2); padding: 3rem 0;
+        }
+        .stats-container {
+            display: flex; justify-content: space-around; align-items: center;
+            flex-wrap: wrap; gap: 2rem;
+        }
+        .stat-item { text-align: center; }
+        .stat-number {
+            font-family: var(--font-serif); font-size: 3rem; font-weight: 700;
+            color: var(--mc-white); margin-bottom: 0.5rem;
+        }
+        .stat-label {
+            color: var(--mc-muted); font-size: 0.85rem;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .stat-divider { width: 1px; height: 60px; background: var(--glass-border); }
+        @media (max-width: 768px) { .stat-divider { display: none; } .stat-item { width: 40%; } }
+
+        /* =============================================
+           URGENCY SECTION
+           ============================================= */
+        .urgency-section { padding: var(--section-pad); position: relative; }
+        .urgency-header { text-align: center; margin-bottom: 56px; }
+        .urgency-header h2 {
+            font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800; color: var(--mc-white); text-transform: uppercase;
+            line-height: 1; margin-bottom: 16px;
+        }
+        .urgency-header p { font-size: 16px; color: var(--mc-muted); max-width: 580px; margin: 0 auto; }
+
+        .urgency-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 20px; max-width: 1000px; margin: 0 auto;
+        }
+        .urgency-card {
+            background: var(--glass-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border); border-radius: 16px;
+            padding: 36px 28px; text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative; overflow: hidden;
+        }
+        .urgency-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--cta-gold), transparent);
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .urgency-card:hover {
+            background: var(--glass-hover); border-color: rgba(196,162,62,0.3);
+            transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
+        .urgency-card:hover::before { opacity: 1; }
+        .urgency-icon { font-size: 28px; color: var(--cta-gold); margin-bottom: 16px; }
+        .urgency-card h3 { font-size: 17px; font-weight: 700; color: var(--mc-white); margin-bottom: 12px; line-height: 1.3; }
+        .urgency-card p { font-size: 14px; color: var(--mc-muted); line-height: 1.6; }
+        @media (max-width: 768px) { .urgency-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; } }
+
+        /* =============================================
+           WHO IS THIS FOR
+           ============================================= */
+        .audience-section { padding: var(--section-pad); }
+        .audience-header { text-align: center; margin-bottom: 48px; }
+        .audience-header h2 {
+            font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 800; color: var(--mc-white); text-transform: uppercase; line-height: 1;
+        }
+        .audience-list { max-width: 700px; margin: 0 auto; list-style: none; }
+        .audience-item {
+            display: flex; align-items: flex-start; gap: 16px;
+            padding: 20px 0; border-bottom: 1px solid var(--mc-divider);
+        }
+        .audience-item:last-child { border-bottom: none; }
+        .audience-check {
+            width: 28px; height: 28px; border-radius: 50%;
+            background: rgba(196,162,62,0.15);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; margin-top: 2px;
+        }
+        .audience-check i { color: var(--cta-gold); font-size: 13px; }
+        .audience-text { font-size: 16px; color: var(--mc-text); line-height: 1.5; }
+        .audience-text strong { color: var(--mc-white); }
+
+        /* =============================================
+           TOPICS MARQUEE (from homepage)
+           ============================================= */
+        .marquee-section { padding: 56px 0; overflow: hidden; }
+        .marquee-section .section-header { text-align: center; margin-bottom: 2rem; }
+        .marquee-section .section-header h2 {
+            font-family: var(--font-serif); font-size: 2rem; color: var(--mc-white); margin-bottom: 0.5rem;
+        }
+        .marquee-section .section-header p { color: var(--mc-muted); font-size: 1rem; }
+        .topics-marquee { overflow: hidden; position: relative; padding: 1rem 0; width: 100%; }
+        .topics-marquee::before, .topics-marquee::after {
+            content: ''; position: absolute; top: 0; bottom: 0; width: 150px; z-index: 3; pointer-events: none;
+        }
+        .topics-marquee::before { left: 0; background: linear-gradient(to right, var(--bg-base), transparent); }
+        .topics-marquee::after { right: 0; background: linear-gradient(to left, var(--bg-base), transparent); }
+        .topics-track {
+            display: flex; width: max-content; gap: 1.5rem;
+            animation: topics-scroll 45s linear infinite;
+            padding-left: 1.5rem; margin-bottom: 1.5rem;
+        }
+        .topics-track.track-1 { animation-duration: 50s; }
+        .topics-track.track-2 { animation-duration: 38s; animation-name: topics-scroll-reverse; transform: translateX(-50%); }
+        .topics-track.track-3 { animation-duration: 55s; margin-bottom: 0; }
+        .topics-track:hover { animation-play-state: paused; }
+        @keyframes topics-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes topics-scroll-reverse { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+        .topic-badge {
+            background: var(--glass-bg); border: 1px solid var(--glass-border);
+            padding: 0.75rem 1.5rem; border-radius: 30px; font-size: 0.95rem;
+            color: rgba(255,255,255,0.7); transition: all 0.3s ease; cursor: default;
+            flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center;
+        }
+        .topic-badge:hover { border-color: var(--accent-gold); color: var(--accent-gold); background: rgba(212,175,55,0.05); transform: translateY(-3px); }
+
+        /* =============================================
+           WEBINAR + SIGNUP SECTION
+           ============================================= */
+        .webinar-section { padding: var(--section-pad); }
+        .webinar-card {
+            max-width: 960px; margin: 0 auto;
+            background: var(--glass-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border); border-radius: 20px; overflow: hidden;
+            display: grid; grid-template-columns: 1fr 1fr;
+        }
+        .webinar-visual { position: relative; min-height: 460px; background: #111; overflow: hidden; }
+        .webinar-visual img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
+        .webinar-visual-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
+            display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+        }
+        .webinar-live-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(220,38,38,0.9); color: white;
+            padding: 6px 16px; border-radius: 100px; font-size: 12px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+        }
+        .webinar-live-badge .dot {
+            width: 8px; height: 8px; background: white; border-radius: 50%;
+            animation: livePulse 1.5s ease-in-out infinite;
+        }
+        @keyframes livePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        .webinar-play-icon {
+            width: 72px; height: 72px; border-radius: 50%;
+            background: rgba(255,255,255,0.15); backdrop-filter: blur(8px);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; color: white; border: 2px solid rgba(255,255,255,0.3);
+        }
+        .webinar-content { padding: 48px 40px; display: flex; flex-direction: column; justify-content: center; }
+        .webinar-overline {
+            font-size: 12px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.1em; color: var(--cta-gold); margin-bottom: 8px;
+        }
+        .webinar-content h2 {
+            font-family: var(--font-display); font-size: 36px; font-weight: 800;
+            color: var(--mc-white); text-transform: uppercase; line-height: 1; margin-bottom: 16px;
+        }
+        .webinar-content > p { font-size: 15px; color: var(--mc-text); line-height: 1.7; margin-bottom: 20px; }
+        .webinar-details { list-style: none; margin-bottom: 24px; }
+        .webinar-details li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--mc-text); margin-bottom: 8px; }
+        .webinar-details li i { color: var(--cta-gold); width: 18px; text-align: center; }
+
+        /* Signup form */
+        .signup-form { display: flex; gap: 8px; }
+        .signup-form input {
+            flex: 1; padding: 14px 16px; background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.12); border-radius: 8px;
+            color: white; font-family: var(--font-body); font-size: 14px; outline: none;
+            transition: border-color 0.3s;
+        }
+        .signup-form input:focus { border-color: var(--cta-gold); }
+        .signup-form input::placeholder { color: rgba(255,255,255,0.35); }
+        .signup-form button {
+            padding: 14px 24px; background: var(--cta-gold); color: #000;
+            border: none; border-radius: 8px; font-weight: 700; font-size: 14px;
+            cursor: pointer; transition: all 0.3s; white-space: nowrap; font-family: var(--font-body);
+        }
+        .signup-form button:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(196,162,62,0.3); }
+        .signup-note { font-size: 12px; color: var(--mc-muted); margin-top: 8px; }
+        @media (max-width: 768px) {
+            .webinar-card { grid-template-columns: 1fr; }
+            .webinar-visual { min-height: 250px; }
+            .webinar-content { padding: 32px 24px; }
+            .signup-form { flex-direction: column; }
+        }
+
+        /* =============================================
+           HOST / SPEAKER SECTION
+           ============================================= */
+        .host-section { padding: var(--section-pad); }
+        .host-card {
+            max-width: 800px; margin: 0 auto;
+            background: var(--glass-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border); border-radius: 20px;
+            display: grid; grid-template-columns: 280px 1fr; overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .host-card:hover { border-color: rgba(212,175,55,0.3); box-shadow: 0 15px 30px rgba(0,0,0,0.4); }
+        .host-photo { background: #111; overflow: hidden; }
+        .host-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .host-info { padding: 40px 36px; display: flex; flex-direction: column; justify-content: center; }
+        .host-overline {
+            font-size: 12px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.1em; color: var(--cta-gold); margin-bottom: 8px;
+        }
+        .host-info h3 { font-family: var(--font-serif); font-size: 1.8rem; color: var(--mc-white); margin-bottom: 8px; }
+        .host-info .host-title { font-size: 14px; color: var(--accent-gold); margin-bottom: 16px; }
+        .host-info p { font-size: 15px; color: var(--mc-text); line-height: 1.7; }
+        @media (max-width: 768px) {
+            .host-card { grid-template-columns: 1fr; }
+            .host-photo { height: 300px; }
+        }
+
+        /* =============================================
+           COMING SOON COURSES
+           ============================================= */
+        .courses-section { padding: var(--section-pad); background: linear-gradient(180deg, var(--bg-base) 0%, rgba(20,20,25,0.8) 100%); }
+        .courses-header { text-align: center; margin-bottom: 48px; }
+        .courses-header h2 {
+            font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 800; color: var(--mc-white); text-transform: uppercase; line-height: 1; margin-bottom: 12px;
+        }
+        .courses-header p { font-size: 16px; color: var(--mc-muted); max-width: 520px; margin: 0 auto; }
+        .courses-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1100px; margin: 0 auto; }
+        .course-card {
+            position: relative; border-radius: 16px; overflow: hidden;
+            aspect-ratio: 3/4; background: #111; cursor: default;
+        }
+        .course-card img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+            filter: grayscale(60%) brightness(0.5); transition: filter 0.3s;
+        }
+        .course-card:hover img { filter: grayscale(40%) brightness(0.6); }
+        .course-card-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.5) 100%);
+            z-index: 2; display: flex; flex-direction: column; align-items: center;
+            justify-content: flex-end; padding: 24px 16px;
+        }
+        .coming-soon-badge {
+            position: absolute; top: 16px; right: 16px;
+            background: rgba(196,162,62,0.9); color: #000;
+            padding: 4px 12px; border-radius: 100px; font-size: 11px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.08em; z-index: 3;
+        }
+        .course-card-title {
+            font-family: var(--font-display); font-size: 22px; font-weight: 800;
+            color: var(--mc-white); text-transform: uppercase; text-align: center;
+            line-height: 1.1; text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+        }
+        .course-card-sub { font-size: 12px; color: var(--mc-muted); margin-top: 8px; text-align: center; }
+        @media (max-width: 992px) { .courses-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 576px) { .courses-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; } }
+
+        /* =============================================
+           FAQ SECTION
+           ============================================= */
+        .faq-section { padding: var(--section-pad); }
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-container h2 { font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--mc-white); text-transform: uppercase; margin-bottom: 40px; text-align: center; }
+        .faq-item { border-bottom: 1px solid var(--mc-border); }
+        .faq-question {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 24px 0; font-size: 17px; font-weight: 600; color: var(--mc-white);
+            cursor: pointer; transition: color 0.2s;
+        }
+        .faq-question:hover { color: var(--accent-gold); }
+        .faq-answer { font-size: 15px; color: var(--mc-text); line-height: 1.6; padding-bottom: 24px; display: none; }
+        .faq-item.open .faq-answer { display: block; }
+        .faq-item.open .faq-chevron { transform: rotate(180deg); }
+        .faq-chevron { transition: transform 0.3s ease; color: var(--mc-muted); }
+
+        /* =============================================
+           ANIMATED FINAL CTA (from homepage)
+           ============================================= */
+        .final-cta-section { position: relative; padding: 2rem 0 4rem 0; overflow: hidden; }
+        .final-cta-section .ambient-glow {
+            position: absolute; inset: 0;
+            background: radial-gradient(circle at center, rgba(212,175,55,0.06) 0%, transparent 70%);
+            pointer-events: none; z-index: 0;
+        }
+        .final-cta-hover-card {
+            position: relative; max-width: 960px; margin: 0 auto;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: rgba(10, 8, 14, 0.9);
+            backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+            border-radius: 32px; padding: 4rem;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.9), inset 0 0 0 1px rgba(255,255,255,0.08);
+            overflow: hidden; text-align: center;
+        }
+        .final-cta-hover-card::before {
+            content: ''; position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: conic-gradient(from 0deg, transparent 0%, rgba(212,175,55,0.1) 25%, transparent 50%, rgba(212,175,55,0.3) 75%, transparent 100%);
+            animation: rotate-border 10s linear infinite; z-index: -2;
+        }
+        .final-cta-hover-card::after {
+            content: ''; position: absolute; inset: 2px;
+            background: rgba(10, 8, 14, 0.9); border-radius: 30px; z-index: -1;
+        }
+        @keyframes rotate-border { 100% { transform: rotate(360deg); } }
+        .final-cta-hover-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 60px 140px rgba(0,0,0,0.95), 0 0 60px rgba(212,175,55,0.1);
+        }
+        .cta-icon-wrapper {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 80px; height: 80px;
+            background: linear-gradient(135deg, rgba(212,175,55,0.2), rgba(212,175,55,0.05));
+            border-radius: 50%; position: relative; margin-bottom: 2rem;
+        }
+        .cta-icon-wrapper::after {
+            content: ''; position: absolute; inset: -8px; border-radius: 50%;
+            border: 1px solid rgba(212,175,55,0.3);
+            animation: pulse-ring 3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes pulse-ring { 0% { transform: scale(0.8); opacity: 0; } 50% { opacity: 1; } 100% { transform: scale(1.5); opacity: 0; } }
+        .final-cta-hover-card h2 {
+            font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--mc-white); margin-bottom: 1rem; line-height: 1.2;
+        }
+        .final-cta-hover-card > p { font-size: 1.1rem; color: rgba(255,255,255,0.7); margin-bottom: 2rem; max-width: 540px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+        .cta-signup-form { max-width: 420px; margin: 0 auto; }
+        .cta-signup-form .signup-form { justify-content: center; }
+
+        /* =============================================
+           STICKY CTA BAR
+           ============================================= */
+        .sticky-cta-bar {
+            position: fixed; bottom: -100px; left: 50%; transform: translateX(-50%);
+            width: 95%; max-width: 800px; z-index: 999;
+            background: rgba(10,10,15,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;
+            padding: 16px 24px;
+            transition: bottom 0.4s ease, opacity 0.4s ease;
+            opacity: 0; visibility: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+        }
+        .sticky-cta-bar.active { bottom: 20px; opacity: 1; visibility: visible; }
+        .sticky-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+        .sticky-cta-text h4 { color: #fff; font-family: var(--font-serif); font-size: 1.1rem; font-weight: 500; margin: 0; }
+        .sticky-cta-text p { color: rgba(255,255,255,0.7); margin: 0; font-size: 0.9rem; }
+        .sticky-cta-text .gold-text { color: var(--cta-gold); font-weight: 600; }
+        @media (max-width: 600px) {
+            .sticky-cta-inner { flex-direction: column; text-align: center; gap: 12px; }
+            .sticky-cta-bar { padding: 16px; }
+        }
+
+        /* =============================================
+           FOOTER
+           ============================================= */
+        .site-footer { background: #050508; padding: 48px 0 24px; border-top: 1px solid var(--mc-divider); }
+        .footer-container { display: flex; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
+        .footer-brand { max-width: 280px; }
+        .footer-brand .logo-icon { margin-right: 8px; color: var(--cta-gold); }
+        .footer-links { display: flex; gap: 64px; }
+        .link-column h4 { font-size: 14px; font-weight: 700; color: var(--mc-white); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .link-column a { display: block; font-size: 14px; color: var(--mc-muted); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+        .link-column a:hover { color: var(--mc-white); }
+        .footer-bottom { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--mc-divider); text-align: center; }
+        .footer-bottom p { font-size: 13px; color: var(--mc-muted); }
+        @media (max-width: 768px) {
+            .footer-container { flex-direction: column; align-items: center; text-align: center; }
+            .footer-links { flex-direction: column; gap: 32px; }
+        }
+
+        /* =============================================
+           SCROLL ANIMATIONS
+           ============================================= */
+        .observe-fade {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .observe-fade.is-visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <!-- AMBIENT BACKGROUND -->
+    <div class="ambient-background">
+        <div class="glow-orb orb-primary"></div>
+        <div class="glow-orb orb-secondary"></div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <header class="glass-nav">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <span class="logo-text">TheoEducation</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <nav class="main-links">
+                <a href="about-us.html" class="nav-link">About Us</a>
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="classes.html" class="nav-link">Classes</a>
+                <a href="theoai.html" class="nav-link active">TheoAI</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <div class="nav-actions">
+                    <a href="https://www.theoeducation.com/users/sign_in" class="nav-link sign-in">Sign In</a>
+                    <a href="https://www.theoeducation.com/order?ct=d8e7467e-4240-4fbe-bb09-f5d71d9111b8" class="btn-primary btn-sm">Start Trial</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         SECTION 1: HERO
+         ========================================== -->
+    <section class="hero-section">
+        <video autoplay muted loop playsinline class="hero-bg-video">
+            <source src="https://videos.pexels.com/video-files/6963744/6963744-uhd_2560_1440_25fps.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-grid"></div>
+
+        <div class="hero-inner">
+            <div class="hero-content observe-fade">
+                <div class="hero-badge">
+                    <span class="dot" style="width:8px;height:8px;background:var(--cta-gold);border-radius:50%;animation:livePulse 1.5s infinite;"></span>
+                    Free Live Webinar &mdash; Every Friday
+                </div>
+                <h1 class="hero-title">
+                    The Future <span class="gold">Won't Wait</span> for the Church
+                </h1>
+                <p class="hero-subtitle">
+                    Every week, AI advances. Every week, your congregation has new questions. TheoAI gives you the answers &mdash; free, live, and grounded in Scripture.
+                </p>
+                <div class="hero-cta">
+                    <a href="#signup" class="btn-hero gold">
+                        <i class="fa-solid fa-bolt"></i>
+                        Reserve My Free Seat
+                    </a>
+                    <a href="#topics" class="btn-hero outline">
+                        <i class="fa-solid fa-list"></i>
+                        See What We Cover
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card card-1">
+                    <div class="card-icon"><i class="fa-solid fa-video"></i></div>
+                    <div class="card-text"><strong>Live Every Friday</strong><span>40 min + live Q&A</span></div>
+                </div>
+                <div class="floating-card card-2">
+                    <div class="card-icon"><i class="fa-solid fa-lock-open"></i></div>
+                    <div class="card-text"><strong>100% Free</strong><span>No credit card needed</span></div>
+                </div>
+                <div class="floating-card card-3">
+                    <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div class="card-text"><strong>Scholar-Led</strong><span>GTU doctoral faculty</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: STATS BANNER
+         ========================================== -->
+    <section class="stats-banner">
+        <div class="container stats-container">
+            <div class="stat-item observe-fade">
+                <div class="stat-number" style="font-size:2.5rem;"><i class="fa-solid fa-microchip" style="color:var(--accent-gold);"></i></div>
+                <div class="stat-label">AI + Theology</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item observe-fade" style="transition-delay:0.1s;">
+                <div class="stat-number" style="font-size:2.5rem;">Free</div>
+                <div class="stat-label">Weekly Webinar</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item observe-fade" style="transition-delay:0.2s;">
+                <div class="stat-number" style="font-size:2.5rem;">Live</div>
+                <div class="stat-label">Q&A With Host</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item observe-fade" style="transition-delay:0.3s;">
+                <div class="stat-number" style="font-size:2.5rem;"><i class="fa-solid fa-book-bible" style="color:var(--accent-gold);"></i></div>
+                <div class="stat-label">Scripture-Grounded</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: URGENCY
+         ========================================== -->
+    <section class="urgency-section">
+        <div class="container">
+            <div class="urgency-header observe-fade">
+                <h2>The Church Is Asleep.<br>AI Is Not.</h2>
+                <p>Artificial intelligence is rewriting how the world works. Your congregation already has questions. Most pastors have no answers. That gap is growing every single week.</p>
+            </div>
+            <div class="urgency-grid">
+                <div class="urgency-card observe-fade">
+                    <div class="urgency-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h3>AI Can Now Simulate Human Thought</h3>
+                    <p>What does that mean for the image of the beast? For end-time deception? For everything your church has taught about the last days? These are not hypothetical questions anymore.</p>
+                </div>
+                <div class="urgency-card observe-fade" style="transition-delay:0.1s;">
+                    <div class="urgency-icon"><i class="fa-solid fa-users"></i></div>
+                    <h3>Your Members Are Already Using It</h3>
+                    <p>At work. At school. To ask questions about God. They are not waiting for your permission &mdash; or your guidance. The question is whether you'll lead or be left behind.</p>
+                </div>
+                <div class="urgency-card observe-fade" style="transition-delay:0.2s;">
+                    <div class="urgency-icon"><i class="fa-solid fa-clock"></i></div>
+                    <h3>Silence Is Not a Strategy</h3>
+                    <p>Every week a pastor ignores AI is a week their congregation looks elsewhere for answers. TheoAI gives you the framework to lead &mdash; not react.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: WHO IS THIS FOR (moved up)
+         ========================================== -->
+    <section class="audience-section">
+        <div class="container">
+            <div class="audience-header observe-fade">
+                <h2>Who Is TheoAI For?</h2>
+            </div>
+            <ul class="audience-list observe-fade">
+                <li class="audience-item">
+                    <div class="audience-check"><i class="fa-solid fa-check"></i></div>
+                    <div class="audience-text"><strong>Adventist pastors</strong> who refuse to let their congregations face AI without a biblical framework.</div>
+                </li>
+                <li class="audience-item">
+                    <div class="audience-check"><i class="fa-solid fa-check"></i></div>
+                    <div class="audience-text"><strong>Bible students</strong> fascinated by the intersection of prophecy and technology &mdash; especially the image of the beast and end-time deception.</div>
+                </li>
+                <li class="audience-item">
+                    <div class="audience-check"><i class="fa-solid fa-check"></i></div>
+                    <div class="audience-text"><strong>Christian educators and leaders</strong> who need to understand AI for their schools, churches, and organizations.</div>
+                </li>
+                <li class="audience-item">
+                    <div class="audience-check"><i class="fa-solid fa-check"></i></div>
+                    <div class="audience-text"><strong>Curious believers</strong> who want real answers &mdash; not from Silicon Valley, but from Scripture.</div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: TOPICS MARQUEE
+         ========================================== -->
+    <section id="topics" class="marquee-section">
+        <div class="container section-header observe-fade">
+            <h2>What We <span style="background: linear-gradient(135deg, var(--accent-gold), #fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Cover</span></h2>
+            <p>Webinar topics that keep pastors up at night &mdash; and keep their congregations coming back.</p>
+        </div>
+        <div class="topics-marquee">
+            <div class="topics-track track-1">
+                <span class="topic-badge">Mark of the Beast &amp; AI</span>
+                <span class="topic-badge">Image of the Beast</span>
+                <span class="topic-badge">AI-Powered Deception</span>
+                <span class="topic-badge">Sermon Prep with AI</span>
+                <span class="topic-badge">Vatican &amp; AI</span>
+                <span class="topic-badge">Digital Sabbath</span>
+                <span class="topic-badge">Mark of the Beast &amp; AI</span>
+                <span class="topic-badge">Image of the Beast</span>
+                <span class="topic-badge">AI-Powered Deception</span>
+                <span class="topic-badge">Sermon Prep with AI</span>
+                <span class="topic-badge">Vatican &amp; AI</span>
+                <span class="topic-badge">Digital Sabbath</span>
+                <span class="topic-badge">Mark of the Beast &amp; AI</span>
+                <span class="topic-badge">Image of the Beast</span>
+                <span class="topic-badge">AI-Powered Deception</span>
+                <span class="topic-badge">Sermon Prep with AI</span>
+                <span class="topic-badge">Vatican &amp; AI</span>
+                <span class="topic-badge">Digital Sabbath</span>
+            </div>
+            <div class="topics-track track-2">
+                <span class="topic-badge">Sunday Law &amp; Technology</span>
+                <span class="topic-badge">Deepfakes in Ministry</span>
+                <span class="topic-badge">AI Church Growth</span>
+                <span class="topic-badge">Thought-Reading Tech</span>
+                <span class="topic-badge">Ellen White &amp; AI</span>
+                <span class="topic-badge">Protecting Your Flock</span>
+                <span class="topic-badge">Sunday Law &amp; Technology</span>
+                <span class="topic-badge">Deepfakes in Ministry</span>
+                <span class="topic-badge">AI Church Growth</span>
+                <span class="topic-badge">Thought-Reading Tech</span>
+                <span class="topic-badge">Ellen White &amp; AI</span>
+                <span class="topic-badge">Protecting Your Flock</span>
+                <span class="topic-badge">Sunday Law &amp; Technology</span>
+                <span class="topic-badge">Deepfakes in Ministry</span>
+                <span class="topic-badge">AI Church Growth</span>
+                <span class="topic-badge">Thought-Reading Tech</span>
+                <span class="topic-badge">Ellen White &amp; AI</span>
+                <span class="topic-badge">Protecting Your Flock</span>
+            </div>
+            <div class="topics-track track-3">
+                <span class="topic-badge">SuperAI &amp; Prophecy</span>
+                <span class="topic-badge">AI Ethics for Christians</span>
+                <span class="topic-badge">Family &amp; AI Safety</span>
+                <span class="topic-badge">AI in Education</span>
+                <span class="topic-badge">Apocalypse or Progress?</span>
+                <span class="topic-badge">Pastoral AI Toolkit</span>
+                <span class="topic-badge">SuperAI &amp; Prophecy</span>
+                <span class="topic-badge">AI Ethics for Christians</span>
+                <span class="topic-badge">Family &amp; AI Safety</span>
+                <span class="topic-badge">AI in Education</span>
+                <span class="topic-badge">Apocalypse or Progress?</span>
+                <span class="topic-badge">Pastoral AI Toolkit</span>
+                <span class="topic-badge">SuperAI &amp; Prophecy</span>
+                <span class="topic-badge">AI Ethics for Christians</span>
+                <span class="topic-badge">Family &amp; AI Safety</span>
+                <span class="topic-badge">AI in Education</span>
+                <span class="topic-badge">Apocalypse or Progress?</span>
+                <span class="topic-badge">Pastoral AI Toolkit</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 6: WEBINAR + SIGNUP
+         ========================================== -->
+    <section id="signup" class="webinar-section">
+        <div class="container">
+            <div class="webinar-card observe-fade">
+                <div class="webinar-visual">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&h=800&fit=crop&q=80" alt="AI and Theology">
+                    <div class="webinar-visual-overlay">
+                        <div class="webinar-live-badge">
+                            <span class="dot"></span>
+                            Live Every Friday
+                        </div>
+                        <div class="webinar-play-icon">
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="webinar-content">
+                    <span class="webinar-overline">Free Weekly Webinar</span>
+                    <h2>Join Us Live</h2>
+                    <p>Straight answers. Hard questions. Live every Friday.</p>
+                    <ul class="webinar-details">
+                        <li><i class="fa-solid fa-calendar"></i> Every Friday morning</li>
+                        <li><i class="fa-solid fa-clock"></i> ~40 minutes + live Q&A</li>
+                        <li><i class="fa-solid fa-gift"></i> Completely free &mdash; no card needed</li>
+                        <li><i class="fa-solid fa-video"></i> Watch live or catch the replay</li>
+                    </ul>
+                    <form class="signup-form" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Your best email" required>
+                        <button type="submit"><i class="fa-solid fa-bolt"></i> Save My Spot</button>
+                    </form>
+                    <p class="signup-note">We respect your inbox. Unsubscribe anytime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 7: YOUR HOST
+         ========================================== -->
+    <section class="host-section">
+        <div class="container">
+            <div class="host-card observe-fade">
+                <div class="host-photo">
+                    <img src="https://import.cdn.thinkific.com/296355/rCfRIxjSRsOTBmjNqpwJ_HTC7LITOQvuDxN6QWhFs_95411484_10158420997734656_1051797805292584960_n-1.jpg" alt="Matthew Korpman">
+                </div>
+                <div class="host-info">
+                    <span class="host-overline">Your Host</span>
+                    <h3>Matthew Korpman</h3>
+                    <p class="host-title">Founder, TheoEducation &bull; GTU Doctoral Scholar</p>
+                    <p>Biblical scholar, published author, and the mind behind TheoEducation's 30+ seminary-quality courses. Matthew brings the same honest, no-hype scholarship that 600+ students trust &mdash; now applied to the most urgent question facing the church today.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 8: COMING SOON COURSES
+         ========================================== -->
+    <section id="courses" class="courses-section">
+        <div class="container">
+            <div class="courses-header observe-fade">
+                <h2>Courses Coming Soon</h2>
+                <p>Full courses going deeper on the questions that keep coming up.</p>
+            </div>
+            <div class="courses-grid">
+                <div class="course-card observe-fade">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=533&fit=crop&q=80" alt="Is AI Good or Evil?">
+                    <div class="course-card-overlay">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <h3 class="course-card-title">Is AI Good<br>or Evil?</h3>
+                        <p class="course-card-sub">Theology &bull; Ethics</p>
+                    </div>
+                </div>
+                <div class="course-card observe-fade" style="transition-delay:0.1s;">
+                    <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=400&h=533&fit=crop&q=80" alt="How to Use AI in Ministry">
+                    <div class="course-card-overlay">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <h3 class="course-card-title">How to Use AI<br>in Ministry</h3>
+                        <p class="course-card-sub">Practical &bull; Tools</p>
+                    </div>
+                </div>
+                <div class="course-card observe-fade" style="transition-delay:0.2s;">
+                    <img src="https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=400&h=533&fit=crop&q=80" alt="AI and Bible Prophecy">
+                    <div class="course-card-overlay">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <h3 class="course-card-title">AI and Bible<br>Prophecy</h3>
+                        <p class="course-card-sub">Eschatology &bull; Prophecy</p>
+                    </div>
+                </div>
+                <div class="course-card observe-fade" style="transition-delay:0.3s;">
+                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=533&fit=crop&q=80" alt="Made in the Image of Man">
+                    <div class="course-card-overlay">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <h3 class="course-card-title">Made in the<br>Image of Man</h3>
+                        <p class="course-card-sub">Creation &bull; Identity</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 9: FAQ
+         ========================================== -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2>Questions? Answers.</h2>
+            <div class="faq-item">
+                <div class="faq-question">Do I need any technical experience?<i class="fa-solid fa-chevron-down faq-chevron"></i></div>
+                <div class="faq-answer">None. TheoAI is built for pastors and believers, not engineers. We explain everything in plain language.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Is this really free?<i class="fa-solid fa-chevron-down faq-chevron"></i></div>
+                <div class="faq-answer">The weekly webinar is 100% free with no strings attached. We'll offer optional deeper courses in the future, but the live webinar will always be free.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Will this conflict with my Adventist theology?<i class="fa-solid fa-chevron-down faq-chevron"></i></div>
+                <div class="faq-answer">TheoAI is built by an Adventist scholar for Adventist pastors. We take the text seriously, wrestle with the hard questions honestly, and let Scripture lead.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What if I miss the live session?<i class="fa-solid fa-chevron-down faq-chevron"></i></div>
+                <div class="faq-answer">Replays are available after each session. But the live Q&A is only available during the live broadcast &mdash; another reason to show up in person.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How is this different from other AI courses?<i class="fa-solid fa-chevron-down faq-chevron"></i></div>
+                <div class="faq-answer">Most AI courses teach productivity. TheoAI is a prophetic preparedness resource that teaches AI along the way. Fear gets you in. Scholarship keeps you and transforms you.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 10: ANIMATED FINAL CTA
+         ========================================== -->
+    <section class="final-cta-section">
+        <div class="ambient-glow"></div>
+        <div class="container observe-fade" style="position:relative;z-index:1;">
+            <div class="final-cta-hover-card">
+                <div class="cta-icon-wrapper">
+                    <i class="fa-solid fa-bolt" style="font-size: 2.5rem; color: #dbaf48;"></i>
+                </div>
+                <h2>Don't Be the Pastor Who Had Nothing to Say When <span style="background: linear-gradient(to right, #e0b345, #b88a25); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">AI Changed Everything</span></h2>
+                <p>The webinar is free. The knowledge is urgent. The seat is yours.</p>
+                <div class="cta-signup-form">
+                    <form class="signup-form" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Your best email" required>
+                        <button type="submit"><i class="fa-solid fa-bolt"></i> I'm In</button>
+                    </form>
+                    <p class="signup-note" style="text-align:center;">Free. No credit card. Unsubscribe anytime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STICKY CTA BAR -->
+    <div class="sticky-cta-bar">
+        <div class="sticky-cta-inner">
+            <div style="display:flex;align-items:center;gap:1rem;">
+                <i class="fa-solid fa-bolt" style="color:var(--cta-gold);font-size:1.3rem;"></i>
+                <div class="sticky-cta-text">
+                    <h4>TheoAI &mdash; Free Live Webinar</h4>
+                    <p>Every Friday. <span class="gold-text">Reserve your seat.</span></p>
+                </div>
+            </div>
+            <a href="#signup" class="btn-primary" style="padding:0.7rem 1.8rem;font-size:0.95rem;border-radius:30px;white-space:nowrap;">Save My Spot</a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <span class="logo-icon"><i class="fa-solid fa-book-open"></i></span>
+                <span class="logo-text" style="color:white;font-family:'Playfair Display',serif;">TheoEducation</span>
+                <p style="margin-top:1rem;color:var(--mc-muted);">Seminary-quality Adventist online Bible classes with CEU credit.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Platform</h4>
+                    <a href="about-us.html">About Us</a>
+                    <a href="how-it-works.html">How It Works</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="link-column">
+                    <h4>Resources</h4>
+                    <a href="classes.html">All Classes</a>
+                    <a href="theoai.html">TheoAI</a>
+                    <a href="adventist-pastors.html">Adventist Pastors</a>
+                    <a href="group-pricing.html">Group Pricing</a>
+                    <a href="community-forum.html" target="_blank">Community Forum</a>
+                </div>
+                <div class="link-column">
+                    <h4>Legal</h4>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 TheoEducation. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Mobile menu
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.main-links').classList.toggle('open');
+        });
+
+        // Nav scroll effect
+        window.addEventListener('scroll', function() {
+            document.querySelector('.glass-nav').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // IntersectionObserver for scroll animations (matches homepage pattern)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.observe-fade').forEach(el => observer.observe(el));
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                q.parentElement.classList.toggle('open');
+            });
+        });
+
+        // Sticky CTA bar
+        (() => {
+            const sticky = document.querySelector('.sticky-cta-bar');
+            const hero = document.querySelector('.hero-section');
+            const footer = document.querySelector('.site-footer');
+            if (!sticky || !hero) return;
+
+            const heroObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        const scrollBottom = window.scrollY + window.innerHeight;
+                        const docHeight = document.documentElement.scrollHeight;
+                        const footerH = footer ? footer.offsetHeight : 0;
+                        if (scrollBottom < docHeight - footerH - 60) {
+                            sticky.classList.add('active');
+                        }
+                    } else {
+                        sticky.classList.remove('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            heroObserver.observe(hero);
+
+            window.addEventListener('scroll', () => {
+                const scrollBottom = window.scrollY + window.innerHeight;
+                const docHeight = document.documentElement.scrollHeight;
+                const footerH = footer ? footer.offsetHeight : 0;
+                if (scrollBottom >= docHeight - footerH - 60) {
+                    sticky.classList.remove('active');
+                }
+            }, { passive: true });
+        })();
+    </script>
+</body>
+</html>
