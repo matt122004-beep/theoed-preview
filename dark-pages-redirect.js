@@ -39,7 +39,18 @@
   };
 
   /* ── Site pages (disabled — CSS conflicts with Thinkific) ── */
-  var pageMap = {};
+  var pageMap = {
+    "/":                        "index.html",
+    "/pages/home":              "index.html",
+    "/pages/about-us":          "about-us.html",
+    "/collections":             "classes.html",
+    "/pages/pricing":           "pricing.html",
+    "/pages/how-it-works":      "how-it-works.html",
+    "/pages/theoai":            "theoai.html",
+    "/pages/faq":               "faq.html",
+    "/pages/certificates":      "certificates.html",
+    "/pages/contact":           "contact.html"
+  };
 
   var path = window.location.pathname;
   var darkFile = null;
