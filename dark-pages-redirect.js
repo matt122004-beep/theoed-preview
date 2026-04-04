@@ -50,8 +50,9 @@
     "/pages/faq":               "faq.html",
     "/pages/certificates":      "certificates.html",
     "/pages/contact":           "contact.html",
-    "/pages/adventist-pastors": "adventist-pastors.html",
-    "/pages/group-pricing":     "group-pricing.html"
+    "/pages/adventist-pastors":              "adventist-pastors.html",
+    "/pages/group-pricing":                  "group-pricing.html",
+    "/products/communities/theoeducation":   "community-forum.html"
   };
 
   var path = window.location.pathname;
