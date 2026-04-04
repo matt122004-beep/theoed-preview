@@ -2,7 +2,7 @@
   "use strict";
 
   var GITHUB_BASE = "https://matt122004-beep.github.io/theoed-preview/";
-  var CACHE_VERSION = "v12";
+  var CACHE_VERSION = "v13";
 
   /* ── Course slug → dark page file ── */
   var courseMap = {
@@ -49,7 +49,7 @@
     "/pages/theoai":            "theoai.html",
     "/pages/faq":               "faq.html",
     "/pages/certificates":      "certificates.html",
-    "/pages/contact":           "contact.html",
+    "/pages/contact-us":        "contact.html",
     "/pages/adventist-pastors":              "adventist-pastors.html",
     "/pages/group-pricing":                  "group-pricing.html",
     "/pages/community-forum":                "community-forum.html"
