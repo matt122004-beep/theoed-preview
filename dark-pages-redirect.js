@@ -2,7 +2,7 @@
   "use strict";
 
   var GITHUB_BASE = "https://matt122004-beep.github.io/theoed-preview/";
-  var CACHE_VERSION = "v24";
+  var CACHE_VERSION = "v25";
 
   /* ── Course slug → dark page file ── */
   var courseMap = {
@@ -34,7 +34,7 @@
     "gender-sexuality-bible":                 "gender-sexuality-course-page.html",
     "womens-ministry-thecla":                 "thecla-course-page.html",
     "book-of-enoch-adventist-study-watchers": "book-of-watchers-course-page.html",
-    "early-jesus-traditions":                 "early-jesus-traditions-course-page.html",
+    "jesus-traditions-sayings-gospels":        "early-jesus-traditions-course-page.html",
     "LGBTQ-Bible":                            "lgbtq-course-page.html"
   };
 
