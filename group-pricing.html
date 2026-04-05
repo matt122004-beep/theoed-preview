@@ -1259,8 +1259,151 @@ a.course-card .course-link {
             }
         }
     </style>
+<style>
+/* ===== MOBILE NAV OVERLAY ===== */
+.mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9998;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.mobile-nav-overlay.open { display: block; opacity: 1; }
+
+.mobile-nav-panel {
+    position: fixed;
+    top: 0; right: 0;
+    width: 280px;
+    max-width: 85vw;
+    height: 100%;
+    background: rgba(15, 15, 20, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 9999;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid rgba(255,255,255,0.08);
+    overflow-y: auto;
+}
+.mobile-nav-panel.open { transform: translateX(0); }
+
+.mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.mobile-nav-header .mobile-nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: 600;
+}
+.mobile-nav-close {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.6);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 4px;
+    line-height: 1;
+}
+.mobile-nav-close:hover { color: #fff; }
+
+.mobile-nav-links {
+    padding: 1rem 0;
+    flex: 1;
+}
+.mobile-nav-links a {
+    display: block;
+    padding: 0.9rem 1.5rem;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: background 0.15s ease, color 0.15s ease;
+    border-left: 3px solid transparent;
+}
+.mobile-nav-links a:hover,
+.mobile-nav-links a:active {
+    background: rgba(212, 175, 55, 0.08);
+    color: #d4af37;
+    border-left-color: #d4af37;
+}
+.mobile-nav-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.06);
+    margin: 0.5rem 1.5rem;
+}
+
+.mobile-nav-actions {
+    padding: 1rem 1.5rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.mobile-nav-actions a {
+    display: block;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+.mobile-nav-actions .mobile-signin {
+    color: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255,255,255,0.15);
+}
+.mobile-nav-actions .mobile-signin:hover {
+    border-color: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.05);
+}
+.mobile-nav-actions .mobile-cta {
+    background: linear-gradient(135deg, #a6841f, #d4af37);
+    color: #000;
+    font-weight: 600;
+}
+.mobile-nav-actions .mobile-cta:hover {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+/* ===== END MOBILE NAV ===== */
+</style>
 </head>
 <body>
+
+<!-- Mobile Nav Overlay -->
+<div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+<div class="mobile-nav-panel" id="mobileNavPanel">
+    <div class="mobile-nav-header">
+        <span class="mobile-nav-brand">TheoEducation</span>
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="mobile-nav-links">
+        <a target="_top" href="https://www.theoeducation.com/pages/about-us">About Us</a>
+        <a target="_top" href="https://www.theoeducation.com/pages/how-it-works">How It Works</a>
+        <a target="_top" href="https://www.theoeducation.com/collections">Classes</a>
+        <a target="_top" href="https://www.theoeducation.com/pages/theoai">TheoAI</a>
+        <a target="_top" href="https://www.theoeducation.com/pages/pricing">Pricing</a>
+        <div class="mobile-nav-divider"></div>
+        <a target="_top" href="https://www.theoeducation.com/pages/faq">FAQ</a>
+        <a target="_top" href="https://www.theoeducation.com/pages/contact-us">Contact</a>
+    </div>
+    <div class="mobile-nav-actions" id="mobileNavActions">
+        <a target="_top" href="https://www.theoeducation.com/users/sign_in" class="mobile-signin">Sign In</a>
+        <a target="_top" href="https://www.theoeducation.com/order?ct=d8e7467e-4240-4fbe-bb09-f5d71d9111b8" class="mobile-cta">Start Free Trial</a>
+    </div>
+</div>
+
     <!-- Background Elements -->
     <div class="ambient-background">
         <div class="glow-orb orb-primary" style="top: -10%;"></div>
@@ -1454,7 +1597,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileBtn = document.querySelector('.mobile-menu-btn');
     if(mobileBtn) {
         mobileBtn.addEventListener('click', () => {
-            alert('Mobile menu toggle functionality would go here in a production build.');
+            /* Mobile menu handled by mobile-nav-panel */
         });
     }
 
@@ -1524,5 +1667,81 @@ window.addEventListener("message",function(e){
   });
 });
 </script>
+
+<script>
+(function(){
+    var overlay = document.getElementById('mobileNavOverlay');
+    var panel = document.getElementById('mobileNavPanel');
+    var closeBtn = document.getElementById('mobileNavClose');
+    var menuBtn = document.querySelector('.mobile-menu-btn');
+    if (!overlay || !panel || !menuBtn) return;
+
+    function openNav() {
+        overlay.classList.add('open');
+        panel.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeNav() {
+        overlay.classList.remove('open');
+        panel.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    menuBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        openNav();
+    });
+    if (closeBtn) closeBtn.addEventListener('click', closeNav);
+    overlay.addEventListener('click', closeNav);
+
+    /* Close on link tap */
+    panel.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() {
+            closeNav();
+        });
+    });
+
+    /* Close on Escape */
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeNav();
+    });
+
+    /* Auth-aware: update mobile nav if user is signed in */
+    function updateMobileAuth(firstName) {
+        var actions = document.getElementById('mobileNavActions');
+        if (!actions) return;
+        actions.innerHTML = '<a href="https://www.theoeducation.com/enrollments" class="mobile-cta">My Dashboard</a>' +
+            '<a href="https://www.theoeducation.com/account" class="mobile-signin">My Account</a>' +
+            '<a href="https://www.theoeducation.com/users/sign_out" class="mobile-signin" style="color:rgba(255,255,255,0.5);border-color:rgba(255,255,255,0.08);">Sign Out</a>';
+    }
+
+    /* Check Thinkific native auth (for course pages loaded via inject) */
+    try {
+        var t = window.Thinkific;
+        if (t && t.current_user && t.current_user.id) {
+            updateMobileAuth(t.current_user.first_name || '');
+        }
+    } catch(e) {}
+
+    /* Listen for auth event (delayed init) */
+    window.addEventListener('thnc.current_user-initialized', function() {
+        try {
+            var t = window.Thinkific;
+            if (t && t.current_user && t.current_user.id) {
+                updateMobileAuth(t.current_user.first_name || '');
+            }
+        } catch(e) {}
+    });
+
+    /* Listen for postMessage auth (for iframe pages) */
+    window.addEventListener('message', function(e) {
+        if (e.data && e.data.type === 'thinkific-auth' && e.data.signedIn) {
+            updateMobileAuth(e.data.firstName || '');
+        }
+    });
+})();
+</script>
+
 </body>
 </html>

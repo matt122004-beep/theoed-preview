@@ -2,7 +2,7 @@
   "use strict";
 
   var GITHUB_BASE = "https://matt122004-beep.github.io/theoed-preview/";
-  var CACHE_VERSION = "v27";
+  var CACHE_VERSION = "v28";
 
   /* ── Course slug → dark page file ── */
   var courseMap = {
@@ -347,6 +347,16 @@
     root.querySelectorAll('a[href*="users/sign_in"]').forEach(function(link) {
       if (!link.closest(".nav-actions")) link.style.display = "none";
     });
+
+    /* Update mobile nav actions too */
+    var mobileActions = document.getElementById("mobileNavActions");
+    if (mobileActions && !mobileActions.dataset.authApplied) {
+      mobileActions.dataset.authApplied = "1";
+      mobileActions.innerHTML =
+        '<a href="/enrollments" class="mobile-cta">My Dashboard</a>' +
+        '<a href="/account" class="mobile-signin">My Account</a>' +
+        '<a href="/users/sign_out" class="mobile-signin" style="color:rgba(255,255,255,0.5);border-color:rgba(255,255,255,0.08);">Sign Out</a>';
+    }
   }
 
 })();
