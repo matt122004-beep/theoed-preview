@@ -2684,25 +2684,14 @@ _wq.push({ id: "dwtgqm18h1", onReady: function(video) {
 (function() {
     if (window.innerWidth > 768) return;
 
-    /* 1. Move trailer INSIDE hero, right after the hero image (before title/desc) */
+    /* 1. Move the actual trailer section above skills (not clone — Wistia needs its scripts intact) */
     var trailer = document.querySelector('.trailer-section');
-    var heroRight = document.querySelector('.hero-right');
-    if (trailer && heroRight) {
-        /* Strip the trailer out of its section wrapper and insert compact version */
-        var trailerContainer = trailer.querySelector('.trailer-container');
-        if (trailerContainer) {
-            /* Create a slim trailer wrapper inside hero */
-            var mobileTrailer = document.createElement('div');
-            mobileTrailer.className = 'mobile-hero-trailer';
-            mobileTrailer.innerHTML = trailerContainer.innerHTML;
-            /* Insert at the top of hero-right, before hero-content */
-            var heroContent = heroRight.querySelector('.hero-content');
-            if (heroContent) {
-                heroRight.insertBefore(mobileTrailer, heroContent);
-            }
-            /* Hide the original trailer section */
-            trailer.style.display = 'none';
-        }
+    var heroSection = document.querySelector('.hero-section');
+    if (trailer && heroSection && heroSection.nextSibling) {
+        /* Move the entire trailer section right after the hero */
+        heroSection.parentNode.insertBefore(trailer, heroSection.nextSibling);
+        /* Make it more compact on mobile */
+        trailer.style.padding = '16px 0 24px';
     }
 
     /* 2. Add "Read more" toggle for hero description */
