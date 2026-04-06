@@ -1720,6 +1720,10 @@ a.course-card .course-link {
     .container { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
 }
 </style>
+<style>
+/* Prevent iOS zoom on input focus */
+input, select, textarea { font-size: 16px !important; }
+</style>
 </head>
 <body>
 
@@ -2152,13 +2156,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // Mobile Menu Toggle (Simplified placeholder)
-    const mobileBtn = document.querySelector('.mobile-menu-btn');
-    if(mobileBtn) {
-        mobileBtn.addEventListener('click', () => {
-            /* Mobile menu handled by mobile-nav-panel */
-        });
-    }
+    // Mobile menu handled by mobile-nav-panel (injected script)
 
     // Dynamic Topic Cloud Delay (adds staggered entrance animation if needed)
     const topicBadges = document.querySelectorAll('.topic-badge');

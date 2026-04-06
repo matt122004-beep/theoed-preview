@@ -1911,6 +1911,10 @@ a.course-card .course-link {
     .container { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
 }
 </style>
+<style>
+/* Prevent iOS zoom on input focus */
+input, select, textarea { font-size: 16px !important; }
+</style>
 </head>
 <body>
 
@@ -2330,9 +2334,7 @@ a.course-card .course-link {
             q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
         });
 
-        // Mobile menu real toggle
-        const mb = document.querySelector('.mobile-menu-btn');
-        if (mb) mb.addEventListener('click', () => document.querySelector('.main-links').classList.toggle('open'));
+        // Mobile menu handled by mobile-nav-panel (injected script)
 
         // Sticky CTA bar
         (() => {
