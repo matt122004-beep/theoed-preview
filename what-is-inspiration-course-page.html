@@ -1551,6 +1551,127 @@
 /* Prevent iOS zoom on input focus */
 input, select, textarea { font-size: 16px !important; }
 </style>
+
+<!-- ===== MOBILE COURSE PAGE OPTIMIZATION ===== -->
+<style>
+@media (max-width: 768px) {
+    /* --- Hero: tighter, punchier --- */
+    .hero-left { height: 200px !important; }
+    .hero-right { padding: 24px 20px !important; }
+    .course-title { font-size: 2.4rem !important; margin-bottom: 0 !important; }
+    .hero-overline { font-size: 0.7rem !important; margin-bottom: 4px !important; }
+
+    /* Truncate description */
+    .hero-desc {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+        margin-bottom: 8px !important;
+        position: relative;
+    }
+    .hero-desc.expanded {
+        -webkit-line-clamp: unset;
+        overflow: visible;
+    }
+    .hero-desc-toggle {
+        display: inline-block;
+        color: var(--cta-gold);
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        margin-bottom: 12px;
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* Hero meta + enroll card tighter */
+    .hero-meta { font-size: 0.85rem !important; margin-bottom: 12px !important; padding-bottom: 8px !important; }
+    .enroll-card { padding: 16px !important; margin-top: 12px !important; }
+    .enroll-card-title { font-size: 0.8rem !important; }
+    .btn-enroll-card { padding: 12px 24px !important; font-size: 0.95rem !important; }
+    .enroll-card-subtext { font-size: 0.75rem !important; margin-top: 8px !important; }
+    .avatars { display: none !important; }
+
+    /* --- Trailer: compact heading --- */
+    .trailer-section { padding: 24px 0 32px !important; }
+    .trailer-label { margin-bottom: 12px !important; }
+
+    /* --- Skills: horizontal scroll strip --- */
+    .lessons-section { padding: 32px 0 !important; }
+    .lessons-grid {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        gap: 12px !important;
+        padding-bottom: 12px;
+        -webkit-overflow-scrolling: touch;
+    }
+    .lessons-grid::after {
+        content: '';
+        flex: 0 0 20px;
+    }
+    .lesson-card {
+        flex: 0 0 260px !important;
+        scroll-snap-align: start;
+    }
+    .lesson-img-wrapper {
+        height: 140px !important;
+    }
+
+    /* --- Sticky bottom CTA bar --- */
+    .mobile-sticky-cta {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 9000;
+        background: rgba(10, 10, 15, 0.95);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-top: 1px solid rgba(212,175,55,0.3);
+        padding: 10px 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+    }
+    .mobile-sticky-cta.visible { transform: translateY(0); }
+    .mobile-sticky-cta-text {
+        flex: 1;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.8rem;
+        color: rgba(255,255,255,0.7);
+        line-height: 1.3;
+    }
+    .mobile-sticky-cta-text strong {
+        color: #fff;
+        font-size: 0.85rem;
+        display: block;
+    }
+    .mobile-sticky-cta .btn-sticky {
+        flex-shrink: 0;
+        padding: 10px 20px;
+        background: linear-gradient(135deg, #a6841f, #d4af37);
+        color: #000;
+        font-weight: 700;
+        font-size: 0.85rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-family: 'Inter', sans-serif;
+        white-space: nowrap;
+    }
+}
+
+/* Hide on desktop */
+@media (min-width: 769px) {
+    .hero-desc-toggle { display: none !important; }
+    .mobile-sticky-cta { display: none !important; }
+}
+</style>
 </head>
 <body>
 
@@ -2536,6 +2657,58 @@ _wq.push({ id: "dwtgqm18h1", onReady: function(video) {
             updateMobileAuth(e.data.firstName || '');
         }
     });
+})();
+</script>
+
+<!-- Mobile Sticky CTA Bar -->
+<div class="mobile-sticky-cta" id="mobileStickyBar">
+    <div class="mobile-sticky-cta-text">
+        <strong>Watch Free for 7 Days</strong>
+        Starting at $6/week
+    </div>
+    <a href="https://www.theoeducation.com/order?ct=d8e7467e-4240-4fbe-bb09-f5d71d9111b8" class="btn-sticky">Start Trial</a>
+</div>
+
+<!-- Mobile Course Page Optimization Script -->
+<script>
+(function() {
+    if (window.innerWidth > 768) return;
+
+    /* 1. Move trailer section above skills section */
+    var trailer = document.querySelector('.trailer-section');
+    var skills = document.querySelector('.lessons-section');
+    if (trailer && skills && skills.parentNode) {
+        skills.parentNode.insertBefore(trailer, skills);
+    }
+
+    /* 2. Add "Read more" toggle for hero description */
+    var desc = document.querySelector('.hero-desc');
+    if (desc) {
+        var toggle = document.createElement('span');
+        toggle.className = 'hero-desc-toggle';
+        toggle.textContent = 'Read more';
+        desc.parentNode.insertBefore(toggle, desc.nextSibling);
+        toggle.addEventListener('click', function() {
+            var expanded = desc.classList.toggle('expanded');
+            toggle.textContent = expanded ? 'Show less' : 'Read more';
+        });
+    }
+
+    /* 3. Sticky CTA bar — show after scrolling past hero */
+    var stickyBar = document.getElementById('mobileStickyBar');
+    var heroSection = document.querySelector('.hero-section');
+    if (stickyBar && heroSection) {
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    stickyBar.classList.remove('visible');
+                } else {
+                    stickyBar.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        observer.observe(heroSection);
+    }
 })();
 </script>
 
