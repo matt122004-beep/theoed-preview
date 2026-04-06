@@ -1594,9 +1594,14 @@ input, select, textarea { font-size: 16px !important; }
     .enroll-card-subtext { font-size: 0.75rem !important; margin-top: 8px !important; }
     .avatars { display: none !important; }
 
-    /* --- Trailer: compact heading --- */
+    /* --- Trailer inside hero --- */
+    .mobile-hero-trailer {
+        margin-bottom: 16px;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+    .mobile-hero-trailer .trailer-label { margin-bottom: 8px !important; }
     .trailer-section { padding: 24px 0 32px !important; }
-    .trailer-label { margin-bottom: 12px !important; }
 
     /* --- Skills: horizontal scroll strip --- */
     .lessons-section { padding: 32px 0 !important; }
@@ -1614,11 +1619,16 @@ input, select, textarea { font-size: 16px !important; }
         flex: 0 0 20px;
     }
     .lesson-card {
-        flex: 0 0 260px !important;
+        flex: 0 0 220px !important;
         scroll-snap-align: start;
     }
     .lesson-img-wrapper {
-        height: 140px !important;
+        height: 120px !important;
+    }
+    .lesson-img-wrapper img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
     }
 
     /* --- Sticky bottom CTA bar --- */
@@ -2674,11 +2684,25 @@ _wq.push({ id: "dwtgqm18h1", onReady: function(video) {
 (function() {
     if (window.innerWidth > 768) return;
 
-    /* 1. Move trailer section above skills section */
+    /* 1. Move trailer INSIDE hero, right after the hero image (before title/desc) */
     var trailer = document.querySelector('.trailer-section');
-    var skills = document.querySelector('.lessons-section');
-    if (trailer && skills && skills.parentNode) {
-        skills.parentNode.insertBefore(trailer, skills);
+    var heroRight = document.querySelector('.hero-right');
+    if (trailer && heroRight) {
+        /* Strip the trailer out of its section wrapper and insert compact version */
+        var trailerContainer = trailer.querySelector('.trailer-container');
+        if (trailerContainer) {
+            /* Create a slim trailer wrapper inside hero */
+            var mobileTrailer = document.createElement('div');
+            mobileTrailer.className = 'mobile-hero-trailer';
+            mobileTrailer.innerHTML = trailerContainer.innerHTML;
+            /* Insert at the top of hero-right, before hero-content */
+            var heroContent = heroRight.querySelector('.hero-content');
+            if (heroContent) {
+                heroRight.insertBefore(mobileTrailer, heroContent);
+            }
+            /* Hide the original trailer section */
+            trailer.style.display = 'none';
+        }
     }
 
     /* 2. Add "Read more" toggle for hero description */
