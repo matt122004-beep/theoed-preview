@@ -892,6 +892,13 @@ a.course-card .course-link {
     .footer-links {
         grid-template-columns: 1fr;
     }
+    #newsletter-card {
+        padding: 2rem 1.5rem !important;
+        flex-direction: column !important;
+    }
+    #newsletter-card .section-title {
+        font-size: 1.6rem !important;
+    }
 }
 
 
@@ -1498,7 +1505,7 @@ a.course-card .course-link {
         <!-- Newsletter Section -->
         <section class="newsletter-section section-padding" style="position: relative; background: linear-gradient(180deg, var(--bg-base) 0%, rgba(20, 20, 25, 0.8) 100%);">
             <div class="container" style="max-width: 1150px; margin: 0 auto;">
-                <div class="glass-card observe-fade" style="padding: 3rem 4rem; display: flex; flex-direction: row; flex-wrap: wrap; gap: 2rem; align-items: center; border-color: rgba(212, 175, 55, 0.2); background: radial-gradient(circle at center, rgba(30,30,40,0.8) 0%, rgba(20,20,25,0.9) 100%); position: relative; overflow: hidden;">
+                <div class="glass-card observe-fade" style="padding: 3rem 4rem; display: flex; flex-direction: row; flex-wrap: wrap; gap: 2rem; align-items: center; border-color: rgba(212, 175, 55, 0.2); background: radial-gradient(circle at center, rgba(30,30,40,0.8) 0%, rgba(20,20,25,0.9) 100%); position: relative; overflow: hidden;" id="newsletter-card">
                     <!-- Decorative background glow -->
                     <div style="position: absolute; top: -50%; left: -10%; width: 60%; height: 200%; background: radial-gradient(circle, rgba(212,175,55,0.05) 0%, transparent 70%); transform: rotate(15deg); pointer-events: none;"></div>
                     
@@ -1508,11 +1515,11 @@ a.course-card .course-link {
                         <p class="section-subtitle" style="text-align: left; margin: 0; font-size: 1.05rem; max-width: 450px;">Join thousands of students and pastors. Get exclusive early access to new courses, special discounts, and weekly theological insights.</p>
                     </div>
                     
-                    <div style="flex: 1; min-width: 400px; position: relative; z-index: 1;">
+                    <div style="flex: 1; min-width: 0; position: relative; z-index: 1;">
                         <form style="display: flex; flex-direction: column; gap: 0.5rem;" id="homepage-newsletter-form" onsubmit="handleHomepageNewsletter(event, this);">
-                            <div style="display: flex; gap: 0.5rem; width: 100%;">
-                                <input type="email" placeholder="Enter your best email address..." required style="flex: 1; padding: 1.2rem 1.5rem; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; font-family: var(--font-sans); outline: none; transition: border-color 0.3s ease;" onfocus="this.style.borderColor='var(--accent-gold)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
-                                <button type="submit" class="btn-primary" style="padding: 1.2rem 2rem; display: flex; justify-content: center; gap: 0.5rem; align-items: center; font-size: 1.05rem; white-space: nowrap;">
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; width: 100%;">
+                                <input type="email" placeholder="Enter your best email address..." required style="flex: 1; min-width: 200px; padding: 1.2rem 1.5rem; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; font-family: var(--font-sans); outline: none; transition: border-color 0.3s ease;" onfocus="this.style.borderColor='var(--accent-gold)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+                                <button type="submit" class="btn-primary" style="padding: 1.2rem 2rem; display: flex; justify-content: center; gap: 0.5rem; align-items: center; font-size: 1.05rem; white-space: nowrap; width: 100%; flex: 0 0 auto;">
                                     Subscribe <i class="fa-solid fa-paper-plane"></i>
                                 </button>
                             </div>
@@ -1771,6 +1778,34 @@ a.course-card .course-link {
                         background: rgba(255,255,255,0.05);
                         border-color: #fff;
                         box-shadow: 0 0 20px rgba(255,255,255,0.1);
+                    }
+
+                    @media (max-width: 768px) {
+                        .final-cta-hover-card {
+                            padding: 2.5rem 1.5rem !important;
+                            border-radius: 20px;
+                        }
+                        .cta-flex-layout {
+                            flex-direction: column;
+                            text-align: center;
+                            gap: 2rem;
+                        }
+                        .cta-flex-left {
+                            max-width: 100%;
+                        }
+                        .cta-flex-left h2 {
+                            font-size: 2.5rem !important;
+                        }
+                        .cta-flex-right {
+                            width: 100%;
+                        }
+                        .cta-icon-wrapper {
+                            margin: 0 auto 1.5rem;
+                        }
+                        .cta-btn-primary, .cta-btn-secondary {
+                            padding: 1.1rem 2rem !important;
+                            font-size: 1rem !important;
+                        }
                     }
                 </style>
 
