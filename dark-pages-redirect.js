@@ -2,7 +2,7 @@
   "use strict";
 
   var GITHUB_BASE = "https://matt122004-beep.github.io/theoed-preview/";
-  var CACHE_VERSION = "v37";
+  var CACHE_VERSION = "v38";
 
   /* ── Course slug → dark page file ── */
   var courseMap = {
@@ -128,6 +128,14 @@
   document.documentElement.appendChild(hideStyle);
 
   /* ── STEP 2: Check localStorage cache ── */
+  /* Clear old cache versions */
+  try {
+    Object.keys(localStorage).forEach(function(k) {
+      if (k.startsWith("dp_") && !k.startsWith("dp_" + CACHE_VERSION)) {
+        localStorage.removeItem(k);
+      }
+    });
+  } catch(e) {}
   var cacheKey = "dp_" + CACHE_VERSION + "_" + darkFile;
   var cached = null;
   try { cached = localStorage.getItem(cacheKey); } catch(e) {}
