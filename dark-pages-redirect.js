@@ -2,7 +2,7 @@
   "use strict";
 
   var GITHUB_BASE = "https://matt122004-beep.github.io/theoed-preview/";
-  var CACHE_VERSION = "v28";
+  var CACHE_VERSION = "v29";
 
   /* ── Course slug → dark page file ── */
   var courseMap = {
