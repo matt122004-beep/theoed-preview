@@ -34,13 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // Mobile Menu Toggle (Simplified placeholder)
-    const mobileBtn = document.querySelector('.mobile-menu-btn');
-    if(mobileBtn) {
-        mobileBtn.addEventListener('click', () => {
-            alert('Mobile menu toggle functionality would go here in a production build.');
-        });
-    }
+    // Mobile menu handled by mobile-nav-panel (injected in each page)
 
     // Dynamic Topic Cloud Delay (adds staggered entrance animation if needed)
     const topicBadges = document.querySelectorAll('.topic-badge');
