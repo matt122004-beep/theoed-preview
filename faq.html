@@ -1198,6 +1198,7 @@ a.course-card .course-link {
 /* ===== MOBILE NAV OVERLAY ===== */
 .mobile-nav-overlay {
     display: none;
+    visibility: hidden;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
     background: rgba(0, 0, 0, 0.6);
@@ -1205,11 +1206,12 @@ a.course-card .course-link {
     opacity: 0;
     transition: opacity 0.3s ease;
 }
-.mobile-nav-overlay.open { display: block; opacity: 1; }
+.mobile-nav-overlay.open { display: block; opacity: 1; visibility: visible; }
 
 .mobile-nav-panel {
     position: fixed;
     top: 0; right: 0;
+    visibility: hidden;
     width: 280px;
     max-width: 85vw;
     height: 100%;
@@ -1224,7 +1226,7 @@ a.course-card .course-link {
     border-left: 1px solid rgba(255,255,255,0.08);
     overflow-y: auto;
 }
-.mobile-nav-panel.open { transform: translateX(0); }
+.mobile-nav-panel.open { transform: translateX(0); visibility: visible; }
 
 .mobile-nav-header {
     display: flex;
