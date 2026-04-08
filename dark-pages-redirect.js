@@ -2,7 +2,7 @@
   "use strict";
 
   var GITHUB_BASE = "https://matt122004-beep.github.io/theoed-preview/";
-  var CACHE_VERSION = "v44";
+  var CACHE_VERSION = "v45";
 
   /* ── Stable visitor ID for cross-iframe Clarity tracking ──
      Cross-origin iframes don't share storage with theoeducation.com under
@@ -61,8 +61,6 @@
   /* ── Site pages, iframe mode (fallback for pages that still have
      CSS conflicts with the Thinkific parent shell) ── */
   var pageMap = {
-    "/":                        "index.html",
-    "/pages/home":              "index.html",
     "/collections":             "classes.html"
   };
 
@@ -71,6 +69,8 @@
      entry here is a page that has been verified not to conflict with the
      Thinkific parent's stylesheet when inlined. */
   var injectPageMap = {
+    "/":                        "index.html",
+    "/pages/home":              "index.html",
     "/pages/theoai":            "theoai.html",
     "/pages/certificates":      "certificates.html",
     "/pages/contact-us":        "contact.html",
