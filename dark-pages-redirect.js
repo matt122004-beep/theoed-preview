@@ -2,7 +2,27 @@
   "use strict";
 
   var GITHUB_BASE = "https://matt122004-beep.github.io/theoed-preview/";
-  var CACHE_VERSION = "v39";
+  var CACHE_VERSION = "v40";
+
+  /* ── Stable visitor ID for cross-iframe Clarity tracking ──
+     Cross-origin iframes don't share storage with theoeducation.com under
+     Safari ITP, so each iframe load was registering as a new Clarity user.
+     We mint a UUID in first-party localStorage here on the Thinkific page
+     and pass it through the iframe URL so the iframe can call
+     clarity("identify", cid) and link sessions back to the same visitor. */
+  function getVisitorId() {
+    try {
+      var id = localStorage.getItem("theoed_visitor_id");
+      if (id) return id;
+      id = "v-" + Date.now().toString(36) + "-" +
+           Math.random().toString(36).slice(2, 10);
+      localStorage.setItem("theoed_visitor_id", id);
+      return id;
+    } catch (e) {
+      /* Storage blocked — fall back to per-pageview id */
+      return "v-anon-" + Math.random().toString(36).slice(2, 12);
+    }
+  }
 
   /* ── Course slug → dark page file ── */
   var courseMap = {
@@ -87,7 +107,7 @@
 
     var iframe = document.createElement("iframe");
     iframe.id = "dark-page-iframe";
-    iframe.src = GITHUB_BASE + iframePage;
+    iframe.src = GITHUB_BASE + iframePage + "?cid=" + encodeURIComponent(getVisitorId());
     iframe.setAttribute("allowfullscreen", "");
     document.body.appendChild(iframe);
 
