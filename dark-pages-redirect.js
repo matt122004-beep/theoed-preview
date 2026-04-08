@@ -2,7 +2,7 @@
   "use strict";
 
   var GITHUB_BASE = "https://matt122004-beep.github.io/theoed-preview/";
-  var CACHE_VERSION = "v40";
+  var CACHE_VERSION = "v41";
 
   /* ── Stable visitor ID for cross-iframe Clarity tracking ──
      Cross-origin iframes don't share storage with theoeducation.com under
@@ -58,7 +58,8 @@
     "LGBTQ-Bible":                            "lgbtq-course-page.html"
   };
 
-  /* ── Site pages (disabled — CSS conflicts with Thinkific) ── */
+  /* ── Site pages, iframe mode (fallback for pages that still have
+     CSS conflicts with the Thinkific parent shell) ── */
   var pageMap = {
     "/":                        "index.html",
     "/pages/home":              "index.html",
@@ -66,13 +67,20 @@
     "/collections":             "classes.html",
     "/pages/pricing":           "pricing.html",
     "/pages/how-it-works":      "how-it-works.html",
-    "/pages/theoai":            "theoai.html",
     "/pages/faq":               "faq.html",
     "/pages/certificates":      "certificates.html",
     "/pages/contact-us":        "contact.html",
     "/pages/adventist-pastors":              "adventist-pastors.html",
     "/pages/group-pricing":                  "group-pricing.html",
     "/pages/community-forum":                "community-forum.html"
+  };
+
+  /* ── Site pages, inject mode (first-party DOM so Clarity can record) ──
+     We're migrating pages off the iframe fallback one at a time. Each
+     entry here is a page that has been verified not to conflict with the
+     Thinkific parent's stylesheet when inlined. */
+  var injectPageMap = {
+    "/pages/theoai":            "theoai.html"
   };
 
   var path = window.location.pathname;
@@ -84,11 +92,14 @@
     darkFile = courseMap[courseMatch[1]];
   }
 
-  /* ── Match site pages (iframe mode) ── */
+  /* ── Match site pages: prefer inject mode, fall back to iframe ── */
   var iframePage = null;
   if (!darkFile) {
     var normalized = path.replace(/\/$/, "") || "/";
-    if (pageMap[normalized]) {
+    if (injectPageMap[normalized]) {
+      /* Inject mode — route through the same code path as course pages */
+      darkFile = injectPageMap[normalized];
+    } else if (pageMap[normalized]) {
       iframePage = pageMap[normalized];
     }
   }
