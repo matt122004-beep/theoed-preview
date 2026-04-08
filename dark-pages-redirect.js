@@ -2,7 +2,7 @@
   "use strict";
 
   var GITHUB_BASE = "https://matt122004-beep.github.io/theoed-preview/";
-  var CACHE_VERSION = "v46";
+  var CACHE_VERSION = "v47";
 
   /* ── Stable visitor ID for cross-iframe Clarity tracking ──
      Cross-origin iframes don't share storage with theoeducation.com under
@@ -148,8 +148,15 @@
   var hideStyle = document.createElement("style");
   hideStyle.id = "dark-page-hide";
   hideStyle.textContent = [
+    /* Force dark body background so the brief window between "Thinkific
+       content hidden" and "#dark-page-container fades in" is dark, not white.
+       Without this, we'd trade the FOUC for a white flash on cache-miss loads. */
+    "html, body { background: #0a0a0f !important; }",
     "body > *:not(#dark-page-container):not(script):not(style) { display: none !important; }",
-    "#dark-page-container { display: block; }",
+    /* Start the container invisible; renderDarkPage() adds .dp-ready after
+       double-rAF + document.fonts.ready, triggering the fade-in. */
+    "#dark-page-container { display: block; opacity: 0; transition: opacity 180ms ease-out; }",
+    "#dark-page-container.dp-ready { opacity: 1; }",
     "#dark-page-loading {",
     "  position: fixed; top: 0; left: 0; width: 100%; height: 100%;",
     "  background: #0a0a0f; display: flex; align-items: center; justify-content: center;",
@@ -209,6 +216,11 @@
         if (hideStyle.parentNode) hideStyle.parentNode.removeChild(hideStyle);
         var ld = document.getElementById("dark-page-loading");
         if (ld && ld.parentNode) ld.parentNode.removeChild(ld);
+        /* If an existing container from a stale render is still on the
+           page at opacity 0, reveal it so we never leave the user
+           looking at a blank page after a fetch failure. */
+        var existingContainer = document.getElementById("dark-page-container");
+        if (existingContainer) existingContainer.classList.add("dp-ready");
       });
   }
 
@@ -297,6 +309,41 @@
        still fire later — they don't go through addEventListener so the
        restore is safe. */
     document.addEventListener = origAdd;
+
+    /* ── Reveal the container after a paint cycle has completed ──
+       Double requestAnimationFrame ensures the browser has finished
+       style recalculation and layout. Waiting on document.fonts.ready
+       avoids the FOUT flash when Google Fonts finally loads (Inter /
+       Playfair Display / Barlow Condensed). Reveal at most after 600ms
+       even if fonts never resolve, so a slow CDN can never leave the
+       page permanently invisible. */
+    var revealed = false;
+    function safeReveal() {
+      if (revealed) return;
+      revealed = true;
+      var el = document.getElementById("dark-page-container");
+      if (el) el.classList.add("dp-ready");
+    }
+
+    /* Primary path: wait for fonts, then reveal on next rAF pair */
+    if (document.fonts && document.fonts.ready && typeof document.fonts.ready.then === "function") {
+      document.fonts.ready.then(function() {
+        requestAnimationFrame(function() {
+          requestAnimationFrame(safeReveal);
+        });
+      }).catch(function() { /* swallow — the fallbacks below handle it */ });
+    }
+
+    /* Fallback 1: double-rAF after ~1 frame regardless of font state.
+       On fast networks this fires first (~16–32ms) and is plenty. */
+    requestAnimationFrame(function() {
+      requestAnimationFrame(safeReveal);
+    });
+
+    /* Fallback 2: hard ceiling of 600ms so the page is NEVER permanently
+       invisible if something hangs (blocked CDN, offline font fetch,
+       backgrounded tab where rAF doesn't fire, etc.) */
+    setTimeout(safeReveal, 600);
 
     /* Fix relative asset paths */
     container.querySelectorAll('img[src^="assets/"], a[href^="assets/"]').forEach(function(el) {
