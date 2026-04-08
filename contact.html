@@ -1721,12 +1721,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 message: document.getElementById('cf-message').value,
             };
 
-            // Send via Formspree (works without a backend)
+            // Send via Web3Forms (works without a backend)
             try {
-                const res = await fetch('https://formspree.io/f/mkorpman', {
+                const res = await fetch('https://api.web3forms.com/submit', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                    body: JSON.stringify({ ...data, _replyto: data.email, _subject: `[TheoEducation Contact] ${data.subject}` })
+                    body: JSON.stringify({
+                        access_key: 'fbe9cc4c-c313-476d-96da-81e9958acec6',
+                        from_name: data.name,
+                        subject: `[TheoEducation Contact] ${data.subject}`,
+                        name: data.name,
+                        email: data.email,
+                        message: data.message,
+                        // Honeypot: Web3Forms automatically rejects submissions where botcheck is non-empty
+                        botcheck: ''
+                    })
                 });
 
                 if (res.ok) {
