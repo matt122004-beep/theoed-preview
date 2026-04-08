@@ -2,7 +2,7 @@
   "use strict";
 
   var GITHUB_BASE = "https://matt122004-beep.github.io/theoed-preview/";
-  var CACHE_VERSION = "v43";
+  var CACHE_VERSION = "v44";
 
   /* ── Stable visitor ID for cross-iframe Clarity tracking ──
      Cross-origin iframes don't share storage with theoeducation.com under
@@ -63,11 +63,7 @@
   var pageMap = {
     "/":                        "index.html",
     "/pages/home":              "index.html",
-    "/pages/about-us":          "about-us.html",
-    "/collections":             "classes.html",
-    "/pages/pricing":           "pricing.html",
-    "/pages/how-it-works":      "how-it-works.html",
-    "/pages/faq":               "faq.html"
+    "/collections":             "classes.html"
   };
 
   /* ── Site pages, inject mode (first-party DOM so Clarity can record) ──
@@ -80,7 +76,11 @@
     "/pages/contact-us":        "contact.html",
     "/pages/community-forum":   "community-forum.html",
     "/pages/adventist-pastors": "adventist-pastors.html",
-    "/pages/group-pricing":     "group-pricing.html"
+    "/pages/group-pricing":     "group-pricing.html",
+    "/pages/faq":               "faq.html",
+    "/pages/about-us":          "about-us.html",
+    "/pages/how-it-works":      "how-it-works.html",
+    "/pages/pricing":           "pricing.html"
   };
 
   var path = window.location.pathname;
