@@ -2,7 +2,7 @@
   "use strict";
 
   var GITHUB_BASE = "https://matt122004-beep.github.io/theoed-preview/";
-  var CACHE_VERSION = "v45";
+  var CACHE_VERSION = "v46";
 
   /* ── Stable visitor ID for cross-iframe Clarity tracking ──
      Cross-origin iframes don't share storage with theoeducation.com under
@@ -59,10 +59,10 @@
   };
 
   /* ── Site pages, iframe mode (fallback for pages that still have
-     CSS conflicts with the Thinkific parent shell) ── */
-  var pageMap = {
-    "/collections":             "classes.html"
-  };
+     CSS conflicts with the Thinkific parent shell) ──
+     Empty as of v46 — all site pages migrated to inject mode. Kept as
+     a safety net in case a future page needs CSS isolation. */
+  var pageMap = {};
 
   /* ── Site pages, inject mode (first-party DOM so Clarity can record) ──
      We're migrating pages off the iframe fallback one at a time. Each
@@ -71,6 +71,7 @@
   var injectPageMap = {
     "/":                        "index.html",
     "/pages/home":              "index.html",
+    "/collections":             "classes.html",
     "/pages/theoai":            "theoai.html",
     "/pages/certificates":      "certificates.html",
     "/pages/contact-us":        "contact.html",
@@ -306,6 +307,7 @@
     /* Fix relative page links back to Thinkific paths */
     var reversePageMap = {};
     Object.keys(pageMap).forEach(function(k) { reversePageMap[pageMap[k]] = k; });
+    Object.keys(injectPageMap).forEach(function(k) { reversePageMap[injectPageMap[k]] = k; });
     Object.keys(courseMap).forEach(function(k) { reversePageMap[courseMap[k]] = "/courses/" + k; });
 
     container.querySelectorAll("a[href]").forEach(function(a) {

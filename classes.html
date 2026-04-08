@@ -1322,25 +1322,7 @@ input, select, textarea { font-size: 16px !important; }
     .mobile-menu-btn { display: block !important; }
 }
 </style>
-<!-- Microsoft Clarity (added so iframe content is recorded — parent only sees an opaque cross-origin iframe) -->
-<script type="text/javascript">
-  (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window, document, "clarity", "script", "r89ppu5mw3");
-  /* Link this iframe session to the parent visitor (passed via ?cid=) so
-     Clarity groups all of one visitor's iframe page-views as one user. */
-  (function () {
-    var m = location.search.match(/[?&]cid=([^&]+)/);
-    var cid = m ? decodeURIComponent(m[1]) : null;
-    if (cid && window.clarity) {
-      clarity("identify", cid);
-      clarity("set", "userId", cid);
-    }
-    if (window.clarity) clarity("set", "surface", "iframe-page");
-  })();
-</script>
+<!-- Clarity intentionally NOT loaded here: this page is injected into the Thinkific parent DOM by dark-pages-redirect.js, and Clarity runs on the parent. -->
 </head>
 <body>
 
