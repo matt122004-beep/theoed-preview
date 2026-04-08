@@ -2,7 +2,7 @@
   "use strict";
 
   var GITHUB_BASE = "https://matt122004-beep.github.io/theoed-preview/";
-  var CACHE_VERSION = "v41";
+  var CACHE_VERSION = "v42";
 
   /* ── Stable visitor ID for cross-iframe Clarity tracking ──
      Cross-origin iframes don't share storage with theoeducation.com under
@@ -257,6 +257,23 @@
 
     document.body.appendChild(container);
 
+    /* Shim document.addEventListener so that any DOMContentLoaded
+       listeners registered by the injected scripts fire immediately.
+       The real DOMContentLoaded event already fired on the Thinkific
+       parent page long before we injected this content, so without
+       the shim any init code wrapped in DOMContentLoaded is dead —
+       which was hiding every .observe-fade element on TheoAI. */
+    var origAdd = document.addEventListener;
+    document.addEventListener = function(type, listener, opts) {
+      if (type === "DOMContentLoaded" && typeof listener === "function") {
+        /* Defer with setTimeout so the rest of the current inline
+           script finishes first, mirroring the real event's timing. */
+        setTimeout(function() { try { listener(); } catch (e) { console.error("[dark-pages] DCL shim error:", e); } }, 0);
+        return;
+      }
+      return origAdd.call(document, type, listener, opts);
+    };
+
     /* Execute inline scripts */
     var scripts = container.querySelectorAll("script");
     scripts.forEach(function(oldScript) {
@@ -273,6 +290,12 @@
       }
       oldScript.parentNode.replaceChild(newScript, oldScript);
     });
+
+    /* Restore the real addEventListener now that all injected inline
+       scripts have run. Deferred callbacks the shim queued via setTimeout
+       still fire later — they don't go through addEventListener so the
+       restore is safe. */
+    document.addEventListener = origAdd;
 
     /* Fix relative asset paths */
     container.querySelectorAll('img[src^="assets/"], a[href^="assets/"]').forEach(function(el) {
