@@ -2,33 +2,14 @@
   "use strict";
 
   var GITHUB_BASE = "https://matt122004-beep.github.io/theoed-preview/";
-  var CACHE_VERSION = "v47";
-
-  /* ── Stable visitor ID for cross-iframe Clarity tracking ──
-     Cross-origin iframes don't share storage with theoeducation.com under
-     Safari ITP, so each iframe load was registering as a new Clarity user.
-     We mint a UUID in first-party localStorage here on the Thinkific page
-     and pass it through the iframe URL so the iframe can call
-     clarity("identify", cid) and link sessions back to the same visitor. */
-  function getVisitorId() {
-    try {
-      var id = localStorage.getItem("theoed_visitor_id");
-      if (id) return id;
-      id = "v-" + Date.now().toString(36) + "-" +
-           Math.random().toString(36).slice(2, 10);
-      localStorage.setItem("theoed_visitor_id", id);
-      return id;
-    } catch (e) {
-      /* Storage blocked — fall back to per-pageview id */
-      return "v-anon-" + Math.random().toString(36).slice(2, 12);
-    }
-  }
+  var CACHE_VERSION = "v40";
 
   /* ── Course slug → dark page file ── */
   var courseMap = {
     "sabbath-sunday-scripture-history":        "sabbath-course-page.html",
     "william-foy-black-prophet":              "william-foy-course-page.html",
     "what-did-ellen-white-see":               "ellen-white-visions-course-page.html",
+    "did-ellen-white-plagiarize":             "did-ellen-white-plagiarize-course-page.html",
     "hell-and-afterlife":                     "hell-course-page.html",
     "how-to-study-bible":                     "how-to-study-bible-course-page.html",
     "how-to-do-exegesis":                     "exegesis-course-page.html",
@@ -58,30 +39,21 @@
     "LGBTQ-Bible":                            "lgbtq-course-page.html"
   };
 
-  /* ── Site pages, iframe mode (fallback for pages that still have
-     CSS conflicts with the Thinkific parent shell) ──
-     Empty as of v46 — all site pages migrated to inject mode. Kept as
-     a safety net in case a future page needs CSS isolation. */
-  var pageMap = {};
-
-  /* ── Site pages, inject mode (first-party DOM so Clarity can record) ──
-     We're migrating pages off the iframe fallback one at a time. Each
-     entry here is a page that has been verified not to conflict with the
-     Thinkific parent's stylesheet when inlined. */
-  var injectPageMap = {
+  /* ── Site pages (disabled — CSS conflicts with Thinkific) ── */
+  var pageMap = {
     "/":                        "index.html",
     "/pages/home":              "index.html",
+    "/pages/about-us":          "about-us.html",
     "/collections":             "classes.html",
+    "/pages/pricing":           "pricing.html",
+    "/pages/how-it-works":      "how-it-works.html",
     "/pages/theoai":            "theoai.html",
+    "/pages/faq":               "faq.html",
     "/pages/certificates":      "certificates.html",
     "/pages/contact-us":        "contact.html",
-    "/pages/community-forum":   "community-forum.html",
-    "/pages/adventist-pastors": "adventist-pastors.html",
-    "/pages/group-pricing":     "group-pricing.html",
-    "/pages/faq":               "faq.html",
-    "/pages/about-us":          "about-us.html",
-    "/pages/how-it-works":      "how-it-works.html",
-    "/pages/pricing":           "pricing.html"
+    "/pages/adventist-pastors":              "adventist-pastors.html",
+    "/pages/group-pricing":                  "group-pricing.html",
+    "/pages/community-forum":                "community-forum.html"
   };
 
   var path = window.location.pathname;
@@ -93,14 +65,11 @@
     darkFile = courseMap[courseMatch[1]];
   }
 
-  /* ── Match site pages: prefer inject mode, fall back to iframe ── */
+  /* ── Match site pages (iframe mode) ── */
   var iframePage = null;
   if (!darkFile) {
     var normalized = path.replace(/\/$/, "") || "/";
-    if (injectPageMap[normalized]) {
-      /* Inject mode — route through the same code path as course pages */
-      darkFile = injectPageMap[normalized];
-    } else if (pageMap[normalized]) {
+    if (pageMap[normalized]) {
       iframePage = pageMap[normalized];
     }
   }
@@ -119,7 +88,7 @@
 
     var iframe = document.createElement("iframe");
     iframe.id = "dark-page-iframe";
-    iframe.src = GITHUB_BASE + iframePage + "?cid=" + encodeURIComponent(getVisitorId());
+    iframe.src = GITHUB_BASE + iframePage;
     iframe.setAttribute("allowfullscreen", "");
     document.body.appendChild(iframe);
 
@@ -148,15 +117,8 @@
   var hideStyle = document.createElement("style");
   hideStyle.id = "dark-page-hide";
   hideStyle.textContent = [
-    /* Force dark body background so the brief window between "Thinkific
-       content hidden" and "#dark-page-container fades in" is dark, not white.
-       Without this, we'd trade the FOUC for a white flash on cache-miss loads. */
-    "html, body { background: #0a0a0f !important; }",
     "body > *:not(#dark-page-container):not(script):not(style) { display: none !important; }",
-    /* Start the container invisible; renderDarkPage() adds .dp-ready after
-       double-rAF + document.fonts.ready, triggering the fade-in. */
-    "#dark-page-container { display: block; opacity: 0; transition: opacity 180ms ease-out; }",
-    "#dark-page-container.dp-ready { opacity: 1; }",
+    "#dark-page-container { display: block; }",
     "#dark-page-loading {",
     "  position: fixed; top: 0; left: 0; width: 100%; height: 100%;",
     "  background: #0a0a0f; display: flex; align-items: center; justify-content: center;",
@@ -216,11 +178,6 @@
         if (hideStyle.parentNode) hideStyle.parentNode.removeChild(hideStyle);
         var ld = document.getElementById("dark-page-loading");
         if (ld && ld.parentNode) ld.parentNode.removeChild(ld);
-        /* If an existing container from a stale render is still on the
-           page at opacity 0, reveal it so we never leave the user
-           looking at a blank page after a fetch failure. */
-        var existingContainer = document.getElementById("dark-page-container");
-        if (existingContainer) existingContainer.classList.add("dp-ready");
       });
   }
 
@@ -270,23 +227,6 @@
 
     document.body.appendChild(container);
 
-    /* Shim document.addEventListener so that any DOMContentLoaded
-       listeners registered by the injected scripts fire immediately.
-       The real DOMContentLoaded event already fired on the Thinkific
-       parent page long before we injected this content, so without
-       the shim any init code wrapped in DOMContentLoaded is dead —
-       which was hiding every .observe-fade element on TheoAI. */
-    var origAdd = document.addEventListener;
-    document.addEventListener = function(type, listener, opts) {
-      if (type === "DOMContentLoaded" && typeof listener === "function") {
-        /* Defer with setTimeout so the rest of the current inline
-           script finishes first, mirroring the real event's timing. */
-        setTimeout(function() { try { listener(); } catch (e) { console.error("[dark-pages] DCL shim error:", e); } }, 0);
-        return;
-      }
-      return origAdd.call(document, type, listener, opts);
-    };
-
     /* Execute inline scripts */
     var scripts = container.querySelectorAll("script");
     scripts.forEach(function(oldScript) {
@@ -304,47 +244,6 @@
       oldScript.parentNode.replaceChild(newScript, oldScript);
     });
 
-    /* Restore the real addEventListener now that all injected inline
-       scripts have run. Deferred callbacks the shim queued via setTimeout
-       still fire later — they don't go through addEventListener so the
-       restore is safe. */
-    document.addEventListener = origAdd;
-
-    /* ── Reveal the container after a paint cycle has completed ──
-       Double requestAnimationFrame ensures the browser has finished
-       style recalculation and layout. Waiting on document.fonts.ready
-       avoids the FOUT flash when Google Fonts finally loads (Inter /
-       Playfair Display / Barlow Condensed). Reveal at most after 600ms
-       even if fonts never resolve, so a slow CDN can never leave the
-       page permanently invisible. */
-    var revealed = false;
-    function safeReveal() {
-      if (revealed) return;
-      revealed = true;
-      var el = document.getElementById("dark-page-container");
-      if (el) el.classList.add("dp-ready");
-    }
-
-    /* Primary path: wait for fonts, then reveal on next rAF pair */
-    if (document.fonts && document.fonts.ready && typeof document.fonts.ready.then === "function") {
-      document.fonts.ready.then(function() {
-        requestAnimationFrame(function() {
-          requestAnimationFrame(safeReveal);
-        });
-      }).catch(function() { /* swallow — the fallbacks below handle it */ });
-    }
-
-    /* Fallback 1: double-rAF after ~1 frame regardless of font state.
-       On fast networks this fires first (~16–32ms) and is plenty. */
-    requestAnimationFrame(function() {
-      requestAnimationFrame(safeReveal);
-    });
-
-    /* Fallback 2: hard ceiling of 600ms so the page is NEVER permanently
-       invisible if something hangs (blocked CDN, offline font fetch,
-       backgrounded tab where rAF doesn't fire, etc.) */
-    setTimeout(safeReveal, 600);
-
     /* Fix relative asset paths */
     container.querySelectorAll('img[src^="assets/"], a[href^="assets/"]').forEach(function(el) {
       var attr = el.hasAttribute("src") ? "src" : "href";
@@ -354,7 +253,6 @@
     /* Fix relative page links back to Thinkific paths */
     var reversePageMap = {};
     Object.keys(pageMap).forEach(function(k) { reversePageMap[pageMap[k]] = k; });
-    Object.keys(injectPageMap).forEach(function(k) { reversePageMap[injectPageMap[k]] = k; });
     Object.keys(courseMap).forEach(function(k) { reversePageMap[courseMap[k]] = "/courses/" + k; });
 
     container.querySelectorAll("a[href]").forEach(function(a) {
